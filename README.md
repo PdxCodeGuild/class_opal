@@ -2,14 +2,18 @@
 
 Repo for the PDX Code Guild Python Full Stack day course starting 10/31/2022
 
-Class is held from **December 31st, 2022 to February 15th, 2023**
+Class is held from **October 31st, 2022 to February 15th, 2023**
 M-F 9:30 am – 4:30 pm
+
+![Opal Image From Wikimedia Commons by Robert Lavinsky](Opal-Lavinsky.jpg)
 
 ### Holidays
 
 - November 24th (Thanksgiving)
-- December 25th (Christmas Day)
-- January 1st (New Years Day)
+- December 26th
+- January 2nd
+- (five more days TBD)
+
 
 ### Staff
 
@@ -22,6 +26,7 @@ M-F 9:30 am – 4:30 pm
 ## Capstone Dates:
 
 Capstone proposal due: TBD
+
 Presentation Day: February 15th, 2023  
 
 
