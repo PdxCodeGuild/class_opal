@@ -24,9 +24,9 @@
 * lives in: 
 
 ### Nicholas Murdaugh
-* goes by: 
-* pronouns: 
-* lives in: 
+* goes by: Nick
+* pronouns: he/him
+* lives in: Memphis, TN
 
 ### Leslie Naylor
 * goes by: 
