@@ -9,9 +9,9 @@
 * lives in: 
 
 ### James Brennan
-* goes by: 
-* pronouns: 
-* lives in: 
+* goes by: Jim
+* pronouns: He/Him
+* lives in: Beaverton, OR
 
 ### Joshua Goad
 * goes by: 
