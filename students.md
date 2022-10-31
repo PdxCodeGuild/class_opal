@@ -44,6 +44,6 @@
 * lives in: 
 
 ### Elizabeth Quinlan
-* goes by: 
-* pronouns: 
-* lives in: 
+* goes by: Lizzie
+* pronouns: She/Her/Hers
+* lives in: Portland
