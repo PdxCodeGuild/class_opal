@@ -34,9 +34,9 @@
 * lives in: 
 
 ### John Parker
-* goes by: 
-* pronouns: 
-* lives in: 
+* goes by: John 
+* pronouns: Male pronouns   
+* lives in: Chile
 
 ### Deandre Pettiford
 * goes by: 
