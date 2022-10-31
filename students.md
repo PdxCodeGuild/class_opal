@@ -14,9 +14,8 @@
 * lives in: Beaverton, OR
 
 ### Joshua Goad
-* goes by: 
-* pronouns: 
-* lives in: 
+* goes by: Josh
+* lives in: Oregon
 
 ### Hayato Kamohara
 * goes by: Hayato
