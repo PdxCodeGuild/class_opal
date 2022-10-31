@@ -18,10 +18,10 @@
 * pronouns: 
 * lives in: 
 
-### Hayato Kamoharo
-* goes by: 
-* pronouns: 
-* lives in: 
+### Hayato Kamohara
+* goes by: Hayato
+* pronouns: He/Him
+* lives in: Plano, TX
 
 ### Nicholas Murdaugh
 * goes by: Nick
