@@ -28,9 +28,9 @@
 * lives in: Memphis, TN
 
 ### Leslie Naylor
-* goes by: 
-* pronouns: 
-* lives in: 
+* goes by: Leslie
+* pronouns: She/Her
+* lives in: Delco, PA
 
 ### John Parker
 * goes by: 
