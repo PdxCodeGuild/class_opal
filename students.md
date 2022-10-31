@@ -14,9 +14,8 @@
 * lives in: 
 
 ### Joshua Goad
-* goes by: 
-* pronouns: 
-* lives in: 
+* goes by: Josh
+* lives in: Oregon
 
 ### Hayato Kamoharo
 * goes by: 
