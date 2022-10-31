@@ -4,9 +4,9 @@
 * lives in: Portland, Oregon
 
 ### Gage Liebl
-* goes by: Gage
-* pronouns: He/Him
-* lives in: Oregon
+* goes by: 
+* pronouns: 
+* lives in: 
 
 ### James Brennan
 * goes by: 
@@ -44,6 +44,6 @@
 * lives in: 
 
 ### Elizabeth Quinlan
-* goes by: 
-* pronouns: 
-* lives in: 
+* goes by: Lizzie
+* pronouns: She/Her/Hers
+* lives in: Portland, Oregon
