@@ -1,7 +1,13 @@
-
 # Lab 1: Unit Converter
 
 This lab will involve writing a program that allows the user to convert a number between units.
+
+### Git Setup:
+```sh
+> git checkout main
+> git pull
+> git checkout -b your-name/python/lab01
+```
 
 ## Version 1
 
@@ -69,3 +75,12 @@ Below is some sample input/output:
 > what are the output units? mi
 100 ft is 0.0189394 mi
 ```
+
+
+### Git Add, Commit & Push:
+```sh
+> git add files-to-be-added
+> git commit -m "your commit message goes here"
+> git push -u origin your-name/python/lab01
+```
+Then go to the repository to create a PR.
