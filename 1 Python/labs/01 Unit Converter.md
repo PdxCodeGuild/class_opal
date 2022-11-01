@@ -6,7 +6,7 @@ This lab will involve writing a program that allows the user to convert a number
 ```sh
 > git checkout main
 > git pull
-> git checkout -b your-name/python/lab01
+> git checkout -b your_name-python-lab01
 ```
 
 ## Version 1
