@@ -1,5 +1,11 @@
-
 # Lab 2: Average Numbers
+
+### Git Setup:
+```sh
+> git checkout main
+> git pull
+> git checkout -b your-name/python/lab01
+```
 
 We're going to average a list of numbers. Start with the following list, iterate through it, keeping a 'running sum', then divide that sum by the number of elements in that list. Remember `len` will give you the length of a list.
 
@@ -37,3 +43,11 @@ Below is an example input/output:
 > enter a number, or 'done': done
 average: 4
 ```
+
+### Git Add, Commit & Push:
+```sh
+> git add files-to-be-added
+> git commit -m "your commit message goes here"
+> git push -u origin your-name/python/lab01
+```
+Then go to the repository to create a PR.
