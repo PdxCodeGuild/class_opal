@@ -38,9 +38,9 @@
 * lives in: Chile
 
 ### Deandre Pettiford
-* goes by: 
-* pronouns: 
-* lives in: 
+- goes by: Dj
+- pronouns: He/Him
+- lives in: Raleigh, North Carolina
 
 ### Elizabeth Quinlan
 * goes by: Lizzie
