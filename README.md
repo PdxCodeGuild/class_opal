@@ -70,8 +70,8 @@ Presentation Day: February 15th, 2023
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
 | 01    | Unit Converter         | Nov 1st       | Nov 4th               | Nov 15th      |
+| 02    | Number To Phrase       | Nov 1st       | Nov 4th               | Nov 15th      |
 <!-- | 02    | Average Numbers        | Apr 27th      | May 2nd               | May 11th      |
-| 03    | Number To Phrase       | Apr 27th      | May 2nd               | May 11th      |
 | 04    | Blackjack Advice       | Apr 28th      | May 2nd               | May 12th      |
 | 05    | Pick 6                 | Apr 28th      | May 2nd               | May 12th      |
 | 06    | Credit Card Validation | May 2nd       | May 9th               | May 16th      |
