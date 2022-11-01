@@ -8,17 +8,16 @@ M-F 9:30 am – 4:30 pm
 ![Opal Image From Wikimedia Commons by Robert Lavinsky](Opal-Lavinsky.jpg)
 
 ### Holidays
-
+- November 8th (Election Day -- go vote!)
 - November 24th (Thanksgiving)
 - December 26th
 - January 2nd
-- (five more days TBD)
+- (four more days TBD)
 
 
 ### Staff
 
 - Danny Burrow, Instructor
-
   - danny@pdxcodeguild.com
 
 - Gage Liebl, TA
@@ -70,7 +69,7 @@ Presentation Day: February 15th, 2023
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 01    | Unit Converter         | Apr 26th      | May 2nd               | May 10th      |
+| 01    | Unit Converter         | Nov 1st       | Nov 4th               | Nov 15th      |
 <!-- | 02    | Average Numbers        | Apr 27th      | May 2nd               | May 11th      |
 | 03    | Number To Phrase       | Apr 27th      | May 2nd               | May 11th      |
 | 04    | Blackjack Advice       | Apr 28th      | May 2nd               | May 12th      |
