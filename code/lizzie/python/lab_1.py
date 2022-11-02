@@ -17,6 +17,6 @@ meter_conversion = conversion_dict[input_unit] * distance
 
 output_unit = input('What are the output units? ')
 
-conversion2 = conversion_dict[output_unit] * meter_conversion
+conversion2 = meter_conversion / conversion_dict[output_unit]
 
 print(f'{distance} {input_unit} is {round(conversion2, 2)} {output_unit}.')
