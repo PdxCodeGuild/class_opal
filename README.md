@@ -71,9 +71,9 @@ Presentation Day: February 15th, 2023
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
 | 01    | Unit Converter         | Nov 1st       | Nov 4th               | Nov 15th      |
 | 02    | Number To Phrase       | Nov 1st       | Nov 4th               | Nov 15th      |
-<!-- | 02    | Average Numbers        | Apr 27th      | May 2nd               | May 11th      |
-| 04    | Blackjack Advice       | Apr 28th      | May 2nd               | May 12th      |
-| 05    | Pick 6                 | Apr 28th      | May 2nd               | May 12th      |
+| 03    | Average Numbers        | Nov 2nd       | Nov 7th               | Nov 16th      |
+| 04    | Blackjack Advice       | Nov 2nd       | Nov 7th               | Nov 16th      |
+<!-- | 05    | Pick 6                 | Apr 28th      | May 2nd               | May 12th      |
 | 06    | Credit Card Validation | May 2nd       | May 9th               | May 16th      |
 | 07    | ROT13                  | May 2nd       | May 9th               | May 16th      |
 | Group | Jackalope              | May 3rd       | May 3rd               | May 17th      |
