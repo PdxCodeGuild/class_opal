@@ -1,10 +1,10 @@
-# Average Numbers
+# MOB LAB - Lab 3 Average Numbers
 
 ### Git Setup:
 ```sh
 > git checkout main
 > git pull
-> git checkout -b your_name-python-lab01
+> git checkout -b your-team-name
 ```
 
 We're going to average a list of numbers. Start with the following list, iterate through it, keeping a 'running sum', then divide that sum by the number of elements in that list. Remember `len` will give you the length of a list.
