@@ -1,5 +1,12 @@
 # Lab 5: Pick6
 
+### Git Setup:
+```sh
+> git checkout main
+> git pull
+> git checkout -b your_name-python-lab05
+```
+
 Have the computer play pick6 many times and determine net balance.
 
 Initially the program will pick 6 random numbers as the 'winner'. Then try playing pick6 100,000 times, with the ticket cost and payoff below.
@@ -30,3 +37,11 @@ One function you might write is `pick6()` which will generate a list of 6 random
 ## Version 2
 
 The ROI (return on investment) is defined as `(earnings - expenses)/expenses`. Calculate your ROI, print it out along with your earnings and expenses.
+
+### Git Add, Commit & Push:
+```sh
+> git add files-to-be-added
+> git commit -m "your commit message goes here"
+> git push -u origin your_name-python-lab05
+```
+Then go to the repository to create a PR.

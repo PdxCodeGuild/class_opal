@@ -1,6 +1,12 @@
 
 # Lab 10: Contact List
 
+### Git Setup:
+```sh
+> git checkout main
+> git pull
+> git checkout -b your_name-python-lab10
+```
 
 Let's build a program to manage a list of contacts. To start, we'll build a CSV ('comma separated values') together, and go over how to load that file. Headers might consist of `name`, `favorite fruit`, `favorite color`. Open the CSV, convert the lines of text into a **list of dictionaries**, one dictionary for each user. The text in the header represents the **keys**, the text in the other lines represent the **values**.
 
@@ -33,3 +39,11 @@ Implement a CRUD REPL
 
 When REPL loop finishes, write the updated contact info to the CSV file to be saved. I highly recommend saving a backup `contacts.csv` because you likely won't write it correctly the first time.
 
+
+### Git Add, Commit & Push:
+```sh
+> git add files-to-be-added
+> git commit -m "your commit message goes here"
+> git push -u origin your-name/python/lab10
+```
+Then go to the repository to create a PR.

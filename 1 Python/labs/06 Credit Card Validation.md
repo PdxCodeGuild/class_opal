@@ -1,5 +1,11 @@
 # Lab 6: Credit Card Validation
 
+### Git Setup:
+```sh
+> git checkout main
+> git pull
+> git checkout -b your_name-python-lab6
+```
 
 Let's write a function `credit_card_validator` which returns whether a string containing a credit card number is valid as a boolean. The steps are as follows:
 
@@ -24,3 +30,11 @@ For example, the worked out steps would be:
 6. 85
 7. 5
 8. `True` Valid!
+
+### Git Add, Commit & Push:
+```sh
+> git add files-to-be-added
+> git commit -m "your commit message goes here"
+> git push -u origin your_name-python-lab6
+```
+Then go to the repository to create a PR.
