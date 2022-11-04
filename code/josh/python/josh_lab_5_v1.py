@@ -1,4 +1,4 @@
-# Lab 5 - Pick6
+# Lab 5 - Pick6 - Version 1
 
 from random import randint
 
@@ -8,7 +8,6 @@ def pick6():
 
 
 winning_numbers = pick6()
-pick_6_list = pick6()
 
 
 def num_matches(winning, ticket):
@@ -37,12 +36,20 @@ def num_matches(winning, ticket):
 total = 0
 
 for pick in range(100000):
-    #pick6()
     total += num_matches(winning_numbers, pick6())
     total -= 2
 
 print(f"Your final balance is ${total}.")
 
 
-#Version 2
-#The ROI (return on investment) is defined as (earnings - expenses)/expenses. Calculate your ROI, print it out along with your earnings and expenses.
+# Version 2
+# The ROI (return on investment) is defined as (earnings - expenses)/expenses. Calculate your ROI, print it out along with your earnings and expenses.
+
+# earnings = num_matches(winning_numbers, pick6())
+# expenses = pick - num_matches(winning_numbers, pick6())
+# ROI = (earnings - expenses)/expenses
+# print(f'''
+# Your earninngs are {earnings}.
+# Your expenses are {expenses}.
+# Your return on investment is {ROI}.
+# ''')
