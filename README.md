@@ -73,11 +73,11 @@ Presentation Day: February 15th, 2023
 | 02    | Number To Phrase       | Nov 1st       | Nov 4th               | Nov 15th      |
 | 03    | Average Numbers        | Nov 2nd       | Nov 7th               | Nov 16th      |
 | 04    | Blackjack Advice       | Nov 2nd       | Nov 7th               | Nov 16th      |
-<!-- | 05    | Pick 6                 | Apr 28th      | May 2nd               | May 12th      |
-| 06    | Credit Card Validation | May 2nd       | May 9th               | May 16th      |
-| 07    | ROT13                  | May 2nd       | May 9th               | May 16th      |
-| Group | Jackalope              | May 3rd       | May 3rd               | May 17th      |
-| 09    | ARI                    | May 4th       | May 9th               | May 18th      |
+| 05    | Pick 6                 | Nov 3rd       | Nov 8th               | Nov 17th      |
+| 06    | Credit Card Validation | Nov 4th       | Nov 8th               | Nov 18th      |
+| 07    | ROT13                  | Nov 4th       | Nov 8th               | Nov 18th      |
+| 08    | Peaks and Valleys      | Nov 4rd       | Nov 9th               | Nov 18th      |
+<!--| 09    | ARI                    | Nov 4th       | May 9th               | May 18th      |
 | 10    | Contact List           | May 5th       | May 9th               | May 19th      |
 | 12    | ATM                    | May 9th       | May 16th              | May 23rd      |
 | 13    | Tic-Tac-Toe            | May 10th      | May 16th              | May 24th      |

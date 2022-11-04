@@ -44,7 +44,7 @@ Example I/O:
 ```
 
 
-## Version 2 (optional)
+## Version 2
 
 Using the `data` list above, draw the image of `X`'s above.
 
