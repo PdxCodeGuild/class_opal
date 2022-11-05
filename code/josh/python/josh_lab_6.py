@@ -12,14 +12,9 @@ def credit_card_validator():
             credit_card_number[i] = credit_card_number[i] * 2
         else:
             credit_card_number[i] = credit_card_number[i] * 1
-    ### Doesn't work at all###
-    # for num in credit_card_number:
-    #     if num > 9:
-    #         num = num - 9
-    #     else:
-    #         num = num - 0
-    ###Works on numbers greater than 9, but does not display whole list afterwards###
-    # credit_card_number = [i - 9 for i in credit_card_number if i > 9]
+    for i in range(len(credit_card_number)):
+        if credit_card_number[i] > 9:
+            credit_card_number[i] = credit_card_number[i] - 9
     ###print statements for review while developing code###
     print(check_digit)
     # print(list_sum)
