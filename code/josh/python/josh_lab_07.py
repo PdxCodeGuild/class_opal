@@ -50,19 +50,21 @@ from string import ascii_lowercase as alphabet, punctuation as punc
 user_input = input("Please enter your message for cipher output: ")
 user_rot = int(input("Please enter rotation value (0 - 25): "))
 
-
+# Creates a function that returns user input with choice of encryption rotation and includes punctuation/spacing as entered by user  
 def rotation(input, rot_choice):
-    for letter in input:
+    output = ''
+    for letter in input.lower():
         if letter == ' ':
-            print(letter)
+            output += letter
         elif letter in punc:
-            print(letter)
+            output += letter
         else:
             choices = len(alphabet)
             rotation = (alphabet.index(letter) + rot_choice) % choices
             output_string = alphabet[rotation]
-            output = ''.join([letter for letter in output_string])
-            print(output) # FIGURE OUT HOW TO PRINT ON A SINGLE LINE        
+            output += output_string
+
+    return output
         
         
-rotation(user_input, user_rot)
+print(rotation(user_input, user_rot))
