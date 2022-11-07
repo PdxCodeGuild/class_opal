@@ -23,44 +23,22 @@ data_dict = {
     19: 8,
     20: 9
 }
-peak_list = []
 
 
-# Returns the indices of peaks
-def peaks(data, peak_loc):
+# Creates a function to return a list of the peaks and valleys in order of appearance in the original data
+def peaks_and_valleys(data):
+    peaks_and_valleys_list = []
     for key in data:
-        if key == (key + 2):
-            peak_loc.append(key + 1)
-    print(peak_loc[key])
+        try:
+            if data[key] == data[key + 2]:
+                peaks_and_valleys_list.append(key + 1)   
+        except:
+            break    
+    print(peaks_and_valleys_list)
 
 
-peaks(data_dict, peak_list)
+peaks_and_valleys(data_dict)
 
-valley_list = []
-
-
-# Returns the indices of valleys
-def valleys(data, valley_loc):
-    for key in data:
-        if key == (key + 2):
-            valley_loc.append(key - 1)
-    print(valley_loc[key])
-
-
-valleys(data_dict, valley_list)
-
-peak_and_valley_list = []
-
-
-# Uses the above two functions to return a single list of the peaks and valleys in order of appearance in the original data
-def peaks_and_valleys(data, peak_and_valley_loc):
-    for key in data:
-        if key == (key + 2):
-            peak_loc.append(key + 1, key - 1)
-    print(peak_loc[key])
-
-
-peaks_and_valleys(data_dict, peak_and_valley_list)
 
 # Data	1	2	3	4	5	6	7	6	5	4	5	6	7	8	9	8	7	6	7	8	9
 # Index	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20
