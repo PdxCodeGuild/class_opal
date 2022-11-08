@@ -39,11 +39,13 @@ def peaks_and_valleys(data):
 
 peaks_and_valleys(data_dict)
 
+# Lab 8 - Peaks and Valleys, Version 2 (using the data list above, draw the image of X's above)
 
-# Data	1	2	3	4	5	6	7	6	5	4	5	6	7	8	9	8	7	6	7	8	9
-# Index	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20
-# POI							P			V					P			V			
-# Example I/O:
+data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
+
+for num in data:
+    mountains = num * 'X'
+    print(mountains)
 
 #                                                       X                 X
 #                                                    X  X  X           X  X
@@ -55,30 +57,3 @@ peaks_and_valleys(data_dict)
 #                X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X
 #             X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X
 # >>> data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
-
-# Lab 8 - Peaks and Valleys, Version 2
-# Using the data list above, draw the image of X's above.
-
-# data = {
-#     1: 0,
-#     2: 1,
-#     3: 2,
-#     4: 3,
-#     5: 4,
-#     6: 5,
-#     7: 6,
-#     6: 7,
-#     5: 8,
-#     4: 9,
-#     15: 10,
-#     16: 11,
-#     17: 12,
-#     18: 13,
-#     19: 14,
-#     18: 15,
-#     17: 16,
-#     16: 17,
-#     17: 18,
-#     18: 19,
-#     29: 20
-# }
