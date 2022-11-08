@@ -14,14 +14,15 @@ num_dict3 = {
     9: 'Nine hundred'
 }
 
-num = 500
+num = input(f"Enter a number: ")
+num = int(num)
 
 hundreds_digit = num // 100
-print(hundreds_digit)
+
 tens_digit = num // 10
-print(tens_digit)
+
 ones_digit = num % 10
-print(ones_digit)
+
 
 if num > 99:
     tens = num % 100
