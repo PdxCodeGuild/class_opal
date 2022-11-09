@@ -1,5 +1,5 @@
 
-# Group Exercise: Hangman
+# MOB LAB - Lab 10 Hangman
 
 Let's write a program to play a game of hangman. In the data folder, you'll find `english.txt` which contains a list of several thousand english words. Write a function `load_words(path)` which reads the text from this file and return a list of strings which are greater than 5 letters. 
 

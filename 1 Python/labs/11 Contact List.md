@@ -26,7 +26,7 @@ contacts = [
 
 *Note: There is a `csv` library in Python that will do much of this for you. It is what you would use normally in a project, but for this lab you need to write all the logic yourself.*
 
-## Version 2
+## Step 2
 
 Implement a CRUD REPL
 
@@ -35,7 +35,7 @@ Implement a CRUD REPL
 - **U**pdate a record: ask the user for the contact's name, then for which attribute of the user they'd like to update and the value of the attribute they'd like to set.
 - **D**elete a record: ask the user for the contact's name, remove the contact with the given name from the contact list.
 
-## Version 3
+## Step 3
 
 When REPL loop finishes, write the updated contact info to the CSV file to be saved. I highly recommend saving a backup `contacts.csv` because you likely won't write it correctly the first time.
 
