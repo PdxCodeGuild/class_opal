@@ -11,7 +11,16 @@ If they guess a letter they've guessed before, tell them and do not subtract 1 f
 
 Be kind, if the user can't guess the word in the number of allotted guesses, print the word and ask them if they'd like to play again
 '''
+import lab10_art
+from random import choice
 
-path = ''
+
+path = 'class_opal\1 Python\data\english.txt'
+
+
 def load_words(path):
-    pass
+    game_words = []
+
+    with open(path, "r") as f:
+        words = f.read()
+        print(type(words))
