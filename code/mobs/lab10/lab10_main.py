@@ -15,7 +15,7 @@ import lab10_art
 from random import choice
 
 
-path = 'class_opal\1 Python\data\english.txt'
+path = 'class_opal/1 Python/data/english.txt'
 
 
 def load_words(path):
@@ -23,4 +23,15 @@ def load_words(path):
 
     with open(path, "r") as f:
         words = f.read()
-        print(type(words))
+    
+    game_words = words.split('\n')
+    # print(game_words)
+    for word in game_words:
+        if len(word) <= 5:
+            game_words.remove(word)       
+    return game_words
+
+def game_word(words):
+    return choice(words)
+print(game_word(load_words(path)))
+
