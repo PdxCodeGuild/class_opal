@@ -71,13 +71,15 @@ Presentation Day: February 15th, 2023
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
 | 01    | Unit Converter         | Nov 1st       | Nov 4th               | Nov 15th      |
 | 02    | Number To Phrase       | Nov 1st       | Nov 4th               | Nov 15th      |
-| 03    | Average Numbers        | Nov 2nd       | Nov 7th               | Nov 16th      |
+| 03    | MOB - Average Numbers  | Nov 2nd       | N/A                   | N/A           |
 | 04    | Blackjack Advice       | Nov 2nd       | Nov 7th               | Nov 16th      |
 | 05    | Pick 6                 | Nov 3rd       | Nov 9th               | Nov 17th      |
 | 06    | Credit Card Validation | Nov 4th       | Nov 9th               | Nov 18th      |
 | 07    | ROT13                  | Nov 4th       | Nov 9th               | Nov 18th      |
 | 08    | Peaks and Valleys      | Nov 4rd       | Nov 10th              | Nov 18th      |
 | 09    | ARI                    | Nov 7th       | Nov 10th              | Nov 21st      |
+| 06.1  | CC Validation REDUX    | Nov 9th       | Nov 11th              | Nov 23rd      |
+| 10    | MOB - Hangman          | Nov 7th       | N/A                   | N/A           |
 <!--| 10    | Contact List           | Nov 5th       | Nov 9th               | Nov 19th      |
 | 12    | ATM                    | Nov 9th       | Nov 16th              | Nov 23rd      |
 | 13    | Tic-Tac-Toe            | Nov 10th      | Nov 16th              | Nov 24th      |
