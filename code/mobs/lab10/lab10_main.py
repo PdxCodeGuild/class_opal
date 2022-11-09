@@ -23,21 +23,30 @@ def load_words(path):
 
     with open(path, "r") as f:
         words = f.read()
-    
+
     game_words = words.split('\n')
     # print(game_words)
     for word in game_words:
         if len(word) <= 5:
-            game_words.remove(word)       
+            game_words.remove(word)
     return game_words
+
 
 def game_word(words):
     return choice(words)
-# print(game_word(load_words(path)))
+
+
 word = game_word(load_words(path))
+print(word)
 tries = 7
 letters_guessed = []
 correct_letters = '_' * len(word)
 print(correct_letters)
 while tries:
-    pass
+    user_input = input("Enter a letter: ").lower()
+    if user_input in word:
+        for i, letter in enumerate(word):
+            if letter == user_input:
+                correct_letters.replace(correct_letters[i], letter)
+
+        letters_guessed += user_input
