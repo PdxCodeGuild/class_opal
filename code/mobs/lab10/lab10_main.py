@@ -33,5 +33,11 @@ def load_words(path):
 
 def game_word(words):
     return choice(words)
-print(game_word(load_words(path)))
-
+# print(game_word(load_words(path)))
+word = game_word(load_words(path))
+tries = 7
+letters_guessed = []
+correct_letters = '_' * len(word)
+print(correct_letters)
+while tries:
+    pass
