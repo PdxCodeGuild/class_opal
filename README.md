@@ -77,13 +77,13 @@ Presentation Day: February 15th, 2023
 | 06    | Credit Card Validation | Nov 4th       | Nov 9th               | Nov 18th      |
 | 07    | ROT13                  | Nov 4th       | Nov 9th               | Nov 18th      |
 | 08    | Peaks and Valleys      | Nov 4rd       | Nov 10th              | Nov 18th      |
-<!--| 09    | ARI                    | Nov 4th       | May 9th               | May 18th      |
-| 10    | Contact List           | May 5th       | May 9th               | May 19th      |
-| 12    | ATM                    | May 9th       | May 16th              | May 23rd      |
-| 13    | Tic-Tac-Toe            | May 10th      | May 16th              | May 24th      |
-| 14    | Dad Joke API           | May 12th      | May 16th              | May 26th      |
-| 15    | Quotes API             | May 16th      | May 23rd              | May 30th      |
-| 16    | Mini-Capstone          | May 18th      | May 23rd              | Jun 1st       | -->
+| 09    | ARI                    | Nov 7th       | Nov 10th              | Nov 21st      |
+<!--| 10    | Contact List           | Nov 5th       | Nov 9th               | Nov 19th      |
+| 12    | ATM                    | Nov 9th       | Nov 16th              | Nov 23rd      |
+| 13    | Tic-Tac-Toe            | Nov 10th      | Nov 16th              | Nov 24th      |
+| 14    | Dad Joke API           | Nov 12th      | Nov 16th              | Nov 26th      |
+| 15    | Quotes API             | Nov 16th      | Nov 23rd              | Nov 30th      |
+| 16    | Mini-Capstone          | Nov 18th      | Nov 23rd              | Jun 1st       | -->
 
 
 ## Student Presentations
