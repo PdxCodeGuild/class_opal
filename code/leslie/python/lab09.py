@@ -16,13 +16,8 @@ with open('christmas_carol.txt', 'r', encoding = 'utf-8') as file:
     sentences = contents.split('.') #splits at periods
 
 word_count = len(words)
-print("Number of words: ", word_count)
-
 char_count = len(chars)
-print("Number of characters: ", char_count)
-
 sentence_count = len(sentences)
-print("Number of sentences: ", sentence_count)
 
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -44,44 +39,8 @@ ari_scale = {
 
 def find_ari(char_count, word_count, sentence_count):
     ari_num = math.ceil(((char_count/word_count) * 4.71) + ((word_count/sentence_count) * 0.5) -21.43)
-    print(ari_num)
-
-    if ari_num == 1:
-        age = ari_scale['1']['ages']
-        grade_level = ari_scale['1']['grade_level']
-    elif ari_num == 2:
-        age = ari_scale[2]['ages']
-        grade_level = ari_scale[2]['grade_level']
-    elif ari_num == 3:
-        age = ari_scale[3]['ages']
-        grade_level = ari_scale[3]['grade_level']
-    elif ari_num == 4:
-        age = ari_scale[4]['ages']
-        grade_level = ari_scale[4]['grade_level']
-    elif ari_num == 5:
-        age = ari_scale[5]['ages']
-        grade_level = ari_scale[5]['grade_level']
-    elif ari_num == 6:
-        age = ari_scale[6]['ages']
-        grade_level = ari_scale[6]['grade_level']
-    elif ari_num == 7:
-        age = ari_scale[7]['ages']
-        grade_level = ari_scale[7]['grade_level']
-    elif ari_num == 8:
-        age = ari_scale[8]['ages']
-        grade_level = ari_scale[8]['grade_level']
-    elif ari_num == 9:
-        age = ari_scale[9]['ages']
-        grade_level = ari_scale[9]['grade_level']
-    elif ari_num == 10:
-        age = ari_scale[10]['ages']
-        grade_level = ari_scale[10]['grade_level']
-    elif ari_num == 11:
-        age = ari_scale[11]['ages']
-        grade_level = ari_scale[11]['grade_level']
-    elif ari_num == 12:
-        age = ari_scale[12]['ages']
-        grade_level = ari_scale[12]['grade_level']
+    age = ari_scale[ari_num]['ages']
+    grade_level = ari_scale[ari_num]['grade_level']
 
     print(f"""
     The ARI of 'A Christmas Carol' is {ari_num}.
