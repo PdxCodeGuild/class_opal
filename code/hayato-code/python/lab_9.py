@@ -1,11 +1,13 @@
 from math import ceil
+import re
+relative_path_book = '1 Python\examples\data\hayato-book.txt'
 
-relative_path_dracula = 'class_opal\1 Python\examples\data\frankenstein.txt'
-
-with open(relative_path_dracula, 'r', encoding= 'utf-8') as file:
+with open(relative_path_book, 'r', encoding= 'utf-8') as file:
         contents= file.read()
 
 print(contents)
+
+file_name= relative_path_book.split('\\').pop()
 
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -26,10 +28,10 @@ ari_scale = {
 
 characters = len(contents)
 words = len(contents.split())
-sentences = contents.split('.', '!', '?')
+sentences = len(re.split("[.!?][ ]",contents))
 
 def calculate_ari(characters, words, sentences):
-    return min(ceil(4.71 * characters / words + 0.5 * words / sentences - 21.43), 14)
+    return max(ceil(4.71 * characters / words + 0.5 * words / sentences - 21.43), 14)
 
 ari_score = calculate_ari(characters, words, sentences)
 
@@ -37,8 +39,12 @@ summary = [characters, words, sentences]
 print(summary)
 
 print(f"""
-The ARI for hayato-book is {ari_score}.
+--------------------------------------------------------
+
+The ARI for {file_name} is {ari_score}.
 This corresponds to a {ari_scale[ari_score]['grade_level']} level of difficulty
 that is suitable for an average person {ari_scale[ari_score]['ages']} years old.
-""")
 
+--------------------------------------------------------
+
+""")
