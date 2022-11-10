@@ -35,18 +35,37 @@ def load_words(path):
 def game_word(words):
     return choice(words)
 
-
-word = game_word(load_words(path))
-print(word)
-tries = 7
-letters_guessed = []
-correct_letters = '_' * len(word)
-print(correct_letters)
-while tries:
-    user_input = input("Enter a letter: ").lower()
-    if user_input in word:
-        for i, letter in enumerate(word):
-            if letter == user_input:
-                correct_letters.replace(correct_letters[i], letter)
-
+def hangman():
+    print(lab10_art.logo)
+    word = game_word(load_words(path))
+    # print(word)
+    tries = 7
+    letters_guessed = []
+    correct_letters = list('_' * len(word))
+    while tries:
+        if '_' not in correct_letters:
+            print("You win!")
+            break
+        if tries < 7:
+            print(lab10_art.stages[tries])
+        print(''.join(correct_letters))
+        print("Letters guessed: ", " ".join(letters_guessed))
+        user_input = input("Enter a letter: ").lower()
+        if user_input in letters_guessed:
+            print("You've already guessed this letter!")
+            continue
+        elif user_input in word:
+            for i, letter in enumerate(word):
+                if letter == user_input:
+                    correct_letters[i] = letter
+        else:
+            tries -= 1
         letters_guessed += user_input
+    if tries == 0:
+        print("You suck. Womp womp.")
+    again = input("Would you like to play again? Enter yes or no: ")
+    if again == 'yes':
+        hangman()
+
+hangman()
+        
