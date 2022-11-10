@@ -17,7 +17,7 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
 
-relative_path = 'class_opal/code/nick/python/lab09/myth_of_sisyphus.txt'
+relative_path = 'code/nick/python/lab09/myth_of_sisyphus.txt'
 # extract name of book to be analyzed for later use
 path_list = relative_path.split('/')
 path_list = path_list[-1].split('.')
@@ -27,7 +27,6 @@ with open(relative_path) as file:
     book = file.read()
 
 # print(book) #test
-
 # end all sentences in a period for simplicity
 sentence_end = ['!', '?']
 for p in sentence_end:
