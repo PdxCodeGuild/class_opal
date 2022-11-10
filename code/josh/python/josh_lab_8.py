@@ -47,7 +47,7 @@ data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 blank = '   '
 x = 'X  '
 
-# Iterates a loop equal to the greatest value in 'data' (to graph 'x'/'blank' peaks and valleys no higher/lower than list values)
+# Iterates a loop equal to the greatest value in 'data' (to graph 'x'/'blank' peaks/valleys no higher/lower than list values)
 for i in range(max(data)):
     graph = ''
 # Iterates a loop equal to the number of elements in 'data' (to graph 'x'/'blank' peaks/valleys no wider/narrower than # of list indices)    
