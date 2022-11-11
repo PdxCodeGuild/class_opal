@@ -39,8 +39,6 @@ for the new contact or 'done' to quit:
         ''')
         if add_contact == 'done':
             break
-        if contact_name not in contact_list:
-            print("Sorry! Invalid contact.")
         else:
             add_list = add_contact.split(', ')
             new_contact = dict(zip(keys,add_list))
