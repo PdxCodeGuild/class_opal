@@ -1,5 +1,4 @@
-# Lab 12: ATM
-# Implement the initializer, as well as the following functions:
+# Lab 12: ATM, Version 1
 
 class ATM():
     def __init__(self, balance = 0, interest_rate = 0.01): #balance of $0 and int rate of 0.1%
@@ -24,7 +23,8 @@ class ATM():
         return self.balance - amount
     # returns the amount of interest calculated on the account
     def calc_interest(self, amount):
-        self.deposit * self.interest_rate
+        amount = self.balance * self.interest_rate
+        return (round(amount, 2))
 
 atm = ATM() # create an instance of our class
 print('Welcome to the ATM')
@@ -38,14 +38,14 @@ while True:
         atm.deposit(amount) # call the deposit(amount) method
         print(f'Deposited ${amount}')
     elif command == 'withdraw':
-        amount = float(input('How much would you like '))
+        amount = float(input('How much would you like? '))
         if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
             atm.withdraw(amount) # call the withdraw(amount) method
             print(f'Withdrew ${amount}')
         else:
             print('Insufficient funds')
     elif command == 'interest':
-        amount = atm.calc_interest() # call the calc_interest() method
+        amount = atm.calc_interest(amount) # call the calc_interest() method
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
     elif command == 'help':
