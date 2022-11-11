@@ -17,83 +17,105 @@ for i, contacts in enumerate(contact_lines):
     contact_list.append(contact)
 
 
-print(f'The contact list is: {contact_list}')
-user_response = input('''
+#CREPL is one big while loop with a menu
+while True:
+    # print(f'The contact list is: {contact_list}')
+    user_response = input('''
 What would you like to do:
 add new contact
 display contact info
 update a contact
 delete contact
+or 'quit' to exit.
 ''')
 
+    if user_response == 'quit':
+        break
 
-#Add new contact.
-while user_response == 'add new contact':
-    add_contact = input('''
-Please enter a name, favorite food, and age \
+    #Add new contact.
+    if user_response == 'add new contact':
+        add_contact = input('''Please enter a name, fandom, and profession \
 for the new contact or 'done' to quit: 
-    ''')
-    if add_contact == 'done':
-        break
-    else:
-        add_list = add_contact.split(', ')
-        new_contact = dict(zip(keys,add_list))
-        contact_list.append(new_contact)
+        ''')
+        if add_contact == 'done':
+            break
+        if contact_name not in contact_list:
+            print("Sorry! Invalid contact.")
+        else:
+            add_list = add_contact.split(', ')
+            new_contact = dict(zip(keys,add_list))
+            contact_list.append(new_contact)
+            # print(f"The contact list is now: {contact_list}.")
 
 
-# Retrieve a record.
-while user_response == 'display contact info':
-    contact_name = input("Please provide the contact's name or \
+    # Retrieve a record.
+    if user_response == 'display contact info':
+        contact_name = input("Please provide the contact's name or \
 'done' to quit: ")
-    if contact_name == 'done':
-        break
-    for contact_dict in contact_list:
-        if contact_name == contact_dict['name']:
-            print(contact_dict)
+        if contact_name == 'done':
+            break
+        if contact_name not in contact_list:
+            print("Sorry! Invalid contact.")
+        for contact_dict in contact_list:
+            if contact_name == contact_dict['name']:
+                print(f'Here is that contact: {contact_dict}.')
 
 
-# Update a record: ask the user for the contact's 
-# name, then for which attribute of the user they'd 
-# like to update and the value of the attribute they'd 
-# like to set.
-while user_response == 'update a contact':
-    contact_name = input("Please enter the contact's name or 'done' to quit: ")
-    if contact_name == 'done':
-        break
-
-    key_to_update = input("Please enter an attribute (name, \
-favorite food, age) to edit: ")
-    new_attribute = input("Please enter the new attribute: ")
-    
-    contact_list.append(new_contact)
-
-    print(contact_list)
-    for contact_dict in contact_list:
-        if contact_name == i['name']:
-            print(i)
-
-
+    # Update a record:
+    if user_response == 'update a contact':
+        contact_name = input("Please enter the contact's name or\
+ 'done' to quit: ")
+        if contact_name == 'done':
+            break
+        if contact_name not in contact_list:
+            print("Sorry! Invalid contact.")
+        key_to_update = input("Please enter an attribute\
+ (name, fandom, profession) to edit: ")
+        new_attribute = input("Please enter the new attribute: ")
+        for contact in contact_list:
+            if contact["name"] == contact_name:
+                if "fandom" == key_to_update:
+                    contact["fandom"] = new_attribute
+                elif "profession" == key_to_update:
+                    contact["profession"] = new_attribute
+                elif "name" == key_to_update:
+                    contact["name"] = new_attribute
 
 
-        # add_list = add_contact.split(', ')
-        # new_contact = dict(zip(keys,add_list))
-        # contact_list.append(new_contact)
-
-
-#Delete a record.
-while user_response == 'delete contact':
-    contact_name = input("Please enter the name of the contact \
+    #Delete a record.
+    if user_response == 'delete contact':
+        contact_name = input("Please enter the name of the contact \
 you'd like to delete or 'done' to quit: ")
-    if contact_name == 'done':
-        break
-    for contact_dict in contact_list:
-        if contact_name == contact_dict['name']:
-            contact_list.remove(contact_dict)
+        if contact_name == 'done':
+            break
+        if contact_name not in contact_list:
+            print("Sorry! Invalid contact.")
+        for contact_dict in contact_list:
+            if contact_name == contact_dict['name']:
+                contact_list.remove(contact_dict)
+
+contact_output = []
+
+#Creating the headers
+for x in contact_list:
+    #retrieving the keys of the dicts (name, favorite food, age)
+    headers = contact_list[0].keys()
+header_line = ",".join(headers)
+contact_output.append(header_line)
 
 
+#converting the list of dictionaries into a list so it can be output into the csv file
+for contact in contact_list:
+    contact_info = [x for x in contact.values()]
+    contact_line = ','.join(contact_info)
+    contact_output.append(contact_line)
 
-'''contact_list = [
-    {'name': 'erik', 'favorite food': 'apples', 'age': '19'},
-     {'name': 'annie', 'favorite food': 'macaroni and cheese', 'age': '21'},
-      {'name': 'toni', 'favorite food': 'peaches', 'age': '24'}
-      ]'''
+#prints everything but the header for the user, so they can view the contacts.
+print(f"The contact list is now: {contact_output[1:]}.")
+
+out_path = 'code/lizzie/python/lab11_files/new_contacts.csv'
+
+output_content = '\n'.join(contact_output)
+
+with open(out_path, 'w') as f:
+    f.write(output_content)
