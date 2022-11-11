@@ -80,9 +80,9 @@ Presentation Day: February 15th, 2023
 | 09    | ARI                    | Nov 7th       | Nov 10th              | Nov 21st      |
 | 06.1  | CC Validation REDUX    | Nov 9th       | Nov 11th              | Nov 23rd      |
 | 10    | MOB - Hangman          | Nov 7th       | N/A                   | N/A           |
-| 11    | Contact List           | Nov 10th      | Nov 15th              | Nov 28        |
-<!--| 12    | ATM                    | Nov 9th       | Nov 16th              | Nov 23rd      |
-| 13    | Tic-Tac-Toe            | Nov 10th      | Nov 16th              | Nov 24th      |
+| 11    | Contact List           | Nov 10th      | Nov 15th              | Nov 28th      |
+| 12    | ATM                    | Nov 11th      | Nov 16th              | Nov 28th      |
+<!--| 13    | Tic-Tac-Toe            | Nov 10th      | Nov 16th              | Nov 24th      |
 | 14    | Dad Joke API           | Nov 12th      | Nov 16th              | Nov 26th      |
 | 15    | Quotes API             | Nov 16th      | Nov 23rd              | Nov 30th      |
 | 16    | Mini-Capstone          | Nov 18th      | Nov 23rd              | Jun 1st       | -->
