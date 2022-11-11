@@ -24,7 +24,7 @@ class Animal:
         self.damage: int = attack
         self.defense: int = defense
         self.speed: int = speed
-        is_animal: bool = True
+        is_animal: bool = True  # attributes can be hard coded
 
     def make_noise(self) -> None:
         print((self.noise + ' ') * 3)
@@ -33,8 +33,8 @@ class Animal:
         '''Attempt to attack opponent, returns damage done'''
         # speed is the % of rounds that they will attack
         if random.random()*100 <= self.speed:
-            this_attack = random.uniform(self.damage/2, self.damage)
-            damage_done = floor(this_attack - opponent.defense)
+            this_attack: float = random.uniform(self.damage/2, self.damage)
+            damage_done: int = floor(this_attack - opponent.defense)
             return damage_done
         return 0
 
@@ -62,7 +62,48 @@ class Animal:
 kyle = Animal('Kyle', 'honey badger', 'rawr', 100, 50, 20, 90)
 lucy = Animal('Lucy', 'hippopotamus', '....', 200, 90, 30, 5)
 
-kyle.fight(lucy)
-lucy.fight(kyle)
+# kyle.fight(lucy)
+# lucy.fight(kyle)
 
-print(kyle.attack(lucy))
+
+class Kitten(Animal):
+    '''
+    Kitten "inherits from" the Animal class
+    Kitten is the "subclass" and Animal is the "superclass"
+    The parent/superclass can be accessed with the super() function
+    '''
+    # You can overwrite the parent's __init__ function or not, it's optional
+    # If you do, you can use the parent's __init__ if you want
+
+    def __init__(self, name, hp, attack, defense, speed):
+        super().__init__(name, 'baby cat', 'purrr', hp, attack, defense, speed)
+        self.is_the_cutest = True
+        self.hp = 0
+
+    # ... or you can add all the attributes manually
+    # def __init__(self, name):
+    #     self.name = name
+    #     self.species = 'baby cat'
+    #     self.noise = 'purrrr'
+    #     self.hp = 5
+    #     self.damage = 0
+    #     self.defense = 5
+    #     self.speed = 5
+
+    # Writing a new method definition will "override" the parent's method
+    def attack(self, opponent) -> int:
+        print(f'{self.name} just wants to snuggle')
+        return -100
+
+    def fight(self, opponent) -> None:
+        print(f'{self.name} never wanted to hurt anybody :(')
+
+
+snowball = Kitten('Snowball')
+# We didn't overwrite the __str__ method or the make_noise method
+# so those will come directly from the parent (Animal) class
+print(snowball)
+snowball.make_noise()
+
+# We did overwrite the fight method, so this will do something different from the parent
+snowball.fight(kyle)
