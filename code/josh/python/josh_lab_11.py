@@ -11,15 +11,29 @@ keys: list[str] = lines[0].split(',')
 
 for line in lines[1:]:
     values: list[str] = line.split(',')
+    # value = values.split(',')
+    # value = [value.split(',') for value in values]
     for key in keys:
         contact_dict[key] = None
-        for value in values:
-            contact_dict[key] = value
-
     # for value in values:
-    #     contact_dict[key] = value
+        # contact_dict.update({key: value})
+        # contact_dict[key] = value
 
-print(contact_dict)
+# class ContactDict:
+#     def __init__(self, key, value):
+#         self.key = key
+#         self.value - value
+    
+# for key in keys:
+#     key = ContactDict.key
+
+# for value in values:
+#     value = ContactDict.value
+
+# print(key, value)
+
+
+# print(contact_dict)
 
 # for line in lines[1:]:
 #     values: list[str] = line.split(',')
