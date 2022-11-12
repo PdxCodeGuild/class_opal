@@ -7,7 +7,6 @@ with open('contacts.csv', 'r') as file:
     rows_list = []
     for row in contacts:
         rows_list.append(row.split(","))
-    file.close()
     for item in rows_list:
         row_dict = {}
         for i in range(number_of_rows):
@@ -26,51 +25,62 @@ with open('contacts.csv', 'r') as file:
         new_user_info.update({'favorite color': new_color}) #add color to list        
         contacts_list_of_dicts.append(new_user_info)
         output_content = list(new_user_info.values())
+        print(output_content)
             
         with open('contacts.csv', 'a') as f:
             f.write(f'\n{",".join(output_content)}')
         print("Contact has been added")
+
 
     def retrieve_record():
         search_name = input("enter name to look up: ")
         for name in contacts_list_of_dicts:
             if name["name"] == search_name:
                 print(name['name'], name['favorite fruit'], name['favorite color'])                
+    
     def update_record():
         contact_name = input("enter name to update: ")        
         for contact in contacts_list_of_dicts:
             if contact["name"] == contact_name:
-                attribute_to_update = input("What would you like to update? Favorite fruit, or favorite color? ")
-                if attribute_to_update == "favorite fruit":
-                    new_value = input("What is the new value? ")
+                attribute_to_update = input("What would you like to update? Favorite fruit, or favorite color? Type 'fruit' or 'color': ")
+                
+                if attribute_to_update == "fruit":
+                    new_value = input("What is the new fruit value? ")
                     contact['favorite fruit'] = new_value
                     print(contact['name'], contact['favorite fruit'], contact['favorite color'])      
-                    with open('contacts.csv', 'w') as f:
-                        contacts_list_of_dicts.insert(0, {'name':'name', 'favorite fruit':'favorite fruit', 'favorite color':'favorite color'})
+                    
+                    with open('contacts.csv', 'w', encoding="utf-8") as f:
+                        if contacts_list_of_dicts[0] != {'name':'name', 'favorite fruit':'favorite fruit', 'favorite color':'favorite color'}:
+                            contacts_list_of_dicts.insert(0, {'name':'name', 'favorite fruit':'favorite fruit', 'favorite color':'favorite color'})
                         for i, item in enumerate(contacts_list_of_dicts):
                             if contacts_list_of_dicts[i] == contacts_list_of_dicts[-1]:
                                 f.write(f'{",".join(item.values())}')
                             else:
-                                f.write(f'{",".join(item.values())}\n')   
-                elif attribute_to_update == "favorite color":
-                    new_value = input("What is the new value? ")
+                                f.write(f'{",".join(item.values())}\n')
+                        
+                if attribute_to_update == "color":
+                    new_value = input("What is the new color value? ")
                     contact["favorite color"] =  new_value
                     print(contact['name'], contact['favorite fruit'], contact['favorite color'])      
 
-                    with open('contacts.csv', 'w') as f:
-                        contacts_list_of_dicts.insert(0, {'name':'name', 'favorite fruit':'favorite fruit', 'favorite color':'favorite color'})
+                    with open('contacts.csv', 'w', encoding="utf-8") as f:
+                        if contacts_list_of_dicts[0] != {'name':'name', 'favorite fruit':'favorite fruit', 'favorite color':'favorite color'}:
+                            contacts_list_of_dicts.insert(0, {'name':'name', 'favorite fruit':'favorite fruit', 'favorite color':'favorite color'})
                         for i, item in enumerate(contacts_list_of_dicts):
                             if contacts_list_of_dicts[i] == contacts_list_of_dicts[-1]:
                                 f.write(f'{",".join(item.values())}')
                             else:
-                                f.write(f'{",".join(item.values())}\n') 
+                                f.write(f'{",".join(item.values())}\n')
+                        
+                   
     def delete_record():
         name = input("enter name of contact to DELETE: ")
         for contact in contacts_list_of_dicts:
             if contact['name'] == name:
                 contacts_list_of_dicts.remove(contact)
                 with open('contacts.csv', 'w') as f:
-                    contacts_list_of_dicts.insert(0, {'name':'name', 'favorite fruit':'favorite fruit', 'favorite color':'favorite color'})
+                    if contacts_list_of_dicts[0] != {'name':'name', 'favorite fruit':'favorite fruit', 'favorite color':'favorite color'}:
+                        contacts_list_of_dicts.insert(0, {'name':'name', 'favorite fruit':'favorite fruit', 'favorite color':'favorite color'})
                     for i, item in enumerate(contacts_list_of_dicts):
                         if contacts_list_of_dicts[i] == contacts_list_of_dicts[-1]:
                             f.write(f'{",".join(item.values())}')
