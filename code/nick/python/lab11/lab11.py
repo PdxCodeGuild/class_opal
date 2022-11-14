@@ -1,6 +1,48 @@
 from os import system
 relative_path = 'class_opal/code/nick/python/lab11/contacts.csv'
-relative_path2 = 'class_opal/code/nick/python/lab11/contacts_practice.csv'
+
+
+def crud():
+    acceptable_input = ['create', 'view', 'update', 'delete', 'done']
+    contacts, headers = unpack_contacts(relative_path)
+    names = []
+    for contact in contacts:
+        names.append(contact['name'])
+    names = '\n'.join(names)
+
+    while True:
+        print(names)
+
+        command = input("""
+Type 'create' to add a new contact. 
+Type 'view' to retrieve and view an existing contact.
+Type 'update' to update an existing contact.
+Type 'delete' to delete an existing contact.
+Or type 'done' to finish.
+""").lower()
+
+        if command in acceptable_input:
+            break
+        else:
+            print('That is an invalid input.')
+
+
+    match command:
+        case 'create':
+            create_contact(contacts, headers)
+            crud()
+        case 'view':
+            view_contact(contacts, headers, command)
+            crud()
+        case 'update':
+            update_contact(contacts, headers, command)
+            crud()
+        case 'delete':
+            delete_contact(contacts, headers, command)
+            crud()
+        case 'done':
+            system('cls||clear')
+            print('Thank you, goodbye!')
 
 
 def unpack_contacts(path=relative_path):
@@ -26,7 +68,7 @@ def unpack_contacts(path=relative_path):
     return contacts, contacts_headers
 
 
-def pack_contacts(contacts, headers, path=relative_path2):
+def pack_contacts(contacts, headers, path=relative_path):
     '''
     packs the contacts dictionary back into a properly formatted CSV file
     '''
@@ -45,73 +87,57 @@ def pack_contacts(contacts, headers, path=relative_path2):
     with open(path, 'w') as file:
         file.write(contacts)
 
-    print('Changes committed.')
+    system('cls||clear')
+    print('Changes committed.\n\n')
         
         
-
-def create_contact(unpacked_contacts = unpack_contacts(relative_path2)):
-    '''
-    create a new contact with all info an save it to the CSV
-    '''
-    headers = unpacked_contacts[1]
-    contacts = unpacked_contacts[0]
-    new_contact = {}
-    for header in headers:
-        new_contact[header] = input(f"Enter the contact's {header}:  ")
-
-    contacts.append(new_contact)
-    pack_contacts(contacts, headers, relative_path2)
-    
-
-def retrieve_contact(unpacked_contacts = unpack_contacts(relative_path2), command='view'):
+def retrieve_contact(contacts, command='view'):
     '''
     return a contact dictionary given the name of a contact from the user
     '''
-    contacts = unpacked_contacts[0]
-    headers = unpacked_contacts[1]
-    names = []
-    for contact in contacts:
-        names.append(contact['name'])
-    names = '\n'.join(names)
-    name = input(f'''
-Enter the name which you would like to {command} from the following list.
-{names}
-
+    name = input(f'''  
+Enter the name which you would like to {command} from the list above.
 :''')
     for i, contact in enumerate(contacts):
         if name in contact.values():
-            return contacts[i], contacts, headers
+            return contacts[i]
 
 
-def view_contact(command='view'):
+def create_contact(contacts, headers):
+    '''
+    create a new contact with all info and save it to the CSV
+    '''
+    new_contact = {}
+    for header in headers:
+            new_contact[header] = input(f"Enter the contact's {header}:  ")
+        
+    contacts.append(new_contact)
+    pack_contacts(contacts, headers, relative_path)
+    
+
+def view_contact(contacts, headers, command):
     '''
     View a contact given a name from the user. 
     Give the option to delete, update, or go back to the main menu
     '''
-    contact, contacts, headers = retrieve_contact(unpack_contacts(relative_path2), command)
+    contact = retrieve_contact(contacts, command)
     # print(contact)
     system('cls||clear')
     for key, val in contact.items():
         print(f'{key}: {val}')
 
-    command = input(f"""
-If you are done with this contact, type 'done' to go back to the main menu.
-If you would like to update or delete this contact, type 'update' or 'delete'
-"""
-)
-    if command == 'update':
-        update_contact(contact, contacts, headers, command)
+    print('\n\n')
 
 
-def update_contact(contact, contacts, headers, command='update'):
+def update_contact(contacts, headers, command):
     contacts = contacts
     headers = headers
-    contact = contact
+    contact = retrieve_contact(contacts, command)
     for i, record in enumerate(contacts):
         if contact == record:
             contact = contacts.pop(i)
 
-    print('Type the key you would like to update from the following list.')
+    print('Type the key you would like to update from the following list.\n')
     for key in contact.keys():
         print(key)
     key_to_update = input('\n:  ')
@@ -119,18 +145,22 @@ def update_contact(contact, contacts, headers, command='update'):
     contact[key_to_update] = new_value
     contacts.append(contact)
 
-    pack_contacts(contacts, headers, relative_path2)
+    pack_contacts(contacts, headers, relative_path)
 
 
+def delete_contact(contacts, headers, command):
+    '''
+    deletes a contact that is already selected
+    '''
+    contact = retrieve_contact(contacts, command)
+    contacts = contacts
+    headers = headers
+    for i, record in enumerate(contacts):
+        if contact == record:
+            contacts.remove(contacts[i])
 
-    
+    pack_contacts(contacts, headers, relative_path)
 
 
-
-# create_contact() #test
-# print(unpack_contacts()) #test
-# pack_contacts() #test
-# retrieve_contact() #test
-view_contact() #test
-# update_contact()
-
+print('Welcome to the contact manager!')
+crud()
