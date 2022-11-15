@@ -1,10 +1,14 @@
 class Compass:
     def __init__(self, heading) -> None:
+        if heading >= 360:
+            heading -= 360
         self.heading = heading
 
     def get_direction(self) -> str:
         '''Find the nearest cardinal direction of the current heading'''
         direction = round(self.heading/45)*45
+        if direction == 360:
+            direction = 0
 
         match direction:
             case 0:
@@ -27,34 +31,37 @@ class Compass:
     def turn(self, degrees, direction) -> None:
         match direction:
             case 'left':
-                if degrees > self.heading:
-                    self.heading += 360
                 self.heading -= degrees
+                if self.heading < 0:
+                    self.heading += 360
 
             case 'right':
                 self.heading += degrees
                 if self.heading > 360:
                     self.heading -= 360
 
-        ...
         print(
             f'Turned {degrees} degrees {direction}. New heading is {self.heading}, pointed roughly {self.get_direction()}')
 
     def __add__(self, degrees: int) -> int:
         '''Add two different compass headings together'''
-        sum = self.header + degrees
-        if sum > 360:
+        sum = self.heading + Compass(degrees).heading
+        if sum >= 360:
             sum -= 360
 
         return sum
 
     def __sub__(self, degrees: int) -> int:
         '''Subract one compass heading from another'''
-        ...
+        # other = Compass(degrees).heading
+        diff = self.heading - degrees
+        if diff < 0:
+            diff += 360
+        return diff
 
     def __eq__(self, other) -> bool:
         '''Determine whether two compasses have the same heading'''
-        ...
+        return self.heading == other.heading
 
     def __gt__(self, other):
         raise TypeError('Cardinal directions cannot be greater or less than')
@@ -63,7 +70,7 @@ class Compass:
         raise TypeError('Cardinal directions cannot be greater or less than')
 
     def __str__(self) -> str:
-        ...
+        return f'This compass is pointed {self.get_direction()} at a heading of {self.heading}.'
 
 
 '''
@@ -100,12 +107,12 @@ def test_addition():
     assert sw + 120 == 0
 
 
-# def test_subtraction():
-#     assert ne - 90 == 310
-#     assert ne - 40 == 0
-#     assert sw - 10 == 230
+def test_subtraction():
+    assert ne - 90 == 310
+    assert ne - 40 == 0
+    assert sw - 10 == 230
 
 
-# def test_equality():
-#     new_sw = Compass(240)
-#     assert new_sw == sw
+def test_equality():
+    new_sw = Compass(240)
+    assert new_sw == sw
