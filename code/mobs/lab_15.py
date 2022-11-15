@@ -8,16 +8,16 @@
 
 class Game:
     def __init__(self):
-        self.board = [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
+        self.board = [[' ','O',' '],[' ','O',' '],[' ','O',' ']]
 
 
     def __repr__(self):
         '''Returns a pretty string representation of the game board'''
-        new_board = []
+        board_output = []
         for i, string in enumerate(self.board):
             string = '|'.join(self.board[i])
-            new_board.append(string)
-        return "\n".join(new_board)
+            board_output.append(string)
+        return "\n".join(board_output)
 
 
     def move(self): # , x, y, player):
@@ -28,30 +28,30 @@ class Game:
         player = 'X'
         self.board[y][x] = player
 
-# ```py
-# >>> board.move(2, 1, player_1)
-#  | | 
-#  | |X
-#  | | 
-# ```
-
-        ...
-
 
     def calc_winner(self):
         ''' What token character
 string has won or `None` if no one has.'''
-# ```py
-# X| | 
-# O|X|O
-#  | |X
-# >>> board.calc_winner()
-# X
-# ```
-
-        ...
-
-
+        for row in self.board:
+            if row[0] == row[1] and row[1] == row[2]:
+                if row[0] != ' ': 
+                    return row[0]
+            else:
+                continue
+        for i, column in enumerate(self.board[0]):
+            if column == self.board[1][i] and self.board[2][i] == column:
+                if column[0] != ' ':
+                    return column[0]
+            else:
+                continue
+        if self.board[0][0] == self.board[1][1] and self.board[2][2] == self.board[1][1]:
+            if self.board[0][0] != ' ': 
+                return self.board[0][0]
+        if self.board[0][2] == self.board[1][1] and self.board[2][0] == self.board[1][1]:
+            if self.board[0][0] != ' ': 
+                return self.board[0][0]
+        else:
+            return None
     def is_full(self):
         '''Returns true if the game board is full.'''
         ...
@@ -84,10 +84,11 @@ is full or a player has won.'''
 
 
 game = Game()
-print(game)
-game.move()
-print(game)
-
+# print(game)
+# game.move()
+# print(game)
+game.calc_winner()
+print(game.calc_winner())
 # class Player:
 #     def __init__(self, name, token):
         #name = player_name
