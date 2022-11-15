@@ -30,43 +30,46 @@ class ATM:
     def print_transactions(self):
         print(atm_list)
 
-atm = ATM() # create an instance of our class
-atm_list = []
 
-print('Welcome to the ATM')
-while True:
-    command = input('Enter a command: ')
-    if command == 'balance':
-        balance = atm.check_balance() # call the check_balance() method
-        print(f'Your balance is ${balance}')
-    elif command == 'transactions':
-        atm.print_transactions()
-    elif command == 'deposit':
-        amount = float(input('How much would you like to deposit? '))
-        atm_list.append(f"User deposited {amount}")
-        atm.deposit(amount) # call the deposit(amount) method
-        print(f'Deposited ${amount}')
-    elif command == 'withdraw':
-        amount = float(input('How much would you like '))
-        if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
-            atm_list.append(f"User withdrew {amount}")
-            atm.withdraw(amount) # call the withdraw(amount) method
-            print(f'Withdrew ${amount}')
+if __name__ == '__main__':
+    #Put everything that's not a function
+    atm = ATM() # create an instance of our class
+    atm_list = []
+
+    print('Welcome to the ATM')
+    while True:
+        command = input('Enter a command: ')
+        if command == 'balance':
+            balance = atm.check_balance() # call the check_balance() method
+            print(f'Your balance is ${balance}')
+        elif command == 'transactions':
+            atm.print_transactions()
+        elif command == 'deposit':
+            amount = float(input('How much would you like to deposit? '))
+            atm_list.append(f"User deposited {amount}")
+            atm.deposit(amount) # call the deposit(amount) method
+            print(f'Deposited ${amount}')
+        elif command == 'withdraw':
+            amount = float(input('How much would you like '))
+            if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
+                atm_list.append(f"User withdrew {amount}")
+                atm.withdraw(amount) # call the withdraw(amount) method
+                print(f'Withdrew ${amount}')
+            else:
+                print('Insufficient funds')
+        elif command == 'interest':
+            amount = atm.calc_interest() # call the calc_interest() method
+            atm.deposit(amount)
+            print(f'Accumulated ${amount} in interest')
+        elif command == 'help':
+            print('Available commands:')
+            print('balance  - get the current balance')
+            print('transactions  - get list of transactions')
+            print('deposit  - deposit money')
+            print('withdraw - withdraw money')
+            print('interest - accumulate interest')
+            print('exit     - exit the program')
+        elif command == 'exit':
+            break
         else:
-            print('Insufficient funds')
-    elif command == 'interest':
-        amount = atm.calc_interest() # call the calc_interest() method
-        atm.deposit(amount)
-        print(f'Accumulated ${amount} in interest')
-    elif command == 'help':
-        print('Available commands:')
-        print('balance  - get the current balance')
-        print('transactions  - get list of transactions')
-        print('deposit  - deposit money')
-        print('withdraw - withdraw money')
-        print('interest - accumulate interest')
-        print('exit     - exit the program')
-    elif command == 'exit':
-        break
-    else:
-        print('Command not recognized')
+            print('Command not recognized')

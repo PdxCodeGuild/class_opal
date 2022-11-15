@@ -1,4 +1,4 @@
-data:list = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
+# data:list = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 
 
 def peak(data):
@@ -19,7 +19,7 @@ def valley(data):
     return valleys
 
 
-print(valley(data))
+# print(valley(data))
 
 
 def peaks_and_valleys_fun(data: list):
@@ -31,19 +31,23 @@ def peaks_and_valleys_fun(data: list):
     return indeces
 
 
-print(peaks_and_valleys_fun(data))
-
-data:list = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
+# print(peaks_and_valleys_fun(data))
+# data:list = [1, 0, 1, 2, 1]
 
 #Using (max(data)) to cycle through nine times (which is the maximum)
-print(max(data))
+def printxmarkings(data):
+    # print(max(data))
 
-for i in range(max(data)):
-    xmarks = ''
-    for index in range(len(data)):
-        #subtracting i each time to lower the index we're working with so this if statement runs.
-        if data[index] >= max(data) - i:
-            xmarks += 'X'
-        else:
-            xmarks += ' '
-    print(xmarks)
+    for i in range(max(data)):
+        xmarks = ''
+        for index in range(len(data)):
+            #subtracting i each time to lower the index we're working with so this if statement runs.
+            if data[index] >= max(data) - i:
+                xmarks += 'X'
+            else:
+                xmarks += ' '
+        print(xmarks)
+    return xmarks
+
+
+# printxmarkings(data)
