@@ -40,7 +40,7 @@ def ARI(contents):
         13: {'ages': '17-18', 'grade_level':   '12th Grade'},
         14: {'ages': '18-22', 'grade_level':      'College'}
     }
-
+    
     return(f"""
     The ARI for the file is {ari}.
     This corresponds to a(n) {ari_scale[ari]['grade_level']} level of difficulty.

@@ -1,2 +1,8 @@
 # Lab 14: Test ARI
-# Need to make ARI into a function. But I am tired, so I will do it tomorrow.
+
+from ARI import ARI
+
+def test_ARI():
+    contents = "string of words here for testing."
+    assert type(ARI(contents)) is str
+    ...
