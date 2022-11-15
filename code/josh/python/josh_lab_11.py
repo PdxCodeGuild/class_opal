@@ -23,23 +23,15 @@ while True:
         break
     state = input('Enter a new state abbreviation: ')
     branch = input('Enter a new military service abbreviation: ')
-    new_contact = [name, state, branch]
-    # contact_dict.update(new_contact)
-    for i, key in enumerate(keys):
-        contact_dict[key] = new_contact[i]######### Currently replacing last dictionary in list instead of adding new dictionary to end of list ###########
-    # contacts.append(contact_dict)
-
-    # for user_entry in new_contact:
-    #     contact_dict[0] = name
-    #     contact_dict[1] = state
-    #     contact_dict[2] = branch
-    #     # i, key in enumerate(keys):
-    #     # contact_dict[key] = new_contact[i]
-    # contacts.append(new_contact)
+    user_input = [name, state, branch]
+    new_contact = dict(zip(keys, user_input))
+    contacts.append(new_contact)
+    retrieve = input('Enter name to retrieve record: ')
+    
     
     print(contacts)
+    
 
-# Create a record: ask the user for each attribute, add a new contact to your contact list with the attributes that the user entered.
 # Retrieve a record: ask the user for the contact's name, find the user with the given name, and display their information
 # Update a record: ask the user for the contact's name, then for which attribute of the user they'd like to update and the value of the attribute they'd like to set.
 # Delete a record: ask the user for the contact's name, remove the contact with the given name from the contact list.
