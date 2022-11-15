@@ -26,17 +26,53 @@ while True:
     user_input = [name, state, branch]
     new_contact = dict(zip(keys, user_input))
     contacts.append(new_contact)
-    retrieve = input('Enter name to retrieve record: ')
-    
-    
-    print(contacts)
-    
+    retrieve = input('Enter a name to retrieve the record or \'q\' to exit: ')
+    if retrieve == 'q':
+        break
+    else:
+        for contact in contacts:
+            if contact['name'] == retrieve:
+                print(contact)
+                break
+            else:
+                pass
+        pass
+            # elif retrieve not in contacts[0:]:
+            #     print(f'\'{retrieve}\' is not in list of contacts.')
+            #     break
+    update = input('Enter a name to update a contact or \'q\' to exit: ')
+    if update == 'q':
+        break
+    else:
+        for contact in contacts:
+            if contact['name'] == update:
+                old_value = input('Enter the item to update (\'name\', \'state\', \'branch\'): ')
+                new_value = input(f'Enter new value for {old_value}: ')
+                contact[old_value] = new_value
+                print(contact)
+                break
+            else:
+            #     print(f'\'{retrieve}\' is not in list of contacts.')
+                pass
+    delete = input('Enter a name to delete a contact or \'q\' to exit: ')
+    if delete == 'q':
+        break
+    else:
+        for contact in contacts:
+            if contact['name'] == delete:
+                del contact
+                print(contacts)
+                break
+            else:
+                pass
+       #print(contacts)
 
-# Retrieve a record: ask the user for the contact's name, find the user with the given name, and display their information
-# Update a record: ask the user for the contact's name, then for which attribute of the user they'd like to update and the value of the attribute they'd like to set.
-# Delete a record: ask the user for the contact's name, remove the contact with the given name from the contact list.
+    # print(contacts)
 
 
-# Step 3
-# When REPL loop finishes, write the updated contact info to the CSV file to be saved. I highly recommend saving a backup contacts.csv because you likely won't 
-# write it correctly the first time.
+# # Delete a record: ask the user for the contact's name, remove the contact with the given name from the contact list.
+
+
+# # Step 3
+# # When REPL loop finishes, write the updated contact info to the CSV file to be saved. I highly recommend saving a backup contacts.csv because you likely won't 
+# # write it correctly the first time.
