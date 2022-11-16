@@ -68,4 +68,16 @@ while True:
     
     print(contacts)
 
-# Step 3 - Write the updated contact info to the CSV file to be saved.
+# Step 3 - Write the updated contact info to the CSV file to be saved
+
+# output_path = 'class_opal\code\josh\python\contacts_new.csv'
+# output_content = '\n'.join(lines)
+
+# with open(output_path, 'w') as file:
+#     file.write(contacts) #creates a typeerror
+
+# output_path = 'class_opal\code\josh\python\contacts.csv'
+# output_content = '\n'.join(lines)
+
+# with open(output_path, 'w') as file:
+#     file.write(output_content) #doesn't write to file
