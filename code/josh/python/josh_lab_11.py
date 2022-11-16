@@ -69,15 +69,20 @@ while True:
     print(contacts)
 
 # Step 3 - Write the updated contact info to the CSV file to be saved
+contacts_output = []
 
-# output_path = 'class_opal\code\josh\python\contacts_new.csv'
-# output_content = '\n'.join(lines)
+for key in keys:
+    key_info = [k for k in contacts[0].keys()]
+    single_key = ','.join(key_info)
+    contacts_output.append(single_key)
 
-# with open(output_path, 'w') as file:
-#     file.write(contacts) #creates a typeerror
+for contact in contacts:
+    contact_info = [c for c in contact.values()]
+    single_contact = ','.join(contact_info)
+    contacts_output.append(single_contact)
 
-# output_path = 'class_opal\code\josh\python\contacts.csv'
-# output_content = '\n'.join(lines)
+output_path = 'class_opal\code\josh\python\contacts_new.csv'
+output_content = '\n'.join(contacts_output)
 
-# with open(output_path, 'w') as file:
-#     file.write(output_content) #doesn't write to file
+with open(output_path, 'w') as file:
+    file.write(output_content)
