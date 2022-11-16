@@ -31,7 +31,7 @@ def test_peaks_and_valleys_fun():
 
 
 def test_printxmarkings():
-    data:list = [1, 0, 1, 0, 1]
+    data:list = [1, 1, 1, 0, 1]
     #testing that it's printing a string with 'X' to represent the int 1
-    assert printxmarkings(data) == 'X X X'
+    assert printxmarkings(data) == 'XXX X'
     assert type(printxmarkings(data)) is str
