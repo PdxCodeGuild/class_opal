@@ -8,7 +8,7 @@
 
 class Game:
     def __init__(self):
-        self.board = [['X', 'X', 'O'], ['X', 'X', 'X'], ['X', 'X', 'X']]
+        self.board = [['X', ' ', 'O'], ['X', ' ', 'X'], ['X', ' ', ' ']]
 
     def __repr__(self):
         '''Returns a pretty string representation of the game board'''
@@ -62,31 +62,17 @@ string has won or `None` if no one has.'''
         return is_full
 
 
-# ```py
-# X|O|X
-# X|X|O
-# O|O|X
-# >>> board.is_full()
-# True
-# ```
-
+# need to adjust game_over parameters to make sure one if statement isn't taking prority over the other
+###########
+#############!!!!
     def game_over(self):
         '''Returns true if the game board
 is full or a player has won.'''
-        pass
-# ```py
-# X|O|X
-# X|X|O
-# O|O|X
-# >>> board.is_game_over()
-# True
+        if self.is_full() is True:
+            return True
+        if self.calc_winner() != None:
+            return True
 
-# X|O|
-#  | |X
-#  | |
-# >>> board.is_game_over()
-# False
-# ```
 
 
 game = Game()
@@ -94,8 +80,9 @@ game = Game()
 # game.move()
 # print(game)
 game.calc_winner()
-print(game.calc_winner())
-print(game.is_full())
+# print(game.calc_winner())
+# print(game.is_full())
+print(game.game_over())
 # class Player:
 #     def __init__(self, name, token):
 #name = player_name
