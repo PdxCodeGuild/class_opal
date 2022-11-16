@@ -1,15 +1,11 @@
 # # Lab 15: Tic-Tac-Toe
 
-# Players take turns placing tokens (a 'O' or 'X') into a 3x3 grid.
-# Whoever gets three in a row first wins.
-
-# You will write a **Player** class and **Game** class to model Tic Tac Toe, and a function **main** that models gameplay taking in user inputs through REPL.
-
 
 class Player:
     def __init__(self, name, token):
         self.name = name
         self.token = token
+
 
     def __str__(self) -> str:
         return self.name
@@ -17,7 +13,8 @@ class Player:
 
 class Game:
     def __init__(self):
-        self.board = [['O', 'O', 'O'], ['X', 'O', 'X'], ['X', 'O', 'O']]
+        self.board = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
+
 
     def __repr__(self):
         '''Returns a pretty string representation of the game board'''
@@ -27,13 +24,12 @@ class Game:
             board_output.append(string)
         return "\n".join(board_output)
 
-    def move(self):  # , x, y, player):
+
+    def move(self, x, y, player):
         '''Place a player's token character string at a given coordinate 
 (top-left is 0, 0), x is horizontal position, y is vertical position.'''
-        x = 0
-        y = 1
-        player = 'X'
         self.board[y][x] = player
+
 
     def calc_winner(self):
         ''' What token character
@@ -54,10 +50,11 @@ string has won or `None` if no one has.'''
             if self.board[0][0] != ' ':
                 return self.board[0][0]
         if self.board[0][2] == self.board[1][1] and self.board[2][0] == self.board[1][1]:
-            if self.board[0][0] != ' ':
+            if self.board[0][2] != ' ':
                 return self.board[0][0]
         else:
             return None
+
 
     def is_full(self):
         '''Returns true if the game board is full.'''
@@ -76,10 +73,9 @@ string has won or `None` if no one has.'''
 is full or a player has won.'''
         if self.is_full() is True:
             return True
-        if self.calc_winner() != None:
+        if self.calc_winner() is not None:
             return True
-        else:
-            return False
+        return False
 
 
 def game_setup():
@@ -97,7 +93,6 @@ def game_setup():
             piece_list.pop(i)
     player_2_name = input("Enter a name for Player 2: ")
     player_2_piece = piece_list[0]
-
     player_1 = Player(player_1_name, player_1_piece)
     print(player_1.name, player_1.token)
     player_2 = Player(player_2_name, player_2_piece)
@@ -106,14 +101,35 @@ def game_setup():
     return player_1, player_2, game
 
 
+def player_move(player, game):
+    print(f"{player}'s turn.")
+    while True:
+        player_move_list = []
+        player_move = input("Enter 2 coordinates (left to right 0, 1, 2 & top to bottom 0, 1, 2): ")
+        for n in player_move:
+            player_move_list.append(int(n))
+        if game.board[player_move_list[0]][player_move_list[1]] != ' ':
+            print("This space is full.")
+        else:
+            break
+    game.move(player_move_list[1], player_move_list[0], player.token)
 
 
+def gameplay(game_setup):
+    player_1, player_2, game = game_setup
+    player_1_turn = True
+    loser = [player_1, player_2]
+    while not game.is_game_over():
+        player_turn = player_1 if player_1_turn else player_2
+        player_move(player_turn, game)
+        player_1_turn = not player_1_turn
+        print(game)
+    winner = game.calc_winner()
+    if winner == None:
+        return "It's a Tic-Tac-Tie."
+    else:
+        loser.remove(player_turn)
+        return f"{player_turn} Tic-Tac-Terminated {loser[0]}!"
 
-# game = Game()
-# print(game)
-# game.move()
-# print(game)
-# game.calc_winner()
-# print(game.calc_winner())
-# print(game.is_full())
 
+print(gameplay(game_setup()))
