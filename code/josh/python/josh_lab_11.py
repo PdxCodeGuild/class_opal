@@ -15,8 +15,8 @@ for line in lines[1:]:
         contact_dict[key] = values[i]
     contacts.append(contact_dict)
 
-# Step 2 - Implement a CRUD REPL
 
+# CRUD REPL
 while True:
     name = input('Enter a new name or type \'q\' to exit: ')
     if name == 'q':
@@ -26,9 +26,9 @@ while True:
     user_input = [name, state, branch]
     new_contact = dict(zip(keys, user_input))
     contacts.append(new_contact)
-    retrieve = input('Enter a name to retrieve the record or \'q\' to exit: ')
-    if retrieve == 'q':
-        break
+    retrieve = input('Enter a name to retrieve the record or \'n\' to continue: ')
+    if retrieve == 'n':
+        pass
     else:
         for contact in contacts:
             if contact['name'] == retrieve:
@@ -40,9 +40,9 @@ while True:
             # elif retrieve not in contacts[0:]:
             #     print(f'\'{retrieve}\' is not in list of contacts.')
             #     break
-    update = input('Enter a name to update a contact or \'q\' to exit: ')
-    if update == 'q':
-        break
+    update = input('Enter a name to update a contact or \'n\' to continue: ')
+    if update == 'n':
+        pass
     else:
         for contact in contacts:
             if contact['name'] == update:
@@ -54,25 +54,18 @@ while True:
             else:
             #     print(f'\'{retrieve}\' is not in list of contacts.')
                 pass
-    delete = input('Enter a name to delete a contact or \'q\' to exit: ')
-    if delete == 'q':
-        break
+    delete = input('Enter a name to delete a contact or \'n\' to continue: ')
+    if delete == 'n':
+        pass
     else:
-        for contact in contacts:
+        for i, contact in enumerate(contacts):
             if contact['name'] == delete:
-                del contact
-                print(contacts)
+                contacts.pop(i)
                 break
             else:
                 pass
-       #print(contacts)
+    
+    
+    print(contacts)
 
-    # print(contacts)
-
-
-# # Delete a record: ask the user for the contact's name, remove the contact with the given name from the contact list.
-
-
-# # Step 3
-# # When REPL loop finishes, write the updated contact info to the CSV file to be saved. I highly recommend saving a backup contacts.csv because you likely won't 
-# # write it correctly the first time.
+# Step 3 - Write the updated contact info to the CSV file to be saved.
