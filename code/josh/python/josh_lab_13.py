@@ -1,13 +1,11 @@
 # Lab 13: Compass
 
-# Note: The dunder methods are available as self.__method__ but you can't rely on their behavior being implemented inside the class definition. 
-# Using the +, -, or == operators may not work the way you have specified. Only the __str__ method will definitely work inside the class definition.
-
 
 class Compass:
     def __init__(self, heading) -> None:
         self.heading = heading
 
+# Returns 'N', 'NE', 'E', 'SE', 'S', 'SW', 'W', or 'NW' depending upon range of nearest heading
     def get_direction(self) -> str:
         '''Find the nearest cardinal direction of the current heading'''
         direction = self.heading
@@ -48,60 +46,57 @@ class Compass:
             case 315:
                 return 'NW'
 
-## There is a turn method that turns the compass left or right by a specified amount.
+# Turns 'Compass' left or right based upon user input of turn direction and amount of turn
     def turn(self, degrees, direction) -> None:
         self.degrees = degrees
         self.direction = direction
         if direction == 'left':
-            # if self.heading < 0:
             self.heading = self.heading - degrees + 360
-            # else:
-            #     self.heading = self.heading - degrees
         elif direction == 'right':
             if self.heading + degrees > 359:
                 self.heading = self.heading + degrees - 360
             else:
                 self.heading = self.heading + degrees
-        print(
-            f'Turned {degrees} degrees {direction}. New heading is {self.heading}, pointed roughly {self.get_direction()}')
+        print(f'Turned {degrees} degrees {direction}. New heading is {self.heading}, pointed roughly {self.get_direction()}')
 
-## Override the built in __add__ and __sub__ dunder methods to add custom behavior when a heading would go over 360 or below zero.
+# Returns remainder when heading is over 360 degrees
     def __add__(self, degrees: int) -> int:
         '''Add two different compass headings together'''
-        self.degrees = __add__(self.heading, degrees)
-        # if degrees >= 360:
-        #     degrees - 360
-        # ...
+        self.degrees = degrees
+        return (self.heading + degrees) % 360
 
+
+# Returns remainder when heading is below 0 degrees
     def __sub__(self, degrees: int) -> int:
         '''Subract one compass heading from another'''
         self.degrees = degrees
-        if degrees < 0:
-            degrees + 360
-        ...
+        return (self.heading - degrees) % 360
+        
 
 # Override the __eq__ method to return True when two compasses with the same heading are compared.
     def __eq__(self, other) -> bool:
         '''Determine whether two compasses have the same heading'''
         self.other = other
-        if Compass == Compass:
+        if self.heading == other.heading:
             return True
         else:
             return False
-        ...
+
 
     def __gt__(self, other):
         raise TypeError('Cardinal directions cannot be greater or less than')
 
+
     def __lt__(self, other):
         raise TypeError('Cardinal directions cannot be greater or less than')
 
+
     def __str__(self) -> str:
-        ...
-# Run your file with pytest to make sure all the tests pass!
-# '''
-############### DON'T CHANGE ANYTHING BELOW HERE ###############
-# '''
+        return f'Hello there.  You are currently heading {self.get_direction()}.  Enjoy your trip!'
+
+
+'''Automated tests for class Compass (DO NOT CHANGE ANYTHING BELOW THIS LINE!) '''
+
 ne = Compass(40)
 sw = Compass(240)
 e = Compass(104)
@@ -133,12 +128,12 @@ def test_addition():
     assert sw + 120 == 0
 
 
-# def test_subtraction():
-#     assert ne - 90 == 310
-#     assert ne - 40 == 0
-#     assert sw - 10 == 230
+def test_subtraction():
+    assert ne - 90 == 310
+    assert ne - 40 == 0
+    assert sw - 10 == 230
 
 
-# def test_equality():
-#     new_sw = Compass(240)
-#     assert new_sw == sw
+def test_equality():
+    new_sw = Compass(240)
+    assert new_sw == sw
