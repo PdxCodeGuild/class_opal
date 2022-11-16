@@ -8,6 +8,12 @@ interest_rate = 0.1
 amount = 100
 
 
+def test_bank_creation():
+    pass
+
+
+#Worried that we're just referring to global variables and
+#not even executing the function we're supposed to be testing.
 def test_check_balance():
     assert balance is 0
     assert balance + deposit == 10.0
