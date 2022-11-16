@@ -37,9 +37,6 @@ while True:
             else:
                 pass
         pass
-            # elif retrieve not in contacts[0:]:
-            #     print(f'\'{retrieve}\' is not in list of contacts.')
-            #     break
     update = input('Enter a name to update a contact or \'n\' to continue: ')
     if update == 'n':
         pass
@@ -52,7 +49,6 @@ while True:
                 print(contact)
                 break
             else:
-            #     print(f'\'{retrieve}\' is not in list of contacts.')
                 pass
     delete = input('Enter a name to delete a contact or \'n\' to continue: ')
     if delete == 'n':
@@ -66,22 +62,19 @@ while True:
                 pass
     
     
-    print(contacts)
-
 # Step 3 - Write the updated contact info to the CSV file to be saved
 contacts_output = []
 
-for key in keys:
-    key_info = [k for k in contacts[0].keys()]
-    single_key = ','.join(key_info)
-    contacts_output.append(single_key)
+key_info = [k for k in contacts[0].keys()]
+single_key = ','.join(key_info)
+contacts_output.append(single_key)
 
 for contact in contacts:
     contact_info = [c for c in contact.values()]
     single_contact = ','.join(contact_info)
     contacts_output.append(single_contact)
 
-output_path = 'class_opal\code\josh\python\contacts_new.csv'
+output_path = 'class_opal\code\josh\python\contacts.csv'
 output_content = '\n'.join(contacts_output)
 
 with open(output_path, 'w') as file:
