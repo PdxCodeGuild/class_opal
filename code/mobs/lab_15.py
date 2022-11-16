@@ -65,6 +65,7 @@ string has won or `None` if no one has.'''
 # need to adjust game_over parameters to make sure one if statement isn't taking prority over the other
 ###########
 #############!!!!
+
     def game_over(self):
         '''Returns true if the game board
 is full or a player has won.'''
@@ -72,7 +73,6 @@ is full or a player has won.'''
             return True
         if self.calc_winner() != None:
             return True
-
 
 
 game = Game()
