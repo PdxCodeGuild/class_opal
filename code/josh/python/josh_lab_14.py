@@ -6,6 +6,14 @@
 ########## PEAKS AND VALLEYS ##########
 from josh_lab_8 import peaks_and_valleys
 
+
+def test_peaks_and_valleys():
+    peaks = [6, 14]
+    valleys = [9, 17]
+    assert peaks[0] != valleys[0]
+    assert peaks[1] != valleys[1]
+
+   
 # # Creates a function to return a list of the peaks and valleys in order of appearance in the original data
 # def peaks_and_valleys(data):
 #     peaks_and_valleys_list = []
@@ -26,15 +34,14 @@ from josh_lab_8 import peaks_and_valleys
 
 
 ########## AUTOMATED TELLER MACHINE ##########
-from josh_lab_12 import ATM
+# from josh_lab_12 import ATM
 
-def test_check_balance:
-def test_deposit:
-def test_check_withdrawal:
-def test_withdraw:
-def test_calc_interest:
-def test_print_transactions:
-
+# def test_check_balance:
+# def test_deposit:
+# def test_check_withdrawal:
+# def test_withdraw:
+# def test_calc_interest:
+# def test_print_transactions:
 
 
 # If you need to refactor your code to make it more testable, include the refactored code in your pull request.
