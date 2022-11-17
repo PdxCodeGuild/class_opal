@@ -12,21 +12,21 @@ class Compass:
         if direction <= 22:
             direction = 0
         elif direction > 22 and direction <= 67:
-            direction =  45
+            direction = 45
         elif direction > 67 and direction <= 112:
             direction = 90
         elif direction > 112 and direction <= 157:
-            direction =  135
+            direction = 135
         elif direction > 157 and direction <= 202:
-            direction =  180
+            direction = 180
         elif direction > 202 and direction <= 247:
-            direction =  225
+            direction = 225
         elif direction > 247 and direction <= 292:
-            direction =  270
+            direction = 270
         elif direction > 292 and direction <= 337:
-            direction =  315
+            direction = 315
         elif direction > 337 and direction <= 359:
-            direction =  0
+            direction = 0
 
         match direction:
             case 0:
@@ -57,7 +57,8 @@ class Compass:
                 self.heading = self.heading + degrees - 360
             else:
                 self.heading = self.heading + degrees
-        print(f'Turned {degrees} degrees {direction}. New heading is {self.heading}, pointed roughly {self.get_direction()}')
+        print(
+            f'Turned {degrees} degrees {direction}. New heading is {self.heading}, pointed roughly {self.get_direction()}')
 
 # Returns remainder when heading is over 360 degrees
     def __add__(self, degrees: int) -> int:
@@ -67,13 +68,17 @@ class Compass:
 
 
 # Returns remainder when heading is below 0 degrees
+
+
     def __sub__(self, degrees: int) -> int:
         '''Subract one compass heading from another'''
         self.degrees = degrees
         return (self.heading - degrees) % 360
-        
+
 
 # Override the __eq__ method to return True when two compasses with the same heading are compared.
+
+
     def __eq__(self, other) -> bool:
         '''Determine whether two compasses have the same heading'''
         self.other = other
@@ -82,14 +87,11 @@ class Compass:
         else:
             return False
 
-
     def __gt__(self, other):
         raise TypeError('Cardinal directions cannot be greater or less than')
 
-
     def __lt__(self, other):
         raise TypeError('Cardinal directions cannot be greater or less than')
-
 
     def __str__(self) -> str:
         return f'Hello there.  You are currently heading {self.get_direction()}.  Enjoy your trip!'
@@ -121,6 +123,12 @@ def test_turn():
     heading2.turn(120, 'left')
     assert heading2.heading == 350
 
+    heading3 = Compass(2)
+    heading3.turn(1, 'left')
+    assert heading3.heading == 1
+    heading3.turn(1, 'right')
+    assert heading3.heading == 2
+
 
 def test_addition():
     assert ne + 30 == 70
@@ -137,3 +145,4 @@ def test_subtraction():
 def test_equality():
     new_sw = Compass(240)
     assert new_sw == sw
+    assert sw != e
