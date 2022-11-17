@@ -1,6 +1,7 @@
 # Lab 12: ATM
 class ATM:
     def __init__(self):
+        self.transactions: list = []
         self.balance: float = 0
         self.interest_rate: float = 0.1
     
@@ -10,7 +11,8 @@ class ATM:
 
     def deposit(self, amount):
         #deposits the given amount in the account
-        self.balance = self.balance + amount
+        self.balance += amount
+        self.transactions.append(f"User deposited ${amount}")
         return self.balance
 
     def check_withdrawal(self, amount):
@@ -20,7 +22,8 @@ class ATM:
 
     def withdraw(self,amount):
         # withdraws the amount from the account and returns it
-        self.balance = self.balance - amount
+        self.transactions.append(f"User withdrew ${amount}")
+        self.balance -= amount
         return self.balance
 
     def calc_interest(self):
@@ -28,10 +31,9 @@ class ATM:
         return self.balance * self.interest_rate * 1
 
     def print_transactions(self):
-        print(atm_list)
+        print(self.transactions)
 
 atm = ATM() # create an instance of our class
-atm_list = []
 
 print('Welcome to the ATM')
 while True:
@@ -43,13 +45,11 @@ while True:
         atm.print_transactions()
     elif command == 'deposit':
         amount = float(input('How much would you like to deposit? '))
-        atm_list.append(f"User deposited {amount}")
         atm.deposit(amount) # call the deposit(amount) method
         print(f'Deposited ${amount}')
     elif command == 'withdraw':
         amount = float(input('How much would you like '))
         if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
-            atm_list.append(f"User withdrew {amount}")
             atm.withdraw(amount) # call the withdraw(amount) method
             print(f'Withdrew ${amount}')
         else:
