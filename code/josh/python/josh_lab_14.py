@@ -1,12 +1,14 @@
 # Lab 14: Automated Tests - Peaks and Valleys, ARI, ATM
 
-# Each functions tests should have multiple assertions. Test all of the edge cases you can think of, keeping assertions small.
+# Each function's tests should have multiple assertions. Test all of the edge cases you can think of, keeping assertions small.
 
 ########## PEAKS AND VALLEYS ##########
 from josh_lab_8 import peaks_and_valleys
+### Do I have to copy and paste 'data_dict' to test function with program code that is outside of the function? ###
 
 
 def test_peaks_and_valleys():
+# def test_peaks_and_valleys(data_dict):    # Use if I copy/paste 'data_dict'
     peaks = [6, 14]
     valleys = [9, 17]
     assert peaks[0] != valleys[0]
@@ -16,7 +18,8 @@ def test_peaks_and_valleys():
         assert peak, valley == list
         assert peak != valley
         assert valley != peak
-    
+        # assert data[key] == data[key + 2]   # Use if I copy/paste 'data_dict'
+ 
    
 # # Creates a function to return a list of the peaks and valleys in order of appearance in the original data
 # def peaks_and_valleys(data):
