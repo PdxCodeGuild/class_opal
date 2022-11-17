@@ -1,6 +1,7 @@
 # Lab 14: Test ATM
 from ATM import ATM
 
+
 def test_check_balance():
     atm = ATM()
     #instantiating instance of class

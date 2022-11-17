@@ -35,3 +35,4 @@ def test_printxmarkings():
     #testing that it's printing a string with 'X' to represent the int 1
     assert printxmarkings(data) == 'XXX X'
     assert type(printxmarkings(data)) is str
+

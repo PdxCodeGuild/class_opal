@@ -34,6 +34,7 @@ def peaks_and_valleys_fun(data: list):
 # print(peaks_and_valleys_fun(data))
 # data:list = [1, 0, 1, 2, 1]
 
+
 #Using (max(data)) to cycle through nine times (which is the maximum)
 def printxmarkings(data):
     # print(max(data))
