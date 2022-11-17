@@ -3,16 +3,20 @@
 
 class ATM:
     def __init__(self):
-        self.balance: float = 0
-        self.interest_rate: float = 0.1
+        self.balance = float(0)
+        self.interest_rate = float(0.1)
+        self.atm_list = []
     
+
     def check_balance(self) -> float:
         #returns the account balance
         return self.balance
 
+
     def deposit(self, amount):
         #deposits the given amount in the account
         self.balance = self.balance + amount
+        self.atm_list.append(f"User deposited ${amount}")
         return self.balance
 
     def check_withdrawal(self, amount):
@@ -20,23 +24,27 @@ class ATM:
         if amount <= self.balance:
             return True
 
+
     def withdraw(self,amount):
         # withdraws the amount from the account and returns it
         self.balance = self.balance - amount
+        self.atm_list.append(f"User withdrew ${amount}")
         return self.balance
+
 
     def calc_interest(self):
         #returns the amount of interest calculated on the account
         return self.balance * self.interest_rate * 1
 
+
     def print_transactions(self):
-        print(atm_list)
+        print(self.atm_list)
+        return self.atm_list
 
 
 if __name__ == '__main__':
     #Put everything that's not a function
     atm = ATM() # create an instance of our class
-    atm_list = []
 
     print('Welcome to the ATM')
     while True:
@@ -48,13 +56,11 @@ if __name__ == '__main__':
             atm.print_transactions()
         elif command == 'deposit':
             amount = float(input('How much would you like to deposit? '))
-            atm_list.append(f"User deposited {amount}")
             atm.deposit(amount) # call the deposit(amount) method
             print(f'Deposited ${amount}')
         elif command == 'withdraw':
             amount = float(input('How much would you like '))
             if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
-                atm_list.append(f"User withdrew {amount}")
                 atm.withdraw(amount) # call the withdraw(amount) method
                 print(f'Withdrew ${amount}')
             else:

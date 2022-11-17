@@ -1,26 +1,47 @@
 
-def ARI(contents):
-    '''
-    Function that determines the ARI of a given file. Uses the file as an argument
-    '''
-    #defining empty variables so we can assign ints to them later.
-    num_of_sentences = 0
-    num_of_characters = 0
-
+def number_of_sentences():
+    # with open('code/lizzie/python/lab09_files/The_Great_Gatsby.txt', 'r') as file:
+    #     contents = file.read()
+    contents = "This is for testing my code. It's so scrumptious!"
+    num_of_sentences = int(0)
     for character in contents:
         #splitting on punctuation to get number of sentences
         if character in ['.', '?', '!']:
             num_of_sentences += 1
+    return num_of_sentences
 
+
+def number_of_words():
+    # with open('code/lizzie/python/lab09_files/The_Great_Gatsby.txt', 'r') as file:
+    #     contents = file.read()
+    contents = "This is for testing my code. It's so scrumptious!"
+    num_of_words = int(0)
     #splitting on empty space to determine how many words there are.
     words = contents.split()
     num_of_words = len(words)
+    return num_of_words
+# print(number_of_words())
 
+
+def number_of_characters():
+    # with open('code/lizzie/python/lab09_files/The_Great_Gatsby.txt', 'r') as file:
+    #     contents = file.read()
+    contents = "This is for testing my code. It's so scrumptious!"
+    num_of_characters = int(0)
     #Making one long string with only the characters and no spaces so len() can return an integer based on that length.
     contents_no_space = contents.replace(" ","")
     num_of_characters += len(contents_no_space)
+    return num_of_characters
 
-    ari = 4.71 * (num_of_characters/num_of_words) + 0.5 * (num_of_words/num_of_sentences) - 21.43
+
+def calculate_ari():
+    '''
+    Function that determines the ARI of a given file. Uses the file as an argument
+    '''
+    numchars = number_of_characters()
+    numwords = number_of_words()
+    numsentences = number_of_sentences()
+    ari = 4.71 * numchars/numwords + 0.5 * numwords/numsentences - 21.43
     #Must round the int of the ari so it's possible to use it to access keys in the dictionary.
     ari = round(ari)
 
@@ -40,21 +61,16 @@ def ARI(contents):
         13: {'ages': '17-18', 'grade_level':   '12th Grade'},
         14: {'ages': '18-22', 'grade_level':      'College'}
     }
-    
+
     # return ari, ari_scale, num_of_characters, num_of_words, num_of_sentences
-    return(f"""
-    The ARI for the file is {ari}.
-    This corresponds to a(n) {ari_scale[ari]['grade_level']} level of difficulty.
-    That is suitable for an average person who is {ari_scale[ari]['ages']} years old.
-    In case you were wondering, there are {num_of_characters} characters, {num_of_words} words, and {num_of_sentences} sentences in the file.
-    """)
+    print(f"""
+The ARI for the file is {ari}. \
+This corresponds to a(n) {ari_scale[ari]['grade_level']} \
+level of difficulty. That is suitable for an average person\
+who is {ari_scale[ari]['ages']} years old. In case you were \
+# wondering, there are {number_of_characters()} characters, \
+# {number_of_words()} words, and {number_of_sentences()} sentences in the file.""")
 
+    return [ari, numwords, numsentences, numchars]
 
-if __name__ == '__main__':
-    #Put everything that's not a function
-    relative_path = 'code/lizzie/python/lab09_files/The_Great_Gatsby.txt'
-    
-    with open(relative_path, 'r') as file:
-        contents = file.read()
-
-    print(ARI(contents))
+print(calculate_ari())

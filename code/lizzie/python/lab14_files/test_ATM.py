@@ -1,36 +1,62 @@
 # Lab 14: Test ATM
 from ATM import ATM
 
-
-balance = 0
-deposit = 10.0
-interest_rate = 0.1
-amount = 100
-
-
-def test_bank_creation():
-    pass
-
-
-#Worried that we're just referring to global variables and
-#not even executing the function we're supposed to be testing.
 def test_check_balance():
-    assert balance is 0
-    assert balance + deposit == 10.0
+    atm = ATM()
+    #instantiating instance of class
+    assert atm.balance == 0
+    assert atm.check_balance() == 0
+    assert type(atm.balance) is float
 
 
 def test_deposit():
-    pass
+    atm = ATM()
+    atm.deposit(10)
+    assert atm.balance == 10
+    
+    atm = ATM()
+    atm.deposit(0)
+    assert atm.balance == 0
 
 
 def test_check_withdrawal():
-    assert check_withdrawal(amount) is False
-    pass
+    atm = ATM()
+    amount = 0
+    assert atm.check_withdrawal(amount) is True
+
+    amount = -10
+    assert atm.check_withdrawal(amount) is True
+
+    amount = 100_000
+    assert atm.check_withdrawal(amount) is None
+    atm.deposit(100_001)
+    assert atm.check_withdrawal(amount) is True
 
 
 def test_withdraw():
-    pass
+    atm = ATM()
+    atm.withdraw(10)
+    assert atm.balance == -10
+    
+    atm = ATM()
+    atm.withdraw(0)
+    assert atm.balance == 0
+
+    atm.deposit(100_001)
+    atm.withdraw(1)
+    assert atm.balance == 100_000
 
 
 def test_calc_interest():
-    pass
+    atm = ATM()
+    assert atm.interest_rate == 0.1
+    assert atm.balance + atm.interest_rate *1 == 0.1
+
+
+def test_print_transactions():
+    #refactored code in ATM.py so the atm_list is in the class ATM,
+    #thus making it possible to access for the print_transactions function.
+    atm = ATM()
+    assert type(atm.print_transactions()) is list
+    atm.withdraw(1)
+    assert atm.atm_list == [f"User withdrew $1"]
