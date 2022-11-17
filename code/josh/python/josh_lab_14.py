@@ -4,7 +4,8 @@
 
 ########## PEAKS AND VALLEYS ##########
 from josh_lab_8 import peaks_and_valleys
-### Do I have to copy and paste 'data_dict' to test function with program code that is outside of the function? ###
+# Do I have to import unittest.mock, patch, and pytest?
+# Do I have to copy and paste 'data_dict' to test function with program code that is outside of the function?
 
 
 def test_peaks_and_valleys():
