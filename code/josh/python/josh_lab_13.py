@@ -8,26 +8,8 @@ class Compass:
 # Returns 'N', 'NE', 'E', 'SE', 'S', 'SW', 'W', or 'NW' depending upon range of nearest heading
     def get_direction(self) -> str:
         '''Find the nearest cardinal direction of the current heading'''
-        direction = self.heading
-        if direction <= 22:
-            direction = 0
-        elif direction > 22 and direction <= 67:
-            direction = 45
-        elif direction > 67 and direction <= 112:
-            direction = 90
-        elif direction > 112 and direction <= 157:
-            direction = 135
-        elif direction > 157 and direction <= 202:
-            direction = 180
-        elif direction > 202 and direction <= 247:
-            direction = 225
-        elif direction > 247 and direction <= 292:
-            direction = 270
-        elif direction > 292 and direction <= 337:
-            direction = 315
-        elif direction > 337 and direction <= 359:
-            direction = 0
-
+        direction = int(round(self.heading / 45) * 45)
+        
         match direction:
             case 0:
                 return 'N'
@@ -48,10 +30,11 @@ class Compass:
 
 # Turns 'Compass' left or right based upon user input of turn direction and amount of turn
     def turn(self, degrees, direction) -> None:
-        self.degrees = degrees
-        self.direction = direction
         if direction == 'left':
-            self.heading = self.heading - degrees + 360
+            if self.heading - degrees < 0:
+                self.heading = self.heading - degrees + 360
+            else:
+                self.heading = self.heading - degrees
         elif direction == 'right':
             if self.heading + degrees > 359:
                 self.heading = self.heading + degrees - 360
@@ -63,7 +46,6 @@ class Compass:
 # Returns remainder when heading is over 360 degrees
     def __add__(self, degrees: int) -> int:
         '''Add two different compass headings together'''
-        self.degrees = degrees
         return (self.heading + degrees) % 360
 
 
@@ -71,8 +53,7 @@ class Compass:
 
 
     def __sub__(self, degrees: int) -> int:
-        '''Subract one compass heading from another'''
-        self.degrees = degrees
+        '''Subtract one compass heading from another'''
         return (self.heading - degrees) % 360
 
 
@@ -81,7 +62,6 @@ class Compass:
 
     def __eq__(self, other) -> bool:
         '''Determine whether two compasses have the same heading'''
-        self.other = other
         if self.heading == other.heading:
             return True
         else:
