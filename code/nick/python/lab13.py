@@ -31,21 +31,17 @@ class Compass:
     def turn(self, degrees, direction) -> None:
         match direction:
             case 'left':
-                self.heading -= degrees
-                if self.heading < 0:
-                    self.heading += 360
+                self.heading = self.__sub__(degrees)
 
             case 'right':
-                self.heading += degrees
-                if self.heading > 360:
-                    self.heading -= 360
+                self.heading = self.__add__(degrees)
 
         print(
             f'Turned {degrees} degrees {direction}. New heading is {self.heading}, pointed roughly {self.get_direction()}')
 
     def __add__(self, degrees: int) -> int:
         '''Add two different compass headings together'''
-        sum = self.heading + Compass(degrees).heading
+        sum = self.heading + degrees
         if sum >= 360:
             sum -= 360
 
