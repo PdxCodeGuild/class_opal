@@ -3,7 +3,10 @@ import sys
 sys.path.insert(0, 'code/nick/python/lab09')
 import lab09  # nopep8
 
-'''sentences = 6, words = 151, characters = 623, ari = 11(10.6)'''
+'''passage taken from an explanation of ARI. All metrics are known.
+https://readabilityformulas.com/automated-readability-index.php
+sentences = 6, words = 151, characters = 623, ari = 11(10.6)'''
+
 test_book = '''The rule of rhythm in prose is not so intricate. 
 Here, too, we write in groups, or phrases, as I prefer to call them, for the prose phrase is greatly longer and is much more nonchalantly uttered than the group in verse; so that not only is there a greater interval of continuous sound between the pauses, but, for that very reason, word is linked more readily to word by a more summary enunciation. 
 Still, the phrase is the strict analogue of the group, and successive phrases, like successive groups, must differ openly in length and rhythm. 
