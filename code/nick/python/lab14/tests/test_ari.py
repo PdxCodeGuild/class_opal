@@ -1,4 +1,3 @@
-from unittest.mock import patch
 import sys
 sys.path.insert(0, 'code/nick/python/lab09')
 import lab09  # nopep8
