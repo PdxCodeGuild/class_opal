@@ -1,7 +1,6 @@
 # Lab 14: Automated Tests - Peaks and Valleys, ARI, ATM
 
 # Each functions tests should have multiple assertions. Test all of the edge cases you can think of, keeping assertions small.
-# For example, in peaks_and_valleys you might test [1, 2, 3, 2] and [3, 2, 3, 2] instead of long lists.
 
 ########## PEAKS AND VALLEYS ##########
 from josh_lab_8 import peaks_and_valleys
@@ -12,7 +11,12 @@ def test_peaks_and_valleys():
     valleys = [9, 17]
     assert peaks[0] != valleys[0]
     assert peaks[1] != valleys[1]
-
+    for peak, valley in peaks, valleys:
+        assert peak, valley == int
+        assert peak, valley == list
+        assert peak != valley
+        assert valley != peak
+    
    
 # # Creates a function to return a list of the peaks and valleys in order of appearance in the original data
 # def peaks_and_valleys(data):
