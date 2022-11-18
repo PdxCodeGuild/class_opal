@@ -30,6 +30,7 @@ def test_sentence_counter():
     test for accurate count of sentences within margin of error
     '''
     assert lab09.sentence_counter(test_book) == 6
+    assert lab09.sentence_counter('Hello. Im a test.') == 2
 
 
 def test_word_counter():
@@ -37,6 +38,7 @@ def test_word_counter():
     test for accurate count of words within margin of error
     '''
     assert lab09.word_counter(test_book) == 151
+    assert lab09.word_counter('Wheee! Hello') == 2
 
 
 def test_char_counter():
