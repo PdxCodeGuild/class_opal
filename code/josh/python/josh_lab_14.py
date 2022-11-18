@@ -5,22 +5,12 @@
 ########## PEAKS AND VALLEYS ##########
 from josh_lab_8 import peaks_and_valleys
 # Do I have to import unittest.mock, patch, and pytest?
-# Do I have to copy and paste 'data_dict' to test function with program code that is outside of the function?
 
 
 def test_peaks_and_valleys():
 # def test_peaks_and_valleys(data_dict):    # Use if I copy/paste 'data_dict'
-    peaks = [6, 14]
-    valleys = [9, 17]
-    assert peaks[0] != valleys[0]
-    assert peaks[1] != valleys[1]
-    for peak, valley in peaks, valleys:
-        assert peak, valley == int
-        assert peak, valley == list
-        assert peak != valley
-        assert valley != peak
-        # assert data[key] == data[key + 2]   # Use if I copy/paste 'data_dict'
- 
+    assert peaks_and_valleys([1, 2, 1]) == [1]
+    
    
 # # Creates a function to return a list of the peaks and valleys in order of appearance in the original data
 # def peaks_and_valleys(data):
@@ -42,51 +32,51 @@ def test_peaks_and_valleys():
 
 
 ########## AUTOMATED TELLER MACHINE ##########
-from josh_lab_12 import ATM
+# from josh_lab_12 import ATM
 
-atm = ATM()
-
-
-def test_check_balance():
-    assert atm.check_balance() == 0
-    atm.deposit(1000)
-    assert atm.check_balance() == 1000
-    atm.withdraw(900)
-    assert atm.check_balance() == 100
-    atm.calc_interest()
-    assert atm.check_balance == 100.1
+# atm = ATM()
 
 
-def test_deposit():
-    assert atm.check_balance() == 0
-    atm.deposit(1000)
-    assert atm.check_balance() == atm.deposit() + atm.check_balance()
+# def test_check_balance():
+#     assert atm.check_balance() == 0
+#     atm.deposit(1000)
+#     assert atm.check_balance() == 1000
+#     atm.withdraw(900)
+#     assert atm.check_balance() == 100
+#     atm.calc_interest()
+#     assert atm.check_balance == 100.1
 
 
-def test_check_withdrawal():
-    assert atm.check_balance() == 100
-    atm.withdraw(99)
-    assert atm.check_withdrawal() == True
-    assert atm.check_balance() == 1
-    atm.withdraw(2)
-    assert atm.check_withdrawal() == False
+# def test_deposit():
+#     assert atm.check_balance() == 0
+#     atm.deposit(1000)
+#     assert atm.check_balance() == atm.deposit() + atm.check_balance()
 
 
-def test_withdraw():
-    assert atm.check_balance() == 1000
-    atm.withdraw(500)
-    assert atm.check_balance() == 500
-    atm.deposit(100)
-    atm.withdraw(500)
-    assert atm.check_balance() == 100
+# def test_check_withdrawal():
+#     assert atm.check_balance() == 100
+#     atm.withdraw(99)
+#     assert atm.check_withdrawal() == True
+#     assert atm.check_balance() == 1
+#     atm.withdraw(2)
+#     assert atm.check_withdrawal() == False
 
 
-def test_calc_interest():
-    assert atm.check_balance() == 100
-    atm.calc_interest()
-    assert atm.check_balance() == 100.1
-    atm.calc_interest()
-    assert round(atm.check_balance(), 1) == 100.2
+# def test_withdraw():
+#     assert atm.check_balance() == 1000
+#     atm.withdraw(500)
+#     assert atm.check_balance() == 500
+#     atm.deposit(100)
+#     atm.withdraw(500)
+#     assert atm.check_balance() == 100
+
+
+# def test_calc_interest():
+#     assert atm.check_balance() == 100
+#     atm.calc_interest()
+#     assert atm.check_balance() == 100.1
+#     atm.calc_interest()
+#     assert round(atm.check_balance(), 1) == 100.2
 
 
 # def test_print_transactions():
