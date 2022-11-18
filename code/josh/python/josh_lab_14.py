@@ -6,12 +6,13 @@
 from josh_lab_8 import peaks_and_valleys
 # Do I have to import unittest.mock, patch, and pytest?
 
+data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 
-def test_peaks_and_valleys():
-# def test_peaks_and_valleys(data_dict):    # Use if I copy/paste 'data_dict'
+def test_peaks_and_valleys(data):
     assert peaks_and_valleys([1, 2, 1]) == [1]
     
-   
+test_peaks_and_valleys(data)
+
 # # Creates a function to return a list of the peaks and valleys in order of appearance in the original data
 # def peaks_and_valleys(data):
 #     peaks_and_valleys_list = []
