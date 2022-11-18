@@ -1,5 +1,7 @@
 class ATM:
     def __init__(self, balance) -> None:
+        if balance < 0:
+            balance = 0
         self.balance = balance
         self.transactions = []
 
@@ -13,18 +15,18 @@ class ATM:
         '''
         add deposit amount to balance, log in transaction history
         '''
-        self.balance += amount
-        self.transactions.append(f'You deposited ${amount}.')
+        self.balance += abs(amount)
+        self.transactions.append(f'You deposited ${abs(amount)}.')
 
     def check_withdrawal(self, amount):
-        return amount <= self.balance
+        return abs(amount) <= self.balance
 
     def withdraw(self, amount):
         '''
         subtract withdrawal amount from balance, log in transaction history
         '''
-        self.balance -= amount
-        self.transactions.append(f'You withdrew ${amount}.')
+        self.balance -= abs(amount)
+        self.transactions.append(f'You withdrew ${abs(amount)}.')
 
     def calc_interest(self):
         '''
