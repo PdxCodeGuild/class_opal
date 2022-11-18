@@ -42,15 +42,54 @@ def test_peaks_and_valleys():
 
 
 ########## AUTOMATED TELLER MACHINE ##########
-# from josh_lab_12 import ATM
+from josh_lab_12 import ATM
 
-# def test_check_balance:
-# def test_deposit:
-# def test_check_withdrawal:
-# def test_withdraw:
-# def test_calc_interest:
-# def test_print_transactions:
+atm = ATM()
 
+
+def test_check_balance():
+    assert atm.check_balance() == 0
+    atm.deposit(1000)
+    assert atm.check_balance() == 1000
+    atm.withdraw(900)
+    assert atm.check_balance() == 100
+    atm.calc_interest()
+    assert atm.check_balance == 100.1
+
+
+def test_deposit():
+    assert atm.check_balance() == 0
+    atm.deposit(1000)
+    assert atm.check_balance() == atm.deposit() + atm.check_balance()
+
+
+def test_check_withdrawal():
+    assert atm.check_balance() == 100
+    atm.withdraw(99)
+    assert atm.check_withdrawal() == True
+    assert atm.check_balance() == 1
+    atm.withdraw(2)
+    assert atm.check_withdrawal() == False
+
+
+def test_withdraw():
+    assert atm.check_balance() == 1000
+    atm.withdraw(500)
+    assert atm.check_balance() == 500
+    atm.deposit(100)
+    atm.withdraw(500)
+    assert atm.check_balance() == 100
+
+
+def test_calc_interest():
+    assert atm.check_balance() == 100
+    atm.calc_interest()
+    assert atm.check_balance() == 100.1
+    atm.calc_interest()
+    assert round(atm.check_balance(), 1) == 100.2
+
+
+# def test_print_transactions():
 
 # If you need to refactor your code to make it more testable, include the refactored code in your pull request.
 # To run pytest enter the following: 'python -m pytest josh_lab_14.py'
