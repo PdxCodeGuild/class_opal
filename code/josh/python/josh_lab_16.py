@@ -13,19 +13,23 @@ response_text = response.json()
 while True:
     user_input = input('Enter a search term to locate a related dad joke: ')    # user enters string to become search term to find joke
     parameter = {'term': user_input}    # term - search term (default: all)
-    # search_response = requests.get('https://icanhazdadjoke.com/search/', params=parameter, headers=header)
-    search_response = requests.get(f'https://icanhazdadjoke.com/search?term={user_input}', headers=header)  # temp fix for line 16 'params' not working
-    search_response_text = search_response.json()
-    if search_response_text['status'] == 404:
+    search_response = requests.get('https://icanhazdadjoke.com/search', params=parameter, headers=header)   # gets jokes
+    search_response_text = search_response.json()   # jokes returned changed to json
+    if search_response_text['results'] == []:   # skips empty results
         print(f'{user_input} did not return any jokes.')    # displays to user if search term doesn't exist
     else:
-        print(search_response_text)
-        pass
-    again = input('Would you like another joke? (\'y\' for yes or \'n\' to exit) ') # asks user to continue or not
-    if again == 'n':    # exits loop
+        for dict in (search_response_text['results']):  # searches 'results' list of dictionaries
+            print(dict['joke']) #displays first
+            next = input(f'Another {user_input} joke? Enter \'y\' for yes or \'n\' for no: ')
+            if next == 'y': # continues displaying next joke for search term
+                continue
+            else:   # stops showing jokes from search term
+                break
+    again = input('Would you like a new joke search? (\'y\' for yes or \'n\' to exit) ') # asks user to continue or not
+    if again == 'n':    # exits program
         break
-    elif again == 'y':  # continues loop
+    elif again == 'y':  # continues program
         continue
-    else:   # informs user of invalid response and exits loop 
+    else:   # informs user of invalid response and exits program
         print('You did not enter a valid response.  Goodbye.')
         break
