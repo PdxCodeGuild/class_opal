@@ -15,12 +15,15 @@ quote = response_text['quote']['body']
 
 header = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
 keyword = input('Enter a keyword to search for quotes or \'q\' to exit: ')
-search_response = requests.get('https://favqs.com/api/quotes?page=page&filter=' + keyword + '&type=tag', headers=header)
+parameters = {'filter': keyword, 'page': }
+page = 'page'
+search_response = requests.get('https://favqs.com/api/quotes?page=' + page + '&filter=' + keyword + '&type=tag', headers=header)
 search_response_text = search_response.json()
 # author = search_response_text['quotes'][1]['author']
 quotes: list = search_response_text['quotes']
 # quote = search_response_text['quotes'][1]['body']
 page = search_response_text['page']
+next_page = int(search_response_text['page'] + 1)
 
 if keyword == 'q':
     exit
@@ -34,12 +37,13 @@ else:
                 quote = (i[key])
         print(f'\"{quote}\"\n\t - {author}')
 
-# next = input('Enter \'next page\' or \'done\': ')
-# if next == 'next page':
-#     print(f'{int} quotes associated with {keyword}.')
-#     print('<list of quotes>')
-# elif next == 'done':
-#     continue
+next = input('Enter \'next page\' or \'done\': ')
+if next == 'done':
+    exit
+elif next == 'next page':
+    print(next_page)    # I'm going to change this.
+else:
+    print('You did not enter a valid response.  Goodbye.')
 # else:
 #     continue
 
@@ -49,3 +53,9 @@ else:
 
 # Prompt the user for a keyword, list the quotes you get in response, and prompt the user to either show the next page or enter a new keyword. 
 # You can use string concatenation to build the URL.
+
+# Optional URL Parameters:
+
+# Parameter	Description
+# filter	Type lookup or keyword search
+# page	Page number (25 quotes per page)
