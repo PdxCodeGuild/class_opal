@@ -13,37 +13,38 @@ quote = response_text['quote']['body']
 
 # Version 2: List Quotes by Keyword
 
-header = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-keyword = input('Enter a keyword to search for quotes or \'q\' to exit: ')
-parameters = {'filter': keyword, 'page': }
-page = 'page'
-search_response = requests.get('https://favqs.com/api/quotes?page=' + page + '&filter=' + keyword + '&type=tag', headers=header)
-search_response_text = search_response.json()
-# author = search_response_text['quotes'][1]['author']
-quotes: list = search_response_text['quotes']
-# quote = search_response_text['quotes'][1]['body']
-page = search_response_text['page']
-next_page = int(search_response_text['page'] + 1)
+while True:
+    header = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+    keyword = input('Enter a keyword to search for quotes or \'q\' to exit: ')
+    page = 1
+    parameters = {'filter': keyword, 'page': page}
+    search_response = requests.get('https://favqs.com/api/quotes', params=parameters, headers=header)
+    search_response_text = search_response.json()
+    quotes: list = search_response_text['quotes']
+    page = search_response_text['page']
+    next_page = int(search_response_text['page'] + 1)
+    if keyword == 'q':
+        break
+    else:
+        print(f'25 quotes associated with {keyword} - page {page}')
+        for i in quotes:
+            for key in i:
+                if key == 'author':
+                    author = (i[key])
+                elif key == 'body':
+                    quote = (i[key])
+            print(f'\"{quote}\"\n\t - {author}')
 
-if keyword == 'q':
-    exit
-else:
-    print(f'25 quotes associated with {keyword} - page {page}')
-    for i in quotes:
-        for key in i:
-            if key == 'author':
-                author = (i[key])
-            elif key == 'body':
-                quote = (i[key])
-        print(f'\"{quote}\"\n\t - {author}')
-
-next = input('Enter \'next page\' or \'done\': ')
-if next == 'done':
-    exit
-elif next == 'next page':
-    print(next_page)    # I'm going to change this.
-else:
-    print('You did not enter a valid response.  Goodbye.')
+    next = input('Enter \'next page\' or \'done\': ')
+    if next == 'done':
+        print('Goodbye.')
+        break
+    elif next == 'next page':
+        page == next_page
+        continue
+    else:
+        print('You did not enter a valid response.  Goodbye.')
+        break
 # else:
 #     continue
 
