@@ -14,15 +14,18 @@ from random import choice
 
 # `sock_colors = ['black', 'white', 'blue']`
 
+SOCK_TYPES = ['ankle', 'crew', 'calf', 'thigh']
+
+
 def sock_generator():
-    sock_types = ['ankle', 'crew', 'calf', 'thigh']
-    sock_basket = [choice(sock_types) for i in range(100)]
-    return sock_types, sock_basket
+    sock_basket = [choice(SOCK_TYPES) for i in range(100)]
+    return sock_basket
 
 
 def sock_sorter(random_socks):
+    # sock_drawer = dict.fromkeys(SOCK_TYPES, 0)
     sock_drawer = {sock: 0 for sock in random_socks[0]}
     socks = random_socks[1]
     for sock in socks:
-        sock_drawer[sock] += 1  
+        sock_drawer[sock] += 1
     return sock_drawer
