@@ -4,7 +4,7 @@
 ```sh
 > git checkout main
 > git pull
-> git checkout -b your_name-python-lab01
+> git checkout -b your_name-python-lab02
 ```
 
 Convert a given number into its english representation. For example: 67 becomes 'sixty-seven'. Handle numbers from 0-99.

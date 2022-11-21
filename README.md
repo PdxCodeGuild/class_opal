@@ -10,8 +10,8 @@ M-F 9:30 am – 4:30 pm
 ### Holidays
 - November 8th (Election Day -- go vote!)
 - November 24th (Thanksgiving)
+- November 25th (Day after Thanksgiving)
 - December 26th
-- January 2nd
 - (four more days TBD)
 
 
@@ -71,19 +71,23 @@ Presentation Day: February 15th, 2023
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
 | 01    | Unit Converter         | Nov 1st       | Nov 4th               | Nov 15th      |
 | 02    | Number To Phrase       | Nov 1st       | Nov 4th               | Nov 15th      |
-<!-- | 02    | Average Numbers        | Apr 27th      | May 2nd               | May 11th      |
-| 04    | Blackjack Advice       | Apr 28th      | May 2nd               | May 12th      |
-| 05    | Pick 6                 | Apr 28th      | May 2nd               | May 12th      |
-| 06    | Credit Card Validation | May 2nd       | May 9th               | May 16th      |
-| 07    | ROT13                  | May 2nd       | May 9th               | May 16th      |
-| Group | Jackalope              | May 3rd       | May 3rd               | May 17th      |
-| 09    | ARI                    | May 4th       | May 9th               | May 18th      |
-| 10    | Contact List           | May 5th       | May 9th               | May 19th      |
-| 12    | ATM                    | May 9th       | May 16th              | May 23rd      |
-| 13    | Tic-Tac-Toe            | May 10th      | May 16th              | May 24th      |
-| 14    | Dad Joke API           | May 12th      | May 16th              | May 26th      |
-| 15    | Quotes API             | May 16th      | May 23rd              | May 30th      |
-| 16    | Mini-Capstone          | May 18th      | May 23rd              | Jun 1st       | -->
+| 03    | MOB - Average Numbers  | Nov 2nd       | N/A                   | N/A           |
+| 04    | Blackjack Advice       | Nov 2nd       | Nov 7th               | Nov 16th      |
+| 05    | Pick 6                 | Nov 3rd       | Nov 9th               | Nov 17th      |
+| 06    | Credit Card Validation | Nov 4th       | Nov 9th               | Nov 18th      |
+| 07    | ROT13                  | Nov 4th       | Nov 9th               | Nov 18th      |
+| 08    | Peaks and Valleys      | Nov 4rd       | Nov 10th              | Nov 18th      |
+| 09    | ARI                    | Nov 7th       | Nov 10th              | Nov 21st      |
+| 06.1  | CC Validation REDUX    | Nov 9th       | Nov 11th              | Nov 23rd      |
+| 10    | MOB - Hangman          | Nov 7th       | N/A                   | N/A           |
+| 11    | Contact List           | Nov 10th      | Nov 15th              | Nov 28th      |
+| 12    | ATM                    | Nov 11th      | Nov 16th              | Nov 28th      |
+| 13    | Compass                | Nov 14th      | Nov 17th              | Nov 28th      |
+| 14    | Automated Tests        | Nov 14th      | Nov 18th              | Nov 28th      |
+| 15    | MOB - Tic-Tac-Toe      | Nov 15th      | N/A                   | N/A           |
+| 16    | Dad Joke API           | Nov 17th      | Nov 21th              | Dec 1st       |
+| 17    | Quotes API             | Nov 17th      | Nov 23rd              | Dec 1st       |
+<!--| 18    | Mini-Capstone          | Nov 18th      | Nov 23rd              | Jun 1st       | -->
 
 
 ## Student Presentations
