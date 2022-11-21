@@ -8,9 +8,13 @@ def test_rand_sock():
     for s in sock:
         assert s in SOCK_TYPES
     assert 'ankle' and 'crew' in sock
-   
-def test_find_pairs():
-    assert type(find_pairs()) == dict
-    assert 
 
-# loop over list and test that each item is in SOCK_TYPES
+def test_find_pairs():
+    assert type(find_pairs([])) == dict
+    test_data = ['ankle', 'ankle', 'crew', 'long', 'thigh', 'more']
+    sock_drawer = find_pairs(test_data)
+    #asserting that values in dict are ints.
+    for item in sock_drawer:
+        assert type(sock_drawer[item]) == int
+    assert sock_drawer['ankle'] == 2
+    assert sock_drawer['crew'] == 1
