@@ -6,13 +6,14 @@ teams = {"team_diamond": ('Josh', 'Lizzie', 'DJ'),
          "team_indecisive": ('Nick', 'DJ', 'Leslie'),
          "team_pumpkin_spice": ('Jim', 'Hayato', 'Josh', 'Lizzie'),
          "team_tic_tap_nope": ('Nick', 'Josh', 'Hayato', 'Lizzie'),
-         "team_phillies": ('Jim', 'Leslie', 'DJ')
+         "team_phillies": ('Jim', 'Leslie', 'DJ'),
+         "room 1": ('Leslie', 'Lizzie', 'Josh'),
+         "room 2": ('Jim', 'Nick', 'Hayato'),
          }
 
 students = [
     "Jim",
     "Lizzie",
-    "DJ",
     "Hayato",
     "Nick",
     "Josh",
