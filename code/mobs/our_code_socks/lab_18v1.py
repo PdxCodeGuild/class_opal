@@ -15,6 +15,7 @@ from random import choice
 # `sock_colors = ['black', 'white', 'blue']`
 
 SOCK_TYPES = ['ankle', 'crew', 'calf', 'thigh']
+SOCK_COLORS = ['black', 'white', 'blue']
 
 
 def sock_generator():
@@ -22,10 +23,18 @@ def sock_generator():
     return sock_basket
 
 
-def sock_sorter(random_socks):
+def sock_sorter(sock_basket):
     # sock_drawer = dict.fromkeys(SOCK_TYPES, 0)
-    sock_drawer = {sock: 0 for sock in random_socks[0]}
-    socks = random_socks[1]
+    sock_drawer = {sock: 0 for sock in SOCK_TYPES}
+    socks = sock_basket
     for sock in socks:
         sock_drawer[sock] += 1
+    for k in sock_drawer.keys():
+        num_dupe = sock_drawer[k]//2
+        num_loners = sock_drawer[k] % 2
+        sock_drawer[k] = (num_dupe, num_loners)
+
     return sock_drawer
+
+
+print(sock_sorter(sock_generator()))
