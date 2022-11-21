@@ -21,22 +21,25 @@ def create_contact(contacts: list, name=""):
     while True:
         if name == "":
             name = input("Enter contact name: ").lower()
-        
+
         if name not in [contact['name'] for contact in contacts]:
             fruit = input(f"Enter {name.title()}'s favorite fruit: ")
             color = input(f"Enter {name.title()}'s favorite color: ")
-            contacts.append({'name': name, 'favorite fruit': fruit, 'favorite color': color})
+            contacts.append(
+                {'name': name, 'favorite fruit': fruit, 'favorite color': color})
             print("Contact was created.")
             break
         else:
             while True:
-                answer = input("That contact already exists in the database. Try again? (y/n) ").lower()
+                answer = input(
+                    "That contact already exists in the database. Try again? (y/n) ").lower()
                 if answer == 'y':
                     break
                 elif answer == 'n':
                     return None
                 else:
                     print("Please choose a valid response.")
+
 
 def retreive_contact(contacts: list):
     """Retreive contact info from the database."""
@@ -45,18 +48,21 @@ def retreive_contact(contacts: list):
         if name in [contact['name'] for contact in contacts]:
             for contact in contacts:
                 if contact['name'] == name:
-                    print(f"{contact['name'].title()}'s favorite fruit is {contact['favorite fruit']} and their favorite color is {contact['favorite color']}")
+                    print(
+                        f"{contact['name'].title()}'s favorite fruit is {contact['favorite fruit']} and their favorite color is {contact['favorite color']}")
                     return None
         else:
             while True:
-                answer = input(f"{name.title()} is not in the database. Would you like to add them? (y/n) ").lower()
+                answer = input(
+                    f"{name.title()} is not in the database. Would you like to add them? (y/n) ").lower()
                 if answer == 'y':
-                        create_contact(contacts, name)
-                        return None
+                    create_contact(contacts, name)
+                    return None
                 elif answer == 'n':
                     return None
                 else:
                     print("Please choose a valid response.")
+
 
 def update_contact(contacts: list):
     """Update an attribute for a contact in the database."""
@@ -64,26 +70,31 @@ def update_contact(contacts: list):
         name = input("What contact's info do you want to update? ").lower()
         if name in [contact['name'] for contact in contacts]:
             while True:
-                attribute = input(f"What attribute do you want to update for {name.title()}? ('favorite fruit' or 'favorite color') ").lower()
+                attribute = input(
+                    f"What attribute do you want to update for {name.title()}? ('favorite fruit' or 'favorite color') ").lower()
                 if attribute in ['favorite fruit', 'favorite color']:
-                    new_value = input(f"What is {name.title()}'s {attribute}? ")
+                    new_value = input(
+                        f"What is {name.title()}'s {attribute}? ")
                     for contact in contacts:
                         if contact['name'] == name:
                             contact[attribute] = new_value
                             return None
                 else:
-                    print(f"{attribute.title()} is not a valid attribute in the database.")
-                
+                    print(
+                        f"{attribute.title()} is not a valid attribute in the database.")
+
         else:
             while True:
-                answer = input(f"{name.title()} is not in the database. Would you like to add them? (y/n) ").lower()
+                answer = input(
+                    f"{name.title()} is not in the database. Would you like to add them? (y/n) ").lower()
                 if answer == 'y':
-                        create_contact(contacts, name)
-                        return None
+                    create_contact(contacts, name)
+                    return None
                 elif answer == 'n':
                     return None
                 else:
                     print("Please choose a valid response.")
+
 
 def delete_contact(contacts: list):
     """Delete a contact from the database."""
@@ -94,18 +105,21 @@ def delete_contact(contacts: list):
                 contacts.remove(contact)
     else:
         while True:
-            answer = input(f"{name.title()} is not in the database. Would you like choose another contact? (y/n) ").lower()
+            answer = input(
+                f"{name.title()} is not in the database. Would you like choose another contact? (y/n) ").lower()
             if answer == 'y':
-                    delete_contact(contacts)
-                    return None
+                delete_contact(contacts)
+                return None
             elif answer == 'n':
                 return None
             else:
                 print("Please choose a valid response.")
 
+
 def crud_repl(contacts):
     while True:
-        action = input("What function do you want to perform on contacts? (Create, Retreive, Update, Delete, None) ").lower()
+        action = input(
+            "What function do you want to perform on contacts? (Create, Retreive, Update, Delete, None) ").lower()
         if action == 'create':
             create_contact(contacts)
         elif action == 'retreive':
@@ -119,11 +133,13 @@ def crud_repl(contacts):
         else:
             print("Please choose a valid response.")
 
-        continuation = input("Would you like to perform another function? (y/n) ")
+        continuation = input(
+            "Would you like to perform another function? (y/n) ")
         if continuation == 'y':
             continue
         else:
             break
+
 
 crud_repl(contacts)
 

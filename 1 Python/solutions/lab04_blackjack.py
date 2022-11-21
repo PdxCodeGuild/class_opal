@@ -1,4 +1,4 @@
-def handle_card(ordinal: str, possible_values: list):
+def handle_card(ordinal: str, possible_values: list) -> list:
     card = input(f'What is your {ordinal} card? ').lower()
     if card in ['k', 'q', 'j']:
         for i in range(len(possible_values)):
@@ -22,29 +22,36 @@ def handle_card(ordinal: str, possible_values: list):
     return possible_values
 
 
-first = handle_card('first', [0])
-second = handle_card('second', first)
-hands = handle_card('third', second)
+def get_advice(hands: list) -> str:
+    if 21 in hands:
+        return 'BLACKJACK!'
+    elif min(hands) > 21:
+        return 'BUST'
+    elif len(hands) > 1:
+        # hands = filter(lambda n: n <= 21, hands)
+        hands = [val for val in hands if val <= 21]
+        if max(hands) >= 19:
+            return 'stay'
+        elif max(hands) <= 16:
+            return 'hit'
+        else:
+            vals = ''
+            for val in hands:
+                vals += f'{val} points\n'
+            return f"this hand might be worth:\n{vals}\ndo what you want with that information"
+    else:
+        if hands[0] >= 17:
+            return 'stay'
+        else:
+            return 'hit'
 
-if 21 in hands:
-    print('BLACKJACK!')
-elif len(hands) > 1:
-    hands = [val for val in hands if val <= 21]
-    if min(hands) > 21:
-        print('BUST')
-    elif max(hands) >= 19:
-        print('stay')
-    elif max(hands) <= 16:
-        print('hit')
-    else:
-        print('this hand might be worth:')
-        for val in hands:
-            print(f'{val} points')
-        print('do what you want with that information')
-else:
-    if hands[0] > 21:
-        print('BUST')
-    elif hands[0] >= 17:
-        print('stay')
-    else:
-        print('hit')
+
+def main() -> str:
+    first = handle_card('first', [0])
+    second = handle_card('second', first)
+    hands = handle_card('third', second)
+    return get_advice(hands)
+
+
+if __name__ == '__main__':
+    print(main())
