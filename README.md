@@ -82,10 +82,12 @@ Presentation Day: February 15th, 2023
 | 10    | MOB - Hangman          | Nov 7th       | N/A                   | N/A           |
 | 11    | Contact List           | Nov 10th      | Nov 15th              | Nov 28th      |
 | 12    | ATM                    | Nov 11th      | Nov 16th              | Nov 28th      |
-<!--| 13    | Tic-Tac-Toe            | Nov 10th      | Nov 16th              | Nov 24th      |
-| 14    | Dad Joke API           | Nov 12th      | Nov 16th              | Nov 26th      |
-| 15    | Quotes API             | Nov 16th      | Nov 23rd              | Nov 30th      |
-| 16    | Mini-Capstone          | Nov 18th      | Nov 23rd              | Jun 1st       | -->
+| 13    | Compass                | Nov 14th      | Nov 17th              | Nov 28th      |
+| 14    | Automated Tests        | Nov 14th      | Nov 18th              | Nov 28th      |
+| 15    | MOB - Tic-Tac-Toe      | Nov 15th      | N/A                   | N/A           |
+| 16    | Dad Joke API           | Nov 17th      | Nov 21th              | Dec 1st       |
+| 17    | Quotes API             | Nov 17th      | Nov 23rd              | Dec 1st       |
+<!--| 18    | Mini-Capstone          | Nov 18th      | Nov 23rd              | Jun 1st       | -->
 
 
 ## Student Presentations
