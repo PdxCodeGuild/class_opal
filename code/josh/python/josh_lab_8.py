@@ -11,7 +11,9 @@ def peaks_and_valleys(data):
                 peaks_and_valleys_list.append(i + 1)   
         except:
             break    
-    print(peaks_and_valleys_list)
+    return peaks_and_valleys_list
+    
+
 
 peaks_and_valleys(data)
 
