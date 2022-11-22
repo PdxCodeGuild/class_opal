@@ -1,6 +1,6 @@
 from math import ceil
 import re
-relative_path_book = '1 Python\examples\data\hayato-book.txt'
+relative_path_book = 'hayato-book.txt'
 
 with open(relative_path_book, 'r', encoding= 'utf-8') as file:
         contents= file.read()
@@ -32,6 +32,7 @@ sentences = len(re.split("[.!?][ ]",contents))
 
 def calculate_ari(characters, words, sentences):
     return max(ceil(4.71 * characters / words + 0.5 * words / sentences - 21.43), 14)
+
 
 ari_score = calculate_ari(characters, words, sentences)
 
