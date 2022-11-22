@@ -15,40 +15,39 @@ card_values_dict = {
     'k': 10,
 }
 
-# store total value of all non-ace cards
-hand_value_no_aces = 0
-# compile all aces into a list that an be used
-aces = []
-# ask for 3 cards
-questions_left = 3
 
-# ask for the correct card
-which_card = {
-    3: 'first',
-    2: 'second',
-    1: 'third',
-}
+def hand_builder():
+    hand_value_no_aces = 0
+    aces = []
+    questions_left = 3
+    which_card = {
+        3: 'first',
+        2: 'second',
+        1: 'third',
+    }
 
+    while questions_left > 0:
+        while True:
+            # mandate lower case for edge case
+            card_addition = input(
+                f'What is your {which_card[questions_left]} card?\n').lower()
+            # if response is valid, keep going
+            if card_addition in card_values_dict.keys():
+                break
+            # if not, ask again
+            else:
+                print('Invalid response. Try again.')
 
-while questions_left > 0:
-    while True:
-        # mandate lower case for edge case
-        card_addition = input(f'What is your {which_card[questions_left]} card?\n').lower()
-        # if response is valid, keep going
-        if card_addition in card_values_dict.keys():
-            break
-        # if not, ask again
+        # store our aces in our list
+        if card_addition == 'a':
+            aces.append(card_addition)
+        # add standard cards' values to our hand total
         else:
-            print('Invalid response. Try again.')
+            hand_value_no_aces += card_values_dict[card_addition]
 
-    # store our aces in our list
-    if card_addition == 'a':
-        aces.append(card_addition)
-    # add standard cards' values to our hand total
-    else:
-        hand_value_no_aces += card_values_dict[card_addition]
+        questions_left -= 1
 
-    questions_left -= 1
+    return hand_value_no_aces, aces
 
 
 def ace_manager(aces: list, hand_value: int):
@@ -78,35 +77,49 @@ def hand_adjustor(poss_hands: list):
             new_possible_hands.append(total_hand_value)
     # give the list of new hands to our ace_manager function to be used with additional aces
     return new_possible_hands
-         
 
-def advisor(hand):
+
+def advise(hand):
     '''advises the user based on the total of their hand'''
     if hand < 17:
         return 'Hit!'
     if hand == 21:
         return 'Blackjack!'
-    if hand > 21: 
+    if hand > 21:
         return 'Already busted :('
     else:
         return 'Stay'
 
-# print(ace_manager()) # test
-# compile all possible hands
-final_list_poss_hands = ace_manager(aces, hand_value_no_aces)
-# remove all redundant hands
-final_unique_hands = []
-for hand in final_list_poss_hands:
-    if hand not in final_unique_hands:
-        final_unique_hands.append(hand)
 
-# put the hands in ascending order
-final_unique_hands.sort()
+def advisor():
+    hand_value_no_aces, aces = hand_builder()
+    final_list_poss_hands = ace_manager(aces, hand_value_no_aces)
+    # remove all redundant hands
+    final_unique_hands = []
+    for hand in final_list_poss_hands:
+        if hand not in final_unique_hands:
+            final_unique_hands.append(hand)
 
-# for user experience, put a blackjack at the top of the list
-if 21 in final_unique_hands:
-    final_unique_hands.insert(0, final_unique_hands.pop(final_unique_hands.index(21)))
+    # put the hands in ascending order
+    final_unique_hands.sort()
 
-# deliver our advise
-for final_hand in final_unique_hands:
-    print(final_hand, advisor(final_hand))
+    # for user experience, put a blackjack at the top of the list
+    if 21 in final_unique_hands:
+        final_unique_hands.insert(
+            0, final_unique_hands.pop(final_unique_hands.index(21)))
+
+    # deliver our advise
+    final_advise = ''
+    for final_hand in final_unique_hands:
+        final_advise += f'{final_hand} {advise(final_hand)}\n'
+
+    return final_advise
+
+
+def main():
+    print('Welcome to the Blackjack Advisor!')
+    print(advisor())
+
+
+if __name__ == '__main__':
+    main()
