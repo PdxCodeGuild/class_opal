@@ -30,6 +30,7 @@ def search_joke(term, page):
     endpoint = 'search'
     response = requests.get(f'https://icanhazdadjoke.com/{endpoint}', params=parameters,
                             headers={'accept': 'application/json'})
+    system('cls||clear')
     try:
         pprint(response.json()["results"][0]['joke'])
     except IndexError:
@@ -41,7 +42,6 @@ def search_joke(term, page):
             'Would you like to see the next joke? yes or no').lower()
         if yes_or_no == 'yes':
             page += 1
-            system('cls||clear')
             search_joke(term, page)
         return
 
