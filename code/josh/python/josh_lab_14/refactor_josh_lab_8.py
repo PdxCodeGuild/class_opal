@@ -11,11 +11,10 @@ def peaks_and_valleys(data):
                 peaks_and_valleys_list.append(i + 1)   
         except:
             break    
-    return peaks_and_valleys_list
-    
+    return (peaks_and_valleys_list)
+    # print(peaks_and_valleys_list)
 
-
-peaks_and_valleys(data)
+print(peaks_and_valleys(data))
 
 
 

@@ -2,18 +2,24 @@
 
 from math import ceil as round_up
 
-relative_path = 'class_opal\code\josh\python\shelleysfrankenstein.txt'
+relative_path = 'class_opal\code\josh\python\josh_lab_14\shelleysfrankenstein.txt'
 
 with open(relative_path, 'r', encoding = 'utf-8') as file:
     contents = file.read()
-
+    
 characters = len(contents)
 words = len(contents.split())
-statements = len(contents.split('.'))
-questions = len(contents.split('?'))
-exclamations = len(contents.split('!'))
-sentences = statements + questions + exclamations
-ari_formula = (4.71 * (characters/words)) + (0.5 * (words/sentences)) - 21.43
+
+
+def sentences(contents):
+    statements = len(contents.split('.'))
+    questions = len(contents.split('?'))
+    exclamations = len(contents.split('!'))
+    sentences = statements + questions + exclamations
+    return sentences
+
+
+ari_formula = (4.71 * (characters/words)) + (0.5 * (words/sentences(contents))) - 21.43
 filename = relative_path.split('\\').pop()
 
 ari_scale = {
