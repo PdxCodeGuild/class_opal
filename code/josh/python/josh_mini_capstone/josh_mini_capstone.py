@@ -30,13 +30,27 @@ from urllib.request import urlopen
 # author  = response_text['quote']['author']
 # quote = response_text['quote']['body']
 
+
+# Opens first website 'Tax Foundation' to webscrape effective tax burdens
 with urlopen('https://taxfoundation.org/tax-burden-by-state-2022/#results') as response:
-    soup = BeautifulSoup(response, 'html.parser')
+    soup_tax = BeautifulSoup(response, 'html.parser')
+
+# Opens second website '???' to webscrape political leanings
+with urlopen('https://taxfoundation.org/tax-burden-by-state-2022/#results') as response:
+    soup_tax = BeautifulSoup(response, 'html.parser')
+
+# Opens third website '???' to webscrape crime rates
+with urlopen('https://taxfoundation.org/tax-burden-by-state-2022/#results') as response:
+    soup_tax = BeautifulSoup(response, 'html.parser')
+
+# Opens fourth website '???' to webscrape median housing values
+with urlopen('https://taxfoundation.org/tax-burden-by-state-2022/#results') as response:
+    soup_tax = BeautifulSoup(response, 'html.parser')
 
 
 # Returns state, tax_rate, and data based upon user input for either state or rank
 def tax_burden(user_input):
-    for row in soup.table.contents[5].find_all('tr'):
+    for row in soup_tax.table.contents[5].find_all('tr'):
         state = row.contents[1].string
         tax_rate = row.contents[3].string
         rank = row.contents[5].string
@@ -100,5 +114,19 @@ state_rank = {
     '2': 'Wyoming 7.5%'
 }
 
-state_choice = input('Please enter a state name or rank to view the state\'s effective tax burden: ')
-print(tax_burden(state_choice))
+while True:
+    state_choice = input('Enter a state name or rank to view the state\'s effective tax burden or \'q\' to continue to the next section: ')
+    if state_choice == 'q':
+        break
+    elif tax_burden(state_choice) == None:
+        print('You have entered an invalid response.')
+    else:
+        print(tax_burden(state_choice))
+    another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
+    if another_state == 'y':
+        pass
+    elif another_state == 'n':
+        break
+    else:
+        print('You have entered an invalid response.')
+        continue
