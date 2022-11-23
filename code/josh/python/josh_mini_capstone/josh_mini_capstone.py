@@ -14,12 +14,33 @@
     # There is more info on presentations in the README
 
 ######################################################################################################################################################
+pol_rel_path = 'class_opal\code\josh\python\josh_mini_capstone\politics.csv'
+
+# state, control
+# Opens file at relative path and converts lines into a list of strings
+with open(pol_rel_path, 'r') as file:
+    lines:list = file.read().split('\n')
+
+states_list = []
+# Creates a list of strings, where each string will be used as a dictionary key from the first line in the file above
+keys: list[str] = lines[0].split(',')  
+
+# Iterates through the remaining list of strings and converts each string to a dictionary value 
+for line in lines[1:]:
+    state_dict = {}
+    values: list[str] = line.split(',')
+    for i, key in enumerate(keys):
+        state_dict[key] = values[i]
+    states_list.append(state_dict)
+
+print(states_list)
+
 
 import requests
 import pandas as pd
 # import json
 from pprint import pprint
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, SoupStrainer
 from urllib.request import urlopen
 
 # response = requests.get('https://taxfoundation.org/tax-burden-by-state-2022/#results')
@@ -61,8 +82,19 @@ def tax_burden(user_input):
 
 # # Returns political affiliation by state based upon user input
 # def politics(user_input):
+# pprint(soup_politics.contents[2])
+# pprint(ts(dictionary.get('fips'))
 
-pprint(soup_politics)
+# pprint(soup_politics.contents(dictionary.get('fips'))
+    # print(child)
+# print(soup_politics.find_all('tr'))
+
+# print(soup_crime.find("div", {"class": "datatable-container"}))
+
+    
+    # soup_politics.contents[1].find_all('class'):
+    # print(i)
+
 
 
 # # Returns crime rates (violent/property crime) by state based upon user input
