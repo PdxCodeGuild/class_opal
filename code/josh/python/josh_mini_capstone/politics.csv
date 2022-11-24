@@ -1,51 +1,52 @@
-﻿state,control
-Alabama,Republican
-Alaska,Republican
-Arizona,Republican
-Arkansas,Republican
-California,Democrat
-Colorado,Democrat
-Connecticut,Democrat
-Delaware,Democrat
-Florida,Republican
-Georgia,Republican
-Hawaii,Democrat
-Idaho,Republican
-Illinois,Democrat
-Indiana,Republican
-Iowa,Republican
-Kansas,Split
-Kentucky,Split
-Louisiana,Split
-Maine,Democrat
-Maryland,Split
-Massachusetts,Split
-Michigan,Split
-Minnesota,Split
-Mississippi,Republican
-Missouri,Republican
-Montana,Republican
-Nebraska,Nonpartisan
-Nevada,Democrat
-New Hampshire,Republican
-New Jersey,Democrat
-New Mexico,Democrat
-New York,Democrat
-North Carolina,Split
-North Dakota,Republican
-Ohio,Republican
-Oklahoma,Republican
-Oregon,Democrat
-Pennsylvania,Split
-Rhode Island,Democrat
-South Carolina,Republican
-South Dakota,Republican
-Tennessee,Republican
-Texas,Republican
-Utah,Republican
-Vermont,Split
-Virginia,Split
-Washington,Democrat
-West Virginia,Republican
-Wisconsin,Split
-Wyoming,Republican
+﻿"state","control","pop2022"
+"Alabama","Republican","5073187"
+"Alaska","Republican","738023"
+"Arizona","Republican","7303398"
+"Arkansas","Republican","3030646"
+"California","Democrat","39995077"
+"Colorado","Democrat","5922618"
+"Connecticut","Democrat","3612314"
+"Delaware","Democrat","1008350"
+"District of Columbia","Democrat","707109"
+"Florida","Republican","22085563"
+"Georgia","Republican","10916760"
+"Hawaii","Democrat","1474265"
+"Idaho","Republican","1893410"
+"Illinois","Democrat","12808884"
+"Indiana","Republican","6845874"
+"Iowa","Republican","3219171"
+"Kansas","Split","2954832"
+"Kentucky","Split","4539130"
+"Louisiana","Split","4682633"
+"Maine","Democrat","1369159"
+"Maryland","Split","6257958"
+"Massachusetts","Split","7126375"
+"Michigan","Split","10116069"
+"Minnesota","Split","5787008"
+"Mississippi","Republican","2960075"
+"Missouri","Republican","6188111"
+"Montana","Republican","1103187"
+"Nebraska","Nonpartisan","1988536"
+"Nevada","Democrat","3185426"
+"New Hampshire","Republican","1389741"
+"New Jersey","Democrat","9388414"
+"New Mexico","Democrat","2129190"
+"New York","Democrat","20365879"
+"North Carolina","Split","10620168"
+"North Dakota","Republican","800394"
+"Ohio","Republican","11852036"
+"Oklahoma","Republican","4000953"
+"Oregon","Democrat","4318492"
+"Pennsylvania","Split","13062764"
+"Rhode Island","Democrat","1106341"
+"South Carolina","Republican","5217037"
+"South Dakota","Republican","901165"
+"Tennessee","Republican","7023788"
+"Texas","Republican","29945493"
+"Utah","Republican","3373162"
+"Vermont","Split","646545"
+"Virginia","Split","8757467"
+"Washington","Democrat","7901429"
+"West Virginia","Republican","1781860"
+"Wisconsin","Split","5935064"
+"Wyoming","Republican","579495"

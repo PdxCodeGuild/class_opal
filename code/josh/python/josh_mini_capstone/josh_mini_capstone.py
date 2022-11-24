@@ -14,26 +14,26 @@
     # There is more info on presentations in the README
 
 ######################################################################################################################################################
-pol_rel_path = 'class_opal\code\josh\python\josh_mini_capstone\politics.csv'
+# pol_rel_path = 'class_opal\code\josh\python\josh_mini_capstone\politics.csv'
 
-# state, control
-# Opens file at relative path and converts lines into a list of strings
-with open(pol_rel_path, 'r') as file:
-    lines:list = file.read().split('\n')
+# # state, control
+# # Opens file at relative path and converts lines into a list of strings
+# with open(pol_rel_path, 'r') as file:
+#     lines:list = file.read().split('\n')
 
-states_list = []
-# Creates a list of strings, where each string will be used as a dictionary key from the first line in the file above
-keys: list[str] = lines[0].split(',')  
+# states_list = []
+# # Creates a list of strings, where each string will be used as a dictionary key from the first line in the file above
+# keys: list[str] = lines[0].split(',')  
 
-# Iterates through the remaining list of strings and converts each string to a dictionary value 
-for line in lines[1:]:
-    state_dict = {}
-    values: list[str] = line.split(',')
-    for i, key in enumerate(keys):
-        state_dict[key] = values[i]
-    states_list.append(state_dict)
+# # Iterates through the remaining list of strings and converts each string to a dictionary value 
+# for line in lines[1:]:
+#     state_dict = {}
+#     values: list[str] = line.split(',')
+#     for i, key in enumerate(keys):
+#         state_dict[key] = values[i]
+#     states_list.append(state_dict)
 
-print(states_list)
+# print(states_list)
 
 
 import requests
@@ -42,6 +42,27 @@ import pandas as pd
 from pprint import pprint
 from bs4 import BeautifulSoup, SoupStrainer
 from urllib.request import urlopen
+
+# state, control
+politics= pd.read_csv(r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\politics.csv')
+# state, MedianValue
+homes= pd.read_csv(r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\homes.csv')
+# state, rate
+crimes= pd.read_csv(r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\crimes.csv')
+
+print(homes)
+
+# for state in politics:
+#     print(state)
+
+def csv(user_input, csv):
+    for state in csv:
+        if user_input == state:
+            return f'State: {state}, Political Affiliation: {csv[user_input]}'
+        elif user_input == politics:
+            return f'State: {state}, Political Affiliation: {csv[user_input]}'
+
+# print(csv('control', homes))
 
 # response = requests.get('https://taxfoundation.org/tax-burden-by-state-2022/#results')
 # response = requests.get('https://files.taxfoundation.org/20220407173521/State-and-Local-Tax-Burdens-2022..pdf')
