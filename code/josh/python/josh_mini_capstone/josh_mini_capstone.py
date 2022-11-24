@@ -12,7 +12,7 @@
     # There is more info on presentations in the README
 
 ######################################################################################################################################################
-# state, control
+# Returns state and political party control of that state based upon user input for either state or political party
 def politics(user_input):
     # Iterates through the remaining list of strings and converts each string to a dictionary value 
     pol_rel_path = 'C:/Users/joshg/pdx_code/class_opal/code/josh/python/josh_mini_capstone/politics.csv'
@@ -37,9 +37,10 @@ def politics(user_input):
             print(f'State: {state}, Political Affiliation: {user_input}')
 
 
+# Returns state and median home price based upon user input for either state or price
 def homes(user_input):
     # Iterates through the remaining list of strings and converts each string to a dictionary value 
-    homes_rel_path = 'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\homes.csv'
+    homes_rel_path = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\homes.csv'
     # Opens file at relative path and converts lines into a list of strings
     with open(homes_rel_path, 'r') as file:
         lines:list = file.read().split('\n')
@@ -54,20 +55,17 @@ def homes(user_input):
         states_list.append(state_dict)
     for d in states_list:
         state = d['ï»¿state']
-        control = d['control']
+        median_value = d['MedianValue']
         if user_input == state:
-            print(f'State: {user_input}, Political Affiliation: {control}')
-        elif user_input == control:
-            print(f'State: {state}, Political Affiliation: {user_input}')
+            print(f'State: {user_input}, Median Home Price: ${median_value}')
+        elif user_input == median_value:
+            print(f'State: {state}, Median Home Price: ${user_input}')
 
 
-user_input = 'Oregon'
-homes(user_input)
-
-
+# Returns state (individual or list) and crime rate (violent/property) based upon user input for either state or crime rate per 100k people
 def crime(user_input):
     # Iterates through the remaining list of strings and converts each string to a dictionary value 
-    crime_rel_path = 'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\crimes.csv'
+    crime_rel_path = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\crimes.csv'
     # Opens file at relative path and converts lines into a list of strings
     with open(crime_rel_path, 'r') as file:
         lines:list = file.read().split('\n')
@@ -82,13 +80,15 @@ def crime(user_input):
         states_list.append(state_dict)
     for d in states_list:
         state = d['ï»¿state']
-        control = d['control']
+        rate = d['rate']
         if user_input == state:
-            print(f'State: {user_input}, Political Affiliation: {control}')
-        elif user_input == control:
-            print(f'State: {state}, Political Affiliation: {user_input}')
+            print(f'State: {user_input}, Crime Rate per 100,000 people: {int(float(rate))}')
+        elif int(user_input) <= int(float(rate)):
+            print(f'State: {state}, Crime Rate per 100,000 people: {int(float(rate))}')
 
 
+user_input = '5000'
+crime(user_input)
 
 
 import requests
