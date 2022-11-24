@@ -1,7 +1,5 @@
 # Python Mini-Capstone
 
-# Your program needs to utilize an external library.  The functionality of the program is up to you.
-
 # 0930 and 1330 Stand Ups to answer 3 questions:
     # What did you do in your last session?
     # What will you do in this session?
@@ -14,26 +12,83 @@
     # There is more info on presentations in the README
 
 ######################################################################################################################################################
-# pol_rel_path = 'class_opal\code\josh\python\josh_mini_capstone\politics.csv'
+# state, control
+def politics(user_input):
+    # Iterates through the remaining list of strings and converts each string to a dictionary value 
+    pol_rel_path = 'C:/Users/joshg/pdx_code/class_opal/code/josh/python/josh_mini_capstone/politics.csv'
+    # Opens file at relative path and converts lines into a list of strings
+    with open(pol_rel_path, 'r') as file:
+        lines:list = file.read().split('\n')
+    states_list = []
+    # Creates a list of strings, where each string will be used as a dictionary key from the first line in the file above
+    keys: list[str] = lines[0].split(',')    
+    for line in lines[1:]:
+        state_dict = {}
+        values: list[str] = line.split(',')
+        for i, key in enumerate(keys):
+            state_dict[key] = values[i]
+        states_list.append(state_dict)
+    for d in states_list:
+        state = d['ï»¿state']
+        control = d['control']
+        if user_input == state:
+            print(f'State: {user_input}, Political Affiliation: {control}')
+        elif user_input == control:
+            print(f'State: {state}, Political Affiliation: {user_input}')
 
-# # state, control
-# # Opens file at relative path and converts lines into a list of strings
-# with open(pol_rel_path, 'r') as file:
-#     lines:list = file.read().split('\n')
 
-# states_list = []
-# # Creates a list of strings, where each string will be used as a dictionary key from the first line in the file above
-# keys: list[str] = lines[0].split(',')  
+def homes(user_input):
+    # Iterates through the remaining list of strings and converts each string to a dictionary value 
+    homes_rel_path = 'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\homes.csv'
+    # Opens file at relative path and converts lines into a list of strings
+    with open(homes_rel_path, 'r') as file:
+        lines:list = file.read().split('\n')
+    states_list = []
+    # Creates a list of strings, where each string will be used as a dictionary key from the first line in the file above
+    keys: list[str] = lines[0].split(',')    
+    for line in lines[1:]:
+        state_dict = {}
+        values: list[str] = line.split(',')
+        for i, key in enumerate(keys):
+            state_dict[key] = values[i]
+        states_list.append(state_dict)
+    for d in states_list:
+        state = d['ï»¿state']
+        control = d['control']
+        if user_input == state:
+            print(f'State: {user_input}, Political Affiliation: {control}')
+        elif user_input == control:
+            print(f'State: {state}, Political Affiliation: {user_input}')
 
-# # Iterates through the remaining list of strings and converts each string to a dictionary value 
-# for line in lines[1:]:
-#     state_dict = {}
-#     values: list[str] = line.split(',')
-#     for i, key in enumerate(keys):
-#         state_dict[key] = values[i]
-#     states_list.append(state_dict)
 
-# print(states_list)
+user_input = 'Oregon'
+homes(user_input)
+
+
+def crime(user_input):
+    # Iterates through the remaining list of strings and converts each string to a dictionary value 
+    crime_rel_path = 'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\crimes.csv'
+    # Opens file at relative path and converts lines into a list of strings
+    with open(crime_rel_path, 'r') as file:
+        lines:list = file.read().split('\n')
+    states_list = []
+    # Creates a list of strings, where each string will be used as a dictionary key from the first line in the file above
+    keys: list[str] = lines[0].split(',')    
+    for line in lines[1:]:
+        state_dict = {}
+        values: list[str] = line.split(',')
+        for i, key in enumerate(keys):
+            state_dict[key] = values[i]
+        states_list.append(state_dict)
+    for d in states_list:
+        state = d['ï»¿state']
+        control = d['control']
+        if user_input == state:
+            print(f'State: {user_input}, Political Affiliation: {control}')
+        elif user_input == control:
+            print(f'State: {state}, Political Affiliation: {user_input}')
+
+
 
 
 import requests
@@ -43,24 +98,24 @@ from pprint import pprint
 from bs4 import BeautifulSoup, SoupStrainer
 from urllib.request import urlopen
 
-# state, control
-politics= pd.read_csv(r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\politics.csv')
-# state, MedianValue
-homes= pd.read_csv(r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\homes.csv')
-# state, rate
-crimes= pd.read_csv(r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\crimes.csv')
+# # state, control
+# politics= pd.read_csv(r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\politics.csv')
+# # state, MedianValue
+# homes= pd.read_csv(r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\homes.csv')
+# # state, rate
+# crimes= pd.read_csv(r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\crimes.csv')
 
-print(homes)
+# print(homes)
 
-# for state in politics:
-#     print(state)
+# # for state in politics:
+# #     print(state)
 
-def csv(user_input, csv):
-    for state in csv:
-        if user_input == state:
-            return f'State: {state}, Political Affiliation: {csv[user_input]}'
-        elif user_input == politics:
-            return f'State: {state}, Political Affiliation: {csv[user_input]}'
+# def csv(user_input, csv):
+#     for state in csv:
+#         if user_input == state:
+#             return f'State: {state}, Political Affiliation: {csv[user_input]}'
+#         elif user_input == politics:
+#             return f'State: {state}, Political Affiliation: {csv[user_input]}'
 
 # print(csv('control', homes))
 
@@ -86,7 +141,7 @@ with urlopen('https://worldpopulationreview.com/state-rankings/crime-rate-by-sta
 
 # Opens 4th website (data from Zillow, et al.) to webscrape median housing values by state
 with urlopen('https://worldpopulationreview.com/state-rankings/median-home-price-by-state') as response:
-    soup_house = BeautifulSoup(response, 'html.parser')
+    soup_homes = BeautifulSoup(response, 'html.parser')
 
 
 # Returns state, tax_rate, and data based upon user input for either state or rank

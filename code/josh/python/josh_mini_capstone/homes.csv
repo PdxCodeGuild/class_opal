@@ -1,51 +1,51 @@
-﻿"state","MedianValue","medianValueZillow"
-"West Virginia","123200","129103"
-"Mississippi","125500","157828"
-"Arkansas","133600","169867"
-"Oklahoma","142400","171057"
-"Kentucky","147100","188439"
-"Indiana","148900","210166"
-"Alabama","149600","194695"
-"Ohio","151400","199959"
-"Iowa","153900","183418"
-"Kansas","157600","198199"
-"Michigan","162600","225324"
-"Missouri","163600","218208"
-"Nebraska","164000","230672"
-"Louisiana","168100","205972"
-"South Carolina","170100","269186"
-"South Dakota","174600","277809"
-"New Mexico","175700","277617"
-"Tennessee","177600","276963"
-"North Carolina","182100","296021"
-"Texas","187200","289896"
-"Pennsylvania","187500","254597"
-"Wisconsin","189200","251655"
-"Georgia","190200","295159"
-"Maine","198000","344592"
-"North Dakota","199900","266763"
-"Illinois","202100","253433"
-"Wyoming","228000","308862"
-"Vermont","230900","336310"
-"Florida","232000","358018"
-"Idaho","235600","466435"
-"Minnesota","235700","323515"
-"Arizona","242000","416433"
-"Montana","244900","428202"
-"Delaware","258300","337543"
-"New Hampshire","272300","411945"
-"Alaska","275600","312988"
-"Rhode Island","276600","412897"
-"Connecticut","279700","343687"
-"Virginia","282800","358447"
-"Nevada","290200","434832"
-"Utah","305400","544868"
-"New York","325000","382663"
-"Maryland","325400","390608"
-"Oregon","336700","502215"
-"New Jersey","343500","441762"
-"Washington","366800","595732"
-"Colorado","369900","559838"
-"Massachusetts","398800","559312"
-"California","538500","760800"
-"Hawaii","636400","848926"
+﻿state,MedianValue,medianValueZillow
+West Virginia,123200,129103
+Mississippi,125500,157828
+Arkansas,133600,169867
+Oklahoma,142400,171057
+Kentucky,147100,188439
+Indiana,148900,210166
+Alabama,149600,194695
+Ohio,151400,199959
+Iowa,153900,183418
+Kansas,157600,198199
+Michigan,162600,225324
+Missouri,163600,218208
+Nebraska,164000,230672
+Louisiana,168100,205972
+South Carolina,170100,269186
+South Dakota,174600,277809
+New Mexico,175700,277617
+Tennessee,177600,276963
+North Carolina,182100,296021
+Texas,187200,289896
+Pennsylvania,187500,254597
+Wisconsin,189200,251655
+Georgia,190200,295159
+Maine,198000,344592
+North Dakota,199900,266763
+Illinois,202100,253433
+Wyoming,228000,308862
+Vermont,230900,336310
+Florida,232000,358018
+Idaho,235600,466435
+Minnesota,235700,323515
+Arizona,242000,416433
+Montana,244900,428202
+Delaware,258300,337543
+New Hampshire,272300,411945
+Alaska,275600,312988
+Rhode Island,276600,412897
+Connecticut,279700,343687
+Virginia,282800,358447
+Nevada,290200,434832
+Utah,305400,544868
+New York,325000,382663
+Maryland,325400,390608
+Oregon,336700,502215
+New Jersey,343500,441762
+Washington,366800,595732
+Colorado,369900,559838
+Massachusetts,398800,559312
+California,538500,760800
+Hawaii,636400,848926
