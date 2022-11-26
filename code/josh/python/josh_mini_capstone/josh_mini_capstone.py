@@ -58,7 +58,7 @@ def politics(user_input):
             print(f'State: {user_input}, Political Affiliation: {control}')
         elif user_input == control:
             print(f'State: {state}, Political Affiliation: {user_input}')
-
+            
 
 # Returns state and median home price based upon user input for either state or price
 def homes(user_input):
@@ -108,7 +108,15 @@ def crime(user_input):
             print(f'State: {user_input}, Crime Rate per 100,000 people: {int(float(rate))}')
         elif int(user_input) <= int(float(rate)):
             print(f'State: {state}, Crime Rate per 100,000 people: {int(float(rate))}')
-
+    # for d in states_list:
+    #     return_list = []
+    #     state = d['ï»¿state']
+    #     rate = d['rate']
+    #     if user_input == state:
+    #         return_list.append(f'State: {user_input}, Crime Rate per 100,000 people: {int(float(rate))}')
+    #     elif int(user_input) <= int(float(rate)):
+    #         return_list.append(f'State: {state}, Crime Rate per 100,000 people: {int(float(rate))}')
+    # return return_list
 
 
 # REPL for Tax Burden
@@ -136,7 +144,7 @@ while True:
         break
     elif politics(state_choice) == None:
         print('You have entered an invalid response.')
-        continue
+        print('111111111111111111111111111111111111111111111111111')
     else:
         print(politics(state_choice))
     another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
@@ -146,6 +154,7 @@ while True:
         break
     else:
         print('You have entered an invalid response.')
+        print('22222222222222222222222222222222222222222222222222')
         continue
 
 # REPL for Median Home Values
