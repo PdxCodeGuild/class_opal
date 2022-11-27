@@ -1,0 +1,257 @@
+[
+  {
+    "state": "Alabama",
+    "control": "Republican",
+    "pop2022": 5073187
+  },
+  {
+    "state": "Alaska",
+    "control": "Republican",
+    "pop2022": 738023
+  },
+  {
+    "state": "Arizona",
+    "control": "Republican",
+    "pop2022": 7303398
+  },
+  {
+    "state": "Arkansas",
+    "control": "Republican",
+    "pop2022": 3030646
+  },
+  {
+    "state": "California",
+    "control": "Democrat",
+    "pop2022": 39995077
+  },
+  {
+    "state": "Colorado",
+    "control": "Democrat",
+    "pop2022": 5922618
+  },
+  {
+    "state": "Connecticut",
+    "control": "Democrat",
+    "pop2022": 3612314
+  },
+  {
+    "state": "Delaware",
+    "control": "Democrat",
+    "pop2022": 1008350
+  },
+  {
+    "state": "District of Columbia",
+    "control": "Democrat",
+    "pop2022": 707109
+  },
+  {
+    "state": "Florida",
+    "control": "Republican",
+    "pop2022": 22085563
+  },
+  {
+    "state": "Georgia",
+    "control": "Republican",
+    "pop2022": 10916760
+  },
+  {
+    "state": "Hawaii",
+    "control": "Democrat",
+    "pop2022": 1474265
+  },
+  {
+    "state": "Idaho",
+    "control": "Republican",
+    "pop2022": 1893410
+  },
+  {
+    "state": "Illinois",
+    "control": "Democrat",
+    "pop2022": 12808884
+  },
+  {
+    "state": "Indiana",
+    "control": "Republican",
+    "pop2022": 6845874
+  },
+  {
+    "state": "Iowa",
+    "control": "Republican",
+    "pop2022": 3219171
+  },
+  {
+    "state": "Kansas",
+    "control": "Split",
+    "pop2022": 2954832
+  },
+  {
+    "state": "Kentucky",
+    "control": "Split",
+    "pop2022": 4539130
+  },
+  {
+    "state": "Louisiana",
+    "control": "Split",
+    "pop2022": 4682633
+  },
+  {
+    "state": "Maine",
+    "control": "Democrat",
+    "pop2022": 1369159
+  },
+  {
+    "state": "Maryland",
+    "control": "Split",
+    "pop2022": 6257958
+  },
+  {
+    "state": "Massachusetts",
+    "control": "Split",
+    "pop2022": 7126375
+  },
+  {
+    "state": "Michigan",
+    "control": "Split",
+    "pop2022": 10116069
+  },
+  {
+    "state": "Minnesota",
+    "control": "Split",
+    "pop2022": 5787008
+  },
+  {
+    "state": "Mississippi",
+    "control": "Republican",
+    "pop2022": 2960075
+  },
+  {
+    "state": "Missouri",
+    "control": "Republican",
+    "pop2022": 6188111
+  },
+  {
+    "state": "Montana",
+    "control": "Republican",
+    "pop2022": 1103187
+  },
+  {
+    "state": "Nebraska",
+    "control": "Nonpartisan",
+    "pop2022": 1988536
+  },
+  {
+    "state": "Nevada",
+    "control": "Democrat",
+    "pop2022": 3185426
+  },
+  {
+    "state": "New Hampshire",
+    "control": "Republican",
+    "pop2022": 1389741
+  },
+  {
+    "state": "New Jersey",
+    "control": "Democrat",
+    "pop2022": 9388414
+  },
+  {
+    "state": "New Mexico",
+    "control": "Democrat",
+    "pop2022": 2129190
+  },
+  {
+    "state": "New York",
+    "control": "Democrat",
+    "pop2022": 20365879
+  },
+  {
+    "state": "North Carolina",
+    "control": "Split",
+    "pop2022": 10620168
+  },
+  {
+    "state": "North Dakota",
+    "control": "Republican",
+    "pop2022": 800394
+  },
+  {
+    "state": "Ohio",
+    "control": "Republican",
+    "pop2022": 11852036
+  },
+  {
+    "state": "Oklahoma",
+    "control": "Republican",
+    "pop2022": 4000953
+  },
+  {
+    "state": "Oregon",
+    "control": "Democrat",
+    "pop2022": 4318492
+  },
+  {
+    "state": "Pennsylvania",
+    "control": "Split",
+    "pop2022": 13062764
+  },
+  {
+    "state": "Rhode Island",
+    "control": "Democrat",
+    "pop2022": 1106341
+  },
+  {
+    "state": "South Carolina",
+    "control": "Republican",
+    "pop2022": 5217037
+  },
+  {
+    "state": "South Dakota",
+    "control": "Republican",
+    "pop2022": 901165
+  },
+  {
+    "state": "Tennessee",
+    "control": "Republican",
+    "pop2022": 7023788
+  },
+  {
+    "state": "Texas",
+    "control": "Republican",
+    "pop2022": 29945493
+  },
+  {
+    "state": "Utah",
+    "control": "Republican",
+    "pop2022": 3373162
+  },
+  {
+    "state": "Vermont",
+    "control": "Split",
+    "pop2022": 646545
+  },
+  {
+    "state": "Virginia",
+    "control": "Split",
+    "pop2022": 8757467
+  },
+  {
+    "state": "Washington",
+    "control": "Democrat",
+    "pop2022": 7901429
+  },
+  {
+    "state": "West Virginia",
+    "control": "Republican",
+    "pop2022": 1781860
+  },
+  {
+    "state": "Wisconsin",
+    "control": "Split",
+    "pop2022": 5935064
+  },
+  {
+    "state": "Wyoming",
+    "control": "Republican",
+    "pop2022": 579495
+  }
+]

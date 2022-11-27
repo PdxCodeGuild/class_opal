@@ -1,0 +1,512 @@
+[
+  {
+    "state": "District of Columbia",
+    "pop2020": 712816,
+    "reported": 14113,
+    "rate": "7985.9320",
+    "violent": 7127,
+    "violentRate": "999.8370",
+    "nonViolent": 49798,
+    "nonViolentRate": "6986.0950"
+  },
+  {
+    "state": "New Mexico",
+    "pop2020": 2106319,
+    "reported": 22077,
+    "rate": "6462.0320",
+    "violent": 16393,
+    "violentRate": "778.2770",
+    "nonViolent": 119718,
+    "nonViolentRate": "5683.7540"
+  },
+  {
+    "state": "Louisiana",
+    "pop2020": 4645318,
+    "reported": 35473,
+    "rate": "6408.2160",
+    "violent": 29704,
+    "violentRate": "639.4400",
+    "nonViolent": 267978,
+    "nonViolentRate": "5768.7760"
+  },
+  {
+    "state": "Colorado",
+    "pop2020": 5807719,
+    "reported": 30238,
+    "rate": "6090.7560",
+    "violent": 24570,
+    "violentRate": "423.0580",
+    "nonViolent": 329164,
+    "nonViolentRate": "5667.6980"
+  },
+  {
+    "state": "South Carolina",
+    "pop2020": 5218040,
+    "reported": 33133,
+    "rate": "5972.8370",
+    "violent": 27691,
+    "violentRate": "530.6780",
+    "nonViolent": 283974,
+    "nonViolentRate": "5442.1580"
+  },
+  {
+    "state": "Arkansas",
+    "pop2020": 3030522,
+    "reported": 25590,
+    "rate": "5898.7530",
+    "violent": 20363,
+    "violentRate": "671.9300",
+    "nonViolent": 158400,
+    "nonViolentRate": "5226.8220"
+  },
+  {
+    "state": "Oklahoma",
+    "pop2020": 3980783,
+    "reported": 23666,
+    "rate": "5869.8250",
+    "violent": 18255,
+    "violentRate": "458.5780",
+    "nonViolent": 215410,
+    "nonViolentRate": "5411.2470"
+  },
+  {
+    "state": "Washington",
+    "pop2020": 7693612,
+    "reported": 28061,
+    "rate": "5758.5700",
+    "violent": 22596,
+    "violentRate": "293.6980",
+    "nonViolent": 420446,
+    "nonViolentRate": "5464.8710"
+  },
+  {
+    "state": "Tennessee",
+    "pop2020": 6886834,
+    "reported": 51314,
+    "rate": "5658.3040",
+    "violent": 46328,
+    "violentRate": "672.7040",
+    "nonViolent": 343350,
+    "nonViolentRate": "4985.6000"
+  },
+  {
+    "state": "Oregon",
+    "pop2020": 4241507,
+    "reported": 17698,
+    "rate": "5609.8930",
+    "violent": 12380,
+    "violentRate": "291.8770",
+    "nonViolent": 225564,
+    "nonViolentRate": "5318.0160"
+  },
+  {
+    "state": "Missouri",
+    "pop2020": 6151548,
+    "reported": 38447,
+    "rate": "5604.7840",
+    "violent": 33385,
+    "violentRate": "542.7090",
+    "nonViolent": 311396,
+    "nonViolentRate": "5062.0750"
+  },
+  {
+    "state": "Alaska",
+    "pop2020": 731158,
+    "reported": 10647,
+    "rate": "5358.8960",
+    "violent": 6126,
+    "violentRate": "837.8490",
+    "nonViolent": 33056,
+    "nonViolentRate": "4521.0470"
+  },
+  {
+    "state": "Utah",
+    "pop2020": 3249879,
+    "reported": 13400,
+    "rate": "5189.5160",
+    "violent": 8471,
+    "violentRate": "260.6560",
+    "nonViolent": 160182,
+    "nonViolentRate": "4928.8600"
+  },
+  {
+    "state": "Hawaii",
+    "pop2020": 1407006,
+    "reported": 8399,
+    "rate": "5076.8800",
+    "violent": 3576,
+    "violentRate": "254.1570",
+    "nonViolent": 67856,
+    "nonViolentRate": "4822.7230"
+  },
+  {
+    "state": "Arizona",
+    "pop2020": 7421401,
+    "reported": 40435,
+    "rate": "4940.1180",
+    "violent": 35980,
+    "violentRate": "484.8140",
+    "nonViolent": 330646,
+    "nonViolentRate": "4455.3040"
+  },
+  {
+    "state": "Texas",
+    "pop2020": 29360759,
+    "reported": 135574,
+    "rate": "4936.5350",
+    "violent": 131084,
+    "violentRate": "446.4600",
+    "nonViolent": 1318320,
+    "nonViolentRate": "4490.0750"
+  },
+  {
+    "state": "North Carolina",
+    "pop2020": 10600823,
+    "reported": 48904,
+    "rate": "4872.2920",
+    "violent": 44451,
+    "violentRate": "419.3170",
+    "nonViolent": 472052,
+    "nonViolentRate": "4452.9750"
+  },
+  {
+    "state": "Kansas",
+    "pop2020": 2913805,
+    "reported": 16783,
+    "rate": "4823.2120",
+    "violent": 12385,
+    "violentRate": "425.0460",
+    "nonViolent": 128154,
+    "nonViolentRate": "4398.1670"
+  },
+  {
+    "state": "Alabama",
+    "pop2020": 4921532,
+    "reported": 26596,
+    "rate": "4727.0650",
+    "violent": 22322,
+    "violentRate": "453.5580",
+    "nonViolent": 210322,
+    "nonViolentRate": "4273.5070"
+  },
+  {
+    "state": "California",
+    "pop2020": 39368078,
+    "reported": 178304,
+    "rate": "4719.9000",
+    "violent": 174026,
+    "violentRate": "442.0490",
+    "nonViolent": 1684108,
+    "nonViolentRate": "4277.8520"
+  },
+  {
+    "state": "Montana",
+    "pop2020": 1080577,
+    "reported": 9319,
+    "rate": "4711.4640",
+    "violent": 5077,
+    "violentRate": "469.8420",
+    "nonViolent": 45834,
+    "nonViolentRate": "4241.6230"
+  },
+  {
+    "state": "North Dakota",
+    "pop2020": 765309,
+    "reported": 6766,
+    "rate": "4577.2360",
+    "violent": 2518,
+    "violentRate": "329.0170",
+    "nonViolent": 32512,
+    "nonViolentRate": "4248.2190"
+  },
+  {
+    "state": "Minnesota",
+    "pop2020": 5657342,
+    "reported": 19948,
+    "rate": "4527.2500",
+    "violent": 15698,
+    "violentRate": "277.4800",
+    "nonViolent": 240424,
+    "nonViolentRate": "4249.7700"
+  },
+  {
+    "state": "Mississippi",
+    "pop2020": 2966786,
+    "reported": 12841,
+    "rate": "4494.4260",
+    "violent": 8638,
+    "violentRate": "291.1570",
+    "nonViolent": 124702,
+    "nonViolentRate": "4203.2690"
+  },
+  {
+    "state": "South Dakota",
+    "pop2020": 892717,
+    "reported": 8389,
+    "rate": "4414.8370",
+    "violent": 4476,
+    "violentRate": "501.3910",
+    "nonViolent": 34936,
+    "nonViolentRate": "3913.4460"
+  },
+  {
+    "state": "Georgia",
+    "pop2020": 10710017,
+    "reported": 46865,
+    "rate": "4414.8020",
+    "violent": 42850,
+    "violentRate": "400.0930",
+    "nonViolent": 429976,
+    "nonViolentRate": "4014.7090"
+  },
+  {
+    "state": "Delaware",
+    "pop2020": 986809,
+    "reported": 8185,
+    "rate": "4354.6420",
+    "violent": 4262,
+    "violentRate": "431.8970",
+    "nonViolent": 38710,
+    "nonViolentRate": "3922.7450"
+  },
+  {
+    "state": "Nevada",
+    "pop2020": 3138259,
+    "reported": 18298,
+    "rate": "4313.5060",
+    "violent": 14445,
+    "violentRate": "460.2870",
+    "nonViolent": 120924,
+    "nonViolentRate": "3853.2190"
+  },
+  {
+    "state": "Nebraska",
+    "pop2020": 1937552,
+    "reported": 10291,
+    "rate": "4152.4050",
+    "violent": 6473,
+    "violentRate": "334.0810",
+    "nonViolent": 73982,
+    "nonViolentRate": "3818.3230"
+  },
+  {
+    "state": "Ohio",
+    "pop2020": 11693217,
+    "reported": 39805,
+    "rate": "4009.4180",
+    "violent": 36104,
+    "violentRate": "308.7600",
+    "nonViolent": 432726,
+    "nonViolentRate": "3700.6580"
+  },
+  {
+    "state": "Indiana",
+    "pop2020": 6754953,
+    "reported": 27727,
+    "rate": "3924.0390",
+    "violent": 24161,
+    "violentRate": "357.6780",
+    "nonViolent": 240906,
+    "nonViolentRate": "3566.3610"
+  },
+  {
+    "state": "Florida",
+    "pop2020": 21733312,
+    "reported": 86907,
+    "rate": "3922.4580",
+    "violent": 83368,
+    "violentRate": "383.5950",
+    "nonViolent": 769112,
+    "nonViolentRate": "3538.8620"
+  },
+  {
+    "state": "Kentucky",
+    "pop2020": 4477251,
+    "reported": 15159,
+    "rate": "3818.1020",
+    "violent": 11600,
+    "violentRate": "259.0880",
+    "nonViolent": 159346,
+    "nonViolentRate": "3559.0140"
+  },
+  {
+    "state": "Iowa",
+    "pop2020": 3163561,
+    "reported": 12997,
+    "rate": "3699.9760",
+    "violent": 9601,
+    "violentRate": "303.4870",
+    "nonViolent": 107450,
+    "nonViolentRate": "3396.4890"
+  },
+  {
+    "state": "Pennsylvania",
+    "pop2020": 12783254,
+    "reported": 53081,
+    "rate": "3677.6790",
+    "violent": 49793,
+    "violentRate": "389.5170",
+    "nonViolent": 420334,
+    "nonViolentRate": "3288.1610"
+  },
+  {
+    "state": "Maryland",
+    "pop2020": 6055802,
+    "reported": 27435,
+    "rate": "3619.4880",
+    "violent": 24215,
+    "violentRate": "399.8640",
+    "nonViolent": 194974,
+    "nonViolentRate": "3219.6230"
+  },
+  {
+    "state": "Illinois",
+    "pop2020": 12587530,
+    "reported": 56731,
+    "rate": "3544.6670",
+    "violent": 53612,
+    "violentRate": "425.9140",
+    "nonViolent": 392574,
+    "nonViolentRate": "3118.7530"
+  },
+  {
+    "state": "Wyoming",
+    "pop2020": 582328,
+    "reported": 4585,
+    "rate": "3455.4410",
+    "violent": 1364,
+    "violentRate": "234.2320",
+    "nonViolent": 18758,
+    "nonViolentRate": "3221.2090"
+  },
+  {
+    "state": "Connecticut",
+    "pop2020": 3557006,
+    "reported": 9589,
+    "rate": "3311.7460",
+    "violent": 6459,
+    "violentRate": "181.5850",
+    "nonViolent": 111340,
+    "nonViolentRate": "3130.1610"
+  },
+  {
+    "state": "Wisconsin",
+    "pop2020": 5832655,
+    "reported": 21832,
+    "rate": "3294.7090",
+    "violent": 18861,
+    "violentRate": "323.3690",
+    "nonViolent": 173308,
+    "nonViolentRate": "2971.3400"
+  },
+  {
+    "state": "Michigan",
+    "pop2020": 9966555,
+    "reported": 50363,
+    "rate": "3199.7720",
+    "violent": 47641,
+    "violentRate": "478.0090",
+    "nonViolent": 271266,
+    "nonViolentRate": "2721.7630"
+  },
+  {
+    "state": "New York",
+    "pop2020": 19336776,
+    "reported": 73160,
+    "rate": "3185.2000",
+    "violent": 70339,
+    "violentRate": "363.7580",
+    "nonViolent": 545576,
+    "nonViolentRate": "2821.4420"
+  },
+  {
+    "state": "West Virginia",
+    "pop2020": 1784787,
+    "reported": 9151,
+    "rate": "3154.6620",
+    "violent": 6352,
+    "violentRate": "355.8970",
+    "nonViolent": 49952,
+    "nonViolentRate": "2798.7650"
+  },
+  {
+    "state": "Virginia",
+    "pop2020": 8590563,
+    "reported": 20838,
+    "rate": "3121.4830",
+    "violent": 17925,
+    "violentRate": "208.6590",
+    "nonViolent": 250228,
+    "nonViolentRate": "2912.8240"
+  },
+  {
+    "state": "Rhode Island",
+    "pop2020": 1057125,
+    "reported": 4931,
+    "rate": "2721.7220",
+    "violent": 2440,
+    "violentRate": "230.8150",
+    "nonViolent": 26332,
+    "nonViolentRate": "2490.9070"
+  },
+  {
+    "state": "Vermont",
+    "pop2020": 623347,
+    "reported": 3515,
+    "rate": "2607.3760",
+    "violent": 1081,
+    "violentRate": "173.4190",
+    "nonViolent": 15172,
+    "nonViolentRate": "2433.9570"
+  },
+  {
+    "state": "New Jersey",
+    "pop2020": 8882371,
+    "reported": 19669,
+    "rate": "2511.7510",
+    "violent": 17353,
+    "violentRate": "195.3650",
+    "nonViolent": 205750,
+    "nonViolentRate": "2316.3860"
+  },
+  {
+    "state": "Idaho",
+    "pop2020": 1826913,
+    "reported": 6656,
+    "rate": "2466.3460",
+    "violent": 4432,
+    "violentRate": "242.5950",
+    "nonViolent": 40626,
+    "nonViolentRate": "2223.7510"
+  },
+  {
+    "state": "Maine",
+    "pop2020": 1350141,
+    "reported": 3778,
+    "rate": "2420.9320",
+    "violent": 1466,
+    "violentRate": "108.5810",
+    "nonViolent": 31220,
+    "nonViolentRate": "2312.3510"
+  },
+  {
+    "state": "Massachusetts",
+    "pop2020": 6893574,
+    "reported": 23394,
+    "rate": "2415.1770",
+    "violent": 21288,
+    "violentRate": "308.8090",
+    "nonViolent": 145204,
+    "nonViolentRate": "2106.3670"
+  },
+  {
+    "state": "New Hampshire",
+    "pop2020": 1366275,
+    "reported": 4198,
+    "rate": "2344.1840",
+    "violent": 2000,
+    "violentRate": "146.3830",
+    "nonViolent": 30028,
+    "nonViolentRate": "2197.8010"
+  }
+]

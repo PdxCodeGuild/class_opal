@@ -1,0 +1,252 @@
+[
+  {
+    "state": "West Virginia",
+    "MedianValue": 123200,
+    "medianValueZillow": 129103
+  },
+  {
+    "state": "Mississippi",
+    "MedianValue": 125500,
+    "medianValueZillow": 157828
+  },
+  {
+    "state": "Arkansas",
+    "MedianValue": 133600,
+    "medianValueZillow": 169867
+  },
+  {
+    "state": "Oklahoma",
+    "MedianValue": 142400,
+    "medianValueZillow": 171057
+  },
+  {
+    "state": "Kentucky",
+    "MedianValue": 147100,
+    "medianValueZillow": 188439
+  },
+  {
+    "state": "Indiana",
+    "MedianValue": 148900,
+    "medianValueZillow": 210166
+  },
+  {
+    "state": "Alabama",
+    "MedianValue": 149600,
+    "medianValueZillow": 194695
+  },
+  {
+    "state": "Ohio",
+    "MedianValue": 151400,
+    "medianValueZillow": 199959
+  },
+  {
+    "state": "Iowa",
+    "MedianValue": 153900,
+    "medianValueZillow": 183418
+  },
+  {
+    "state": "Kansas",
+    "MedianValue": 157600,
+    "medianValueZillow": 198199
+  },
+  {
+    "state": "Michigan",
+    "MedianValue": 162600,
+    "medianValueZillow": 225324
+  },
+  {
+    "state": "Missouri",
+    "MedianValue": 163600,
+    "medianValueZillow": 218208
+  },
+  {
+    "state": "Nebraska",
+    "MedianValue": 164000,
+    "medianValueZillow": 230672
+  },
+  {
+    "state": "Louisiana",
+    "MedianValue": 168100,
+    "medianValueZillow": 205972
+  },
+  {
+    "state": "South Carolina",
+    "MedianValue": 170100,
+    "medianValueZillow": 269186
+  },
+  {
+    "state": "South Dakota",
+    "MedianValue": 174600,
+    "medianValueZillow": 277809
+  },
+  {
+    "state": "New Mexico",
+    "MedianValue": 175700,
+    "medianValueZillow": 277617
+  },
+  {
+    "state": "Tennessee",
+    "MedianValue": 177600,
+    "medianValueZillow": 276963
+  },
+  {
+    "state": "North Carolina",
+    "MedianValue": 182100,
+    "medianValueZillow": 296021
+  },
+  {
+    "state": "Texas",
+    "MedianValue": 187200,
+    "medianValueZillow": 289896
+  },
+  {
+    "state": "Pennsylvania",
+    "MedianValue": 187500,
+    "medianValueZillow": 254597
+  },
+  {
+    "state": "Wisconsin",
+    "MedianValue": 189200,
+    "medianValueZillow": 251655
+  },
+  {
+    "state": "Georgia",
+    "MedianValue": 190200,
+    "medianValueZillow": 295159
+  },
+  {
+    "state": "Maine",
+    "MedianValue": 198000,
+    "medianValueZillow": 344592
+  },
+  {
+    "state": "North Dakota",
+    "MedianValue": 199900,
+    "medianValueZillow": 266763
+  },
+  {
+    "state": "Illinois",
+    "MedianValue": 202100,
+    "medianValueZillow": 253433
+  },
+  {
+    "state": "Wyoming",
+    "MedianValue": 228000,
+    "medianValueZillow": 308862
+  },
+  {
+    "state": "Vermont",
+    "MedianValue": 230900,
+    "medianValueZillow": 336310
+  },
+  {
+    "state": "Florida",
+    "MedianValue": 232000,
+    "medianValueZillow": 358018
+  },
+  {
+    "state": "Idaho",
+    "MedianValue": 235600,
+    "medianValueZillow": 466435
+  },
+  {
+    "state": "Minnesota",
+    "MedianValue": 235700,
+    "medianValueZillow": 323515
+  },
+  {
+    "state": "Arizona",
+    "MedianValue": 242000,
+    "medianValueZillow": 416433
+  },
+  {
+    "state": "Montana",
+    "MedianValue": 244900,
+    "medianValueZillow": 428202
+  },
+  {
+    "state": "Delaware",
+    "MedianValue": 258300,
+    "medianValueZillow": 337543
+  },
+  {
+    "state": "New Hampshire",
+    "MedianValue": 272300,
+    "medianValueZillow": 411945
+  },
+  {
+    "state": "Alaska",
+    "MedianValue": 275600,
+    "medianValueZillow": 312988
+  },
+  {
+    "state": "Rhode Island",
+    "MedianValue": 276600,
+    "medianValueZillow": 412897
+  },
+  {
+    "state": "Connecticut",
+    "MedianValue": 279700,
+    "medianValueZillow": 343687
+  },
+  {
+    "state": "Virginia",
+    "MedianValue": 282800,
+    "medianValueZillow": 358447
+  },
+  {
+    "state": "Nevada",
+    "MedianValue": 290200,
+    "medianValueZillow": 434832
+  },
+  {
+    "state": "Utah",
+    "MedianValue": 305400,
+    "medianValueZillow": 544868
+  },
+  {
+    "state": "New York",
+    "MedianValue": 325000,
+    "medianValueZillow": 382663
+  },
+  {
+    "state": "Maryland",
+    "MedianValue": 325400,
+    "medianValueZillow": 390608
+  },
+  {
+    "state": "Oregon",
+    "MedianValue": 336700,
+    "medianValueZillow": 502215
+  },
+  {
+    "state": "New Jersey",
+    "MedianValue": 343500,
+    "medianValueZillow": 441762
+  },
+  {
+    "state": "Washington",
+    "MedianValue": 366800,
+    "medianValueZillow": 595732
+  },
+  {
+    "state": "Colorado",
+    "MedianValue": 369900,
+    "medianValueZillow": 559838
+  },
+  {
+    "state": "Massachusetts",
+    "MedianValue": 398800,
+    "medianValueZillow": 559312
+  },
+  {
+    "state": "California",
+    "MedianValue": 538500,
+    "medianValueZillow": 760800
+  },
+  {
+    "state": "Hawaii",
+    "MedianValue": 636400,
+    "medianValueZillow": 848926
+  }
+]
