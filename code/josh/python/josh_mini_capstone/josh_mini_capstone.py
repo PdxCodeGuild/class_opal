@@ -15,25 +15,29 @@
 # import requests
 # import pandas as pd
 # from pprint import pprint
+from csv import DictReader
 from bs4 import BeautifulSoup #, SoupStrainer
 from urllib.request import urlopen
-import json
+# import json
 
 # Opens 1st website to webscrape effective tax burdens
 with urlopen('https://taxfoundation.org/tax-burden-by-state-2022/#results') as response:
     soup_tax = BeautifulSoup(response, 'html.parser')
 
-politics_json = 'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\politics.json'
-with open(politics_json) as file:
-    politics_list = json.load(file)
+politics_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\politics.csv'
+with open(politics_csv, 'r') as file:
+    politics = DictReader(file)
+    politics_list = list(politics)
 
-homes_json = 'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\homes.json'
-with open(homes_json) as file:
-    homes_list = json.load(file)
+homes_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\homes.csv'
+with open(homes_csv, 'r') as file:
+    homes = DictReader(file)
+    homes_list = list(homes)
 
-crime_json = 'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\crime.json'
-with open(crime_json) as file:
-    crime_list = json.load(file)
+crime_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\crime.csv'
+with open(crime_csv, 'r') as file:
+    crime = DictReader(file)
+    crime_list = list(crime)
 
 
 # Returns state, tax_rate, and data based upon user input for either state or rank
@@ -51,7 +55,7 @@ def tax_burden(user_input):
 # Returns state and political party control of that state based upon user input for either state or political party
 def politics(user_input):
     for dict in politics_list:
-        state = dict['state']
+        state = dict['ï»¿state']
         control = dict['control']
         if user_input == state:
             print(f'State: {user_input}, Political Affiliation: {control}')
@@ -139,13 +143,6 @@ while True:
 #         print('You have entered an invalid response.')
 #         print('22222222222222222222222222222222222222222222222222')
 #         continue
-
-
-
-
-
-
-
 
 
 
