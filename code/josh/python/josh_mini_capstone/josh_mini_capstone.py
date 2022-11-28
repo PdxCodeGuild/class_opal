@@ -20,20 +20,23 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 # import json
 
-# Opens 1st website to webscrape effective tax burdens
+# Opens Tax Foundation website to webscrape effective tax burdens
 with urlopen('https://taxfoundation.org/tax-burden-by-state-2022/#results') as response:
     soup_tax = BeautifulSoup(response, 'html.parser')
 
+# Opens politics.csv to access state political affiliation data
 politics_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\politics.csv'
 with open(politics_csv, 'r') as file:
     politics = DictReader(file)
     politics_list = list(politics)
 
+# Opens homes.csv to access state median home value data
 homes_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\homes.csv'
 with open(homes_csv, 'r') as file:
     homes = DictReader(file)
     homes_list = list(homes)
 
+# Opens crime.csv to access state violent/property crime rate data
 crime_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\crime.csv'
 with open(crime_csv, 'r') as file:
     crime = DictReader(file)
