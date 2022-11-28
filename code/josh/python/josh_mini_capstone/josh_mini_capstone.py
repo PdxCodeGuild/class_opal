@@ -97,6 +97,10 @@ def crime(user_input):
             except ValueError:
                 continue
 
+tax_favs_list = []
+politics_favs_list = []
+homes_favs_list = []
+crime_favs_list = []
 
 # REPL for Tax Burden
 while True:
@@ -107,6 +111,17 @@ while True:
         print('You have entered an invalid response.')
     else:
         print(tax_burden(state_choice))
+        add_state = input('Would you like to save this state to favorites?  Enter \'y\' for yes or \'n\' to continue: ')
+        if add_state == 'y':
+            try:
+                int(state_choice)
+                print('Unable to add state by rank.  Please re-enter choice by state name to save.')
+            except ValueError:
+                tax_favs_list.append(state_choice)
+                print(f'{state_choice} saved to favorites.')
+                print(tax_favs_list)
+        else:
+            continue
     another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
     if another_state == 'y':
         continue
@@ -123,7 +138,19 @@ while True:
         break
     elif politics(state_choice) != None:
         print(politics(state_choice))
-    another_state = input('End of search or invalid input.  Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
+    add_state = input('Would you like to save this state to favorites?  Enter \'y\' for yes or \'n\' to continue: ')
+    if add_state == 'y':
+        try:
+            if state_choice == 'Democrat' or state_choice == 'Republican' or state_choice == 'Split':
+                print('Unable to add state by political affiliation.  Please re-enter choice by state name to save.')
+            else:
+                politics_favs_list.append(state_choice)
+                print(f'{state_choice} saved to favorites.')
+                print(politics_favs_list)
+        except:
+            continue
+    another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
+    # another_state = input('End of search or invalid input.  Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
     if another_state == 'y':
         continue
     elif another_state == 'n':
@@ -137,9 +164,26 @@ while True:
     state_choice = input('Enter a state name for median home values, a max price to view states below that value, or \'q\' to continue to the next section: ')
     if state_choice == 'q':
         break
+    elif homes(state_choice) == None:   # testing
+        print('End of search or invalid entry.')
+        continue
     elif homes(state_choice) != None:
         print(homes(state_choice))
-    another_state = input('End of search or invalid input.  Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
+    add_state = input('Would you like to save this state to favorites?  Enter \'y\' for yes or \'n\' to continue: ')
+    if add_state == 'y':
+        try:
+            if int(state_choice):
+                print('Unable to add state by price.  Please re-enter choice by state name to save.')
+            else:
+                continue
+        except ValueError:
+            homes_favs_list.append(state_choice)
+            print(f'{state_choice} saved to favorites.')
+            print(homes_favs_list)
+    else:
+        continue
+    another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
+    # another_state = input('End of search or invalid input.  Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
     if another_state == 'y':
         continue
     elif another_state == 'n':
