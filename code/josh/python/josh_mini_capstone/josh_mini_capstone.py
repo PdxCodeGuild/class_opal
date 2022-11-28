@@ -64,7 +64,7 @@ def politics(user_input):
             print(f'State: {user_input}, Political Affiliation: {control}')
         elif user_input == control:
             print(f'State: {state}, Political Affiliation: {user_input}')
-
+    
 
 # Returns state and median home price based upon user input for either state or price
 def homes(user_input):
@@ -119,7 +119,7 @@ while True:
             except ValueError:
                 tax_favs_list.append(state_choice)
                 print(f'{state_choice} saved to favorites.')
-                print(tax_favs_list)
+                print(tax_favs_list)    # for testing
         else:
             continue
     another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
@@ -146,7 +146,7 @@ while True:
             else:
                 politics_favs_list.append(state_choice)
                 print(f'{state_choice} saved to favorites.')
-                print(politics_favs_list)
+                print(politics_favs_list)   # for testing
         except:
             continue
     another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
@@ -164,7 +164,7 @@ while True:
     state_choice = input('Enter a state name for median home values, a max price to view states below that value, or \'q\' to continue to the next section: ')
     if state_choice == 'q':
         break
-    elif homes(state_choice) == None:   # testing
+    elif homes(state_choice) == None:
         print('End of search or invalid entry.')
         continue
     elif homes(state_choice) != None:
@@ -199,7 +199,21 @@ while True:
         break
     elif crime(state_choice) != None:
         print(crime(state_choice))
-    another_state = input('End of search or invalid input.  Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
+    add_state = input('Would you like to save this state to favorites?  Enter \'y\' for yes or \'n\' to continue: ')
+    if add_state == 'y':
+        try:
+            if int(state_choice):
+                print('Unable to add state by crime rate.  Please re-enter choice by state name to save.')
+            else:
+                continue
+        except ValueError:
+            crime_favs_list.append(state_choice)
+            print(f'{state_choice} saved to favorites.')
+            print(crime_favs_list)
+    else:
+        continue
+    
+    another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
     if another_state == 'y':
         continue
     elif another_state == 'n':
@@ -207,6 +221,49 @@ while True:
     else:
         print('You have entered an invalid response.')
         continue
+
+
+lists = [tax_favs_list, politics_favs_list, homes_favs_list, crime_favs_list]
+
+perfect_matches = []
+great_matches = []
+good_matches = []
+least_matches = []
+
+
+
+for list in lists:
+    for i in list:
+        sum(i in list for list in lists)
+        if i == 4:
+            perfect_matches.append(i)
+            print(perfect_matches)
+        
+        
+        
+#         if i in (lists[0], lists[1], lists[2], lists[3]):
+#             list.count(i)
+
+#             perfect_matches.append(i)
+            
+            
+#             (lists[0], lists[1], lists[2], lists[3]):
+#             perfect_matches.append({i})
+
+# def countList(lst, x):
+      
+      
+# # Driver Code
+# lst = (['a'], ['a', 'c', 'b'], ['d']) 
+# x = 'a'
+# print(countList(lst, x))
+
+# for list in range(lists):
+#     for i in list:
+#         if i in (lists[0], lists[1], lists[2], lists[3]):
+#             list.count(i)
+
+#             perfect_matches.append(i)
 
 
 # Need to create lists to add user choices of states from REPLs for CRUD
