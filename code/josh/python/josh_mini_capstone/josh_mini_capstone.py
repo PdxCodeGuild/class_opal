@@ -66,23 +66,33 @@ def politics(user_input):
 # Returns state and median home price based upon user input for either state or price
 def homes(user_input):
     for dict in homes_list:
-        state = dict['state']
+        state = dict['ï»¿state']
         median_value = dict['MedianValue']
         if user_input == state:
-            print(f'State: {user_input}, Median Home Price: ${median_value}')
-        elif user_input >= median_value:
-            print(f'State: {state}, Median Home Price: ${median_value}')
+            return f'State: {user_input}, Median Home Price: ${median_value}'
+        elif user_input != state:
+            try:
+                int(user_input)
+                if int(user_input) >= int(median_value):
+                    print(f'State: {state}, Median Home Price: ${median_value}')
+            except ValueError:
+                continue
 
 
 # Returns state (individual or list) and crime rate (violent/property) based upon user input for either state or crime rate per 100k people
 def crime(user_input):
     for dict in crime_list:
-        state = dict['state']
+        state = dict['ï»¿state']
         rate = dict['rate']
         if user_input == state:
-            print(f'State: {user_input}, Crime Rate per 100,000 people: {int(float(rate))}')
-        elif int(user_input) <= int(float(rate)):
-            print(f'State: {state}, Crime Rate per 100,000 people: {int(float(rate))}')
+            return f'State: {user_input}, Crime Rate per 100,000 people: {int(float(rate))}'
+        elif user_input != state:
+            try:
+                int(user_input)
+                if int(user_input) <= int(float(rate)):
+                    print(f'State: {state}, Crime Rate per 100,000 people: {int(float(rate))}')
+            except ValueError:
+                continue
 
 
 # REPL for Tax Burden
@@ -103,62 +113,30 @@ while True:
         print('You have entered an invalid response.')
         continue
 
-
 # REPL for Politics
 while True:
     state_choice = input('Enter a state name, \'Democrat\', \'Republican\', or \'Split\' to view state politics.  Enter \'q\' to continue to the next section: ')
     if state_choice == 'q':
         break
-    elif politics(state_choice) == None:
-        print('You have entered an invalid response.')
-        print('111111111111111111111111111111111111111111111111111')
-    else:
+    elif politics(state_choice) != None:
         print(politics(state_choice))
-    another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
+    another_state = input('End of search or invalid input.  Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
     if another_state == 'y':
         continue
     elif another_state == 'n':
         break
     else:
         print('You have entered an invalid response.')
-        print('22222222222222222222222222222222222222222222222222')
         continue
-
-
-
-# while True:
-#     state_choice = input('Enter a state name, \'Democrat\', \'Republican\', or \'Split\' to view state politics.  Enter \'q\' to continue to the next section: ')
-#     if state_choice == 'q':
-#         break
-#     elif state_choice != politics_list['state']:
-#         print('You have entered an invalid response.')
-#     else:
-#         print(politics_list[0::1][state_choice])
-#     another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
-#     if another_state == 'y':
-#         continue
-#     elif another_state == 'n':
-#         break
-#     else:
-#         print('You have entered an invalid response.')
-#         print('22222222222222222222222222222222222222222222222222')
-#         continue
-
-
-
-
-
 
 # REPL for Median Home Values
 while True:
     state_choice = input('Enter a state name for median home values, a max price to view states below that value, or \'q\' to continue to the next section: ')
     if state_choice == 'q':
         break
-    elif homes(state_choice) == None:
-        print('You have entered an invalid response.')
-    else:
+    elif homes(state_choice) != None:
         print(homes(state_choice))
-    another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
+    another_state = input('End of search or invalid input.  Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
     if another_state == 'y':
         continue
     elif another_state == 'n':
@@ -172,12 +150,9 @@ while True:
     state_choice = input('Enter a state name for crime rate, a rate max for states below that value, or \'q\' to continue to the next section: ')
     if state_choice == 'q':
         break
-    elif crime(state_choice) == None:
-        print('You have entered an invalid response.')
-    else:
+    elif crime(state_choice) != None:
         print(crime(state_choice))
-        continue
-    another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
+    another_state = input('End of search or invalid input.  Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
     if another_state == 'y':
         continue
     elif another_state == 'n':
@@ -185,8 +160,6 @@ while True:
     else:
         print('You have entered an invalid response.')
         continue
-
-
 
 
 # Need to create lists to add user choices of states from REPLs for CRUD
