@@ -16,7 +16,7 @@
 # import pandas as pd
 # from pprint import pprint
 from csv import DictReader
-from bs4 import BeautifulSoup #, SoupStrainer
+from bs4 import BeautifulSoup
 from urllib.request import urlopen
 # import json
 
@@ -89,8 +89,8 @@ def crime(user_input):
         elif user_input != state:
             try:
                 int(user_input)
-                if int(user_input) <= int(float(rate)):
-                    print(f'State: {state}, Crime Rate per 100,000 people: {int(float(rate))}')
+                if int(user_input) >= int(float(rate)):
+                    print(f'State: {state}, Crime Rate per 100,000 people: {int(float(rate))}')                    
             except ValueError:
                 continue
 
