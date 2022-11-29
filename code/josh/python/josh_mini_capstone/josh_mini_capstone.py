@@ -261,7 +261,7 @@ Your saved states that match half of the categories:\n{results(two_matches)}
 print(final_results)
 print('*These results have been saved to file \'state_ranker.txt\'')
 
-# Overwrites original file with information from 'contacts_ouput' list above 
+# Overwrites original file with information from 'final_results' list above 
 output_path = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\state_ranker.txt'
 
 with open(output_path, 'w') as file:
