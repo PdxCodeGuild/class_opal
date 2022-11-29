@@ -22,23 +22,36 @@ def retrieve_type(user_input):
             user_type.append(slot['type']['name'])
         return user_type
     except json.decoder.JSONDecodeError:
-        # Trying to handle making a new pokemon with a type that's
-        # Found in the list.
-        # chosen_type = str(input('Please provide a type: '))
-        # if chosen_type in response_text:
-        #     return [chosen_type]
-        # else:
         print(f"New Pokemon created. {user_input} is an Electric type.")
         return ['electric']
 
 
+# def retrieve_attack(pokemon_name):
+#     '''
+#     Returns the attack stat of the provided Pokémon.
+#     '''
+    
+#     url = f'https://pokeapi.co/api/v2/pokemon/{pokemon_name}/'
+#     response = requests.get(url)
+    
+#     response_text = response.json()
+#     user_type = []
+#     # pprint(response_text['stats'])
+#     pprint(response_text['stats'])
+#     pprint(user_type)
+#     return user_type
+
+# retrieve_attack('clefairy')
+
+
 while True:
-    # user is being assigned the list of types returned from retrieve_type,
-    # which takes pokename as its parameter.
+
     pokename = str(input("Please enter your Pokémon: ").lower())
     pokerival = str(input("Please enter your rival's Pokémon: ").lower())
     user_types = [retrieve_type(pokename), retrieve_type(pokerival)]
-    user_types = [user_types, pokename, pokerival]
+    user1_type = user_types[0]
+    user2_type = user_types[1]
+    # user_types = [user_types, pokename, pokerival] <-- Do we even need that?
     break
 
 
@@ -79,44 +92,83 @@ def find_type_relation(user_types: list):
         return relationsdict
 
 
-def game(user1_type, user2_type):
-    # user_types: list = (pokemon_signup()[0])
-    relationsdict1 = find_type_relation(user1_type)
-    pprint(relationsdict1)
-    relationsdict2 = find_type_relation(user2_type)
-    # print(user2_type)
-    # pprint(relationsdict1['double_damage_to'])
+def modifier_calculator(user_name, relationsdict, type_lists, user_modifier=1.0):
+    '''If user2's type is found in the list for user1, then that math
+    is calculated to determine the strength of the Pokémon's attack.'''
+    if type_lists in relationsdict["no_damage_to"]:
+        # print(f"{user_name} deals no damage.")
+        user_modifier *= 0
+    if type_lists in relationsdict["quad_damage_to"]:
+        # print(f"{user_name} deals 4x damage.")
+        user_modifier *= 4
+    if type_lists in relationsdict["double_damage_to"]:
+        # print(f"{user_name} deals double damage.")
+        user_modifier *= 2
+    if type_lists in relationsdict["half_damage_to"]:
+        # print(f"{user_name} deals half damage.")
+        user_modifier *= 0.5
+    else:
+        # print(f"{user_name} dealt usual damage.")
+        user_modifier *= 1.0
 
-    # Deciding if the rival's type is weak to the user's pokemon.
-    #If re-using, might use and call from a function 
-    def damage_calculator(user_type, relationsdict):
-        '''
-        If I decide to make the following 'for' loop into a function:
-        '''
-        ...
-    for type in user2_type:
-        if type in relationsdict1["double_damage_to"]:
-            print(f"{users[1]} deals double damage.")
-        if type in relationsdict1["half_damage_to"]:
-            print(f"{users[1]} deals half damage.")
-        if type in relationsdict1["no_damage_to"]:
-            print(f"{users[1]} deals no damage.")
-        if type in relationsdict1["quad_damage_to"]:
-            print(f"{users[1]} deals 4x damage.")
-        else: print(f"{users[1]} dealt usual damage.")
+    return user_modifier
 
 
-    # relationsdict2 = find_type_relation(user_type_2)
-    # if user1_type in 
-    # pprint(user_type_1, relationsdict1)
-    # pprint(user_type_1, relationsdict2)
-    # pprint(user_types)
-    # pprint(relationsdict1)
-    return relationsdict1
+# def modifier_calculator(user_name, relationsdict, type_lists, user_modifier=1.0):
+user1_modifier = modifier_calculator(pokename, find_type_relation(user1_type), user2_type[0])
+user2_modifier = modifier_calculator(pokerival, find_type_relation(user2_type), user1_type[0])
 
 
-users: list = user_types
-user1_type = users[0][0]
-user2_type = users[0][1]
+def game(user1_modifier, user2_modifier, user1_health=100, user2_health=100, user1_def=100, user2_def=100, user1_attack=32.0, user2_attack=32.0):
+    while user1_health > 0 and user2_health > 0:
+        # print(f"User 1's health: {user1_health}")
+        # print(f"User 2's health: {user2_health}")
+        # The user attacks.
+        user1_damage = round((user1_attack/user2_def * 2)/50 + 2 * user1_modifier, 0)
+        # user2_health -= (user1_attack/user2_def/50 + 2 * user1_modifier)
+        user2_health -= user1_damage
+        # user2_health -= user1_attack * user1_modifier
+        # Edgecases for how effective the attack was. This doesn't affect the damage, it's just for the user experience.
+        if user1_modifier >= 2:
+            print(f"{pokename}'s attack was supereffective! {pokename} dealt {user1_damage} damage.")
+        if user1_modifier == 1:
+            print(f"{pokename} dealt {user1_damage} damage.")
+        if user1_modifier == 0.5:
+            print(f"The attack wasn't very effective... {pokename} dealt {user1_damage} damage.")
+        if user1_modifier == 0:
+            print(f"The attack was not effective against {pokerival}.")
+        # Print statements here in case first attack is the ending blow.    
+        if user1_health <= 0 and user2_health <= 0:
+            print("It's a tie!")
+            break
+        elif user2_health <= 0:
+            print(f"{pokename} won!")
+            break
+        # User 2 attacks.
+        user2_damage = round((user2_attack/user1_def * 2)/50 + 2 * user2_modifier, 0)
+        user1_health -= user2_damage
+        if user2_modifier >= 2:
+            print(f"The attack was supereffective! {pokerival} dealt {user2_damage} damage.")
+        if user2_modifier == 1:
+            print(f"{pokerival} dealt {user2_damage} damage.")
+        if user2_modifier == 0.5:
+            print(f"The attack wasn't very effective... {pokerival} dealt {user2_damage} damage.")
+        if user2_modifier == 0:
+            print(f"The attack was not effective against {pokerival}.")
+        if user1_health <= 0:
+            print(f"{pokerival} won!")
+            break
+    # print(f"User 1's health: {user1_health}")
+    # print(f"User 2's health: {user2_health}")
 
-game(user1_type, user2_type)
+
+# user1_health = retrieve_hp(pokename)
+# user2_health = retrieve_hp(pokerival)
+
+# user1_attack = retrieve_attack(pokename)
+# user2_attack = retrieve_attack(pokerival)
+
+
+game(user1_modifier, user2_modifier, 38, 44, 40, 35, 41, 48)
+# def game(user1_modifier, user2_modifier, user1_health=100, user2_health=100, user1_def=100, user2_def=100, user1_attack=32.0, user2_attack=32.0):
+# game(user1_modifier, user2_modifier, user1_health, user2_health, user1_attack, user2_attack)
