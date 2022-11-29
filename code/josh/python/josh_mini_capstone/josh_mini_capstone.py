@@ -3,14 +3,13 @@
 # Stand Ups to answer 3 questions:
     # What did you do in your last session?
     # What will you do in this session?
-    # What roadblock do you have, if any?
 
 # 5-minute (roughly) Presentations:
     # A demo of your project
     # A look at the code
     # Time for questions
     # There is more info on presentations in the README
-######################################################################################################################################################
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Welcome message
 print('''\n\t\t\t\tWelcome to the State Ranker!\n
 We will be reviewing states for potential relocation based upon the following categories:
@@ -27,19 +26,17 @@ from urllib.request import urlopen
 with urlopen('https://taxfoundation.org/tax-burden-by-state-2022/#results') as response:
     soup_tax = BeautifulSoup(response, 'html.parser')
 
-# Opens politics.csv to access state political affiliation data
+# Opens CSV files to access state data
 politics_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\politics.csv'
 with open(politics_csv, 'r') as file:
     politics = DictReader(file)
     politics_list = list(politics)
 
-# Opens homes.csv to access state median home value data
 homes_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\homes.csv'
 with open(homes_csv, 'r') as file:
     homes = DictReader(file)
     homes_list = list(homes)
 
-# Opens crime.csv to access state violent/property crime rate data
 crime_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\crime.csv'
 with open(crime_csv, 'r') as file:
     crime = DictReader(file)
@@ -99,6 +96,7 @@ def crime(user_input):
                     print(f'State: {state}, Crime Rate per 100,000 people: {int(float(rate))}')                    
             except ValueError:
                 continue
+
 
 tax_favs_list = []
 politics_favs_list = []
@@ -181,7 +179,7 @@ while True:
         except ValueError:
             homes_favs_list.append(state_choice)
             print(f'{state_choice} saved to favorites.')
-            print(homes_favs_list)
+            print(homes_favs_list)  # testing
     else:
         continue
     another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
@@ -210,7 +208,7 @@ while True:
         except ValueError:
             crime_favs_list.append(state_choice)
             print(f'{state_choice} saved to favorites.')
-            print(crime_favs_list)
+            print(crime_favs_list)  # testing
     else:
         continue
     another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
