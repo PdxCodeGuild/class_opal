@@ -278,8 +278,10 @@ Your saved states that match half of the categories:\n{list(enumerate(two_matche
 print(final_results)
 
 # Overwrites original file with information from 'contacts_ouput' list above 
-output_path = 'class_opal\code\josh\python\josh_mini_capstone\state_ranker.txt'
-output_content = '\n'.join(four_matches), '\n'.join(three_matches), '\n'.join(two_matches)
+output_path = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\state_ranker.txt'
+# output_content = '\n'.join(four_matches), '\n'.join(three_matches), '\n'.join(two_matches)
+
+# print(output_content)
 
 with open(output_path, 'w') as file:
-    file.write(output_content)
+    file.write(final_results)
