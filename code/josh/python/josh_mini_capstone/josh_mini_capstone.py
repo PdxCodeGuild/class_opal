@@ -1,6 +1,6 @@
 # Python Mini-Capstone
 
-# 0930 and 1330 Stand Ups to answer 3 questions:
+# Stand Ups to answer 3 questions:
     # What did you do in your last session?
     # What will you do in this session?
     # What roadblock do you have, if any?
@@ -10,12 +10,7 @@
     # A look at the code
     # Time for questions
     # There is more info on presentations in the README
-
 ######################################################################################################################################################
-# import requests
-# import pandas as pd
-# from pprint import pprint
-
 # Welcome message
 print('''\n\t\t\t\tWelcome to the State Ranker!\n
 We will be reviewing states for potential relocation based upon the following categories:
@@ -27,7 +22,6 @@ multiple categories to be considered.\n''')
 from csv import DictReader
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
-# import json
 
 # Opens Tax Foundation website to webscrape effective tax burdens
 with urlopen('https://taxfoundation.org/tax-burden-by-state-2022/#results') as response:
@@ -159,7 +153,6 @@ while True:
         except:
             continue
     another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
-    # another_state = input('End of search or invalid input.  Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
     if another_state == 'y':
         continue
     elif another_state == 'n':
@@ -192,7 +185,6 @@ while True:
     else:
         continue
     another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
-    # another_state = input('End of search or invalid input.  Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
     if another_state == 'y':
         continue
     elif another_state == 'n':
@@ -221,7 +213,6 @@ while True:
             print(crime_favs_list)
     else:
         continue
-    
     another_state = input('Would you like to view another state? Enter \'y\' for yes or \'n\' for no: ')
     if another_state == 'y':
         continue
@@ -230,7 +221,6 @@ while True:
     else:
         print('You have entered an invalid response.')
         continue
-
 
 all_lists = tax_favs_list + politics_favs_list + homes_favs_list + crime_favs_list
 state_count = {}
@@ -252,36 +242,29 @@ for state, occurrence in state_count.items():
     elif occurrence == 1:
         one_match.append(state)
 
-# for i, value in enumerate(four_matches, 1)(three_matches, 1)(two_matches, 1):
-#             ''.join(four_matches)
-
-# print(state_count)
-# print(f'States that have matched all lists: {four_matches}')
-# print(f'States that have matched 3 out of 4 lists: {three_matches}')
-# print(f'States that have matched half of the lists: {two_matches}')
-# print(f'States that have matched 1 list: {one_match}')
-
-
-# Need to check lab 11 to create file based upon 'state_count'
-# print (list(enumerate(list name, starting number)))
 four_matches = ['Oregon', 'Washington', 'Idaho']    # testing
 three_matches = ['Virginia', 'Tennessee', 'New Hampshire', 'South Dakota']  # testing
 two_matches = ['California', 'New York']    # testing
 
 
-final_results = f'''
-Your saved states that match all categories:\n{list(enumerate(four_matches, 1))}\n
-Your saved states that match 3 categories:\n{list(enumerate(three_matches, 1))}\n
-Your saved states that match half of the categories:\n{list(enumerate(two_matches, 1))}
+def results(lists):
+    matches = ''
+    for i, state in enumerate(lists, 1):
+        matches += '{}. {}'.format(i, state) + '\n'
+    return matches
+        
+
+final_results = f'''\n\t\t\tSTATE RANKER\n
+Your saved states that match all categories:\n{results(four_matches)}\n
+Your saved states that match 3 categories:\n{results(three_matches)}\n
+Your saved states that match half of the categories:\n{results(two_matches)}
 '''
 
 print(final_results)
+print('*These results have been saved to file \'state_ranker.txt\'')
 
 # Overwrites original file with information from 'contacts_ouput' list above 
 output_path = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\state_ranker.txt'
-# output_content = '\n'.join(four_matches), '\n'.join(three_matches), '\n'.join(two_matches)
-
-# print(output_content)
 
 with open(output_path, 'w') as file:
     file.write(final_results)

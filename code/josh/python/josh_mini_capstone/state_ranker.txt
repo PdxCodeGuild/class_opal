@@ -1,9 +1,20 @@
 
+			STATE RANKER
+
 Your saved states that match all categories:
-[(1, 'Oregon'), (2, 'Washington'), (3, 'Idaho')]
+1. Oregon
+2. Washington
+3. Idaho
+
 
 Your saved states that match 3 categories:
-[(1, 'Virginia'), (2, 'Tennessee'), (3, 'New Hampshire'), (4, 'South Dakota')]
+1. Virginia
+2. Tennessee
+3. New Hampshire
+4. South Dakota
+
 
 Your saved states that match half of the categories:
-[(1, 'California'), (2, 'New York')]
+1. California
+2. New York
+
