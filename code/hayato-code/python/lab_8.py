@@ -22,7 +22,7 @@ def peaks_and_valley(peaks,valley):
     peaks_and_valley_list = peaks + valley
     peaks_and_valley_list.sort()
     print(peaks_and_valley_list)
-
+    return peaks_and_valley_list
 peaks_and_valley(peaks(data),valley(data))
 
 def draw_x(data):
@@ -34,5 +34,6 @@ def draw_x(data):
             else:
                 xs += "  "
         print(xs)            
-
+    return xs
 draw_x(data)
+print(draw_x(data))
