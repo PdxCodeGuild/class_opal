@@ -249,4 +249,11 @@ print(f'States that have matched 3 out of 4 lists: {three_matches}')
 print(f'States that have matched half of the lists: {two_matches}')
 print(f'States that have matched 1 list: {one_match}')
 
-# Need to create lists to add user choices of states from REPLs for CRUD
+# Welcome message       ###move to top###
+print('''Welcome to the State Ranker!  We will be reviewing states based upon the following categories:
+Overall tax burden; political affiliation; median home value, and crime rate (violent/property).
+You will be prompted to save states.  Once finished, you will have a file that ranks your choices 
+based upon the number of saves from all categories.  States must be saved in multiple categories
+to be considered.''')
+
+# Need check lab 11 to create file based upon 'state_count'
