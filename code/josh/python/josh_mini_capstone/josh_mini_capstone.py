@@ -230,16 +230,39 @@ great_matches = []
 good_matches = []
 least_matches = []
 
+total_list = tax_favs_list + politics_favs_list + homes_favs_list + crime_favs_list
+match_counts = {}
 
+for state in set(total_list):
+    match_counts[state] = total_list.count(state)
 
-for list in lists:
-    for i in list:
-        sum(i in list for list in lists)
-        if i == 4:
-            perfect_matches.append(i)
-            print(perfect_matches)
+#  set().union(tax_favs_list, politics_favs_list, homes_favs_list, crime_favs_list)
+
+# for list in lists:
+#     for i in list:
+#         state = (i in list for list in lists)
+#         if state == 4:
+#             perfect_matches.append(i)
+#             print(perfect_matches)
+#         elif state == 3:
+#             great_matches.append(i)
+#         elif state == 2:
+#             good_matches.append(i)
+#         elif state == 1:
+#             least_matches.append(i)
+
+# print(perfect_matches)
+# print(great_matches)
+# print(good_matches)
+# print(least_matches)
         
         
+
+# from collections import Counter
+
+# result = Counter(lists)
+# print(result)
+# print(type(result))
         
 #         if i in (lists[0], lists[1], lists[2], lists[3]):
 #             list.count(i)
@@ -250,13 +273,6 @@ for list in lists:
 #             (lists[0], lists[1], lists[2], lists[3]):
 #             perfect_matches.append({i})
 
-# def countList(lst, x):
-      
-      
-# # Driver Code
-# lst = (['a'], ['a', 'c', 'b'], ['d']) 
-# x = 'a'
-# print(countList(lst, x))
 
 # for list in range(lists):
 #     for i in list:
