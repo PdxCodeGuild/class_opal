@@ -15,6 +15,15 @@
 # import requests
 # import pandas as pd
 # from pprint import pprint
+
+# Welcome message
+print('''\n\t\t\t\tWelcome to the State Ranker!\n
+We will be reviewing states for potential relocation based upon the following categories:
+Overall tax burden; political affiliation; median home value, and crime rate (violent/property).
+You will be prompted to save states in each category.  Once finished, you will have a file that 
+ranks your choices based upon the number of saves from all categories.  States must be saved in 
+multiple categories to be considered.\n''')
+
 from csv import DictReader
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
@@ -243,17 +252,34 @@ for state, occurrence in state_count.items():
     elif occurrence == 1:
         one_match.append(state)
 
-print(state_count)
-print(f'States that have matched all lists: {four_matches}')
-print(f'States that have matched 3 out of 4 lists: {three_matches}')
-print(f'States that have matched half of the lists: {two_matches}')
-print(f'States that have matched 1 list: {one_match}')
+# for i, value in enumerate(four_matches, 1)(three_matches, 1)(two_matches, 1):
+#             ''.join(four_matches)
 
-# Welcome message       ###move to top###
-print('''Welcome to the State Ranker!  We will be reviewing states based upon the following categories:
-Overall tax burden; political affiliation; median home value, and crime rate (violent/property).
-You will be prompted to save states.  Once finished, you will have a file that ranks your choices 
-based upon the number of saves from all categories.  States must be saved in multiple categories
-to be considered.''')
+# print(state_count)
+# print(f'States that have matched all lists: {four_matches}')
+# print(f'States that have matched 3 out of 4 lists: {three_matches}')
+# print(f'States that have matched half of the lists: {two_matches}')
+# print(f'States that have matched 1 list: {one_match}')
 
-# Need check lab 11 to create file based upon 'state_count'
+
+# Need to check lab 11 to create file based upon 'state_count'
+# print (list(enumerate(list name, starting number)))
+four_matches = ['Oregon', 'Washington', 'Idaho']    # testing
+three_matches = ['Virginia', 'Tennessee', 'New Hampshire', 'South Dakota']  # testing
+two_matches = ['California', 'New York']    # testing
+
+
+final_results = f'''
+Your saved states that match all categories:\n{list(enumerate(four_matches, 1))}\n
+Your saved states that match 3 categories:\n{list(enumerate(three_matches, 1))}\n
+Your saved states that match half of the categories:\n{list(enumerate(two_matches, 1))}
+'''
+
+print(final_results)
+
+# Overwrites original file with information from 'contacts_ouput' list above 
+output_path = 'class_opal\code\josh\python\josh_mini_capstone\state_ranker.txt'
+output_content = '\n'.join(four_matches), '\n'.join(three_matches), '\n'.join(two_matches)
+
+with open(output_path, 'w') as file:
+    file.write(output_content)
