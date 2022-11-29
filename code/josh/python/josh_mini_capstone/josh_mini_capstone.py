@@ -19,18 +19,18 @@ with urlopen('https://taxfoundation.org/tax-burden-by-state-2022/#results') as r
 # Opens CSV files to access state data
 politics_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\politics.csv'
 with open(politics_csv, 'r') as file:
-    politics = DictReader(file) # stores CSV data as dictionaries
-    politics_list = list(politics)  # stores dictionaries from CSV data in a list
+    politics_dict = DictReader(file) # stores CSV data as dictionaries
+    politics_list = list(politics_dict)  # stores dictionaries from CSV data in a list
 
 homes_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\homes.csv'
 with open(homes_csv, 'r') as file:
-    homes = DictReader(file)
-    homes_list = list(homes)
+    homes_dict = DictReader(file)
+    homes_list = list(homes_dict)
 
 crime_csv = r'C:\Users\joshg\pdx_code\class_opal\code\josh\python\josh_mini_capstone\crime.csv'
 with open(crime_csv, 'r') as file:
-    crime = DictReader(file)
-    crime_list = list(crime)
+    crime_dict = DictReader(file)
+    crime_list = list(crime_dict)
 
 
 def tax_burden(user_input): # Returns state, tax_rate, and data based upon user input for either state or rank
