@@ -223,63 +223,34 @@ while True:
         continue
 
 
-lists = [tax_favs_list, politics_favs_list, homes_favs_list, crime_favs_list]
-
+all_lists = tax_favs_list + politics_favs_list + homes_favs_list + crime_favs_list
+state_count = {}
 perfect_matches = []
 great_matches = []
 good_matches = []
 least_matches = []
 
-total_list = tax_favs_list + politics_favs_list + homes_favs_list + crime_favs_list
-match_counts = {}
+for state in set(all_lists):
+    state_count[state] = all_lists.count(state)
 
-for state in set(total_list):
-    match_counts[state] = total_list.count(state)
+for state in state_count:
+    if state == 4:
+        perfect_matches.append(state)
+    elif state == 3:
+        great_matches.append(state)
+    elif state == 2:
+        good_matches.append(state)
+    elif state == 1:
+        least_matches.append(state)
 
-#  set().union(tax_favs_list, politics_favs_list, homes_favs_list, crime_favs_list)
 
-# for list in lists:
-#     for i in list:
-#         state = (i in list for list in lists)
-#         if state == 4:
-#             perfect_matches.append(i)
-#             print(perfect_matches)
-#         elif state == 3:
-#             great_matches.append(i)
-#         elif state == 2:
-#             good_matches.append(i)
-#         elif state == 1:
-#             least_matches.append(i)
+print(state_count)
+
+
 
 # print(perfect_matches)
 # print(great_matches)
 # print(good_matches)
 # print(least_matches)
-        
-        
-
-# from collections import Counter
-
-# result = Counter(lists)
-# print(result)
-# print(type(result))
-        
-#         if i in (lists[0], lists[1], lists[2], lists[3]):
-#             list.count(i)
-
-#             perfect_matches.append(i)
-            
-            
-#             (lists[0], lists[1], lists[2], lists[3]):
-#             perfect_matches.append({i})
-
-
-# for list in range(lists):
-#     for i in list:
-#         if i in (lists[0], lists[1], lists[2], lists[3]):
-#             list.count(i)
-
-#             perfect_matches.append(i)
-
 
 # Need to create lists to add user choices of states from REPLs for CRUD
