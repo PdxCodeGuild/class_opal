@@ -11,8 +11,9 @@ M-F 9:30 am – 4:30 pm
 - November 8th (Election Day -- go vote!)
 - November 24th (Thanksgiving)
 - November 25th (Day after Thanksgiving)
-- December 26th
-- (four more days TBD)
+- December 26th (Day after Christmas)
+- January 2nd (Day after New Years)
+- (three more days TBD)
 
 
 ### Staff
@@ -87,7 +88,8 @@ Presentation Day: February 15th, 2023
 | 15    | MOB - Tic-Tac-Toe      | Nov 15th      | N/A                   | N/A           |
 | 16    | Dad Joke API           | Nov 17th      | Nov 21th              | Dec 1st       |
 | 17    | Quotes API             | Nov 17th      | Nov 23rd              | Dec 1st       |
-<!--| 18    | Mini-Capstone          | Nov 18th      | Nov 23rd              | Jun 1st       | -->
+| 18    | MOB - TDD Sock Sorter  | Nov 21st      | N/A                   | N/A           |
+| 19    | Mini-Capstone          | Nov 23rd      | Nov 30th              | Dec 7th       |
 
 
 ## Student Presentations
@@ -96,7 +98,9 @@ At the end of the Python and JavaScript sections, you'll give a presentation on 
 
 These presentations help you practice communicating technical topics in English. Being able to speak intelligently about programming is almost as important as programming itself. This skill will allow you to better talk to interviewers, managers, clients, coworkers, and more.
 
-In all three presentations, you should first explain the development process and the different parts of your code. Then run the application and show its features and interaction (entering data, seeing results, etc). Here are some questions to contemplate while planning out your presentation:
+In all three presentations, I recommend starting with a demonstration of what your project does, and an explanation of what problem you were trying to solve. Demonstrate all the main types of user interations and their outcomes. Then explain the development process and the different parts of your code. 
+
+Here are some questions to contemplate while planning out your presentation:
 
 - what problem does your application solve? what is the core function it performs?
 - how did you go about planning?

@@ -3,11 +3,11 @@ from random import choice
 students = [
     "Jim",
     "Lizzie",
-    "DJ",
     "Hayato",
     "Nick",
     "Josh",
     "Leslie",
+    "Rachel"
 ]
 
 print(choice(students))

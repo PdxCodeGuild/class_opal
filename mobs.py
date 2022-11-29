@@ -18,6 +18,7 @@ students = [
     "Nick",
     "Josh",
     "Leslie",
+    "Rachel"
 ]
 
 pairings = combinations(students, 2)
