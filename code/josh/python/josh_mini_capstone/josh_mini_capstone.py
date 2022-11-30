@@ -209,7 +209,6 @@ for state in set(all_lists):    # loops 'all_lists' and assigns state names: fre
 four_matches = []
 three_matches = []
 two_matches = []
-one_match = []
 
 for state, occurrence in state_count.items():   # loops keys, values in state_count dictionary and appends lists above by number of matches
     if occurrence == 4:
@@ -218,8 +217,6 @@ for state, occurrence in state_count.items():   # loops keys, values in state_co
         three_matches.append(state)
     elif occurrence == 2:
         two_matches.append(state)
-    elif occurrence == 1:
-        one_match.append(state)
 
 
 def results(lists): # Returns items from parameter as an enumerated list
