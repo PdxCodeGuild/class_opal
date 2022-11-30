@@ -1,0 +1,49 @@
+***PLEASE USE THIS TOOL WITH RESPONSIBILITY, 
+AND I AM NOT RESPONSIBLE FOR ANY MUSIC DOWNLOADED 
+WITH THE INTENT TO SELL, DISTRIBUTE, OR UTILIZE IT 
+IN A FASHION THAT COULD INFRINGE ON COPYRIGHT LAWS.*** 
+
+In order to run this file please pip install the following:
+
+pip install pytube
+pip install moviepy
+pip install librosa 
+
+Pytube is a lightweight tool for downloading YouTube Videos
+
+Moviepy is a python module for video editing
+
+Librosa is a python package for music and audio analysis
+
+
+All documentation can be found at the following link 
+
+Pytube: https://pytube.io/en/latest/
+
+Moviepy: https://zulko.github.io/moviepy/
+
+Librosa: https://librosa.org/doc/latest/index.html
+
+Summary:
+As a DJ, one of the essential tools to have when transitioning
+to a new song are to determine the BPM (Beats per minute). Too fast 
+or too slow of a piece (in terms of BPM) during a transition 
+could ultimately ruin the whole atmosphere and vibe of the session.
+One of the easiest ways to ensure that you make a successful 
+transition is knowing the BPM and maintaining that 
+BPM within a margin of +/- 3-5 beats per minute.
+Though besides knowing the BPM, there are other factors that 
+you will need to consider when deciding on the next song. 
+Knowing the BPM could assist you when decisions need to be 
+made quickly. 
+
+
+Here is a little python tool that will run a song, 
+download the Mp4 format, convert it to an Mp3 format, 
+and provide the beats per minute. 
+
+***PLEASE USE THIS TOOL WITH RESPONSIBILITY, 
+AND I AM NOT RESPONSIBLE FOR ANY MUSIC DOWNLOADED 
+WITH THE INTENT TO SELL, DISTRIBUTE, OR UTILIZE IT 
+IN A FASHION THAT COULD INFRINGE ON COPYRIGHT LAWS.*** 
+
