@@ -1,10 +1,65 @@
 body {
-    background-color: rgb(146, 146, 146, 0.5);
     background-image: url("https://wallpaperaccess.com/full/4051801.jpg");
     background-size: cover;
     background-attachment: fixed;
+    margin: auto;
   }
 
-  .center{
-    margin:auto;
+  .text{
+    color: rgb(70, 5, 61);
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+  }
+  
+  .pic{
+    width: 500;
+    height: 500;
+    border-radius: 50%;
+    margin-left: 65;
+    margin-right: 65;
+    display: inline-block;
+  }
+  
+  .border{
+    background-color: rgb(146, 146, 146, 0.9);
+    border: solid 5px;
+    margin: 0px 150px 0px 150px;
+  }
+
+  .quote{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(109, 18, 97);
+  }
+
+  .lower-border{
+    background-color: rgb(146, 146, 146, 0.9);
+    border: solid 5px;
+    margin: 0px 150px 0px 150px; 
+  }
+  .lower-pic{
+    border-radius: 50%;
+    margin: 50 250 50 250;
+    display: block;
+    padding: auto;
+  }
+  .header{
+    color: rgb(70, 5, 61);
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+  }
+
+  .bullet{
+    list-style-image:url(https://pngimg.com/uploads/bullets/bullets_PNG35556.png);
+    border-radius: 50%;
+    margin: auto;
+    height: 5;
+    width: 5;
   }
