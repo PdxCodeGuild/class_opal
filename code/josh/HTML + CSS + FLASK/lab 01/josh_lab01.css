@@ -1,3 +1,10 @@
 body {
-    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fhe-man.fandom.com%2Fwiki%2FCastle_Grayskull&psig=AOvVaw280SI1kQi_dY39XYZKWy3G&ust=1669947015693000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCJj3kser1_sCFQAAAAAdAAAAABAc");
+    background-color: rgb(146, 146, 146, 0.5);
+    background-image: url("https://wallpaperaccess.com/full/4051801.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .center{
+    margin:auto;
   }
