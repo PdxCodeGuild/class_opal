@@ -1,0 +1,99 @@
+body {
+    background-image: linear-gradient(#edddd4 50%, #f7e9e1);
+    color: #772e25;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Modifying preexisting element using tag selector. */
+h1 {
+    color: #c44536;
+    font-size: 3rem;
+    font-family: Baskerville, "Times New Roman", serif;
+    text-transform: uppercase;
+}
+
+h2 {
+    border-style: solid;
+    /* Since my chosen picture is transparent, I decided to round the edges of the border here. */
+    border-radius: 1rem;
+    width: 14rem;
+    background-color: #ffffff;
+    font-family: Baskerville, "Times New Roman", serif;
+    padding: .5rem;
+    display: inline-block;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-right: 15px;
+    margin-left: 8px;
+}
+
+/* id selector for one use of the big quote on the page.*/
+#big-quote {
+    font-family: Palatino, Baskerville, cursive, serif;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+/* picture of kazuha. */
+#kazuha {
+    float: left;
+    width: 18.5rem;
+}
+
+#poetry {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+}
+
+#poetry p {
+    border: 6px double #772e25;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: #c44536;;
+    color: #edddd4;
+}
+
+#poetry p img {
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+ul {
+    margin-top: 0px;
+    list-style-position: inside;
+    list-style-type: "🍁 ";
+}
+
+/* class selector to change the color of text */
+.red {
+    color: #c44536;
+}
+
+/* visited link */
+a:visited {
+    color: #c44536;
+}
+
+/* mouse over link */
+a:hover {
+    color: #772e25;
+}
+
+/* unvisited link */
+a:link {
+    color: #197278;
+}
+
+/* selected link */
+a:active {
+    color:#283d3b;
+}
