@@ -1,0 +1,23 @@
+body {
+    background-color: #cad2c5;
+    font-family: Palatino, "Palatino Linotype", "Book Antiqua", serif;
+    font-style: normal;
+    padding-bottom: 50px;
+    font-size: 16px;
+    color: #212721;
+    line-height: 1.6;
+}
+
+#wrapper {
+    display: grid;
+    padding-left: 1em;
+    grid-template-columns: 1fr;
+    /* defining areas is optional */
+    grid-template-areas:
+    "header"
+    "article"
+    "contact"
+    "gallery"
+    "footer";
+    gap: 1rem;
+}
