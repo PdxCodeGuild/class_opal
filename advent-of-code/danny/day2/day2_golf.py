@@ -27,7 +27,7 @@ def rps_score_2(rps):
 
 
 if __name__ == '__main__':
-    with open('advent-of-code/puzzles/day2/input2.txt') as f:
+    with open('advent-of-code/danny/day2/input.txt') as f:
         rps: str = f.read()
     print(rps_score_1(rps))
     print(rps_score_2(rps))

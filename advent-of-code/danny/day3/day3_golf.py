@@ -20,7 +20,7 @@ def tally_priorities(data: list):
 
 
 if __name__ == '__main__':
-    with open('advent-of-code/puzzles/day3/input3.txt') as f:
+    with open('advent-of-code/danny/day3/input.txt') as f:
         data: str = f.read()
     # part 1
     print(tally_priorities(find_all_matches(data)))

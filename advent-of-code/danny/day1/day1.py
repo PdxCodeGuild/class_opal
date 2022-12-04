@@ -18,7 +18,7 @@ def find_top_3_total(calories: str):
 
 
 if __name__ == '__main__':
-    with open('advent-of-code/puzzles/day1/input1.txt') as f:
+    with open('advent-of-code/danny/day1/input.txt') as f:
         calories: str = f.read()
     print(find_max_calories(calories))
     print(find_top_3_total(calories))
