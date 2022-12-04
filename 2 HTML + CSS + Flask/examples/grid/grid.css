@@ -48,6 +48,7 @@ footer {
     grid-area: main;
 }
 
+/* tablet version */
 @media screen and (max-width: 1100px) {
     #wrapper {
         grid-template-columns: 1fr 3fr;
@@ -59,6 +60,7 @@ footer {
     }
 }
 
+/* mobile version */
 @media screen and (max-width: 700px) {
     #wrapper {
         grid-template-columns: 1fr;

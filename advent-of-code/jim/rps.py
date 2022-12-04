@@ -1,4 +1,4 @@
-with open('rps_data.txt') as f:
+with open('advent-of-code/jim/rps_data.txt') as f:
     rps_data: str = f.read()
 
 rps_data = rps_data.split('\n')
