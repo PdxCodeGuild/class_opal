@@ -1,0 +1,72 @@
+body {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: "top" "footer";
+    background-color: #BFB9B9;
+    color: #5F5449;
+    /* this fixes the height of the page so the footer will stay anchored */
+    height: 100vh;
+    /* remove the default margins */
+    margin: 0;
+    padding: 0;
+}
+
+#top {
+    grid-area: top;
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+
+#banner {
+    color: #9B6A6C;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+#mission-statement {
+    border: .2rem double #7D5F5B;
+    text-align: center;
+    font-size: 1.1em;
+    padding: 0.3rem;
+    margin: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    font-weight: 800;
+}
+
+main {
+    margin-top: 3rem;
+    margin: .5rem;
+
+}
+
+nav>span {
+    background-color: #CEDFD9;
+    padding: 0.5rem;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #CEDFD9;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0.4rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 0.8rem;
+}
+
+footer>div {
+    min-width: 1/3vw;
+}
+
+img {
+    width: 80%;
+    padding: 2rem;
+}
