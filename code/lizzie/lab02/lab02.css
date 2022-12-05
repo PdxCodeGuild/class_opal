@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -14,44 +15,59 @@ body {
 header {
     height: 100px;
     background: #212721;
-    display: flex;
 }
 
-main {
+#intro {
     display: flex;
-    height: 100vh;
     align-items: center;
     justify-content: center;
+    /* Trying to figure out how height is going to work. Have to add more sections first? */
+    height: 70vh;
+    border: 2px solid yellow;
 }
 
-.cover-img {
-    max-width: 670px;
-    height: auto;
+#slug {
+    width: 70%;
 }
 
-.content-left {
-    width: 30%;
-}
-
-main h1{
-    font-size: 54px;
+h1{
     color: #84a98c;
     text-transform: uppercase;
+    margin-bottom: 1rem;
 }
 
-main h2 {
+h2 {
     font-size: 24px;
     color: #2f3e46;
-    text-transform: uppercase;
 }
 
-main p {
-    font-size: 14px;
+#cover-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.article {
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+#promo {
+    /* top, right, bottom, left */
+    padding: 3vw 10vw 3vw 10vw;
+    background-color: #52796f;
+}
+
+p {
+    font-size: 15px;
     line-height: 1.6;
     margin: 30px 0;
 }
 
 .shop-btn {
+    margin-top: 1.5rem;
     padding: 15px 30px;
     background: #84a98c;
     color: white;
