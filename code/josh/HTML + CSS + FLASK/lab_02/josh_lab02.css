@@ -1,9 +1,10 @@
-body{
+body, html{
     background-color: rgb(116, 7, 7);
     background-image: url("https://live.staticflickr.com/4154/4836462339_32a1c8aa2b.jpg");
     background-size: cover;
     background-attachment: fixed;
     margin: auto;
+    overflow-x: hidden;
 }
 .container{
     display: grid;
@@ -13,8 +14,7 @@ body{
     "header"
     "menu"
     "footer";
-
-    row-gap: 5px;
+    row-gap: 15px;
     grid-template-columns: fit-content(90%);
     justify-content: center;
 } 
@@ -42,9 +42,8 @@ body{
     font-style: italic;
 }
 
-#Pizza{
-    gap: 5px;
-    font-style: bold;
+#menu > *{
+    font-weight: bold;
 }
 
 #footer{
