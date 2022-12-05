@@ -18,10 +18,10 @@ header {
 }
 
 #intro {
+    display: flex;
     background-image: url("https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?cs=srgb&dl=pexels-sohail-nachiti-807598.jpg&fm=jpg");
     background-size: cover;
     box-shadow: inset 0 0 0 1000px rgba(27, 36, 42, 0.7);
-    display: flex;
     align-items: center;
     justify-content: center;
     /* Trying to figure out how height is going to work. Have to add more sections first? */
