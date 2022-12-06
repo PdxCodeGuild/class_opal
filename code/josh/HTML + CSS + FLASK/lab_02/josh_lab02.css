@@ -34,12 +34,14 @@ body, html{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: bold;
     flex-basis: auto;
+    grid-area: header;
 }
 
 #menu{
     font-size: 1.3em;
     font-family: Arial, Helvetica, sans-serif;
     font-style: italic;
+    grid-area: menu;
 }
 
 .tablet{
@@ -61,7 +63,7 @@ body, html{
 }
 
 /* Tablet Media Query */
-@media screen and (min-width: 600px){
+@media screen and (min-width: 600px) {
     #header{
         font-size: 4.3em;
     }
@@ -88,7 +90,7 @@ body, html{
 /* Desktop Media Query */
 @media screen and (min-width: 960px) {
     .container{
-        grid-template-columns: 25% 75%;
+        grid-template-columns: 35% 65%;
         grid-template-areas: 
         "header menu"
         "header menu"
@@ -98,6 +100,6 @@ body, html{
         justify-content: flex-start;
         }
     .desktop{
-        display: inline;
+        display: block;
     }
 }
