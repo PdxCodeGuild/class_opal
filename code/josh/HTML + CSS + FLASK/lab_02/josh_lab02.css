@@ -42,6 +42,9 @@ body, html{
     font-style: italic;
 }
 
+.tablet{
+    display: none;
+}
 #menu > *{
     font-weight: bold;
 }
@@ -52,7 +55,23 @@ body, html{
 }
 
 /* Tablet Media Query */
-@media screen and (min-width: 640px){
+@media screen and (min-width: 600px){
+    #header{
+        font-size: 4.3em;
+    }
+    #menu{
+        font-size: 3.3em;
+    }
+    #menu > *{
+        /* font-size: 2.5em; */
+    }
+    #footer{
+        font-size: 3em;
+    }
+    .tablet{
+        display: block;
+        font-size: 0.7em
+    }
 
 }
 
