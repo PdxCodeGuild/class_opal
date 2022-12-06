@@ -45,6 +45,11 @@ body, html{
 .tablet{
     display: none;
 }
+
+.desktop{
+    display: none;
+}
+
 #menu > *{
     font-weight: bold;
 }
@@ -92,4 +97,7 @@ body, html{
     #header{
         justify-content: flex-start;
         }
+    .desktop{
+        display: inline;
     }
+}
