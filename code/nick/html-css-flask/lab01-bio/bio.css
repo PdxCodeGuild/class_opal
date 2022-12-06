@@ -1,0 +1,99 @@
+body {
+    background-color: #0A0908;
+    color: #bbd6cd;
+    text-align: center;
+}
+
+#header-block {
+    font-family: fantasy, Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+#name {
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+#last-name {
+    font-size: 4.5rem;
+}
+
+#contact {
+    font-size: 1.08em;
+    display: inline-block;
+    text-align: left;
+}
+
+#archer {
+    display: inline-block;
+    width: 20rem;
+}
+
+#occupation {
+    font-size: larger;
+}
+
+.lists {
+    border: .5em solid #7A93AC;
+    margin: 2em;
+    text-align: center;
+}
+
+ul {
+    margin-left: 30vw;
+    margin-right: 30vw;
+}
+
+#intro {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+#quote {
+    font-weight: 900;
+    color: #EA9010;
+    font-style: italic;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+li {
+    position: relative;
+    padding-left: 20px;
+    list-style: none;
+}
+
+li:before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Crosshairs_Red.svg/1024px-Crosshairs_Red.svg.png);
+    background-size: cover;
+    background-position: center;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}   
+
+img {
+    border: .3rem solid #52414C;
+    border-radius: 10%;
+}
+
+a:link {
+    color: #EA9010;
+}
+
+a:visited {
+    color: #52414C;
+}
+
+a:hover {
+    color: #5B8C5A;
+}
+
+a:active {
+    color: #F8FA90;
+}

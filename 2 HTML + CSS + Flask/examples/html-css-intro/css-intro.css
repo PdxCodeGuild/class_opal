@@ -1,0 +1,50 @@
+/* tag selector */
+h3 {
+    color: aqua;
+}
+
+li {
+    color: gray;
+    font-size: 20px;
+    /* font-size: 100px; */
+}
+
+/* multiple tag selectors + an id selector */
+table,
+th,
+td,
+#fake-id {
+    border-style: double !important;
+    border-color: red;
+    border-radius: 15%;
+    /* fake-property: 100pxl */
+}
+
+/* id selector */
+#actual-worst {
+    opacity: 20%;
+}
+
+/* class selector */
+.swordfish {
+    font-weight: 700;
+}
+
+.oregon {
+    color: forestgreen;
+}
+
+/* child selector */
+#pizza-toppings>li {
+    color: blue
+}
+
+/* descendant selector */
+table th {
+    border-color: blueviolet;
+}
+
+/* attribute selector */
+img[style="width:500px"] {
+    opacity: 50%;
+}

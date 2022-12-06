@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- These meta tags give the browswer information about the page -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Opal's Intro to HTML</title>
+    <!-- CSS included in the style tag is more important than a linked style sheet -->
+    <!-- but less important than in-line CSS -->
+    <style type="text/css">
+        h3 {
+            color: royalblue;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css-intro.css">
+
+</head>
+
+<body>
+    <h1>Header 1</h1>
+    <hr>
+    <h2>Header 2</h2>
+    <h3>Header 3</h3>
+    <h4>Header 4</h4>
+    <hr>
+    <h5>Header 5</h5>
+    <!-- Inline CSS can be included with the style attribute and it will override everything but !important -->
+    <p>This is a <span style="color:chartreuse">paragraph</span> inside a p tag</p>
+    <!-- <a> for anchor tags create a link to the address given in the href attribute -->
+    <p>Here are the<a
+            href="https://github.com/PdxCodeGuild/class_opal/blob/main/2%20HTML%20%2B%20CSS%20%2B%20Flask/docs/02%20HTML%20Elements.md">
+            class docs</a> on HTML</p>
+
+    <h3>Students in Class Opal</h3>
+    <ul>
+        <li class="oregon">Lizzie</li>
+        <li class="oregon">Josh</li>
+        <!-- elements can have any number of space-separated selectors -->
+        <li class="oregon swordfish">Rachel</li>
+        <li>Nick</li>
+        <li class="oregon">Jim</li>
+        <li>Hayato</li>
+        <li class="swordfish">Leslie</li>
+    </ul>
+
+    <h3>Best pizza toppings</h3>
+    <ol id="pizza-toppings">
+        <li id="actual-worst">Anchovies</li>
+        <li>Pineapple</li>
+        <li>Smaller Pizzas</li>
+        <li>Black Olives</li>
+    </ol>
+
+    <pre>
+        This is pre-formatted text
+
+            It <span>preserves</span> whitespace
+    </pre>
+
+    <table style="border-style: solid;">
+        <!-- tr for table row, th for table header, td for table data -->
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr>
+            <td>Aaaaaaa</td>
+            <td>B</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>bbbbbbbbb</td>
+            <td>c</td>
+        </tr>
+    </table>
+
+    <div>This text is right before an image</div>
+
+    <img style="width:100px"
+        src="https://upload.wikimedia.org/wikipedia/commons/4/46/Chiang_Kai-shek_memorial_2_amk.jpg">
+
+    <img style="width:500px"
+        src="https://upload.wikimedia.org/wikipedia/commons/4/46/Chiang_Kai-shek_memorial_2_amk.jpg">
+
+    <span>and this text is right after</span>
+
+
+</body>
+
+</html>
+
+<!-- this is illegal -->

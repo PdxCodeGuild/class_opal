@@ -1,5 +1,12 @@
 # Lab 9: Compute Automated Readability Index
 
+### Git Setup:
+```sh
+> git checkout main
+> git pull
+> git checkout -b your_name-python-lab9
+```
+
 Compute the ARI for a given body of text loaded in from a file. The automated readability index (ARI) is a formula for computing the U.S. grade level for a given block of text. The general formula to compute the ARI is as follows:
 
 ![ARI Formula](https://en.wikipedia.org/api/rest_v1/media/math/render/svg/878d1640d23781351133cad73bdf27bdf8bfe2fd)
@@ -56,3 +63,11 @@ The output should look something like the following:
     that is suitable for an average person 16-17 years old.
 
     --------------------------------------------------------
+
+### Git Add, Commit & Push:
+```sh
+> git add files-to-be-added
+> git commit -m "your commit message goes here"
+> git push -u origin your_name-python-lab9
+```
+Then go to the repository to create a PR.

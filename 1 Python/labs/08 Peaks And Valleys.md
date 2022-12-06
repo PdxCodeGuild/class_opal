@@ -1,5 +1,12 @@
 # Lab 8: Peaks and Valleys
 
+### Git Setup:
+```sh
+> git checkout main
+> git pull
+> git checkout -b your_name-python-lab8
+```
+
 Define the following functions:
 
 1. `peaks` - Returns the indices of peaks. A peak has a lower number on both the left and the right.
@@ -37,7 +44,7 @@ Example I/O:
 ```
 
 
-## Version 2 (optional)
+## Version 2
 
 Using the `data` list above, draw the image of `X`'s above.
 
@@ -58,3 +65,11 @@ Imagine pouring water into onto these hills. The water would wash off the left a
 data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 
 ```
+
+### Git Add, Commit & Push:
+```sh
+> git add files-to-be-added
+> git commit -m "your commit message goes here"
+> git push -u origin your_name-python-lab8
+```
+Then go to the repository to create a PR.
