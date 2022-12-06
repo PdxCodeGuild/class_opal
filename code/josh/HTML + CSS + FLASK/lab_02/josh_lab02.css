@@ -50,6 +50,7 @@ body, html{
 }
 
 #footer{
+    grid-area: footer;
     font-size: 1.5em;
     flex-wrap: wrap;
 }
@@ -81,5 +82,14 @@ body, html{
 
 /* Desktop Media Query */
 @media screen and (min-width: 960px) {
-        
-}
+    .container{
+        grid-template-columns: 25% 75%;
+        grid-template-areas: 
+        "header menu"
+        "header menu"
+        "footer footer";
+    }
+    #header{
+        justify-content: flex-start;
+        }
+    }
