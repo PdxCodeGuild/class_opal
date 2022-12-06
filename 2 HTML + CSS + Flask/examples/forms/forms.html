@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms demo</title>
+</head>
+
+<body>
+    <form action="https://webhook.site/3b6fdcc6-d5ce-45da-ba7b-6c07193e8cba" method="post">
+        <div>
+            <label for="my-name">My Name</label>
+            <input type="text" name="my-name" id="my-name">
+        </div>
+
+        <input type="hidden" value="wheeeeeeee!" name=":)">
+
+        <div class="checklist">
+            <h3>My favorite languages</h3>
+            <input type="checkbox" value="python" name="language1" id="python">
+            <label for="python">Python</label>
+            <input type="checkbox" value="html" name="language2" id="html">
+            <label for="html">HTML</label>
+            <input type="checkbox" value="css" name="language3" id="css">
+            <label for="css">CSS</label>
+            <input type="checkbox" value="klingon" name="language4" id="klingon">
+            <label for="klingon">Klingon</label>
+        </div>
+
+        <div>
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age">
+        </div>
+
+        <div>
+            <h3>What is your time zone?</h3>
+            <input type="radio" value="pacific" id="pacific" name="time-zone">
+            <label for="pacific">Pacific</label>
+            <input type="radio" value="mountain" id="mountain" name="time-zone">
+            <label for="mountain">Mountain</label>
+            <input type="radio" value="central" id="central" name="time-zone">
+            <label for="central">Central</label>
+            <input type="radio" value="eastern" id="eastern" name="time-zone">
+            <label for="eastern">Eastern</label>
+        </div>
+
+        <div>
+            <label for="feeling">How are you feeling today?</label>
+            <input type="range" min="1" max="100" value="100" id="feeling" name="feeling">
+        </div>
+
+        <div>
+            <label for="superpower">Pick ONLY ONE superpower</label>
+            <select name="superpower" id="superpower">
+                <option value="flight">Flight</option>
+                <option value="invisibility">Invisibility</option>
+                <option value="programming">Programming</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="ideal-date">Describe your ideal date</label>
+            <input type="date" name="ideal-date">
+        </div>
+
+        <!-- <input type="submit" value="I'm done now"> -->
+        <button type="submit">I'm done now</button>
+
+    </form>
+
+
+
+</body>
+
+</html>
