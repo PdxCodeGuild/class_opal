@@ -54,14 +54,14 @@ Presentation Day: February 15th, 2023
 | 06    | Mini-Capstone          | Jul 11th      | Jul 14th              | Jul 25th      | -->
 
 
-<!-- ## HTML/CSS Labs Assigned:
+## HTML/CSS Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 01    | Bio                    | May 23rd      | May 31st              | Jun 6th       |
-| 02    | Company Landing Page   | May 25th      | May 31st              | Jun 8th       |
-| 03    | Blog                   | May 26th      | May 31st              | Jun 9th       |
-| 04    | Burrito Order Form     | May 31st      | Jun 6th               | Jun 14th      |
+| 01    | Bio                    | Dec  1st      | Dec  5th              | Dec 15th      |
+| 02    | Company Landing Page   | Dec  5th      | Dec  8th              | Dec 19th      |
+| 04    | Burrito Order Form     | Dec  6th      | Dec  9th              | Dec 20th      |
+<!-- | 03    | Blog                   | May 26th      | May 31st              | Jun 9th       |
 | Group | Flask Todos            | Jun 1st       | Jun 1st               | Jun 15th      |
 | 05    | Flask Redo             | Jun 2nd       | Jun 6th               | Jun 16th      |
 | 06    | Personal Portfolio     | Jun 3rd       | Jun 7th               | Jun 17th      | -->
