@@ -62,17 +62,21 @@ body, html{
     #menu{
         font-size: 3.3em;
     }
-    #menu > *{
-        /* font-size: 2.5em; */
+    #menu > *{ 
+        font-size: .75em;
     }
     #footer{
+        display: flex;
+        flex-direction: row;
         font-size: 3em;
     }
     .tablet{
-        display: block;
+        display: inline;
         font-size: 0.7em
     }
-
+    #mobile{
+        display:none
+    }
 }
 
 /* Desktop Media Query */

@@ -1,14 +1,4 @@
-<!-- Lab 2: Company Home
-Use media queries and CSS flexbox and/or grid to create a responsive design that offers different, legible layouts for phone, tablet, and desktop screen sizes. 
-You can test this in the browser devtools. Don't forget to use cascading min-width media queries for a mobile first design, and remember 
-to include the responsive meta tag in your HTML. Browse the internet for existing company pages and imitate as much as you can.
-
-Suggested Steps:
-1. Create the HTML structure for your landing page, with all content included.
-2. Create your mobile version, using the styling of your choice.
-3. Use min-width media queries to add a tablet layout using flexbox. Customize your styling as needed. 
-You probably want your breakpoint between phone and tablet widths to be somewhere around 640-768px.
-4. Finally, add your desktop layout. Customize styling as needed. A good breakpoint for desktop screen sizes is around 960-1100px. -->
+<!-- Lab 2: Company Home -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +8,7 @@ You probably want your breakpoint between phone and tablet widths to be somewher
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Josh HTML Lab 02</title>
     <link rel="stylesheet" href="josh_lab02.css">
+    <script src="https://kit.fontawesome.com/2165ed5158.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -26,25 +17,33 @@ You probably want your breakpoint between phone and tablet widths to be somewher
             <div>
                 <span>Pepperoni $65</span><br>
                 <img id="Pizza" src="https://static.flickr.com/42/85873229_5277873e1d.jpg" alt="Burnt Pepperoni Pizza"><br>
-                <span class="tablet">Everybody's favorite topping, burnt to a crisp</span><br>
+                <span class="tablet">Everybody's favorite topping, burnt to a crisp</span><br><br>
             </div>
             <div>
                 <span>Cheese $55</span><br>
                 <img id="Pizza" src="https://media-cdn.tripadvisor.com/media/photo-s/06/18/c8/61/cheese-pizza-looks-burnt.jpg" alt="Burnt Cheese Pizza"><br>
-                <span class="tablet">It's cheese...not for the lactose intolerant, burnt to a crisp</span><br>
+                <span class="tablet">It's cheese...not for the lactose intolerant, burnt to a crisp</span><br><br>
             </div>
             <div>
                 Hawaiian $70<br>
                 <img id="Pizza" src="hawaiian.jpg" alt="Burnt Hawaiian Pizza"><br>
-                <span class="tablet">Pineapple is blasphemy on pizza, burnt beyond recognition for its abominations</span><br>
+                <span class="tablet">Pineapple is blasphemy on pizza, burnt beyond recognition for its abominations</span><br><br>
             </div>
             <div>
                 Supreme $75<br>
                 <img id="Pizza" src="https://s3-media0.fl.yelpcdn.com/bphoto/4zIIgLtpD8yZB6GXFk9Gzw/348s.jpg" alt="Burnt Supreme Pizza"><br>
-                <span class="tablet">Meat, vegetables, and stuff, burnt to a crisp</span><br>
+                <span class="tablet">Meat and green stuff, burnt to a crisp</span><br><br>
             </div>
         </div>
-        <div id="footer">CALL NOW TO SAVE 10 CENTS!<br>503-555-1234</div>
+        <div id="footer">Call NOW to Save 10 Cents!<br><span id="mobile"><a href="tel:+15035551234">503-555-1234</a></span>
+
+            <div>
+                <a class="tablet" href="tel:+15035551234"><i class="fa-solid fa-phone"></i></a>
+                <a class="tablet" href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                <a class="tablet" href="https://twitter.com/search?q=%23burntpizzas&src=typed_query"><i class="fa-brands fa-twitter"></i></a>
+                <a class="tablet" href="mailto:pete@fakemail.com"><i class="fa-solid fa-envelope"></i>pete@fakemail.com</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
