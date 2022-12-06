@@ -102,4 +102,7 @@ body, html{
     .desktop{
         display: block;
     }
+    .desktop>img{
+        width: 90%;
+    }
 }
