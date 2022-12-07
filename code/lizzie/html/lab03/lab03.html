@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='lab03.css'>
+    <title>Story Nook</title>
+</head>
+<body>
+
+    <header>
+        Request a Story
+    </header>
+
+    <h3>You have a story idea, I have two hands ready to put it on paper... for a price.</h3><br \>
+    
+    <form action="https://webhook.site/d65d8569-1640-4067-9f29-c3f65dfe7632" method="post">
+        <div>
+            <label for="your-name">Your Name:</label>
+            <input type="text" name="your-name" id="your-name" placeholder="My name is...">
+        </div>
+
+        <div>
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter a gmail address" pattern=".+@gmail.com">
+
+        </div>
+
+        <div>
+            <label for="length">How long would you like it to be? (this is an estimate)</label><br \>
+            <input type="range" min="1" max="10000" value="5000" id="length" name="length">
+            <p>100 words to 10,000 maximum.</p>
+        </div>
+
+        <div>
+            <label for="genre">Pick a genre:</label>
+            <select name="genre" id="genre">
+                <option value="romance">Romance</option>
+                <option value="adventure">Adventure</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="horror">Horror</option>
+                <option value="science-fiction">Science Fiction</option>
+                <option value="mystery">Mystery</option>
+                <option value="nonfiction">Nonfiction</option>
+            </select>
+        </div>
+
+        <div class="checklist">
+            <h3>Check all that apply:</h3>
+            <ul>
+                <li>
+                    <input type="checkbox" value="happy-ending" name="choice1" id="happy-ending">
+                    <label for="happy-ending">Happy Ending*</label>
+                </li>
+                <li>
+                    <input type="checkbox" value="multiple-povs" name="choice2" id="multiple-povs">
+                    <label for="multiple-povs">Multiple POVs</label>
+                </li>
+                <li>
+                    <input type="checkbox" value="char-death" name="choice3" id="char-death">
+                    <label for="char-death">Character Death*</label>
+                </li>
+                <li>
+                    <input type="checkbox" value="action-scenes" name="choice4" id="action-scenes">
+                    <label for="action-scenes">Action Scenes</label>
+                </li>
+                <li>
+                    <input type="checkbox" value="kiss-scene" name="choice5" id="kiss-scene">
+                    <label for="kiss-scene">Kiss Scene</label>
+                </li>
+            </ul>
+            <p><em>* guaranteed to make the readers cry!</em></p>
+        </div>
+
+        <div>
+            <label for="price">Maximum price you're willing to pay:</label><br \>
+            <input type="number" name="price" id="price" placeholder="$100.00">
+        </div>
+
+        <div>
+            <label for="subject">Subject</label><br \>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        </div>
+
+        <div>
+            <label for="ideal-date">Choose a date by when you'd like it finished:</label><br \>
+            <input type="date" name="ideal-date">
+        </div>
+
+        <button type="submit">I'm done now</button>
+
+    </form>
+
+</body>
+</html>
