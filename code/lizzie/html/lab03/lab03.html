@@ -5,92 +5,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='lab03.css'>
+    <script src="https://kit.fontawesome.com/0cc09580ea.js" crossorigin="anonymous"></script>
     <title>Story Nook</title>
 </head>
+
 <body>
 
     <header>
-        Request a Story
+        <p><i class="fa-solid fa-pen-nib fa-shake" style="--fa-animation-duration: 4s;"></i> Request a Story</p>
     </header>
 
-    <h3>You have a story idea, I have two hands ready to put it on paper... for a price.</h3><br \>
-    
-    <form action="https://webhook.site/d65d8569-1640-4067-9f29-c3f65dfe7632" method="post">
-        <div>
-            <label for="your-name">Your Name:</label>
-            <input type="text" name="your-name" id="your-name" placeholder="My name is...">
+    <nav>
+        <span class="select">About</span>
+        <span class="select">My Rates</span>
+        <span class="select">My Writing Samples</span>
+    </nav>
+
+    <div class="wrapper">
+
+
+        <main>
+            <h4>You have a story idea, I have two hands ready to put it on paper... for a price.
+            </h4>
+            
+            <form action="https://webhook.site/d65d8569-1640-4067-9f29-c3f65dfe7632" method="post">
+                <div>
+                    <p class="subhed"><label for="your-name">Your name:</label></p class="subhed">
+                    <input type="text" name="your-name" id="your-name" placeholder="My name is...">
+                </div>
+
+                <div>
+                    <p class="subhed"><label for="email">Enter your email:</label></p class="subhed">
+                    <input type="email" id="email" name="email" placeholder="Enter a gmail address" pattern=".+@gmail.com">
+
+                </div>
+
+                <div>
+                    <p class="subhed"><label for="length">How long would you like it to be? (this is an estimate)</label></p class="subhed">
+                    <input type="range" min="1" max="10001" value="5000" step="500" id="length" name="length">
+                    <p>500 words to 10,000 maximum.</p>
+                </div>
+
+                <div>
+                    <p class="subhed"><label for="genre">Pick a genre:</label></p class="subhed">
+                    <select name="genre" id="genre">
+                        <option value="romance">Romance</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="horror">Horror</option>
+                        <option value="science-fiction">Science Fiction</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="nonfiction">Nonfiction</option>
+                    </select>
+                </div>
+
+                <div class="checklist">
+                    <p class="subhed">Check all that apply:</p class="subhed">
+                    <ul>
+                        <li>
+                            <input type="checkbox" value="bittersweet-ending" name="choice1" id="bittersweet-ending">
+                            <label for="bittersweet-ending">Bittersweet Ending*</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" value="multiple-povs" name="choice2" id="multiple-povs">
+                            <label for="multiple-povs">Multiple POVs</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" value="char-death" name="choice3" id="char-death">
+                            <label for="char-death">Character Death*</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" value="action-scenes" name="choice4" id="action-scenes">
+                            <label for="action-scenes">Action Scenes</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" value="kiss-scene" name="choice5" id="kiss-scene">
+                            <label for="kiss-scene">Kiss Scene</label>
+                        </li>
+                    </ul>
+                    <p><em>* guaranteed to make the readers cry!</em></p>
+                </div>
+
+                <div>
+                    <p class="subhed"><label for="price">Maximum price you're willing to pay:</label></p class="subhed">
+                    <input type="number" name="price" id="price" placeholder="$100.00">
+                </div>
+                
+                <div>
+                    <p class="subhed"><label for="ideal-date">Choose a date by when you'd like it finished by:</label></p class="subhed">
+                    <input type="date" name="ideal-date">
+                </div>
+
+                <div>
+                    <p class="subhed"><label for="subject">Additional notes</label></p class="subhed">
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                </div>
+
+                <button type="submit">Submit Request</button>
+            </form>
+        </main>
+
+        <aside>
+            <div class="writing-sample">
+                <h4>A writing sample:</h4>
+                <p>Marty, will we ever see you again? Mr. McFly, Mr. McFly, this just arrived, oh hi Marty. I think it's your new book. Just turn around, McFly, and walk away. Are you deaf, McFly? Close the door and beat it. What did I just say? You wait and see, Mr. Caruthers, I will be mayor and I'll be the most powerful mayor in the history of Hill Valley, and I'm gonna clean up this town.</p>
+                <p>What, I don't get what happened. oh yeah, all you gotta do is go over there and ask her. Marty, don't be such a square. Everybody who's anybody drinks. Well, because George. Well, bring her along. This concerns her too.</p>
+                <p>I have to tell you about the future. whoa, this is it, this is the part coming up, Doc. What did your mother ever see in that kid? Re-elect Mayor Goldie Wilson. Progress is his middle name. I just wanna use the phone.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>Copyright © 2022 fake_business</p>
+            <p><i class="fa-solid fa-scroll"></i>
+                <a href="#">Terms and conditions</a></p>
         </div>
-
-        <div>
-            <label for="email">Enter your email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter a gmail address" pattern=".+@gmail.com">
-
-        </div>
-
-        <div>
-            <label for="length">How long would you like it to be? (this is an estimate)</label><br \>
-            <input type="range" min="1" max="10000" value="5000" id="length" name="length">
-            <p>100 words to 10,000 maximum.</p>
-        </div>
-
-        <div>
-            <label for="genre">Pick a genre:</label>
-            <select name="genre" id="genre">
-                <option value="romance">Romance</option>
-                <option value="adventure">Adventure</option>
-                <option value="fantasy">Fantasy</option>
-                <option value="horror">Horror</option>
-                <option value="science-fiction">Science Fiction</option>
-                <option value="mystery">Mystery</option>
-                <option value="nonfiction">Nonfiction</option>
-            </select>
-        </div>
-
-        <div class="checklist">
-            <h3>Check all that apply:</h3>
-            <ul>
-                <li>
-                    <input type="checkbox" value="happy-ending" name="choice1" id="happy-ending">
-                    <label for="happy-ending">Happy Ending*</label>
-                </li>
-                <li>
-                    <input type="checkbox" value="multiple-povs" name="choice2" id="multiple-povs">
-                    <label for="multiple-povs">Multiple POVs</label>
-                </li>
-                <li>
-                    <input type="checkbox" value="char-death" name="choice3" id="char-death">
-                    <label for="char-death">Character Death*</label>
-                </li>
-                <li>
-                    <input type="checkbox" value="action-scenes" name="choice4" id="action-scenes">
-                    <label for="action-scenes">Action Scenes</label>
-                </li>
-                <li>
-                    <input type="checkbox" value="kiss-scene" name="choice5" id="kiss-scene">
-                    <label for="kiss-scene">Kiss Scene</label>
-                </li>
-            </ul>
-            <p><em>* guaranteed to make the readers cry!</em></p>
-        </div>
-
-        <div>
-            <label for="price">Maximum price you're willing to pay:</label><br \>
-            <input type="number" name="price" id="price" placeholder="$100.00">
-        </div>
-
-        <div>
-            <label for="subject">Subject</label><br \>
-            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-        </div>
-
-        <div>
-            <label for="ideal-date">Choose a date by when you'd like it finished:</label><br \>
-            <input type="date" name="ideal-date">
-        </div>
-
-        <button type="submit">I'm done now</button>
-
-    </form>
+    </footer>
 
 </body>
 </html>
