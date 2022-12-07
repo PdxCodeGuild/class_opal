@@ -14,15 +14,16 @@ body{
     "menu"
     "footer";
     text-align: center;
-    row-gap: 15px;
+    row-gap: 50px;
     justify-content: center;
 } 
-.container > *{
+.container > div{
     display: flex;
     flex-flow: column;     
     justify-content: center;
     align-items: center;
     justify-items: center;
+    row-gap: 25px;
     /* background-color: rgba(165, 42, 42, 0.5); */
     /* border:rgb(116, 7, 7) double 4px; */
 }
