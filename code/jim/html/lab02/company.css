@@ -1,0 +1,135 @@
+body {
+    background-color: rgb(42, 2, 134);
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 10vh 25vh;
+    grid-template-areas:
+        "header"
+        "main"
+        "nav"
+        "footer";
+}
+
+#wrapper>* {
+    display: flex;
+    background-color: #ddd;
+    font-family: Abcarizonatext, sans-serif;
+}
+
+#header {
+    /* position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden; */
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(45, 225, 252);
+    text-align: center;
+    font-size: 2.5em;
+}
+
+#tree {
+    max-height: 5vh;
+    object-fit: contain;
+}
+
+#nav {
+    grid-area: nav;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(22, 193, 114);
+}
+
+#nav>span {
+    background-color: rgb(192, 149, 7);
+    text-align: center;
+    padding: 0rem;
+    border: #ddd;
+    border-radius: 25%;
+    height: 3em;
+}
+
+#main {
+    /* display: inline; */
+    flex-direction: column;
+    grid-area: main;
+    background-color: rgb(255, 255, 255);
+}
+
+.main-image {
+    width: 70%;
+    /* padding: 2rem; */
+}
+
+.article-section {
+    padding: 1rem;
+}
+
+#footer {
+    grid-area: footer;
+    background-color: rgb(33, 79, 75);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    /* padding: 0.4rem;
+    padding-top: 0;
+    padding-bottom: 0; */
+    /* font-size: 0.8rem; */
+    color: white;
+}
+
+/* tablet settings */
+@media screen and (min-width: 640px) {
+    #wrapper {
+        height: 100vh;
+        grid-template-rows: auto 1fr 25vh;
+
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas:
+            "header header"
+            "nav main"
+            "footer footer";
+    }
+
+    #nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding-right: 15px;
+    }
+
+}
+
+/* desktop settings */
+@media screen and (min-width: 1008px) {
+    #wrapper {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr 25vh;
+        grid-template-areas:
+            "header header"
+            "nav main"
+            "footer footer";
+    }
+
+    #nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-end;
+    }
+
+    .main-image {
+        width: 60%;
+        /* padding: 2rem; */
+    }
+}
