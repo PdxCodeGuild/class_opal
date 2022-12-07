@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+}
+.page {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+    "header picture"
+    "what what"
+    "benefits benefits"
+    "clients clients"
+    "packages packages"
+    "footer footer";
+    /* width: 100vw; */
+}
+
+.header {
+    grid-area: header;
+    background-color: #2E282A;
+    color: #d3e3df;
+    display: flex;
+}
+
+.co-picture {
+    grid-area: picture;
+    /* display: flex; */
+}
+
+#company-picture {
+    /* height: 15vh; */
+    width: 100%;
+    object-fit: cover;
+    /* height: 100px; */
+}
+
+.footer {
+    grid-area: footer;
+    /* background-color: #CD5334; */
+    display: flex;
+}
+
+.what {
+    grid-area: what;
+    background-color: #17BEBB;
+    display: flex;
+}
+
+.benefits-block {
+    grid-area: benefits;
+    background-color: #EDB88B;
+    display: flex;
+}
+
+.clients {
+    grid-area: clients;
+    display: flex;
+}
+
+.packages {
+    grid-area: packages;
+    background-color: #B0A1BA;
+    display: flex;
+}
