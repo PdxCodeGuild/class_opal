@@ -8,24 +8,96 @@
     <title>Josh HTML Lab 03</title>
 </head>
 <body>
-    <div>Header</div>
+    <!-- <form action="https://webhook.site/3b6fdcc6-d5ce-45da-ba7b-6c07193e8cba" method="post"></form> -->
+    <div>Burritos Muy Deliciosos!</div>
     <div>Menu</div>
-        <div>Tortilla</div>
-            <!-- White, Wheat, Spinach, Corn -->
-        <div>Meat/Carne</div>
-            <!-- Beef, Chicken, Carne Asada, Barbacoa, Pork, Tofu -->
-        <div>Beans/Frijoles</div>
-            <!-- Pinto, Black, Mix -->
-        <div>Rice/Arroz</div>
-            <!-- White, Brown, Jasmine -->
-        <div>Cheese/Queso</div>
-            <!-- Cheddar, Monterey Jack, 3-Cheese-Blend -->
-        <div>Veggies/Verduras</div>
-            <!-- Lettuce, Tomato, Onion, Olives, Guacamole -->
-        <div>Sauces/Salsas</div>
-            <!-- Mild, Medium, Hot -->
-        <div>Drink/Bebida</div>
-            <!-- Mexican Coke, Fanta Orange, Diet Coke, Sprite -->
+        <div>Tortilla<br>
+            <input type="radio" id="white" name="tortillas" value="white">
+            <label for="white">White</label>
+            <input type="radio" id="wheat" name="tortillas" value="wheat">
+            <label for="wheat">Wheat</label>
+            <input type="radio" id="spinach" name="tortillas" value="spinach">
+            <label for="spinach">Spinach</label>
+            <input type="radio" id="corn" name="tortillas" value="corn">
+            <label for="corn">Corn</label>
+        </div>
+        <div>Protein<br>
+            <input type="radio" id="beef" name="protein" value="beef">
+            <label for="beef">Beef</label>
+            <input type="radio" id="chicken" name="protein" value="chicken">
+            <label for="chicken">Chicken</label>
+            <input type="radio" id="carne asada" name="protein" value="carne asada">
+            <label for="carne asada">Carne Asada</label>
+            <input type="radio" id="barbacoa" name="protein" value="barbacoa">
+            <label for="barbacoa">Barbacoa</label>
+            <input type="radio" id="pork" name="protein" value="pork">
+            <label for="pork">Pork</label>
+            <input type="radio" id="tofu" name="protein" value="tofu">
+            <label for="tofu">Tofu</label>
+        </div>
+        <div>Beans<br>
+            <input type="radio" id="pinto" name="beans" value="pinto">
+            <label for="pinto">Pinto</label>
+            <input type="radio" id="black" name="beans" value="black">
+            <label for="black">Black</label>
+            <input type="radio" id="mixed" name="beans" value="mixed">
+            <label for="mixed">Mixed</label>
+        </div>
+        <div>Rice<br>
+            <input type="radio" id="white" name="rice" value="white">
+            <label for="white">White</label>
+            <input type="radio" id="brown" name="rice" value="brown">
+            <label for="brown">Brown</label>
+            <input type="radio" id="jasmine" name="rice" value="jasmine">
+            <label for="jasmine">Jasmine</label>
+        </div>
+        <div>Cheese<br>
+            <input type="radio" id="cheddar" name="cheese" value="cheddar">
+            <label for="cheddar">Cheddar</label>
+            <input type="radio" id="monterey jack" name="cheese" value="monterey jack">
+            <label for="monterey jack">Monterey Jack</label>
+            <input type="radio" id="3-cheese blend" name="cheese" value="3-cheese blend">
+            <label for="3-cheese blend">3-Cheese Blend</label>
+        </div>
+        <div>Veggies<br>
+            <input type="checkbox" id="lettuce" name="veggies" value="lettuce">
+            <label for="lettuce">Lettuce</label>
+            <input type="checkbox" id="tomato" name="veggies" value="tomato">
+            <label for="tomato">Tomato</label>
+            <input type="checkbox" id="onion" name="veggies" value="onion">
+            <label for="onion">Onion</label>
+            <input type="checkbox" id="olives" name="veggies" value="olives">
+            <label for="olives">Olives</label>
+            <input type="checkbox" id="cilantro" name="veggies" value="cilantro">
+            <label for="cilantro">Cilantro</label>
+            <input type="checkbox" id="guacamole" name="veggies" value="guacamole">
+            <label for="guacamole">Guacamole</label>
+        </div>
+        <div>Salsa<br>
+            <input type="radio" id="mild" name="salsa" value="mild">
+            <label for="mild">Mild</label>
+            <input type="radio" id="medium" name="salsa" value="medium">
+            <label for="medium">Medium</label>
+            <input type="radio" id="hot" name="salsa" value="hot">
+            <label for="hot">Hot</label>
+        </div>
+        <div>Beverage<br>
+            <input type="radio" id="mexican coke" name="drink" value="mexican coke">
+            <label for="mexican coke">Mexican Coke</label>
+            <input type="radio" id="fanta orange" name="drink" value="fanta orange">
+            <label for="fanta orange">Fanta Orange</label>
+            <input type="radio" id="diet coke" name="drink" value="diet coke">
+            <label for="diet coke">Diet Coke</label>
+            <input type="radio" id="sprite" name="drink" value="sprite">
+            <label for="sprite">Sprite</label>
+            <input type="radio" id="horchata" name="drink" value="horchata">
+            <label for="horchata">Horchata</label>
+        </div>
+        <div>
+            <label for="name">Please enter a name for your order: </label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div><input type="submit"></div>
     <div>Footer</div>
 </body>
 </html>
@@ -34,31 +106,6 @@
 Once you have your page together, use link at https://webhook.site/ to create a temporary endpoint.
 Add the attributes action="your-url-here" and method="post" to your form. Then fill out your form and submit the data. You should see an "ok" response.
 You can then check your bin and look at the request's body. Make sure all the relevant data is present to ensure your form is working.
-
-Recommended fields:
-Name (text input)
-Password (password input)
-Tortilla (radio buttons)
-White Flour
-Wheat Flour
-Spinach
-Corn
-Rice (radio buttons)
-White Rice
-Brown Rice
-Beans (radio buttons)
-Black Beans
-Pinto Beans
-Protein (radio buttons)
-Carnitas
-Chicken
-Sofritas
-None
-Additional Ingredients (check boxes)
-Cheese
-Sour Cream
-Delivery Instructions (textarea)
-
 
 Optional
 For personal info, use the required, pattern and title attributes of the input fields to verify that the information the user entered is legitimate.
