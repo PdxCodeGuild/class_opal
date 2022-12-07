@@ -1,0 +1,36 @@
+body{
+    background-image: url("https://www.desktopbackground.org/download/1366x768/2012/11/06/479801_mexican-menu-backgrounds-bing-images_1662x824_h.gif");
+    background-color: peru;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: auto;
+    /* grid-template-columns: fit-content(90%); */
+    grid-template-areas: 
+    "header"
+    "menu"
+    "footer";
+    text-align: center;
+    row-gap: 15px;
+    justify-content: center;
+} 
+.container > *{
+    display: flex;
+    flex-flow: column;     
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    /* background-color: rgba(165, 42, 42, 0.5); */
+    /* border:rgb(116, 7, 7) double 4px; */
+}
+
+img {
+    float: center;
+    width:  400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+}
