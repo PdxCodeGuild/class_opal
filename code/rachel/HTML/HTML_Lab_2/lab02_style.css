@@ -1,0 +1,102 @@
+img {
+    margin: auto;
+    max-width: 100%;
+}
+#camera, #globe {
+    width: 300px;
+    height: 200px;
+}
+a {
+    color:rgba(239, 207, 62, 0.952);
+}
+
+header {
+    text-align: center;
+    background-color: rgb(233, 50, 17);
+    color:rgba(239, 207, 62, 0.952);
+}
+main {
+    text-align: center;
+    background-color: rgba(124, 128, 151, 0.895);
+    color:rgba(4, 41, 155, 0.923);
+    /*padding: 1em;*/ 
+}
+.sec_title {
+    text-align: center;
+    padding: 2em;
+    margin: 1em;
+    
+}
+.areas>p {
+    text-align: center;
+    padding: 2em;
+    /* margin: 1em; */
+}
+footer {
+    text-align: center;
+    background-color: rgb(233, 50, 17);
+    color:aliceblue;
+}
+
+footer div a {
+    color:aliceblue;
+}
+
+header, main, footer {
+    padding: 1em;
+}
+
+h3, h4, h5, h6 {
+    font-size: large;
+}
+
+/* Use this for tablet; change to 2 pics in a row instead of all 4*/
+@media (min-width: 733px) {
+    /* nav & nav p put all the links in a row and seperates them */
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+    nav p {
+        margin: 1em;
+    }
+    .img-gallery {
+        display: grid;
+        grid-template-columns: auto auto;
+        margin: 5em auto;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .areas {
+        margin: auto ;
+        padding: 1/4em;
+        text-align: center;
+    } 
+    img {
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+    }
+}
+/* Use this for desktop*/
+@media (min-width: 1000px) {
+    nav {
+        display: flex;
+        justify-content:right;
+    }
+    h1 {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .img-gallery {
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20%;
+        margin: 1em auto;
+        margin-top: 10px;
+        justify-content: center; /*centered columns in middle of page; justify-items didn't change anything */
+        
+    }
+    .areas {
+        padding: 1em;
+    }
+}
