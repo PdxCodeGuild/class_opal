@@ -5,55 +5,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap inclusion via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- These styles will override the bootstrap styles -->
+    <link rel="stylesheet" href="my-styles.css">
     <title>Forms demo</title>
 </head>
 
 <body>
+    <!-- Forms always need an action, a method, and a submit button -->
     <form action="https://webhook.site/3b6fdcc6-d5ce-45da-ba7b-6c07193e8cba" method="post">
         <div>
-            <label for="my-name">My Name</label>
-            <input type="text" name="my-name" id="my-name">
+            <label class="form-label" for="my-name">My Name</label>
+            <input class="form-control-lg" type="text" name="my-name" id="my-name">
         </div>
 
         <input type="hidden" value="wheeeeeeee!" name=":)">
 
         <div class="checklist">
             <h3>My favorite languages</h3>
-            <input type="checkbox" value="python" name="language1" id="python">
-            <label for="python">Python</label>
-            <input type="checkbox" value="html" name="language2" id="html">
-            <label for="html">HTML</label>
-            <input type="checkbox" value="css" name="language3" id="css">
-            <label for="css">CSS</label>
-            <input type="checkbox" value="klingon" name="language4" id="klingon">
-            <label for="klingon">Klingon</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="python" name="language1" id="python" checked>
+                <label class="form-label" for="python">Python</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="html" name="language2" id="html">
+                <label class="form-label" for="html">HTML</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="css" name="language3" id="css">
+                <label class="form-label" for="css">CSS</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="klingon" name="language4" id="klingon">
+                <label class="form-label" for="klingon">Klingon</label>
+            </div>
         </div>
 
         <div>
-            <label for="age">Age</label>
+            <label class="form-label" for="age">Age</label>
             <input type="number" name="age" id="age">
         </div>
 
         <div>
             <h3>What is your time zone?</h3>
-            <input type="radio" value="pacific" id="pacific" name="time-zone">
-            <label for="pacific">Pacific</label>
-            <input type="radio" value="mountain" id="mountain" name="time-zone">
-            <label for="mountain">Mountain</label>
-            <input type="radio" value="central" id="central" name="time-zone">
-            <label for="central">Central</label>
-            <input type="radio" value="eastern" id="eastern" name="time-zone">
-            <label for="eastern">Eastern</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="pacific" id="pacific" name="time-zone">
+                <label class="form-label" for="pacific">Pacific</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="mountain" id="mountain" name="time-zone" checked>
+                <label class="form-label" for="mountain">Mountain</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="central" id="central" name="time-zone">
+                <label class="form-label" for="central">Central</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="eastern" id="eastern" name="time-zone">
+                <label class="form-label" for="eastern">Eastern</label>
+            </div>
         </div>
 
         <div>
-            <label for="feeling">How are you feeling today?</label>
-            <input type="range" min="1" max="100" value="100" id="feeling" name="feeling">
+            <label class="form-label" for="feeling">How are you feeling today?</label>
+            <input class="form-range" type="range" min="1" max="100" value="100" id="feeling" name="feeling" disabled>
         </div>
 
         <div>
-            <label for="superpower">Pick ONLY ONE superpower</label>
-            <select name="superpower" id="superpower">
+            <label class="form-label" for="superpower">Pick ONLY ONE superpower</label>
+            <select class="form-select" name="superpower" id="superpower">
                 <option value="flight">Flight</option>
                 <option value="invisibility">Invisibility</option>
                 <option value="programming">Programming</option>
@@ -61,17 +83,15 @@
         </div>
 
         <div>
-            <label for="ideal-date">Describe your ideal date</label>
+            <label class="form-label" for="ideal-date">Describe your ideal date</label>
             <input type="date" name="ideal-date">
         </div>
 
-        <!-- <input type="submit" value="I'm done now"> -->
-        <button type="submit">I'm done now</button>
+        <!-- Whether you use an input or a button element, it must have type="submit" -->
+        <input class="btn btn-outline-primary" type="submit" value="I'm done now">
+        <!-- <button class="btn btn-success btn-lg" type="submit">I'm done now</button> -->
 
     </form>
-
-
-
 </body>
 
 </html>
