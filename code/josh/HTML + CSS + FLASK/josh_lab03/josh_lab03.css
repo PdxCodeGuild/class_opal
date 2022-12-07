@@ -7,31 +7,63 @@ body{
 
 .container{
     display: grid;
-    grid-template-columns: auto;
-    /* grid-template-columns: fit-content(90%); */
+    /* grid-template-columns: auto; */
+    grid-template-columns: fit-content(90%);
     grid-template-areas: 
     "header"
     "menu"
+    "name"
+    "submit"
     "footer";
     text-align: center;
     row-gap: 50px;
     justify-content: center;
+    /* width: 100%; */
 } 
+
 .container > div{
+    grid-template-columns: fit-content(90%);
     display: flex;
     flex-flow: column;     
     justify-content: center;
     align-items: center;
     justify-items: center;
     row-gap: 25px;
-    /* background-color: rgba(165, 42, 42, 0.5); */
-    /* border:rgb(116, 7, 7) double 4px; */
+    /* width: 100% */
+}
+
+#main-heading{
+    background-image: linear-gradient(to right, green, white, red);
+}
+
+#footer{
+    grid-area: footer;
+    /* grid-template-areas:
+    "row1"
+    "row2"; */
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 img {
     float: center;
-    width:  400px;
-    height: 400px;
+    /* width: 400px; */
+    max-width: 400px;
+    /* height: 400px; */
+    max-height: 400px;
     object-fit: cover;
     border-radius: 50%;
 }
+
+/* @media screen and (min-width: 600px) {
+    .container{
+        width: 50%;
+    }
+    .container > div{
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    
+} */

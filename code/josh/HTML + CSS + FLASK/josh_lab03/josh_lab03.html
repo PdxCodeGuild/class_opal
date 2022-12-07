@@ -9,126 +9,135 @@
     <link rel="stylesheet" href="josh_lab03.css">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2165ed5158.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- <form action="https://webhook.site/3b6fdcc6-d5ce-45da-ba7b-6c07193e8cba" method="post"></form> -->
-    <div class="container">
-        <div id="header">
-            <h1>Burritos Muy Deliciosos!</h1>
+    <form action="https://webhook.site/3b6fdcc6-d5ce-45da-ba7b-6c07193e8cba" method="post">
+        <div class="container">
+            <div id="header">
+                <h1 id="main-heading">Burritos Muy Deliciosos! Order Form: </h1>
+                <h5 style="font-style: italic;">choose from the following items to build your burrito</h5>
+            </div>
+            <div id="menu">
+                <h2>Tortillas</h2>
+                <img src="https://i.pinimg.com/originals/ba/81/fd/ba81fdb748ea4bf1e4ef9c5045344af8.jpg" alt="Mixed Tortillas">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="tortilla" id="flour" value="flour" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="flour">Flour</label>
+                    <input type="radio" class="btn-check" name="tortilla" id="whole wheat" value="whole wheat" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="whole wheat">Whole Wheat</label>
+                    <input type="radio" class="btn-check" name="tortilla" id="spinach" value="spinach" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="spinach">Spinach</label>
+                    <input type="radio" class="btn-check" name="tortilla" id="corn" value="corn" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="corn">Corn</label>
+                </div>
+                <h2>Protein</h2>
+                <img src="https://specials-images.forbesimg.com/imageserve/601063988/960x0.jpg?fit=scale" alt="Mixed Meats on a Barbecue">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="protein" id="beef" value="beef" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="beef">Beef</label>
+                    <input type="radio" class="btn-check" name="protein" id="chicken" value="chicken" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="chicken">Chicken</label>
+                    <input type="radio" class="btn-check" name="protein" id="carne asada" value="carne asada" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="carne asada">Carne Asada</label>
+                    <input type="radio" class="btn-check" name="protein" id="barbacoa" value="barbacoa" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="barbacoa">Barbacoa</label>
+                    <input type="radio" class="btn-check" name="protein" id="chorizo" value="chorizo" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="chorizo">Chorizo</label>
+                    <input type="radio" class="btn-check" name="protein" id="tofu" value="tofu" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="tofu">Tofu</label>
+                </div>
+                <h2>Beans</h2>
+                <img src="https://vegansfirst.com/wp-content/uploads/2021/05/Appearance-of-Black-and-Pinto-Beans.jpg" alt="Pinto and Black Beans">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">  
+                    <input type="radio" class="btn-check" name="beans" id="pinto" value="pinto" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="pinto">Pinto</label>
+                    <input type="radio" class="btn-check" name="beans" id="black" value="black" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="black">Black</label>
+                    <input type="radio" class="btn-check" name="beans" id="mixed" value="mixed" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="mixed">Mixed</label>
+                </div>
+                <h2>Rice</h2>
+                <img src="https://difference.guru/wp-content/uploads/2017/04/cws_58df133903641.png" alt="Mixed Rices">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group"> 
+                    <input type="radio" class="btn-check" name="rice" id="white" value="white" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="white">White</label>
+                    <input type="radio" class="btn-check" name="rice" id="brown" value="brown" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="brown">Brown</label>
+                    <input type="radio" class="btn-check" name="rice" id="jasmine" value="jasmine" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="jasmine">Jasmine</label>
+                </div>
+                <h2>Cheese</h2>
+                <img src="https://d3u5bsc6xz12oq.cloudfront.net/s3fs-public/styles/promo_slides/public/slideshow-images/shredded-hero-1.jpg?itok=yT0JA9G-" alt="Mixed Cheese">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="cheese" id="cheddar" value="cheddar" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="cheddar">Cheddar</label>
+                    <input type="radio" class="btn-check" name="cheese" id="monterey jack" value="monterey jack" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="monterey jack">Monterey Jack</label>
+                    <input type="radio" class="btn-check" name="cheese" id="3-cheese blend" value="3-cheese blend" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="3-cheese blend">3-Cheese Blend</label>
+                </div>
+                <h2>Veggies</h2>
+                <img src="https://mexicanfoodjournal.com/wp-content/uploads/2015/03/003.jpg" alt="Chopped Vegetables">
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <input type="checkbox" class="btn-check" id="lettuce" value="lettuce" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="lettuce">Lettuce</label>
+                    <input type="checkbox" class="btn-check" id="tomatoes" value="tomatoes" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="tomatoes">Tomatoes</label>
+                    <input type="checkbox" class="btn-check" id="onions" value="onions" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="onions">Onions</label>
+                    <input type="checkbox" class="btn-check" id="olives" value="olives" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="olives">Olives</label>
+                    <input type="checkbox" class="btn-check" id="cilantro" value="cilantro" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cilantro">Cilantro</label>
+                </div>
+                <h2>Salsa</h2>
+                <img src="https://www.shopspiceexchange.com/uploads/5/0/8/5/50859439/s119143952381448769_p73_i2_w800.jpeg" alt="Salsa in a Bowl">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="salsa" id="mild" value="mild" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="mild">Mild</label>
+                    <input type="radio" class="btn-check" name="salsa" id="medium" value="medium" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="medium">Medium</label>
+                    <input type="radio" class="btn-check" name="salsa" id="hot" value="hot" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="hot">Hot</label>
+                </div>
+                <h2>Extras</h2>
+                <img src="https://media-cdn.tripadvisor.com/media/photo-s/13/7e/cd/4d/side-dish-of-salsa-sour.jpg" alt="Guacamole and Sour Cream">
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <input type="checkbox" class="btn-check" id="guacamole" value="guacamole" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="guacamole">Guacamole</label>
+                    <input type="checkbox" class="btn-check" id="sour cream" value="sour cream" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="sour cream">Sour Cream</label>
+                </div>
+                <h2>Beverages</h2>
+                <img src="https://image.influenster.com/eyJlZGl0cyI6IHsicmVzaXplIjogeyJiYWNrZ3JvdW5kIjogeyJnIjogMSwgImIiOiAxLCAiYWxwaGEiOiAwLCAiciI6IDF9LCAiaGVpZ2h0IjogNzUwLCAid2l0aG91dEVubGFyZ2VtZW50IjogdHJ1ZSwgImZpdCI6ICJpbnNpZGUiLCAid2lkdGgiOiA3NTB9fSwgImtleSI6ICJtZWRpYS9wcm9kdWN0L2ltYWdlL3Byb2R1Y3QvaW1hZ2Uva3dvaDJmbHJ4c2hsb2x1dzB6ZDZfVUxaWWlLai5qcGciLCAiZXh0ZW5kIjoge30sICJidWNrZXQiOiAiaW5mbHVlbnN0ZXJfcHJvZHVjdGlvbiJ9" alt="Beverages in Bottles">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="drink" id="mexican coke" value="mexican coke" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="mexican coke">Mexican Coke</label>
+                    <input type="radio" class="btn-check" name="drink" id="fanta orange" value="fanta orange" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="fanta orange">Fanta Orange</label>
+                    <input type="radio" class="btn-check" name="drink" id="sprite" value="sprite" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="sprite">Sprite</label>
+                    <input type="radio" class="btn-check" name="drink" id="diet coke" value="diet coke" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="diet coke">Diet Coke</label>
+                    <input type="radio" class="btn-check" name="drink" id="horchata" value="horchata" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="horchata">Horchata</label>
+                </div>
+            </div>
+            <div id="name">
+                <label for="name"><h3>Please enter a name for your order: </h3></label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div id="submit"><input type="submit">
+            </div>
+            <div id="footer">
+                <a class="tablet" href="tel:+15035554444"><i class="fa-solid fa-phone fa-2xl"></i></a>
+                <a class="tablet" href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+                <a class="tablet" href="https://twitter.com/search?q=%23burritos&src=typed_query"><i class="fa-brands fa-twitter fa-2xl"></i></a>
+                <a class="tablet" href="mailto:burritos@fakemail.com"><i class="fa-solid fa-envelope fa-2xl"></i></a>
+            </div>
         </div>
-        <div id="menu">
-            <h3>Tortillas</h3>
-            <img src="https://i.pinimg.com/originals/ba/81/fd/ba81fdb748ea4bf1e4ef9c5045344af8.jpg" alt="Mixed Tortillas">
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="tortilla" id="flour" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="flour">Flour</label>
-                <input type="radio" class="btn-check" name="tortilla" id="whole wheat" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="whole wheat">Whole Wheat</label>
-                <input type="radio" class="btn-check" name="tortilla" id="spinach" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="spinach">Spinach</label>
-                <input type="radio" class="btn-check" name="tortilla" id="corn" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="corn">Corn</label>
-            </div>
-            <h3>Protein</h3>
-            <img src="https://specials-images.forbesimg.com/imageserve/601063988/960x0.jpg?fit=scale" alt="Mixed Meats on a Barbecue">
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="protein" id="beef" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="beef">Beef</label>
-                <input type="radio" class="btn-check" name="protein" id="chicken" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="chicken">Chicken</label>
-                <input type="radio" class="btn-check" name="protein" id="carne asada" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="carne asada">Carne Asada</label>
-                <input type="radio" class="btn-check" name="protein" id="barbacoa" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="barbacoa">Barbacoa</label>
-                <input type="radio" class="btn-check" name="protein" id="chorizo" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="chorizo">Chorizo</label>
-                <input type="radio" class="btn-check" name="protein" id="tofu" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="tofu">Tofu</label>
-            </div>
-            <h3>Beans</h3>
-            <img src="https://vegansfirst.com/wp-content/uploads/2021/05/Appearance-of-Black-and-Pinto-Beans.jpg" alt="Pinto and Black Beans">
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">  
-                <input type="radio" class="btn-check" name="beans" id="pinto" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="pinto">Pinto</label>
-                <input type="radio" class="btn-check" name="beans" id="black" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="black">Black</label>
-                <input type="radio" class="btn-check" name="beans" id="mixed" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="mixed">Mixed</label>
-            </div>
-            <h3>Rice</h3>
-            <img src="https://difference.guru/wp-content/uploads/2017/04/cws_58df133903641.png" alt="Mixed Rices">
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group"> 
-                <input type="radio" class="btn-check" name="rice" id="white" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="white">White</label>
-                <input type="radio" class="btn-check" name="rice" id="brown" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="brown">Brown</label>
-                <input type="radio" class="btn-check" name="rice" id="jasmine" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="jasmine">Jasmine</label>
-            </div>
-            <h3>Cheese</h3>
-            <img src="https://d3u5bsc6xz12oq.cloudfront.net/s3fs-public/styles/promo_slides/public/slideshow-images/shredded-hero-1.jpg?itok=yT0JA9G-" alt="Mixed Cheese">
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="cheese" id="cheddar" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="cheddar">Cheddar</label>
-                <input type="radio" class="btn-check" name="cheese" id="monterey jack" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="monterey jack">Monterey Jack</label>
-                <input type="radio" class="btn-check" name="cheese" id="3-cheese blend" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="3-cheese blend">3-Cheese Blend</label>
-            </div>
-            <h3>Veggies</h3>
-            <img src="https://mexicanfoodjournal.com/wp-content/uploads/2015/03/003.jpg" alt="Chopped Vegetables">
-            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                <input type="checkbox" class="btn-check" id="lettuce" autocomplete="off">
-                <label class="btn btn-outline-primary" for="lettuce">Lettuce</label>
-                <input type="checkbox" class="btn-check" id="tomatoes" autocomplete="off">
-                <label class="btn btn-outline-primary" for="tomatoes">Tomatoes</label>
-                <input type="checkbox" class="btn-check" id="onions" autocomplete="off">
-                <label class="btn btn-outline-primary" for="onions">Onions</label>
-                <input type="checkbox" class="btn-check" id="olives" autocomplete="off">
-                <label class="btn btn-outline-primary" for="olives">Olives</label>
-                <input type="checkbox" class="btn-check" id="cilantro" autocomplete="off">
-                <label class="btn btn-outline-primary" for="cilantro">Cilantro</label>
-            </div>
-            <h3>Salsa</h3>
-            <img src="https://www.shopspiceexchange.com/uploads/5/0/8/5/50859439/s119143952381448769_p73_i2_w800.jpeg" alt="Salsa in a Bowl">
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="salsa" id="mild" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="mild">Mild</label>
-                <input type="radio" class="btn-check" name="salsa" id="medium" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="medium">Medium</label>
-                <input type="radio" class="btn-check" name="salsa" id="hot" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="hot">Hot</label>
-            </div>
-            <h3>Extras</h3>
-            <img src="https://media-cdn.tripadvisor.com/media/photo-s/13/7e/cd/4d/side-dish-of-salsa-sour.jpg" alt="Guacamole and Sour Cream">
-            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                <input type="checkbox" class="btn-check" id="guacamole" autocomplete="off">
-                <label class="btn btn-outline-primary" for="guacamole">Guacamole</label>
-                <input type="checkbox" class="btn-check" id="sour cream" autocomplete="off">
-                <label class="btn btn-outline-primary" for="sour cream">Sour Cream</label>
-            </div>
-            <h3>Beverages</h3>
-            <img src="https://image.influenster.com/eyJlZGl0cyI6IHsicmVzaXplIjogeyJiYWNrZ3JvdW5kIjogeyJnIjogMSwgImIiOiAxLCAiYWxwaGEiOiAwLCAiciI6IDF9LCAiaGVpZ2h0IjogNzUwLCAid2l0aG91dEVubGFyZ2VtZW50IjogdHJ1ZSwgImZpdCI6ICJpbnNpZGUiLCAid2lkdGgiOiA3NTB9fSwgImtleSI6ICJtZWRpYS9wcm9kdWN0L2ltYWdlL3Byb2R1Y3QvaW1hZ2Uva3dvaDJmbHJ4c2hsb2x1dzB6ZDZfVUxaWWlLai5qcGciLCAiZXh0ZW5kIjoge30sICJidWNrZXQiOiAiaW5mbHVlbnN0ZXJfcHJvZHVjdGlvbiJ9" alt="Beverages in Bottles">
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="drink" id="mexican coke" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="mexican coke">Mexican Coke</label>
-                <input type="radio" class="btn-check" name="drink" id="fanta orange" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="fanta orange">Fanta Orange</label>
-                <input type="radio" class="btn-check" name="drink" id="sprite" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="sprite">Sprite</label>
-                <input type="radio" class="btn-check" name="drink" id="diet coke" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="diet coke">Diet Coke</label>
-                <input type="radio" class="btn-check" name="drink" id="horchata" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="horchata">Horchata</label>
-            </div>
-        </div>
-        <div id="name">
-            <label for="name">Please enter a name for your order: </label>
-            <input type="text" id="name" name="name">
-        </div>
-        <div><input type="submit"></div>
-        <div id="footer">Footer</div>
-    </div>
+    </form>
 </body>
 </html>
 
