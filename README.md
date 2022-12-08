@@ -61,8 +61,8 @@ Presentation Day: February 15th, 2023
 | 01    | Bio                    | Dec  1st      | Dec  5th              | Dec 15th      |
 | 02    | Company Landing Page   | Dec  5th      | Dec  8th              | Dec 19th      |
 | 04    | Burrito Order Form     | Dec  6th      | Dec  9th              | Dec 20th      |
-<!-- | 03    | Blog                   | May 26th      | May 31st              | Jun 9th       |
-| Group | Flask Todos            | Jun 1st       | Jun 1st               | Jun 15th      |
+| 05    | Blog                   | Dec  8th      | Dec 14th              | Dec 22nd      |
+<!--| Group | Flask Todos            | Jun 1st       | Jun 1st               | Jun 15th      |
 | 05    | Flask Redo             | Jun 2nd       | Jun 6th               | Jun 16th      |
 | 06    | Personal Portfolio     | Jun 3rd       | Jun 7th               | Jun 17th      | -->
 
