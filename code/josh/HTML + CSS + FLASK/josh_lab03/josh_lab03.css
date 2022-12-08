@@ -34,7 +34,7 @@ body{
     /* width: 100% */
 }
 
-#main-heading{
+#heading{
     background-image: linear-gradient(to right, green, white, red);
 }
 
