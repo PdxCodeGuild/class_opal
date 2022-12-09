@@ -11,7 +11,27 @@
     <script src="https://kit.fontawesome.com/2165ed5158.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="blogposts">{{posts}}</div>
+    <div class="container">
+        <header>
+            <h1>Daydreams of Food Ipsums</h1>
+            <h3 id="subtitle">a collection of nonsense while thinking on food</h3>
+        </header>
+        <div id="top-nav"></div>
+        <aside id="side-nav"></aside>
+        <article>
+            {% for post in posts %}
+            <p>{{ post }}</p><br>
+            {% endfor %}
+        </article>
+        <footer>
+            <!-- <h4>contributors</h4>
+            <span>post authors here</span> -->
+            <h4>follow us</h4>
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+            <a href="https://twitter.com/search?q=%23food&src=typed_query"><i class="fa-brands fa-twitter fa-2xl"></i></a>
+            <a href="mailto:foodipsum@fakemail.com"><i class="fa-solid fa-envelope fa-2xl"></i></a>
+        </footer>
+    </div>
 </body>
 </html>
 
@@ -19,10 +39,7 @@
 Let's make the template of a blog with a title, top-nav, side-nav, and multiple posts. Use flexbox and semantic elements (header, nav, section, and footer).
 You can use a custom font, fancy colors, and make generate fake content using an Ipsum.
 Make sure you have a responsive design that offers different, legible layouts for phone, tablet, and desktop screen sizes.
-You can test this in the browser devtools. Don't forget to use cascading min-width media queries for a mobile first design,
-and remember to include the responsive meta tag in your HTML.
-It should look professional, but this does not mean it needs to be complicated. A clean, simple, minimalist layout with custom color palette, fonts,
-and subtle backgrounds or whitespace works great. For examples of simple yet attractive design, check out:
+layout with custom color palette, fonts,and subtle backgrounds or whitespace works great.
 
 http://www.geert.io/
 https://www.blog.google/
@@ -37,3 +54,8 @@ HINT: You'll want to loop though each dictionary in your posts, and then render 
 Step 4
 Create a static folder and a CSS file for your Flask website and make sure you link to it in your template.
 From there, create a responsive, mobile-first design for your blog with at least three screen sizes. -->
+
+
+
+<!-- Quill pen inkwell with no background -->
+<!-- https://p1.hiclipart.com/preview/445/872/42/feather-quill-pen-writing-implement-ink-blackandwhite-wing-fountain-pen-png-clipart.jpg -->
