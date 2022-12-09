@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's K-Popping</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body>
+    <!-- Really useful note on how to do this: https://stackoverflow.com/questions/60486791/how-to-access-each-dictionary-individually-in-a-list-of-dictionaries-using-jinja -->
+    <!-- Looping through to access each item in the dictionary named posts -->
+    <table>
+        {% for dict_item in posts %}
+            <div>
+                <tr> <a href="{{ dict_item.id }}">{{ dict_item.title }}</a></tr> <br>
+                <tr> {{ dict_item.author }}  </tr> <br>
+                <tr> <img src="{{ dict_item.icon }}"> </tr> <br>
+                <tr> {{ dict_item.date }}  </tr> <br>
+                <!-- Targeting each paragraph -->
+                    {% for paragraph in dict_item.body %}
+                    <tr> {{ paragraph }} </tr><br \>
+                    <br \>
+                    {% endfor %}
+                <hr \>
+            </div>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>
