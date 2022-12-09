@@ -39,10 +39,11 @@ header{
 
 #side-nav{
     display: none;
+    max-width: 25vw;
 }
 
 img{
-    float: center
+    max-width: 25vw;
 }
 
 article{
@@ -64,9 +65,9 @@ article{
     font-family: serif;
 }
 
-#blogpost{
+/* #blogpost{
 
-}
+} */
 
 footer{
     grid-area: footer;
@@ -87,11 +88,17 @@ footer{
     #side-nav{
         grid-area: side-nav;
         display: block;
-        width: 25vw;        
+        width: 25vw;
+        margin: 0 2.5vw 0 2.5vw       
     }
 
     article{
-        width: 75vw;
+        width: 70vw;
+        margin: 0 5vw 0 0;
+    }
+
+    header{
+        font-size: 100vw;
     }
 }
 
