@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 POSTS = [
     {
-        'id': 1,
+        'id': '1',
         'title': "A look at Members of Delight Infinite",
         'author': "hyeongjun",
         'icon': '/static/test.png',
@@ -14,7 +14,7 @@ POSTS = [
         "L'invention concerne un connecteur séparable destiné à raccorder électriquement deux parties de câbles multiconducteurs."
         "La liaison d'actionnement peut raccorder le mécanisme de verrouillage et l'actionneur."]
     }, {
-        'id': 2,
+        'id': '2',
         'title': "AWOL's Debut: Highs and Lows",
         'author': "rockee",
         'date': "Dec. 9 at 11:56 pm",
@@ -22,14 +22,14 @@ POSTS = [
         "Wafer pie croissant donut toffee brownie wafer jelly-o. Jelly lemon drops jelly beans macaroon tart marzipan lollipop. Oat cake gummies pie pudding pie pie gummies ice cream. Candy marzipan macaroon pudding topping halvah cake marshmallow biscuit. Danish bonbon sweet roll tootsie roll caramels.",
         "Danish toffee chupa chups donut liquorice. Dessert shortbread gummies sweet roll muffin dessert cupcake marzipan. Cake wafer gummies liquorice cupcake. Icing wafer cheesecake chocolate cake croissant jelly beans jelly. Donut pie apple pie tootsie roll apple pie topping pastry cake apple pie. Croissant pastry donut gummi bears caramels chocolate cake sesame snaps gummi bears."],
     }, {
-        'id': 3,
+        'id': '3',
         'title': "Delight Infinite Skyrocketing to the Top",
         'author': "hyeongjun",
         'date': "Dec. 9 at 11:19 am",
         'body': ["Yolo ipsum dolor sit amet, consectetur adipiscing elit. Ut ac suscipit leo. Carpe diem vulputate est nec commodo rutrum. Pellentesque mattis convallis nisi eu and I ain't stoppin until the swear jar's full.",
         "Ut rhoncus velit at mauris interdum, fringilla dictum neque rutrum. Curabitur mattis odio at erat viverra lobortis. Poppin' bottles on the ice, tristique suscipit mauris elementum tempus. Quisque ut felis vitae elit tempor interdum viverra a est. Drop it like it's hot, at pretium quam. In nec scelerisque purus. Nam dignissim lacus ipsum, a ullamcorper nulla pretium non. Aliquam sed enim faucibus, pulvinar felis at, vulputate augue. Ten, ten, twenties on them fifties, trick, at tempus libero fermentum id. Vivamus ut nisi dignissim, condimentum urna vel, dictum massa. Donec justo yolo, rutrum vitae dui in, dapibus tempor tellus. I do it big. Fusce ut sagittis mi."],
     }, {
-        'id': 4,
+        'id': '4',
         'title': "DZJ Happiness is Overrated",
         'author': "yoshi",
         'date': "Dec. 9 at 4:30 am",
@@ -37,7 +37,7 @@ POSTS = [
         "Drop it like it's hot, at pretium quam.",
         "In nec scelerisque purus. Nam dignissim lacus ipsum, a ullamcorper nulla pretium non. Aliquam sed enim faucibus, pulvinar felis at, vulputate augue. Ten, ten, twenties on them fifties, trick, at tempus libero fermentum id. Vivamus ut nisi dignissim, condimentum urna vel, dictum massa. Donec justo yolo, rutrum vitae dui in, dapibus tempor tellus. I do it big. Fusce ut sagittis mi."],
     }, {
-        'id': 5,
+        'id': '5',
         'title': "What's up with KST Seekers' Sneakers? (Wardrobe Analysis)",
         'author': "rockee",
         'date': "Dec. 8 at 2:56 pm",
@@ -47,7 +47,7 @@ POSTS = [
         "Drop it like it's hot, at pretium quam. In nec scelerisque purus. Nam dignissim lacus ipsum, a ullamcorper nulla pretium non. Aliquam sed enim faucibus, pulvinar felis at, vulputate augue."
         "Ten, ten, twenties on them fifties, trick, at tempus libero fermentum id. Vivamus ut nisi dignissim, condimentum urna vel, dictum massa. Donec justo yolo, rutrum vitae dui in, dapibus tempor tellus. I do it big. Fusce ut sagittis mi."],
     }, {
-        'id': 6,
+        'id': '6',
         'title': "Timeless Boyz aren't as Timeless as we Thought",
         'author': "yonghee",
         'date': "Dec. 8 at 1:00 pm",
@@ -65,12 +65,11 @@ def index():
     return render_template('main_blog.html', posts=POSTS)
 
 
-@app.route('/<int:id>')
+@app.route('/<string:id>')
 def page(id):
     for post in POSTS:
-        if post["id"]==id:
+        if id in post["id"]:
             return render_template('blog_page.html', post=post)
-        # return (post)
 
 
 app.run(debug=True)
