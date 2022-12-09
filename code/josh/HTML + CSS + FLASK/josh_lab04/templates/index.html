@@ -14,22 +14,26 @@
     <div class="container">
         <header>
             <h1>Daydreams of Food Ipsums</h1>
-            <h3 id="subtitle">a collection of nonsense while thinking on food</h3>
+            <h4 id="subtitle">a collection of nonsense while thinking on food</h4>
         </header>
         <div id="top-nav"></div>
         <aside id="side-nav"></aside>
         <article>
             {% for post in posts %}
-            <p>{{ post }}</p><br>
+            <p id="blog-title">{{ post.title }}</p>
+            <p id="byline">posted on {{ post.date }} by {{ post.author }}</p>
+            <p id="blogpost">{{ post.body }}</p><br>
             {% endfor %}
         </article>
         <footer>
             <!-- <h4>contributors</h4>
             <span>post authors here</span> -->
             <h4>follow us</h4>
-            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2xl"></i></a>
-            <a href="https://twitter.com/search?q=%23food&src=typed_query"><i class="fa-brands fa-twitter fa-2xl"></i></a>
-            <a href="mailto:foodipsum@fakemail.com"><i class="fa-solid fa-envelope fa-2xl"></i></a>
+            <span>
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+                <a href="https://twitter.com/search?q=%23food&src=typed_query"><i class="fa-brands fa-twitter fa-2xl"></i></a>
+                <a href="mailto:foodipsum@fakemail.com"><i class="fa-solid fa-envelope fa-2xl"></i></a>
+            </span>
         </footer>
     </div>
 </body>

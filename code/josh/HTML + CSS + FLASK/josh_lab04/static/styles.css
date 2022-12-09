@@ -31,6 +31,7 @@ body{
 header{
     grid-area: header;
     text-align: center;
+    font: normal bold 5vw fantasy;
 
 }
 
@@ -44,7 +45,24 @@ header{
 
 article{
     grid-area: article;
-    border
+    border-style: double;
+    border-width: 0.5vw;
+    background-color: rgba(199, 152, 65, 0.801);
+    padding: 1vw;
+}
+
+#blog-title{
+    /* font-family: cursive;
+    font-style: italic;
+    font-weight: bold; */
+    font: italic bold 2vw cursive;
+}
+
+#byline{
+    font-family: serif;
+}
+
+#blogpost{
 
 }
 
