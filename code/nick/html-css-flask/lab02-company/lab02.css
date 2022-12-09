@@ -1,8 +1,15 @@
 body {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "page"
+    "footer";
     margin: 0;
+    padding: 0;
 }
+
 .page {
-    height: 100vh;
+    grid-area: page;
+    height: 93vh;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-areas: 
@@ -10,9 +17,8 @@ body {
     "what what"
     "benefits benefits"
     "clients clients"
-    "packages packages"
-    "footer footer";
-    /* width: 100vw; */
+    "packages packages";
+    overflow: auto;
 }
 
 .header {
@@ -20,45 +26,158 @@ body {
     background-color: #2E282A;
     color: #d3e3df;
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:center ;
+}
+
+
+#name {
+    padding-bottom: 3em;
+}
+
+#motto {
+    align-self: center;
 }
 
 .co-picture {
     grid-area: picture;
-    /* display: flex; */
+    display: flex;
+
 }
 
 #company-picture {
-    /* height: 15vh; */
     width: 100%;
     object-fit: cover;
-    /* height: 100px; */
 }
 
 .footer {
     grid-area: footer;
-    /* background-color: #CD5334; */
-    display: flex;
+    background-color: #CD5334;
+    display: flex; 
+    flex-direction: row;
+    justify-content:space-around;
+    height: 7vh;
+}
+
+#phone {
+    align-self: center;
+}
+
+button {
+    height: 3rem;
+    align-self: center;
 }
 
 .what {
     grid-area: what;
     background-color: #17BEBB;
     display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#tree {
+    height: 15rem;
+    background-color: #17BEBB;
+    align-self: center;
+}
+
+#words-right {
+    align-self: flex-end;
 }
 
 .benefits-block {
     grid-area: benefits;
     background-color: #EDB88B;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.benefits-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#woman {
+    height: 10rem;
+    
+}
+
+#benefits-description {
+    padding-left: 2em;
 }
 
 .clients {
     grid-area: clients;
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+#clients-title {
+    align-self: center;
+}
+
+.symbols {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.symbol-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.symbol-div>img {
+    height: 10rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .packages {
     grid-area: packages;
     background-color: #B0A1BA;
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#package-title {
+    align-self: center;
+}
+
+.package-desc {
+    display: flex;
+    justify-content: space-around;
+}
+
+.package-desc>div {
+    padding: 1rem;
+}
+
+
+@media screen and (min-width: 640px) {
+    .body {
+        grid-template-areas: 
+        "footer"
+        "page";
+    }
+}
+
+@media screen and (min-width: 1008) {
+    .body {
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas: 
+        "footer page";
+    }
 }
