@@ -10,7 +10,6 @@ body{
     grid-template-columns: fit-content(90%);
     grid-template-areas: 
     "header"
-    "top-nav"
     "article"
     "footer";
     text-align: center;
@@ -31,8 +30,7 @@ body{
 header{
     grid-area: header;
     text-align: center;
-    font: normal bold 5vw fantasy;
-
+    font: normal bold 6vw fantasy;
 }
 
 #subtitle{
@@ -41,6 +39,10 @@ header{
 
 #side-nav{
     display: none;
+}
+
+img{
+    float: center
 }
 
 article{
@@ -55,7 +57,7 @@ article{
     /* font-family: cursive;
     font-style: italic;
     font-weight: bold; */
-    font: italic bold 2vw cursive;
+    font: italic bold 6vw cursive;
 }
 
 #byline{
@@ -67,21 +69,32 @@ article{
 }
 
 footer{
-    /* display: inline-block; */
     grid-area: footer;
     flex-direction: row;
     justify-content: space-around;
 }
 
 
-/* @media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) {
+    .container{
+        grid-template-areas: 
+        "header header"
+        "side-nav article"
+        "side-nav article"
+        "footer footer";
+    }
+
     #side-nav{
         grid-area: side-nav;
-        display: list-item;
+        display: block;
+        width: 25vw;        
+    }
 
+    article{
+        width: 75vw;
     }
 }
 
-@media screen and (min-width: 960px){
+/* @media screen and (min-width: 960px){
 
 } */

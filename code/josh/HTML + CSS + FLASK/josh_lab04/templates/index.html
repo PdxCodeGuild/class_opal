@@ -17,17 +17,36 @@
             <h4 id="subtitle">a collection of nonsense while thinking on food</h4>
         </header>
         <div id="top-nav"></div>
-        <aside id="side-nav"></aside>
+        <aside id="side-nav">
+            <img src="feather-quill-inkwell.png" alt="Quill pen in inkwell">
+            <h4>Blog Entries by Title</h4>
+            <ul>
+                {% for post in posts %}
+                <li>{{ posts.title }}</li>
+                {% endfor %}
+            </ul>
+            <h4>Blog Entries by Date</h4>
+            <ul>
+                {% for post in posts %}
+                <li>{{ posts.date }}</li>
+                {% endfor %}
+            </ul>
+            <h4>Blog Entries by Author</h4>
+            <ul>
+                {% for post in posts %}
+                <li>{{ posts.author }}</li>
+                {% endfor %}
+            </ul>
+        </aside>
         <article>
             {% for post in posts %}
             <p id="blog-title">{{ post.title }}</p>
             <p id="byline">posted on {{ post.date }} by {{ post.author }}</p>
             <p id="blogpost">{{ post.body }}</p><br>
+            <p>  -  e n d  -  </p><br><br>
             {% endfor %}
         </article>
         <footer>
-            <!-- <h4>contributors</h4>
-            <span>post authors here</span> -->
             <h4>follow us</h4>
             <span>
                 <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2xl"></i></a>
@@ -39,27 +58,11 @@
 </body>
 </html>
 
-<!-- Lab 4: Blog
-Let's make the template of a blog with a title, top-nav, side-nav, and multiple posts. Use flexbox and semantic elements (header, nav, section, and footer).
-You can use a custom font, fancy colors, and make generate fake content using an Ipsum.
-Make sure you have a responsive design that offers different, legible layouts for phone, tablet, and desktop screen sizes.
-layout with custom color palette, fonts,and subtle backgrounds or whitespace works great.
+<!-- Lab 4: Blog -->
 
-http://www.geert.io/
-https://www.blog.google/
-http://www.nextportland.com/
-https://daringfireball.net/
-
-Step 3
+<!-- Step 3
 Create the Flask template for your blog and make sure that in your Python code you pass your blog posts into your template. Use the Flask template to 
 render the blog posts in your Python into a full webpage and make sure you add the other items required -- header, footer, top and/or side navigation.
-HINT: You'll want to loop though each dictionary in your posts, and then render each value in the dictionary in its proper place in your template.
+HINT: You'll want to loop though each dictionary in your posts, and then render each value in the dictionary in its proper place in your template. -->
 
-Step 4
-Create a static folder and a CSS file for your Flask website and make sure you link to it in your template.
-From there, create a responsive, mobile-first design for your blog with at least three screen sizes. -->
-
-
-
-<!-- Quill pen inkwell with no background -->
 <!-- https://p1.hiclipart.com/preview/445/872/42/feather-quill-pen-writing-implement-ink-blackandwhite-wing-fountain-pen-png-clipart.jpg -->
