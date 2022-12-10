@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#article-body {
+    max-width: 100%;
+    color: #2d2d2d;
+    padding: 1px 20px 20px 20px;
+    background-image: url('hendripiss.jpg');
+    background-size: 400px;
+    background-repeat: repeat;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #FF8FA3;
+    padding: .5rem;
+}
+
+/* Hides extra text in nav until media query un-hides them for readability on mobile. */
+.hidden {
+    display: none;
+}
+
+#header {
+    font-family: "Baskerville", "Garamond", "Hoefler Text", "EB Garamond", "Adobe Garamond", "Palatino", serif;
+    font-size: 3.5em;
+    text-transform: capitalize;
+    font-variant: small-caps;
+    font-weight: 100;
+    font-style: italic;
+    color: #f55d50;
+    text-align: center;
+
+    margin-top: 10px;
+    padding: .2em;
+    background-color: pink;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#section,
+#aside {
+    padding: 1rem;
+    /* TODO: Figure out what the hell is going on with this color. */
+    color: orange;
+    /* TODO: Change this color later. */
+    background-color: #ff8fa3;
+}
+
+#aside {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.article {
+    color: black;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.article>p {
+    line-height: 2;
+    text-indent: 1rem;
+    padding-bottom: .5rem;
+}
+
+.article-header {
+    margin-bottom: 1rem;
+}
+
+.related {
+    padding: .5rem;
+}
+
+.related>p {
+    color: #ffffff;
+}
+
+.title {
+    font-size: 32px;
+}
+
+.footer {
+    background-color: #590d22;
+    color: white;
+    list-style-type: none;
+    /* Padding shorthand: top right bottom left */
+    padding: 10px;
+    line-height: 2;
+    text-align: center;
+}
+
+
+hr {
+    border: 1px solid black;
+}
+
+.pic-author {
+    display: inline-block;
+    width: 50px;
+}
+
+.pic-author img {
+    border-radius: 50%;
+    width: 50px;
+}
+
+.pic-author img:hover {
+    cursor: pointer;
+}
+
+/* Displays author title and time next to pic-author */
+.author-info {
+    padding-left: 1em;
+    text-align: left;
+    position: absolute;
+    display: inline-block;
+}
+
+.smaller-text {
+    font-size: 12px;
+}
+
+/* Media query for tablet */
+@media screen and (min-width: 641px) {
+    .hidden {
+        display: inline;
+    }
+
+    #wrapper {
+        display: flex;
+    }
+
+    #section {
+        width: 92vw;
+    }
+
+    #aside {
+        background-color: #C5463F;
+        height: 100%;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        border-radius: 20px;
+        box-shadow: 10px 10px 5px #93000082;
+    }
+
+    #nav {
+        border-bottom-right-radius: 20px;
+    }
+
+}
+
+@media screen and (min-width: 1008px) {
+
+    hr {
+        border: 1px transparent;
+    }
+    
+    .article {
+        border-radius: 20px;
+        background-image: linear-gradient(to right, #ffb3c1, #ff4d6d);
+        margin-bottom: 20px;
+        padding: 0 1em 1em 1em;
+    }
+
+    .article:hover {
+        background-image: linear-gradient(to right, #ffb3c1, rgb(255, 77, 109, .85));
+    }
+
+    #section {
+        background-color: transparent;
+        width: 130vw;
+    }
+
+    #nav {
+        border-bottom-left-radius: 20px;
+    }
+
+}
