@@ -1,0 +1,88 @@
+/* Styling based on content from daringfireball.com */
+
+body {
+    margin-top: 0;
+    padding: 0;
+    font-family: Verdana, system-ui, Helvetica, sans-serif;
+    line-height: 1.8em;
+    color: #fff;
+    text-align: left;
+    background-color: #4a525a;
+}
+
+p {
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    text-align: left;
+}
+
+#box {
+    display: grid;
+    grid-template-areas:
+        "banner"
+        "sidebar"
+        "main"
+        "footer";
+    grid-gap: 10px;
+    margin: 0 auto 0 auto;
+    padding: 0;
+    text-align: left;
+}
+
+#banner {
+    grid-area: banner;
+    width: 300px;
+    border: 0px dotted #606870;
+    padding: 0;
+    text-align: left;
+}
+
+#sidebar {
+    grid-area: sidebar;
+    margin: 0 0 0 0;
+    border: 0px dotted gray;
+    padding: 5px 0 0 0;
+    color: #eee;
+    text-align: right;
+    line-height: 1em;
+    font-family: "Gill Sans MT", "Gill Sans", "Gill Sans Std", Verdana, "Bitstream Vera Sans", sans-serif;
+}
+
+#main {
+    grid-area: main;
+    padding: 0px;
+    border: 0px dotted gray;
+    margin-left: 100px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#footer {
+    grid-area: footer;
+    padding-bottom: 1em;
+    text-align: left;
+}
+
+/* tablet settings */
+@media screen and (min-width: 640px) {
+    #box {
+        grid-template-areas:
+            "banner banner"
+            "sidebar main"
+            "footer footer";
+    }
+}
+
+/* desktop settings */
+@media screen and (min-width: 1008px) {
+    #box {
+        grid-template-areas:
+            "banner banner"
+            "sidebar main"
+            "footer footer";
+    }
+}
