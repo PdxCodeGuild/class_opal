@@ -1,8 +1,10 @@
-body{
+body, html{
     background-image: url("https://c4.wallpaperflare.com/wallpaper/782/943/697/inkwell-pen-ink-wallpaper-preview.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-color: chocolate;
+    margin: 0;
+    padding: 0;
 }
 
 .container{
@@ -30,7 +32,7 @@ body{
 header{
     grid-area: header;
     text-align: center;
-    font: normal bold 6vw fantasy;
+    font: normal bold 5vw fantasy;
 }
 
 #subtitle{
@@ -42,8 +44,14 @@ header{
     max-width: 25vw;
 }
 
+#lower{
+    display: none;
+    max-width: 25vw;
+}
+
 img{
     max-width: 25vw;
+    float: center;
 }
 
 article{
@@ -52,22 +60,17 @@ article{
     border-width: 0.5vw;
     background-color: rgba(199, 152, 65, 0.801);
     padding: 1vw;
+    font-size: 3vw;
+    margin: 0 1vw 0 1vw;
 }
 
 #blog-title{
-    /* font-family: cursive;
-    font-style: italic;
-    font-weight: bold; */
     font: italic bold 6vw cursive;
 }
 
 #byline{
     font-family: serif;
 }
-
-/* #blogpost{
-
-} */
 
 footer{
     grid-area: footer;
@@ -78,18 +81,21 @@ footer{
 
 @media screen and (min-width: 600px) {
     .container{
+        grid-template-columns: auto auto;
         grid-template-areas: 
         "header header"
         "side-nav article"
         "side-nav article"
         "footer footer";
+        margin: 0px 0px 0px 0px;
+        width: 100vw;
     }
 
     #side-nav{
         grid-area: side-nav;
         display: block;
         width: 25vw;
-        margin: 0 2.5vw 0 2.5vw       
+        margin: 0 2.5vw 0 2.5vw;
     }
 
     article{
@@ -98,10 +104,65 @@ footer{
     }
 
     header{
-        font-size: 100vw;
+        grid-area: header;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90vw;
+        margin: 0 auto;
+    }
+
+    header > h1{
+        font-size: 8vw;
     }
 }
 
-/* @media screen and (min-width: 960px){
+@media screen and (min-width: 960px){
+    .container{
+        grid-template-areas:
+        "header header"
+        "article side-nav"
+        "article lower"
+        "footer footer";
+    }
+    
+    img{
+        max-width: 22vw;
+    }
 
-} */
+    #side-nav{
+        font-size: 2vw;
+        margin: 0 1vw 0 1vw;
+        border-style: double;
+        border-width: 0.5vw;
+        background-color: rgba(199, 152, 65, 0.801);
+        padding: 1vw;  
+    }
+
+    #lower{
+        grid-area: lower;
+        display: block;
+        margin: 0 1vw 0 1vw;
+        border-style: double;
+        border-width: 0.5vw;
+        background-color: rgba(199, 152, 65, 0.801);
+        padding: 1vw;
+    }
+
+    #blogpost{
+        font-size: 2vw;
+    }
+    #blog-title{
+        font-size: 3vw;
+    }
+    #byline{
+        font-size: 2vw;
+    }
+    article{
+        margin: auto;
+        width: 65vw;
+    }
+    header > h1{
+        font-size: 7vw;
+    }
+}
