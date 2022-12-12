@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's K-Popping</title>
+    <link rel="stylesheet" href="../static/main_blog.css">
+</head>
+
+<body>
+    <div id="article-body">
+    <header id="header">Kpop Central</header>
+
+    <nav id="nav">
+        <span>Home</span>
+        <span>About</span>
+        <span>Recents</span>
+        <!-- Only display these if there's enough room on the page (uses CSS to display:None on default) -->
+        <span class="hidden">Archive</span>
+        <span class="hidden">Authors</span>
+    </nav>
+
+    <div id="wrapper">
+        <section id="section">
+            <div>
+                {% for dict_item in posts %}
+                    <div class="article">
+                        <p class="title"> <a href="{{ dict_item.id }}">{{ dict_item.title }}</a></p>
+                        
+                        <div class="article-header">
+                            <div class="pic-author">
+                                <p>
+                                    <img src="{{ dict_item.icon }}">
+                                </p>
+                            </div>
+
+                            <div class="author-info">
+                                <br \>
+                                <span>By {{ dict_item.author }}</span>
+                                <br \>
+                                <span class="smaller-text">{{ dict_item.date }}</span>
+                            </div>
+                        </div>
+                            <!-- Targeting each paragraph -->
+                            {% for paragraph in dict_item.body %}
+                            <p> {{ paragraph }} </p>
+                            {% endfor %}
+                        </div>
+                    <hr \>
+                {% endfor %}
+            </div>
+        </section>
+
+        <aside id="aside">
+            <h1>Related Articles</h1>
+            {% for dict_item in posts %}
+            <div class="related">
+                <p> <a href="{{ dict_item.id }}">{{ dict_item.title }}</a></p>
+                <p> {{ dict_item.author }} </p>
+            </div>
+                {% endfor %}
+        </aside>
+    </div>
+    </div>
+
+    <footer class="footer">
+        <p class="bottom-text">Copyright © 2022 fake_business</p>
+        <p class="bottom-text">Background image by <a href="https://www.vecteezy.com/members/hendripiss">hendripiss</a> on vecteezy</p>
+    <footer>
+
+</body>
+</html>
