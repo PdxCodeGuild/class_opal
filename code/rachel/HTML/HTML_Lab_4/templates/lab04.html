@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="static/lab04_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="left_paw" alt="cat paw" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clipartbest.com%2Fcliparts%2FbTy%2F6yd%2FbTy6ydepc.png&f=1&nofb=1&ipt=6310ca1c393babeb28790aa85edc5378639bcb4da06c9d16c6a478bb409d3ce6&ipo=images">
+        <img alt="cat lady on steps" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk6B1hWuFz49jmolABPnW9QUgBJRzcXvJLOA&usqp=CAU">
+        <div>
+            <h1>Wonderful World of Cats</h1>
+        </div>
+    </header>
+    <Main>
+        <div>
+            <h2>Do you have a silly cat story you'd like to share? <a href="dfsdf">Click here to submit it!</a></h2>
+        </div> 
+        <div class="post">
+            {% for post in posts %}
+            <h3> {{ post['title'] }}
+            </h3>
+            <h5> {{ post['author'] }}{{ post['date'] }} 
+            </h5>
+            <p> {{ post['body'] }}
+            </p>
+            {% endfor %}
+        </div>
+    </Main>
+    <footer>
+        <div>
+            <i class="fa-solid fa-paw"></i>
+            <h2>Check out these cat-tastic links for more cat hijinx!</h1>
+        </div>
+        <nav>
+            <p><a href="dfs">Wacky Cat Pics</a></p>
+            <p><a href="dfs">Cat Nip: Friendly Helper or Evil Seductress?</a></p>
+            <p><a href="dfs">Feathers vs Lasers: Your Ultimate Guide</a></p>
+        </nav>
+        <div>
+            <h5>Copyright 2022</h5>
+        </div>
+    </footer>
+</body>
