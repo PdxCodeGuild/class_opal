@@ -1,0 +1,135 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-image: url('https://cdn.abcotvs.com/dip/images/4236887_091318kabccheetoburritoimg.jpg'); /*Set image as background*/
+    background-blend-mode: color-dodge;
+    /* background-blend-mode: luminosity; */
+    background-color: gray;
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 50%;
+  }
+
+header {
+    text-align: center;
+    padding: -2em;
+}
+
+main {
+    color: rgb(75, 3, 3);
+    text-align: justify;
+    padding: 4em;
+}
+
+/* form {
+    text-align: center;
+} */
+.user_info {
+    color:  rgb(75, 3, 3);
+    font-family:'Noto Serif Gujarati', serif;text-align: center;
+}
+.user_info h2 {
+    color: rgb(75, 3, 3);
+    font-size: medium;
+    padding-top: -2em;
+    padding-bottom: -1em;
+}
+
+input {
+    background-color: rgb(222, 228, 236);
+    width: 100px;
+    height: 25px;
+    font-family:'Courier New', Courier, monospace
+}
+#username {
+    padding: .5em;
+    text-align: center;
+    color: rgb(75, 3, 3);
+}
+#password {
+    text-align: center;
+    color: rgb(75, 3, 3);
+}
+.submit {
+    text-align: center;
+}
+
+h1 span {
+    font-size: 32px ;
+    transform-origin: bottom;
+    font-family: 'Noto Serif Gujarati', serif;
+    color: rgb(177, 8, 8);
+    height: 300px;
+    width: 50px;
+    left: 50;
+    top: 50;
+    position: absolute;
+}
+
+.c1 {
+    transform: rotate(-60deg);
+}
+.c2 {
+    transform: rotate(-54deg);
+}
+.c3 {   
+    transform: rotate(-48deg);
+}
+.c4 {
+    transform: rotate(-42deg);
+}
+.c5 {
+    transform: rotate(-36deg);
+}
+.c6 {
+    transform: rotate(-30deg);
+}
+.c7 {
+    transform: rotate(-24deg);
+}
+.c8 {
+    transform: rotate(-18deg);
+}
+.c9 {
+    transform: rotate(-12deg);
+}
+.c10 {
+    transform: rotate(-6deg);
+}
+.c11 {
+    transform: rotate(0deg);
+}
+.c12 {
+    transform: rotate(6deg);
+}
+.c13 {
+    transform: rotate(12deg);
+}
+.c14 {   
+    transform: rotate(18deg);
+}
+.c15 {
+    transform: rotate(24deg);
+}
+.c16 {
+    transform: rotate(30deg);
+}
+.c17 {
+    transform: rotate(36deg);
+}
+.c18 {
+    transform: rotate(42deg);
+}
+.c19 {
+    transform: rotate(48deg);
+}
+.c20 {
+    transform: rotate(54deg);
+}
+.c21 {
+    transform: rotate(60deg);
+}
