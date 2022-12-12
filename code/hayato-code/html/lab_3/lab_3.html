@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="my_styles.css">
+        <title>Burri-TOES Order Form</title>
+    </head>
+
+    <body>
+        <header>
+
+            <h1>Burri-TOES Order Form</h1>
+
+        </header>
+        <div id="wrapper">
+            <img id="left" src="https://pbs.twimg.com/media/DaCEAJMU0AADoWc.jpg" alt="burrito"
+                width="400" height="300" class="center">
+
+
+            <form action="https://webhook.site/93181d04-162d-44f5-9f7d-e4cd8c3fa146" method="post">
+
+                <br>
+                <div id="order">
+                    <h4>How would you like your TOES done??!</h4>
+                    <div id="tortilla">
+                        <h2>Choose your Tortilla</h2>
+
+                        <input class="tortillas" type="radio" name="tortilla" value="white flour" id="white flour"
+                            checked>
+                        <label for="white flour">White Flour</label>
+                        <input type="radio" name="tortilla" value="wheat flour" id="wheat flour">
+                        <label for="wheat flour">Wheat Flour</label>
+                        <input type="radio" name="tortilla" value="spinach" id="spinach">
+                        <label for="spinach">Spinach</label>
+                        <input type="radio" name="tortilla" value="corn" id="corn">
+                        <label for="corn">Corn</label>
+                    </div>
+                    <div id="rice">
+                        <h2>Choose your Rice</h2>
+                        <input type="radio" name="rice" value="white rice" id="white rice" checked>
+                        <label for="white rice">White Rice</label>
+                        <input type="radio" name="rice" value="brown rice" id="brown rice">
+                        <label for="brown rice">Brown Rice</label>
+                    </div>
+                    <div id="beans">
+                        <h2>Choose Your Beans</h2>
+                        <input type="radio" name="beans" value="black beans" id="black beans" checked>
+                        <label for="black beans">Black Beans</label>
+                        <input type="radio" name="rice" value="pinto beans" id="pinto beans">
+                        <label for="pinto beans">Pinto Beans</label>
+                    </div>
+                    <div id="protein">
+                        <h2>Choose Your Protein</h2>
+                        <input type="radio" name="protein" value="carnitas" id="carnitas" checked>
+                        <label for="carnitas">Carnitas</label>
+                        <input type="radio" name="protein" value="chicken" id="chicken">
+                        <label for="chicken">Chicken</label>
+                        <input type="radio" name="protein" value="sofritas" id="sofritas">
+                        <label for="sofritas">Sofritas</label>
+                        <input type="radio" name="protein" value="" id="none">
+                        <label for="none">None</label>
+                    </div>
+                    <div>
+                        <h2>Additional Options</h2>
+                        <input type="checkbox" name="additional" value="cheese" id="cheese">
+                        <label for="cheese">Cheese</label>
+                        <input type="checkbox" name="additional" value="sour cream" id="sour cream">
+                        <label for="sour cream">Sour Cream</label><br>
+                    </div>
+                </div>
+                <br>
+        </div>
+        <div class="bottom">
+            <div id="customer">
+                <h2>Customer Info</h2>
+                <label for="name">First Name: </label>
+                <input type="text" name="name" id="name" title="please enter your first name" placeholder="required"
+                    minlength="6" required>
+                <label for="name">Last Name: </label>
+                <input type="text" name="name" id="name" title="please enter your last name" placeholder="required"
+                    minlength="6" required>
+                <br>
+                <br>
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password" placeholder="required" minlength="6" required>
+
+                <label for="phone">Phone number: </label>
+                <input type="tel" id="phone" name="phone" placeholder="123-456-7890"
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            </div>
+
+            <div id="delivery">
+                <label for="delivery">Delivery Instructions</label><br>
+                <textarea name="delivery instructions" id="delivery" rows="5" cols="33"></textarea>
+            </div>
+        </div>
+        <label for="submit">SUBMIT ORDER</label>
+        <input id=submit type="submit" value="Submit">
+        </form>
+    </body>
+
+</html>
