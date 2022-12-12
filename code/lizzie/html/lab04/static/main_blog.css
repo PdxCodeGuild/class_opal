@@ -5,7 +5,7 @@
 
 #article-body {
     max-width: 100%;
-    color: #2d2d2d;
+    color: #511515;
     padding: 1px 20px 20px 20px;
     background-image: url('hendripiss.jpg');
     background-size: 400px;
@@ -15,7 +15,7 @@
 #nav {
     display: flex;
     justify-content: space-around;
-    background-color: #FF8FA3;
+    background-color: #F77070;
     padding: .5rem;
 }
 
@@ -26,28 +26,34 @@
 
 #header {
     font-family: "Baskerville", "Garamond", "Hoefler Text", "EB Garamond", "Adobe Garamond", "Palatino", serif;
-    font-size: 3.5em;
+    font-size: 2.5em;
     text-transform: capitalize;
     font-variant: small-caps;
     font-weight: 100;
     font-style: italic;
-    color: #f55d50;
+    color: #C04040;
     text-align: center;
 
     margin-top: 10px;
     padding: .2em;
-    background-color: pink;
+    background-color: #F9C6C6;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+}
+
+a {
+    color: #C04040;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #F77070;
 }
 
 #section,
 #aside {
     padding: 1rem;
-    /* TODO: Figure out what the hell is going on with this color. */
-    color: orange;
-    /* TODO: Change this color later. */
-    background-color: #ff8fa3;
+    background-color: #F9C6C6;
 }
 
 #aside {
@@ -56,12 +62,12 @@
 }
 
 .article {
-    color: black;
     padding-bottom: 1rem;
     padding-top: 1rem;
 }
 
-.article>p {
+.article>p:not(p.title) {
+    font-family: sans-serif;
     line-height: 2;
     text-indent: 1rem;
     padding-bottom: .5rem;
@@ -75,17 +81,15 @@
     padding: .5rem;
 }
 
-.related>p {
-    color: #ffffff;
-}
-
-.title {
+p.title {
+    margin-bottom: .5rem;
     font-size: 32px;
+    line-height: 1
 }
 
 .footer {
-    background-color: #590d22;
-    color: white;
+    background-color: #511515;
+    color: #F3DEDE;
     list-style-type: none;
     /* Padding shorthand: top right bottom left */
     padding: 10px;
@@ -93,9 +97,8 @@
     text-align: center;
 }
 
-
 hr {
-    border: 1px solid black;
+    border: 1px solid #873131;
 }
 
 .pic-author {
@@ -126,6 +129,10 @@ hr {
 
 /* Media query for tablet */
 @media screen and (min-width: 641px) {
+    #header {
+        font-size: 3.5em;
+    }
+
     .hidden {
         display: inline;
     }
@@ -151,6 +158,19 @@ hr {
         border-bottom-right-radius: 20px;
     }
 
+    .related>p,
+    #aside>h1 {
+        color: #F3DEDE;
+    }
+
+    .related>p>a {
+        color: #511515;
+        text-decoration: none;
+    }
+
+    .related>p>a:hover {
+        color: #873131;
+    }
 }
 
 @media screen and (min-width: 1008px) {
@@ -161,13 +181,17 @@ hr {
     
     .article {
         border-radius: 20px;
-        background-image: linear-gradient(to right, #ffb3c1, #ff4d6d);
+        background-image: linear-gradient(to right, #F9C6C6, #F77070);
         margin-bottom: 20px;
         padding: 0 1em 1em 1em;
     }
 
+    p.title {
+        padding-top: 1rem;
+    }
+
     .article:hover {
-        background-image: linear-gradient(to right, #ffb3c1, rgb(255, 77, 109, .85));
+        background-image: linear-gradient(to right, #F9C6C6, #f77070e9);
     }
 
     #section {

@@ -5,12 +5,57 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="../static/main_blog.css">
 </head>
 
 <body>
+    <div id="article-body">
+        <header id="header">Kpop Central</header>
 
-    <h1>Title: {{ post.title }}</h1>
+    <nav id="nav">
+        <span>Home</span>
+        <span>About</span>
+        <span>Recents</span>
+        <!-- Only display these if there's enough room on the page (uses CSS to display:None on default) -->
+        <span class="hidden">Archive</span>
+        <span class="hidden">Authors</span>
+    </nav>
+
+    <div id="wrapper">
+        <section id="section">
+            <div>
+                <div class="article">
+                    <p class="title"> <a href="{{ post.id }}">{{ post.title }}</a></p>
+                    
+                    <div class="article-header">
+                        <div class="pic-author">
+                            <p>
+                                <img src="{{ post.icon }}">
+                            </p>
+                        </div>
+
+                        <div class="author-info">
+                            <br \>
+                            <span>By {{ post.author }}</span>
+                            <br \>
+                            <span class="smaller-text">{{ post.date }}</span>
+                        </div>
+                    </div>
+                        <!-- Targeting each paragraph -->
+                        {% for paragraph in post.body %}
+                        <p> {{ paragraph }} </p>
+                        {% endfor %}
+                    </div>
+            </div>
+        </section>
+    </div>
+    </div>
+
+    <footer class="footer">
+        <p class="bottom-text">Copyright © 2022 fake_business</p>
+        <p class="bottom-text">Background image by <a href="https://www.vecteezy.com/members/hendripiss">hendripiss</a> on vecteezy</p>
+    <footer>
 
 </body>
 </html>
