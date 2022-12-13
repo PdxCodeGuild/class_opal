@@ -1,0 +1,24 @@
+{
+    "todos": [
+        {
+            "text": "walk the dog",
+            "priority": "high"
+        },
+        {
+            "text": "butter the cat",
+            "priority": "medium"
+        },
+        {
+            "text": "wash dishes",
+            "priority": "low"
+        },
+        {
+            "text": "Write code",
+            "priority": "high"
+        },
+        {
+            "text": "Find Nick",
+            "priority": "low"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Forms</title>
+</head>
+
+<body>
+
+    {% for todo in context['todos'] %}
+    <h3>{{ todo.text.capitalize() }} has a {{ todo.priority.title() }} priority. </h3>
+    {% endfor %}
+
+    <form action="/submit-todo/" method="post">
+        <input type="text" name="todo-item" placeholder="Enter a task:"><br \>
+
+        <select name="priority" id="priority">
+        <option value="priority" selected disabled>Priority</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+        </select><br \>
+
+    <input type="submit">
+
+</body>
+
+</html>
