@@ -16,7 +16,7 @@ def unit_converter(distance, input_unit, output_unit):
     distance=int(distance)
     meter_conversion = conversion_dict[input_unit] * distance
     conversion2 = meter_conversion / conversion_dict[output_unit]
-    return conversion2
+    return round(conversion2)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -29,7 +29,7 @@ def converted_data():
         distance = request.form["distance"]
         input_unit = request.form["input_unit"]
         output_unit = request.form["output_unit"]
-        # Any variables created in 'if' statement are available to be passed into the function
+        # Any variables created in this 'if' statement are available to be passed into the function
         data = unit_converter(distance, input_unit, output_unit)
 
         # Store "data" variable in context so it can be accessed for rendering template
@@ -41,9 +41,9 @@ def converted_data():
         }
 
         print(distance)
-        return render_template('lab1.html', context=context)
+        return render_template('lab5.html', context=context)
 
-    return render_template('lab1.html')
+    return render_template('lab5.html')
 
 
 app.run(debug=True)
