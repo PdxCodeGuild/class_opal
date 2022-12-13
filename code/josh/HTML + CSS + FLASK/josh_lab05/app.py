@@ -1,4 +1,4 @@
-# Lab 05: Redo Python Lab (Unit Converter) as Flask App - User enters distance, input & output units, and app shows them conversion(m).
+# Lab 05: Redo Python Lab (Unit Converter) as Flask App
 
 from flask import Flask, render_template, request, redirect
 from unit_converter import unit_converter as converter
