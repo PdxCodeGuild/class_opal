@@ -32,7 +32,7 @@ def handle_delete():
 
     for todo in todo_context['todos']:
         if todo['todo_id'] == int(request.form['todo-number']):
-            print(todo['todo_id'])
+            del todo_context['todos']
 
     with open('data.json', 'w') as f:
         f.write(json.dumps(todo_context, indent=4))
