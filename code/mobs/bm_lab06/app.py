@@ -30,9 +30,13 @@ def handle_delete():
 
     print(request.form)
 
-    for todo in todo_context['todos']:
-        if todo['todo_id'] == int(request.form['todo-number']):
-            print(todo['todo_id'])
+    todo_context['todos'] = list(filter(
+        lambda todo: todo['todo_id'] != int(request.form['todo-number']), todo_context['todos']))
+    print(todo_context)
+
+    # for todo in todo_context['todos']:
+    #     if todo['todo_id'] == int(request.form['todo-number']):
+    #         print(todo['todo_id'])
 
     with open('data.json', 'w') as f:
         f.write(json.dumps(todo_context, indent=4))

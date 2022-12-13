@@ -1,29 +1,9 @@
 {
     "todos": [
         {
-            "text": "walk the dog",
-            "priority": "high",
-            "todo_id": 1
-        },
-        {
-            "text": "butter the cat",
+            "text": "Try it again",
             "priority": "medium",
             "todo_id": 2
-        },
-        {
-            "text": "wash dishes",
-            "priority": "low",
-            "todo_id": 3
-        },
-        {
-            "text": "Write code",
-            "priority": "high",
-            "todo_id": 4
-        },
-        {
-            "text": "Get presents",
-            "priority": "medium",
-            "todo_id": 6
         }
     ]
 }
