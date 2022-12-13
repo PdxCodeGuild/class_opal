@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+</head>
+
+<body>
+    <h1>The great data converter!</h1>
+    <p>Simple version: the user enters the distance and units and the app shows them the converted distance in meters
+        Complex version: the user also enters output units</p>
+
+    <p>Available units:</p>
+    <ul>
+        <li>ft</li>
+        <li>mi</li>
+        <li>m</li>
+        <li>km</li>
+        <li>in</li>
+    </ul>
+
+    <form action="/" method="post">
+
+        <label for="distance">Distance:</label><br \>
+        <input type="number" id="distance" name="distance"><br \>
+
+        <label for="input_unit">Input Unit:</label><br \>
+        <input type="text" id="input_unit" name="input_unit"><br \>
+
+        <label for="output_unit">Output Unit:</label><br \>
+        <input type="text" id="output_unit" name="output_unit"><br \>
+
+        <input type="submit" value="Convert my distance!">
+    </form>
+    <!-- Calling the key from dictionary -->
+        <!-- print(f'{distance} {input_unit} is {round(conversion2, 2)} {output_unit}.') -->
+    <p>{{ context.distance }} {{ context.input }} is {{ context.data }} {{ context.output }}</p>
+    <!-- <p>{{ context.data }}</p> -->
+    
+
+</body>
+</html>
