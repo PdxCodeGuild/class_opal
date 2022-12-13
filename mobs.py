@@ -7,8 +7,10 @@ teams = {"team_diamond": ('Josh', 'Lizzie', 'DJ'),
          "team_pumpkin_spice": ('Jim', 'Hayato', 'Josh', 'Lizzie'),
          "team_tic_tap_nope": ('Nick', 'Josh', 'Hayato', 'Lizzie'),
          "team_phillies": ('Jim', 'Leslie', 'DJ'),
-         "room 1": ('Leslie', 'Lizzie', 'Josh'),
-         "room 2": ('Jim', 'Nick', 'Hayato'),
+         "team_world_cup_spoilers": ('Leslie', 'Lizzie', 'Josh'),
+         "team_our_code_socks": ('Jim', 'Nick', 'Hayato'),
+         "room 1": ('Jim', 'Lizzie', 'Nick'),
+         "room 2": ('Josh', 'Hayato', 'Leslie', 'Rachel')
          }
 
 students = [

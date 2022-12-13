@@ -63,7 +63,7 @@ Presentation Day: February 15th, 2023
 | 04    | Burrito Order Form     | Dec  6th      | Dec  9th              | Dec 20th      |
 | 05    | Blog                   | Dec  8th      | Dec 14th              | Dec 22nd      |
 | 05    | Flask Redo             | Dec 12th      | Dec 15th              | Dec 27th      |
-<!--| Group | Flask Todos            | Dec  1st       | Dec  1st               | Dec  15th      |
+| 06    | Flask Todos            | Dec 13th      | N/A                   | N/A           |
 <!--| 06    | Personal Portfolio     | Dec  3rd       | Dec  7th               | Dec  17th      | -->
 
 ## Python Labs Assigned:

@@ -38,3 +38,7 @@ Next, write a Flask app that uses the [JsonDB](jsondb.py) class to load the data
 
 Using a `form`, allow the user to save a new todo item to the database. This should include a `input` for text, a `select` for the priority, and a `button` for submitting the form.
 
+
+# Part 3 (optional)
+
+Add the ability to delete an item from the list.
