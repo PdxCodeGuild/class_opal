@@ -7,6 +7,6 @@ def unit_converter(user_distance, units_input, units_output):
     new_units = new_distance / conversion[units_output]
     return {'user_distance': user_distance,
             'units_input': units_input,
-            'new_distance': new_distance,
-            'new_units': new_units
+            'new_units': new_units,
+            'units_output': units_output
     }
