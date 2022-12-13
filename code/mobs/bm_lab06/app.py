@@ -14,8 +14,25 @@ def handle_submit():
     new_data = {
         'text': request.form['todo-item'],
         'priority': request.form['priority'],
+        'todo_id': len(todo_context['todos']) + 1
     }
+
     todo_context['todos'].append(new_data)
+
+    with open('data.json', 'w') as f:
+        f.write(json.dumps(todo_context, indent=4))
+
+    return redirect('/')
+
+
+@app.route('/delete-todo/', methods=['POST'])
+def handle_delete():
+
+    print(request.form)
+
+    for todo in todo_context['todos']:
+        if todo['todo_id'] == int(request.form['todo-number']):
+            print(todo['todo_id'])
 
     with open('data.json', 'w') as f:
         f.write(json.dumps(todo_context, indent=4))
