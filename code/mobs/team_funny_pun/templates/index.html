@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To Do List</title>
+    </head>
+
+    <body>
+        {% for todo in todos['todos'] %}
+
+        <ul>
+            <li>{{ todo.text }} priority: {{ todo.priority }}</li>
+
+        </ul>
+        {% endfor %}
+
+        <form action="/" method="post">
+            <label for="text">Enter text</label>
+            <input type="text" name="text" value="text">
+            <label for="priority">Priority</label>
+            <select name="priority" id="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <input type="submit">
+
+
+
+        </form>
+    </body>
+
+</html>
