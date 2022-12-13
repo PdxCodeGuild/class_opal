@@ -2,8 +2,6 @@ body {
     background-image: url("red-painted-rusty-metal-texture-free.jpg");
     font-family: 'Jost', sans-serif;
     margin: 2em;
-    /* border: solid 5px whitesmoke; */
-    /* border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; */
 
 }
 
@@ -18,14 +16,17 @@ header {
 
 header>h1 {
     margin-bottom: 0;
+
 }
 
 header>h2 {
     margin-top: 0;
+
 }
 
 #dog-img {
     max-width: 40%;
+
 }
 
 a {
@@ -38,7 +39,6 @@ a {
     margin: auto;
     height: 100%;
     text-align: center;
-
 
 }
 
@@ -121,6 +121,7 @@ main {
 
     #icons {
         flex-direction: column;
+
     }
 
     .sidebar {
@@ -210,9 +211,7 @@ main {
 
 
 
-        {
-        width: 5em;
-    }
+
 
     #my-blog {
         font-size: .8em;
