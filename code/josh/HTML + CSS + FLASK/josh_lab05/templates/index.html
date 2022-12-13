@@ -7,12 +7,14 @@
     <title>Josh HTML Lab 05</title>
 </head>
 <body>
-    <form action="/" method="get">
-        <label for="user_distance">User Distance:</label>
+    {{ context.user_distance }}{{ context.units_input }} is {{ context.new_distance }}{{ context.new_units }}.
+
+    <form action="/" method="post">
+        <label for="user_distance">Enter distance as a number: </label>
         <input type="text" id="user_distance" name="user_distance"><br><br>
-        <label for="units_input">Units Input</label>
+        <label for="units_input">Enter current unit of measure (in, ft, m, yd, mi): </label>
         <input type="text" id="units_input" name="units_input"><br><br>
-        <label for="units_output">Units Output</label>
+        <label for="units_output">Enter desired unit of measure (in, ft, m, yd, mi): </label>
         <input type="text" id="units_output" name="units_output"><br><br>
         <input type="submit" value="Submit">
     </form>
