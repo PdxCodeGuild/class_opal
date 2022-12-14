@@ -16,6 +16,12 @@ nav {
 }
 
 .active {
-    color: rgb(116, 146, 202) !important;
+    color: #7492ca !important;
   }
   
+
+@media screen and (min-width: 768px) {
+    nav {
+        max-width: 180px;
+    }
+}
