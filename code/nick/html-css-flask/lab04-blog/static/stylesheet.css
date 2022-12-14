@@ -1,0 +1,27 @@
+body {
+    background-color: #ddd;
+}
+
+.container {
+    max-width: 850px;
+    max-height: 100vh;
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    padding-right: initial;
+}
+
+nav {
+    background-color: #aaa;
+}
+
+.active {
+    color: rgb(116, 146, 202) !important;
+  }
+  
+
+@media screen and (min-width: 768px) {
+    #about {
+        padding-right: 45px;
+    }
+}
