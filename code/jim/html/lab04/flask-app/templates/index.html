@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Some page elements are replicated from daringfireball.com -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corp Blog</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="https://kit.fontawesome.com/d6f06aa55a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="box">
+        <Banner id="Banner">
+            <H1><i class="fa-solid fa-square-rss"></i>The Corp Blog</H1>
+            <p>By <strong>Peter&nbsp;Wegehaupt</strong></p>
+            <form id="SiteSearch" action="localhost:5000/search" method="get" style="margin-bottom: 2.5em;">
+                <div>
+                    <input name="q" type="text" value="" style="margin-right: 8px; width: 66%;" />
+                    <input type="submit" value="Search" />
+                </div>
+            </form>
+        </banner>
+        <div id="sidebar">
+            <ul>
+                <li><i class="fa-solid fa-microphone"></i>The Boardroom</li>
+                <li><i class="fa-solid fa-diagram-project"></i>Projects</li>
+                <li><i class="fa-solid fa-address-book"></i>Contact</li>
+                <li><i class="fa-solid fa-sack-dollar"></i>Our Sponsors</li>
+            </ul>
+        </div>
+        <article id="main">
+            {% for post in context %}
+            <h1>Post {{loop.index}}</h1>
+            <p>Title: {{post['title']}}</p>
+            <p>Author: {{post['author']}}</p>
+            <p>Date: {{post['date']}}</p>
+            <p>Body: {{post['body']}}</p>
+            {% endfor %}
+        </article>
+        <div id="footer">
+            <p class="smallprint">
+                <a href="/preferences/"
+                    title="Customize the font size and presentation options for this web site.">Display Preferences</a>
+                <br /><br />
+                Copyright &copy; 2022–2023 The Corporate Company LLC.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
