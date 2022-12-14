@@ -38,7 +38,7 @@
             </div>
         </nav>
         <div class="container ps-0 ps-md-5 over overflow-scroll mt-md-5 " id="page" data-bs-spy="scroll" data-bs-target="#navbar">
-            <div class="ps-0 ps-md-5"  id="about">
+            <div id="about">
                 <h3 class="text-center">About</h3>
                 <p>
                     If it keeps up, man will atrophy all his limbs but the push-button finger. (Frank Lloyd Wright) The best thing about a boolean is even if you are wrong, you are only off by a bit. (Anonymous) It is practically impossible to teach good programming style to students that have had prior exposure to BASIC. As potential programmers, they are mentally mutilated beyond hope of regeneration. (E. W. Dijkstra) There are only two industries that refer to their customers as ‘users’. (Edward Tufte)
@@ -47,7 +47,7 @@
             </div>
             <div  id="blog">
                 <h3 class="text-center">Blog</h3>
-                <main class="ps-0 ps-md-5">
+                <main>
                     {% for article in context['articles'] %}
                     <h4 class="text-center ps-1">{{ article.title }}</h4>
                     <h5 class=" text-muted text-center ps-1">{{ article.date }}</h5>
