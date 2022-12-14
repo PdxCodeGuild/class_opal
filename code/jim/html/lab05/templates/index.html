@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap inclusion via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- These styles will override the bootstrap styles -->
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <title>Rot Ciphers</title>
+</head>
+
+<body>
+
+    {% for cipher in context['ciphers'] %}
+    <h3>{{ cipher.user_string }} rotated {{ cipher.rotation_amount }} letters is encoded as {{ cipher.encoded_string }}
+    </h3>
+    {% endfor %}
+
+    <form action="/submit-cipher-request/" method="post">
+        <input class="form-control" pattern="[a-zA-Z]{1,}" maxlength="256" type="text" name="user_string"
+            placeholder="Enter a string for encoding" title="Please enter a valid string of letters." required>
+        <input class="form-control" pattern="[0-9]{1,3}" type="text" name="rotation_amount"
+            placeholder="Enter a rotation amount (cipher key)" title="Please enter a number between 0 and 999" required>
+        <input type="submit">
+    </form>
+
+</body>
+
+</html>
