@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/stylesheet.css">
+    <title>Unit Converter</title>
+</head>
+<body class="bg-warning width-auto">
+    <div class="m-5">
+        <h1 class="text-center">Unit Converter</h1>
+    </div>
+    <form action="/" method="post" class="needs-validation">
+        <div class="row m-1">
+            <div class="col-4">
+                <select class="form-select" name="start-unit" id="start-unit" required>
+                    <option class="text-muted" selected disabled value="">Starting Unit</option>
+                    <option value="in">Inches</option>
+                    <option value="ft">Feet</option>
+                    <option value="yd">Yards</option>
+                    <option value="m">Meters</option>
+                    <option value="km">Kilometers</option>
+                    <option value="mi">Miles</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <input class="form-control" type="text" name="distance" id="distance" placeholder="Enter distance" required>
+            </div>
+            <div class="col-4">
+                <select class="form-select" name="end-unit" id="end-unit" required>
+                    <option class="text-muted" selected disabled value="">End Unit</option>
+                    <option value="in">Inches</option>
+                    <option value="ft">Feet</option>
+                    <option value="yd">Yards</option>
+                    <option value="m">Meters</option>
+                    <option value="km">Kilometers</option>
+                    <option value="mi">Miles</option>
+                </select>
+            </div>
+        </div>
+        <div class="m-4 text-center">
+            <button type="submit" class="btn btn-info btn-lg">Convert Measurement</button>
+        </div>
+    </form>
+    <div>
+        <h3 class="text-center">Result:</h3>
+    </div>
+    <p class="text-center">
+        {{ context }}
+    </p>
+</body>
+</html>
