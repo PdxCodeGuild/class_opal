@@ -17,6 +17,20 @@ def add_item(request):
 
 
 def delete_item(request):
-    GroceryItem.objects.filter(
-        description=request.POST['delete_item']).delete()
+    GroceryItem.objects.get(
+        id=request.POST['delete_item']).delete()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
+
+def mark_complete(request):
+    obj = GroceryItem.objects.get(description=request.POST['mark_complete'])
+    obj.is_complete = True
+    obj.save()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
+
+def mark_incomplete(request):
+    obj = GroceryItem.objects.get(description=request.POST['mark_incomplete'])
+    obj.is_complete = False
+    obj.save()
     return HttpResponseRedirect(reverse('grocery_list:index'))

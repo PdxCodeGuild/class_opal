@@ -15,8 +15,13 @@
     <li>{{ grocery_item.description }}</li>
     <form action="{% url 'grocery_list:delete_item' %}" method="post">
         {% csrf_token %}
-        <input type="hidden" name="delete_item" value="{{ grocery_item.description }}">
+        <input type="hidden" name="delete_item" value="{{ grocery_item.id }}">
         <input type="submit" value="Delete">
+    </form>
+    <form action="{% url 'grocery_list:mark_complete' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="mark_complete" value="{{ grocery_item.description }}">
+        <input type="submit" value="Mark Complete">
     </form>
     {% endif %}
     {% endfor %}
@@ -31,6 +36,16 @@
     {% for grocery_item in latest_grocery_item_list %}
     {% if grocery_item.is_complete == True %}
     <li>{{ grocery_item.description }}</li>
+    <form action="{% url 'grocery_list:delete_item' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="delete_item" value="{{ grocery_item.id }}">
+        <input type="submit" value="Delete">
+    </form>
+    <form action="{% url 'grocery_list:mark_incomplete' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="mark_incomplete" value="{{ grocery_item.description }}">
+        <input type="submit" value="Mark Incomplete">
+    </form>
     {% endif %}
     {% endfor %}
 </ul>
