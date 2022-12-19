@@ -1,0 +1,34 @@
+<h2>Enter an Item</h2>
+
+<form action="{% url 'index.html' grocery_item.id %}" method="post">
+    {% csrf_token %}
+    <label for="new_item">New Item</label><br>
+    <input type="text" id="new_item" name="new_item" value="grocery item"><br>
+    <input type="submit" value="submit">
+</form>
+
+<h2>Incomplete Items</h2>
+{% if latest_grocery_item_list %}
+<ul>
+    {% for grocery_item in latest_grocery_item_list %}
+    {% if grocery_item.is_complete == False %}
+    <li><a href="/grocery_list/{{ grocery_item.id }}/">{{ grocery_item.description }}</a></li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% else %}
+<p>No items are incomplete.</p>
+{% endif %}
+
+<h2>Complete Items</h2>
+{% if latest_grocery_item_list %}
+<ul>
+    {% for grocery_item in latest_grocery_item_list %}
+    {% if grocery_item.is_complete == True %}
+    <li><a href="/grocery_list/{{ grocery_item.id }}/">{{ grocery_item.description }}</a></li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% else %}
+<p>No items are complete.</p>
+{% endif %}
