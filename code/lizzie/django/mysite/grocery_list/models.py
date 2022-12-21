@@ -8,7 +8,9 @@ from django.db import models
 # field in the model.
 class GroceryItem(models.Model):
     text_desc = models.CharField(max_length=200)
-    created_date = models.DateTimeField('create date')
-    completed_date = models.DateTimeField('complete date')
-    # I'll figure out how to fix this later!!! Don't get mad at me program!
-    is_complete = models.BooleanField(null=False)
+    created_date = models.DateTimeField('date created')
+    completed_date = models.DateTimeField('date completed')
+    # Is this where I would add a function to determine if it's complete??
+    is_complete = models.BooleanField(default=False)
+    def __str__(self):
+        return self.text_desc
