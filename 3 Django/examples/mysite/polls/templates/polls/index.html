@@ -1,0 +1,24 @@
+{% if questions %}
+
+<ul>
+    {% for q in questions %}
+    <li><a href="{% url 'polls:detail' q.id %}">{{ q.question_text }}</a></li>
+    {% endfor %}
+</ul>
+
+{% else %}
+
+<p>No polls are available.</p>
+
+{% endif %}
+
+{% if user.is_authenticated %}
+
+<form action="{% url 'polls:add' %}" method="post">
+    {% csrf_token %}
+    <label for="question">Add a new question:</label>
+    <input type="text" name="question" id="question">
+    <input type="submit">
+</form>
+
+{% endif %}

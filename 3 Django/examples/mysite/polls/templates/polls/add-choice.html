@@ -1,0 +1,9 @@
+<h1>{{ question.question_text }}</h1>
+<form action="{% url 'polls:add_choice' question.id%}" method="post">
+    {% csrf_token %}
+    <label for="new_choice">Add a new choice for this question: </label>
+    <input type="text" name="new_choice" id="new_choice">
+    <input type="submit" value="Submit">
+</form>
+
+<a href="{% url 'polls:index' %}">I'm done, go back to index</a>
