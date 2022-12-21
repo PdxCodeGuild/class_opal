@@ -1,0 +1,12 @@
+<h2>URL Shortener</h2>
+
+<form action="{% url 'url_shortener:submit_url' %}" method="post">
+    {% csrf_token %}
+    <label for="long_url">URL to Shorten</label><br>
+    <input type="text" id="long_url" name="long_url" value=""><br>
+    <input type="submit" value="Submit">
+</form>
+
+<h2>URL output</h2>
+{{ url }}
+<p></p>
