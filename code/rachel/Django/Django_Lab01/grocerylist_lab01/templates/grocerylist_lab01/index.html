@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- meta tags store general metadata -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- page title, the text that appears on a browser -->
+        <title>Grocery List</title>
+        <!-- import external css -->
+        {% comment %} <link rel="stylesheet" type="text/css" href="css/index.css"/> {% endcomment %}
+        {% comment %} <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"> {% endcomment %}
+    </head>
+    <body>
+        <header>
+            <h1>The Grocery List</h1>
+        </header>
+        <main>
+            <h2>Completed Items</h2>
+            <ul>
+                {% for item in completed_items %}
+                    <li>{{ item.description }}
+                        <form action="{% url 'grocerylist_lab01:complete' item.id %}" method="post">
+                            {% csrf_token %} 
+                            <input type="submit" value="still need">
+                        </form>  
+                        <form action="{% url 'grocerylist_lab01:delete' item.id %}" method="post">
+                            {% csrf_token %} 
+                            <input type="submit" value="delete">
+                        </form>
+                    </li>    
+                {% endfor %}
+            </ul>
+            <h2>Incomplete Items</h2>
+            <ul>
+                {% for item in incomplete_items %}
+                    <li>{{ item.description }}
+                        <form action="{% url 'grocerylist_lab01:complete' item.id %}" method="post">
+                            {% csrf_token %} 
+                            <input type="submit" value="completed">
+                        </form>
+                        <form action="{% url 'grocerylist_lab01:delete' item.id %}" method="post">
+                            {% csrf_token %} 
+                            <input type="submit" value="delete">
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+            <form action="{% url 'grocerylist_lab01:add' %}" method="post">
+                {% csrf_token %} {% comment %} this is the extra form item! {% endcomment %}
+                <label for="new_item">Add a new grocery item></label><br>
+                <input type="text" name="new_item" id="new_item">
+                <input type="submit" value="Submit">
+            </form>
+        </main>
+    </body>
+</html>
