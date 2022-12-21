@@ -6,7 +6,17 @@
 {% block content %}
 {% if user.is_authenticated %}
 Hi {{ user.username }}!
+
+<p>
+<form>
+    <label for="post">New Post:</label><br>
+    <input type="text" id="post" name="post">
+    <input type="submit" value="Submit">
+</form>
+</p>
+
 <p><a href="{% url 'logout' %}">Log Out</a></p>
+
 {% else %}
 <p>You are not logged in</p>
 <a href="{% url 'login' %}">Log In</a>
