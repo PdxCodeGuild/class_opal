@@ -8,5 +8,12 @@
 </form>
 
 <h2>URL output</h2>
-{{ url }}
+
+<ul>
+    {% for url in urls %}
+    <li>
+        <a href="{% url 'url_shortener:redirect_user' url %}">{{ url }}</a>
+    </li>
+    {% endfor %}
+</ul>
 <p></p>

@@ -9,8 +9,8 @@ from .url_converter import get_code
 def index(request):
     # TODO this page needs to display the code associated with the url the user just entered
     # add a url = None argument to this function and have submit url pass the submitted url?
-
-    return render(request, 'url_shortener/index.html')
+    urls = Url.objects.all()
+    return render(request, 'url_shortener/index.html', {'urls': urls})
 
 
 def submit_url(request):
