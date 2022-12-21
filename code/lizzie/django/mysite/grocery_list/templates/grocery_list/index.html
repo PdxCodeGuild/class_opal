@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Grocery List</title>
+</head>
+
+
+<body>
+    {% if latest_grocery_items %}
+    <ul>
+    {% for item in latest_grocery_items %}
+        <li><a href="/grocery_list/{{ item.id }}/">{{ item.text_desc }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Your grocery list is empty.</p>
+{% endif %}
+</body>
+</html>
