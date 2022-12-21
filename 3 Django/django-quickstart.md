@@ -4,11 +4,9 @@
 
 ### Setup
 
-[ ] Create new git branch
-
-[ ] Create and acivate (or activate existing) virtualenv
-
-[ ] `pip install django`
+- [ ] Create new git branch
+- [ ] Create and activate (or activate existing) virtualenv
+- [ ] `pip install django`
 
 ------------------------------------------------------
 ### Start Project
@@ -22,7 +20,7 @@ python manage.py startapp [APPNAME]
 ------------------------------------------------------
 ### Create View
 
-in [APPNAME]/views.py:  
+in `[APPNAME]/views.py`:  
 
 ```python
 from django.http import HttpResponse
@@ -87,7 +85,7 @@ INSTALLED_APPS = [
 ```
 Note: This is the path to a class that Django wrote for you! You can find it in `apps.py` in your app folder
 
-
+In your terminal:
 ```bash
 py manage.py makemigrations [APPNAME]
 py manage.py migrate 
