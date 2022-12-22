@@ -8,7 +8,7 @@
 Hi {{ user.username }}!
 
 <p>
-<form action="" method="post">
+<form action="{% url 'posts:add_post' %}" method="post">
     {% csrf_token %}
     <label for="new_post">New Post:</label><br>
     <textarea id="new_post" name="new_post" rows="4" cols="50">Max 280 characters
@@ -16,6 +16,23 @@ Hi {{ user.username }}!
     <input type="submit" value="Submit">
 </form>
 </p>
+
+<h2>My Posts</h2>
+{% if posts %}
+
+<ul>
+    {% for p in posts %}
+    {% if p.user_id == user.id %}
+    <li>{{ p.post_text }}</a></li>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+{% else %}
+<p>No posts are available.</p>
+
+{% endif %}
+
 
 <p><a href="{% url 'logout' %}">Log Out</a></p>
 
