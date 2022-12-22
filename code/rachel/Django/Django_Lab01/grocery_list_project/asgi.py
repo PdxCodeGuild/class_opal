@@ -1,5 +1,5 @@
 """
-ASGI config for grocerylist_lab01_project project.
+ASGI config for grocery_list_project project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'grocerylist_lab01_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'grocery_list_project.settings')
 
 application = get_asgi_application()
