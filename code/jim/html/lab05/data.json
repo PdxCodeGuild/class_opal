@@ -1,0 +1,29 @@
+{
+    "ciphers": [
+        {
+            "user_string": "Remy",
+            "rotation_amount": 13,
+            "encoded_string": "erzl"
+        },
+        {
+            "user_string": "Remy",
+            "rotation_amount": "13",
+            "encoded_string": "erzl"
+        },
+        {
+            "user_string": "asdfasdf",
+            "rotation_amount": "14",
+            "encoded_string": "ogrtogrt"
+        },
+        {
+            "user_string": "Remy",
+            "rotation_amount": "14",
+            "encoded_string": "fsam"
+        },
+        {
+            "user_string": "asdfasd",
+            "rotation_amount": "0",
+            "encoded_string": "asdfasd"
+        }
+    ]
+}

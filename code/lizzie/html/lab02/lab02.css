@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #cad2c5;
+    font-family: Palatino, "Palatino Linotype", "Book Antiqua", serif;
+    font-style: normal;
+    font-size: .8rem;
+    color: #212721;
+}
+
+.logo {
+    margin-top: 50px;
+    margin-left: 50px;
+    border-radius: 50px;
+    width: 100px;
+}
+
+header {
+    height: 100px;
+    background: #212721;
+}
+
+#intro {
+    display: flex;
+    background-image: url("https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?cs=srgb&dl=pexels-sohail-nachiti-807598.jpg&fm=jpg");
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(27, 36, 42, 0.7);
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    height: 50vh;
+}
+
+#slug {
+    width: 70%;
+}
+
+h1{
+    color: #84a98c;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 24px;
+    color: #cad2c5;
+}
+
+.shop-btn {
+    margin-top: 1.5rem;
+    padding: 15px 30px;
+    background: #84a98c;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.article {
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.6;
+    /* margin shorthand: top/bottom right/left */
+    margin: 2rem 0;
+}
+
+#promo {
+    /* Padding shorthand: top right bottom left */
+    padding: 3vw 10vw 3vw 10vw;
+    background-color: #354f52;
+}
+
+.plant-text {
+    /* Shorthand: top right/left bottom */
+    margin: 1rem 0 0;
+}
+
+.plantinfo {
+    padding: 4vh;
+    text-align: center;
+}
+
+.small-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.teal {
+    background-color: #52796f;
+}
+
+.green {
+    background-color: #84a98c;
+}
+
+.yellow {
+    background-color: #9db285;
+}
+
+.footer {
+    background-color: #212721;
+    color: white;
+    list-style-type: none;
+    /* Padding shorthand: top right bottom left */
+    padding: 4vw 0 4vw 0;
+    line-height: 2;
+    text-align: center;
+}
+
+.footer>ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.bottom-text {
+    font-size: .6rem;
+    margin: 0;
+    /* Margin left and right to push the text closer together. */
+    margin-left: 3vw;
+    margin-right: 3vw;
+    padding: .4em;
+    text-transform: uppercase;
+}
+
+a:link {
+    color: white;
+}
+
+a:visited {
+    color: #52796f;
+}
+
+a:hover {
+    color: #cad2c5;
+}
+
+a:active {
+    color: #84a98c;
+}
+
+/* Media query for tablet */
+@media screen and (min-width: 641px) {
+    #intro {
+        height: 25vh;
+    }
+    
+    section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #large-img {
+        display: flex;
+    }
+
+    .bottom-text {
+        /* Keeping text at the bottom clustered together. */
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+
+}
+
+/* Media query for desktop */
+@media screen and (min-width: 1008px) {
+    section {
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr 1fr; 
+    }
+
+    #large-img {
+        object-fit: contain;
+        max-height: 100%;
+        width: auto;
+    }
+
+    .cover-img {
+        width: 60vh;
+        float: left;
+        /* Shorhand: top right bottom left */
+        margin: 0 2rem 2rem 0;
+    }
+
+    .bottom-text {
+        margin-left: 20vw;
+        margin-right: 20vw;
+    }
+}

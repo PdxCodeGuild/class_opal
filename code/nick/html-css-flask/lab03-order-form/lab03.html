@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/lab03.css">
+    <title>Order Form</title>
+</head>
+<body class="bg-warning width-auto">
+    <h1 class="text-center pt-3 pb-3">Nick's Bomb-Ass Burritos</h1>
+    <form action="https://webhook.site/fc7d0c38-84e4-4ca6-a992-b3fcab013c36" method="post">
+        <h5 class="mx-3 my-4">Name for the order:</h5>
+        <div class="m-1 mb-3 row gx-2" id="name">
+            <div class="col">
+                <input class="form-control" type="text" name="first-name" id="first-name" placeholder="First Name">
+            </div>
+            <div class="col">
+                <!-- <label class="form-label" for="first-name"><h5></h5></label> -->
+                <input class="form-control col-6" type="text" name="last-name" id="last-name" placeholder="Last Name">
+            </div> 
+        </div>
+        <h5 class="mx-3 my-4">Address:</h5>
+        <div class="m-1 mb-3 row g-2">
+            <div class="col-12">
+                <input class="form-control" type="text" name="address-1" id="address-1" placeholder="Address Line 1">
+            </div>
+            <div class="col-12">
+                <input class="form-control" type="text" name="address-2" id="address-2" placeholder="Address Line 2 (Optional)">
+            </div>
+            <div class="col-4">
+                <input class="form-control" type="text" name="city" id="city" placeholder="City">
+            </div>
+            <div class="col-4">
+                <input class="form-control" type="text" name="state" id="state" placeholder="State">
+            </div>
+            <div class="col-4">
+                <input class="form-control" type="text" name="zip" id="zip" placeholder="Zip">
+            </div>
+        </div>
+        <h1 class="text-center pt-5">Bomb-Ass Burrito</h1>
+        <h5 class="mx-3 my-4">Choose your tortilla</h5>
+        <div class="row">
+            <div class="col-6 m-2">
+                <select class="form-select" name="tortilla" id="tortilla">
+                    <option selected disabled>Tortilla...</option>
+                    <option value="flour">Flour</option>
+                    <option value="lettuce">Lettuce Wrap</option>
+                    <option value="gf">Gluten Free Tortilla</option>
+                </select>
+            </div>
+        </div>
+        <h5 class="mx-3 my-4">Choose your rice</h5>
+        <div class="row">
+            <div class="col-6  m-2">
+                <select class="form-select" name="tortilla" id="tortilla">
+                    <option selected disabled>Rice...</option>
+                    <option value="cilantro lime rice">Cilantro-Lime Rice</option>
+                    <option value="brown rice">Brown Rice</option>
+                </select>
+            </div>
+        </div>
+        <h5 class="mx-3 my-4">Choose your beans</h5>
+        <div class="row">
+            <div class="col-6  m-2">
+                <select class="form-select" name="tortilla" id="tortilla">
+                    <option selected disabled>Beans...</option>
+                    <option value="pinto">Pinto Beans</option>
+                    <option value="refried">Refried Beans</option>
+                    <option value="black">Black Beans</option>
+                    <option value="refried black">Refried Black Beans</option>
+                </select>
+            </div>
+        </div>
+        <h5 class="mx-3 my-4">Choose your protein</h5>
+        <div class="row">
+            <div class="col-6  m-2">
+                <select class="form-select" name="tortilla" id="tortilla">
+                    <option selected disabled>Protein...</option>
+                    <option value="chicken tinga">Chicken Tinga</option>
+                    <option value="steak">Steak</option>
+                    <option value="carnitas">Carnitas</option>
+                    <option value="adobadas">Adobadas</option>
+                    <option value="lingua">Lingua</option>
+                </select>
+            </div>
+        </div>
+        <h5 class="mx-3 my-4">Choose your add-ons</h5>
+        <div class="row mx-3">
+            <div class="form-check col-3">
+                <input class="form-check-input" type="checkbox" value="salsa mild" name="add-on-1" id="salsa-mild">
+                <label class="form-label" for="python">Salsa (mild)</label>
+            </div>
+            <div class="form-check col-3">
+                <input class="form-check-input" type="checkbox" value="salsa medium" name="add-on-2" id="salsa-medium" checked>
+                <label class="form-label" for="python">Salsa (medium)</label>
+            </div>
+            <div class="form-check col-3">
+                <input class="form-check-input" type="checkbox" value="salsa hot" name="add-on-3" id="salsa-hot">
+                <label class="form-label" for="python">Salsa (hot)</label>
+            </div>
+            <div class="form-check col-3">
+                <input class="form-check-input" type="checkbox" value="salsa verde" name="add-on-4" id="salsa-verde">
+                <label class="form-label" for="python">Salsa Verde</label>
+            </div>
+            <div class="form-check col-3">
+                <input class="form-check-input" type="checkbox" value="guacamole" name="add-on-5" id="guacamole">
+                <label class="form-label" for="python">Guacamole</label>
+            </div>
+            <div class="form-check col-3">
+                <input class="form-check-input" type="checkbox" value="sour cream" name="add-on-6" id="sour-cream">
+                <label class="form-label" for="python">Sour Cream</label>
+            </div>
+            <div class="form-check col-3">
+                <input class="form-check-input" type="checkbox" value="cheese" name="add-on-7" id="cheese" checked>
+                <label class="form-label" for="python">Cheese</label>
+            </div>
+            <div class="form-check col-3">
+                <input class="form-check-input" type="checkbox" value="corn" name="add-on-8" id="corn">
+                <label class="form-label" for="python">Corn</label>
+            </div>
+        </div>
+        <h5 class="mx-3 my-4">Additional Instructions</h5>
+        <div class="m-1 mb-3 row gx-2">
+            <div class="col-8">
+                <textarea class="form-control" type="text" name="add-instructions" id="add-instructions" rows="4" placeholder="Instructions..."></textarea>
+            </div>
+            <div class="col-3">
+                <button type="submit" class="btn btn-info btn-lg">Submit Order</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

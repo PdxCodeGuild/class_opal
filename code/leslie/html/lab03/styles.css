@@ -1,0 +1,26 @@
+body {
+    margin: 2em;
+}
+
+#wrapper {
+    /* margin: 2em; */
+    display: flex;
+    gap: 50px;
+}
+
+header {
+    background-color: orange;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 2em;
+}
+
+header>h1 {
+    font-size: 3em;
+}
+
+.bottom {
+    display: flex;
+    gap: 50px;
+
+
+}

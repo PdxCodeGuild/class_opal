@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/styles.css">
+    </head>
+
+    <body>
+        <header>
+            <div id="stuff-in-header">
+                <h1>LESLIE NAYLOR</h1>
+                <img id="dog-img"
+                    src="https://images.fineartamerica.com/images/artworkimages/medium/1/1-letterkenny-mario-david-transparent.png">
+
+                <h2 id="my-blog">This is my blog, eh?</h2>
+
+                <!-- <nav> -->
+                <div class="sidebar">
+                    <a class="active" href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="icons">
+                    <img src="../static/beers.png" alt="beer-icon" id="beer">
+                    <img src="../static/paw-print.png" alt="paw-print icon" id="paw-print">
+                    <img src="../static/hockey-sticks.png" alt="hockey-sticks" id="hockey-sticks">
+                </div>
+            </div>
+
+        </header>
+        <main>
+            <div id="posts">
+                {% for post in posts %}
+                <h2 id="title">{{post.title}}</h2>
+
+                <h3 id="author">{{post.author}} figures it out</h3>
+                <h6 id="date">{{post.date}}</h6>
+                <p id="post">{{post.body}}</p>
+                {% endfor %}
+
+
+            </div>
+        </main>
+        <footer>Ferda 2022</footer>
+    </body>
+
+</html>

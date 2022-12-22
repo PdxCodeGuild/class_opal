@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0; 
+}
+
+body {
+    text-align: left;
+    background-color: #91bad6;
+    font-family: Arial, serif;
+    font-size: .85rem;
+}
+
+header {
+    background-image: linear-gradient(to right, #1e3f66, #528aae);
+    color: #BCD3e8;
+    font-family: Palatino, "Times New Roman", sans-serif;
+    font-size: 2.2rem;
+    padding: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #BCD3e8;
+    color: #1e3f66;
+    padding: .5rem;
+}
+
+.select:hover {
+    color: #528aae;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+main,
+aside {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+h4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: .5rem;
+    background-color: #BCD3e8;
+    border: 1px solid;
+    border-radius: 2px;
+    color: #1e3f66;
+    font-family: Palatino, "Times New Roman", serif;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.subhed {
+    font-family: Palatino, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+ul>li {
+    list-style: none;
+    padding: .3rem;
+}
+
+/* Space all elements apart on the page. Must be descendent of main element */
+main div {
+    padding:10px;
+}
+
+input[type="range"] {
+    width:60vw;
+}
+
+/* Just applying the same style to all of these to make them look uniform. */
+select,
+input[type=text],
+input[type=email],
+input[type=number],
+textarea {
+    width: 15em;
+    padding: .4em;
+}
+
+input[type=date] {
+    padding: .4em;
+}
+
+textarea {
+    width:40vw;
+}
+
+button[type=submit] {
+    margin-left: 2vw;
+    padding: .5rem;
+    background-image: linear-gradient(to right, #73a5c6, #528aae);
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+button[type=submit]:hover {
+    color: white;
+    background-image: linear-gradient(to right, #528aae, #3e5984);
+    cursor: pointer;
+}
+
+input,
+textarea,
+select {
+    color: #1e3f66;
+    font-family: Arial, serif;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #91bad6;
+    font-style: italic;
+    font-family: Arial, serif;
+}
+
+aside {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.writing-sample {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    line-height: 1.4rem;
+    background-color: #2e5984;
+    border-radius: 1rem;
+}
+
+.writing-sample p {
+    color: #BCD3e8;
+    padding-bottom: 1rem;
+}
+
+.footer {
+    background-color: #1e3f66;
+    color: white;
+    list-style-type: none;
+    margin-top: 1rem;
+    /* Padding shorthand: top right bottom left */
+    padding: 4vw 0 4vw 0;
+    line-height: 2;
+    text-align: center;
+}
+
+a:link {
+    color: white;
+}
+
+a:visited {
+    color: #73a5c6;
+}
+
+a:hover {
+    color: #91bad6;
+}
+
+/* I'm only doing ONE media query to capture anything that's not mobile. */
+@media screen and (min-width: 1007px) {
+
+    .wrapper {
+        display: flex;
+    }
+
+    input[type="range"] {
+        width:40vw;
+    }
+
+    .footer {
+        padding: 2vw 0;
+    }
+
+}

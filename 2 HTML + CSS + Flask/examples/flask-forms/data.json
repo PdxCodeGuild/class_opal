@@ -1,0 +1,24 @@
+{
+    "pets": [
+        {
+            "pet": "Remy",
+            "species": "cat",
+            "person": "Nick"
+        },
+        {
+            "pet": "Hiccup",
+            "species": "cat",
+            "person": "Ahmed"
+        },
+        {
+            "pet": "Chaka",
+            "species": "cat",
+            "person": "Gage"
+        },
+        {
+            "pet": "Joker",
+            "species": "dog",
+            "person": "Hayato"
+        }
+    ]
+}

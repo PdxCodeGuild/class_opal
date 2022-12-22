@@ -1,0 +1,37 @@
+body {
+    background-color: #c91313
+}
+
+.box {
+    border-radius: 25px;
+    margin: auto;
+    width: 50vw;
+    border: 3px solid rgb(255, 255, 255);
+    padding: 0.5rem;
+    background-color: #41c981b9;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#header {
+    margin-top: 5em;
+    text-align: center;
+    font-size: 3.5em;
+    font-family: 'Courier New', Courier, monospace
+}
+
+#info {
+    margin-top: .5em;
+    font-size: 1.5em;
+}
+
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+ul.a{
+    list-style-type: circle;
+}

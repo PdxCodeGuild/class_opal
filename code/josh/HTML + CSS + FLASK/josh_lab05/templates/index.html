@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Josh HTML Lab 05</title>
+</head>
+<body style="background-color: rgb(172, 93, 155);">
+    <h1 style="text-align: center;">Unit Converter</h1>
+    <div style="text-align: center; font-weight: bold; color: rgb(15, 85, 15);"><h2>{{ context.user_distance }}{{ context.units_input }} is {{ context.new_units }}{{ context.units_output }}.</h2></div><br>
+    <form style="text-align: center;" action="/" method="post">
+        <label for="user_distance">Enter distance as a number: </label>
+        <input type="text" id="user_distance" name="user_distance"><br><br>
+        <label for="units_input">Enter current unit of measure (in, ft, m, yd, mi): </label>
+        <input type="text" id="units_input" name="units_input"><br><br>
+        <label for="units_output">Enter desired unit of measure (in, ft, m, yd, mi): </label>
+        <input type="text" id="units_output" name="units_output"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

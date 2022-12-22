@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Forms</title>
+</head>
+
+<body>
+
+    {% for pet in context['pets'] %}
+    <h3>{{ pet.pet }} the {{ pet.species }} lives with {{ pet.person }} </h3>
+    {% endfor %}
+
+    <form action="/" method="post">
+        <input type="text" name="pet" placeholder="Pet name">
+        <input type="text" name="species" placeholder="Species">
+        <input type="text" name="person" placeholder="Who does the pet live with?">
+        <input type="submit">
+    </form>
+
+</body>
+
+</html>

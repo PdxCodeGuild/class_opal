@@ -1,0 +1,206 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#article-body {
+    max-width: 100%;
+    color: #511515;
+    padding: 1px 20px 20px 20px;
+    background-image: url('hendripiss.jpg');
+    background-size: 400px;
+    background-repeat: repeat;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #F77070;
+    padding: .5rem;
+}
+
+/* Hides extra text in nav until media query un-hides them for readability on mobile. */
+.hidden {
+    display: none;
+}
+
+#header {
+    font-family: "Baskerville", "Garamond", "Hoefler Text", "EB Garamond", "Adobe Garamond", "Palatino", serif;
+    font-size: 2.5em;
+    text-transform: capitalize;
+    font-variant: small-caps;
+    font-weight: 100;
+    font-style: italic;
+    color: #C04040;
+    text-align: center;
+
+    margin-top: 10px;
+    padding: .2em;
+    background-color: #F9C6C6;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+a {
+    color: #C04040;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #F77070;
+}
+
+#section,
+#aside {
+    padding: 1rem;
+    background-color: #F9C6C6;
+}
+
+#aside {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.article {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.article>p:not(p.title) {
+    font-family: sans-serif;
+    line-height: 2;
+    text-indent: 1rem;
+    padding-bottom: .5rem;
+}
+
+.article-header {
+    margin-bottom: 1rem;
+}
+
+.related {
+    padding: .5rem;
+}
+
+p.title {
+    margin-bottom: .5rem;
+    font-size: 32px;
+    line-height: 1
+}
+
+.footer {
+    background-color: #511515;
+    color: #F3DEDE;
+    list-style-type: none;
+    /* Padding shorthand: top right bottom left */
+    padding: 10px;
+    line-height: 2;
+    text-align: center;
+}
+
+hr {
+    border: 1px solid #873131;
+}
+
+.pic-author {
+    display: inline-block;
+    width: 50px;
+}
+
+.pic-author img {
+    border-radius: 50%;
+    width: 50px;
+}
+
+.pic-author img:hover {
+    cursor: pointer;
+}
+
+/* Displays author title and time next to pic-author */
+.author-info {
+    padding-left: 1em;
+    text-align: left;
+    position: absolute;
+    display: inline-block;
+}
+
+.smaller-text {
+    font-size: 12px;
+}
+
+/* Media query for tablet */
+@media screen and (min-width: 641px) {
+    #header {
+        font-size: 3.5em;
+    }
+
+    .hidden {
+        display: inline;
+    }
+
+    #wrapper {
+        display: flex;
+    }
+
+    #section {
+        width: 92vw;
+    }
+
+    #aside {
+        background-color: #C5463F;
+        height: 100%;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        border-radius: 20px;
+        box-shadow: 10px 10px 5px #93000082;
+    }
+
+    #nav {
+        border-bottom-right-radius: 20px;
+    }
+
+    .related>p,
+    #aside>h1 {
+        color: #F3DEDE;
+    }
+
+    .related>p>a {
+        color: #511515;
+        text-decoration: none;
+    }
+
+    .related>p>a:hover {
+        color: #873131;
+    }
+}
+
+@media screen and (min-width: 1008px) {
+
+    hr {
+        border: 1px transparent;
+    }
+    
+    .article {
+        border-radius: 20px;
+        background-image: linear-gradient(to right, #F9C6C6, #F77070);
+        margin-bottom: 20px;
+        padding: 0 1em 1em 1em;
+    }
+
+    p.title {
+        padding-top: 1rem;
+    }
+
+    .article:hover {
+        background-image: linear-gradient(to right, #F9C6C6, #f77070e9);
+    }
+
+    #section {
+        background-color: transparent;
+        width: 130vw;
+    }
+
+    #nav {
+        border-bottom-left-radius: 20px;
+    }
+
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Class {{ context.class_name }}</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body>
+    <h1>Welcome to Class {{ context.class_name }}</h1>
+    <p>We are an {{ context.school_info.bootcamp_name }} class at {{ context.school_info.school }}</p>
+    <p>We have {{ context.num_students }} students</p>
+    <p><a href="/instructor">Instructor</a></p>
+
+    <h3>Students:</h3>
+    <ul>
+        {% for student in context.students %}
+        <li><a href="/student/{{student}}/h">{{ student.upper() }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% if context.school_info.school == "PDX Code Guild" %}
+    <h1>THIS SCHOOL RULES</h1>
+    {% endif %}
+
+    <h3>Class {{ context.class_name }}'s lucky numbers:</h3>
+    {% for num in range(20) %}
+    {% if num in context.lucky_numbers %}
+    <p>{{ context.triple_number(num) }}</p>
+    {% elif num%3==0 %}
+    <p>>:(</p>
+    {% endif %}
+    {% endfor %}
+
+</body>
+
+</html>
