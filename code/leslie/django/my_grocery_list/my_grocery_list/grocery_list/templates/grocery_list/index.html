@@ -1,0 +1,8 @@
+{% if incomplete_items %}
+
+<ul>
+    {% for item in incomplete_items %}
+    <li><a href="/grocery-list/{{ item.id }}/">{{ item.item_description }}</a>
+    </li>
+    {% endfor %}
+</ul>
