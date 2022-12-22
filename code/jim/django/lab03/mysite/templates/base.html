@@ -4,11 +4,25 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+    <title>{% block title %}Chirp Lab{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'posts/style.css' %}">
 </head>
 
 <body>
     <main>
+        {% block navbar %}
+        <ul>
+            {% if user.is_authenticated %}
+            <li><a class="active" href="{% url 'posts:index' %}">Home</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a class="active" href="{% url 'posts:index' %}">Home</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
+        {% endblock navbar %}
         {% block content %}
         {% endblock %}
     </main>
