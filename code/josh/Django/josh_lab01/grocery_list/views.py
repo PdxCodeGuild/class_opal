@@ -10,10 +10,11 @@ def index(request):
     if request.method == 'POST':
         form_data = request.POST
         grocery_object = GroceryItem.objects.create(
-        text_description=form_data['text_description'], 
-        created_date=datetime.now(), 
-        completed_date=datetime.now(), 
-        completed=False)
+            text_description=form_data['text_description'], 
+            created_date=datetime.now(), 
+            completed_date=datetime.now(), 
+            completed=False
+        )
         return HttpResponseRedirect(reverse('grocery_list:index'))
 
     else:
