@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lab5</title>
+    </head>
+
+    <body>
+
+
+        {% for item in data %}
+        <h3>User string: {{ item.input_string }}</h3>
+        <h3>Rotations: {{ item.rotation }}</h3>
+        <h3>New string: {{ item.new_string }}</h3>
+        {% endfor %}
+
+        <form action="/submit/" method="post">
+            <label for="input_string">Enter letters here: </label>
+            <input type="text" name="input_letter" placeholder="letter here">
+            <label for="rotation">Rotation</label>
+            <input type="number" name="rotation" placeholder="rotation" min="1" max="15">
+            <input type="submit">
+        </form>
+
+
+
+    </body>
+
+</html>
