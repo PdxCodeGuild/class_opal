@@ -15,7 +15,7 @@ def index(request):
     return render(request, 'grocery_list/index.html', context)
 
 def add(request):
-    description = request.POST("text_description")
+    description = request.POST["text_description"]
     #GroceryItem.objects.create(text_description=description)
     item = GroceryItem(text_description=description)
     item.save()
