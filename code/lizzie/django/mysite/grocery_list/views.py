@@ -29,3 +29,15 @@ def add_item(request):
 def delete_item(request):
     GroceryItem.objects.get(id=request.POST['delete_item']).delete()
     return HttpResponseRedirect(reverse('grocery_list:index'))
+
+def complete_item(request):
+    item = GroceryItem.objects.get(text_desc=request.POST['complete_item'])
+    item.is_complete = True
+    item.save()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
+def incomplete_item(request):
+    item = GroceryItem.objects.get(text_desc=request.POST['incomplete_item'])
+    item.is_complete = False
+    item.save()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
