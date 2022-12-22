@@ -8,4 +8,4 @@ class GroceryItem(models.Model):
     completed = models.BooleanField()
 
     def __str__(self):
-        return self.grocery_list
+        return self.text_description

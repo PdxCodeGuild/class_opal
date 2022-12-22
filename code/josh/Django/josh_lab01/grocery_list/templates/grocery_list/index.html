@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+</head>
+<body>
+    {% for item in grocery_list %}
+    <ul>
+        <li>{{ item.text_description }}</li>
+    </ul>
+    {% endfor %}
+    <form action="{% url 'grocery_list:index' %}" method="post">
+        {% csrf_token %}
+        <label for="grocery_item">Add Item to Grocery List:</label>
+        <input type="text" id="grocery_item" name="text_description"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
