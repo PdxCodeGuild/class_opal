@@ -8,14 +8,10 @@
 </head>
 
 
-<body>
-    <h1>Welcome to my grocery list!</h1>
-    <p>The user should be presented with an input field and a button (in a form).</p>
-    <p>When the user clicks the button, it should save the data to the server and show the newly-added item in the list.</p>
-    <p>The user should be presented with a list of incomplete items and a list of complete items.</p>
-    <p>The user should be able to mark an item complete/incomplete and be able to delete an item.</p>
-    
-    <form action="{% url 'grocery_list:add_item' %}" method="post">
+<body style="color:#023020; background-color: #FFFEF2">
+    <h1 style="text-align: center">My Grocery List</h1>
+    <p style="text-align: center">Add, delete, and mark items complete or incomplete. Select a specific item to view its details.</p>
+    <form action="{% url 'grocery_list:add_item' %}" method="post" style="text-align: center">
         {% csrf_token %}
         <label for="input_item">Add a new item:</label>
         <input type="text" name="input_item" id="input_item">
