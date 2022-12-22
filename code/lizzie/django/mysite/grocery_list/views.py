@@ -25,3 +25,7 @@ def detail(request, text_desc_id):
 def add_item(request):
     GroceryItem.objects.create(text_desc=request.POST['input_item'])
     return HttpResponseRedirect(reverse('grocery_list:index'))
+
+def delete_item(request):
+    GroceryItem.objects.get(id=request.POST['delete_item']).delete()
+    return HttpResponseRedirect(reverse('grocery_list:index'))

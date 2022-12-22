@@ -23,11 +23,17 @@
     </form>
     
     <h1>Incomplete Items:</h1>
+    
     {% if latest_grocery_items %}
     <ul>
-    {% for item in latest_grocery_items %}
-    {% if item.is_complete == False %}
-    <li><a href="{% url 'grocery_list:detail' item.id %}">{{ item.text_desc }}</a></li>
+        {% for item in latest_grocery_items %}
+        {% if item.is_complete == False %}
+        <li><a href="{% url 'grocery_list:detail' item.id %}">{{ item.text_desc }}</a></li>
+        <form action="{% url 'grocery_list:delete_item' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="delete_item" value="{{ item.id }}">
+            <input type="submit" value="Delete">
+        </form>
     {% endif %}
     {% endfor %}
     </ul>
