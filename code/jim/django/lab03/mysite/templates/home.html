@@ -8,9 +8,11 @@
 Hi {{ user.username }}!
 
 <p>
-<form>
-    <label for="post">New Post:</label><br>
-    <input type="text" id="post" name="post">
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="new_post">New Post:</label><br>
+    <textarea id="new_post" name="new_post" rows="4" cols="50">Max 280 characters
+        </textarea>
     <input type="submit" value="Submit">
 </form>
 </p>
