@@ -9,12 +9,25 @@
 
 
 <body>
+    <h1>My Grocery list:</h1>
     {% if latest_grocery_items %}
     <ul>
     {% for item in latest_grocery_items %}
-        <li><a href="/grocery_list/{{ item.id }}/">{{ item.text_desc }}</a></li>
+        <li><a href="{% url 'grocery_list:detail' item.id %}">{{ item.text_desc }}</a></li>
     {% endfor %}
     </ul>
+<p>The user should be presented with an input field and a button (in a form).</p>
+<p>When the user clicks the button, it should save the data to the server and show the newly-added item in the list.</p>
+<p>The user should be presented with a list of incomplete items and a list of complete items.</p>
+<p>The user should be able to mark an item complete/incomplete and be able to delete an item.</p>
+
+    <form action="{% url 'grocery_list:add_item' %}" method="post">
+        {% csrf_token %}
+            <label for="input_item">Add a new item:</label>
+            <input type="text" name="input_item" id="input_item">
+            <input type="submit">
+    </form>
+
 {% else %}
     <p>Your grocery list is empty.</p>
 {% endif %}

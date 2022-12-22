@@ -1,5 +1,8 @@
-from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
+
+from django.http import HttpResponseRedirect
+
 
 from .models import GroceryItem
 
@@ -16,8 +19,9 @@ def index(request):
     return render(request, 'grocery_list/index.html', context)
 
 def detail(request, text_desc_id):
-    try:
-        text_desc = GroceryItem.objects.get(pk=text_desc_id)
-    except GroceryItem.DoesNotExist:
-        raise Http404("Question does not exist")
+    text_desc = get_object_or_404(GroceryItem, pk=text_desc_id)
     return render(request, 'grocery_list/detail.html', {'text_desc': text_desc})
+
+def add_item(request):
+    GroceryItem.objects.create(text_desc=request.POST['input_item'])
+    return HttpResponseRedirect(reverse('grocery_list:index'))
