@@ -30,14 +30,14 @@ Capstone proposal due: TBD
 Presentation Day: February 15th, 2023  
 
 
-<!-- ## Django Labs Assigned:
+## Django Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 00    | Polls                  | Jun 8th       | Jun 13th              |               |
-| 01    | Todo List              | Jun 13th      | Jun 20th              | Jun 27th      |
-| 02    | URL Shortener          | Jun 15th      | Jun 20th              | Jun 27th      |
-| 03    | Chirp                  | Jun 21st      | Jun 27th              | Jul 5th       |
+| 00    | Polls                  | Dec 19th      | Dec 22nd              |               |
+| 01    | Grocery List           | Dec 21st      | Dec 27th              | Jan  4th      |
+| 02    | URL Shortener          | Dec 22nd      | Dec 29th              | Jan  5th      |
+<!-- | 03    | Chirp                  | Dec 21st      | Dec 27th              | Jul 5th       |
 | 04    | Students API           | Jul 14th      | Jul 20th              | Jul 28th      |
 | 05    | Pokedex                | Jul 15th      | Jul 20th              | Jul 29th      | -->
 

@@ -17,6 +17,8 @@ Your project will also need to have the following functionality:
 * A public profile page that shows all the users chirps
 * Basic UI (navbar, footer) and styling (either by hand or with a framework)
 
+To make your users app, you can either follow the directions in the class docs for a function-based views approach, or you can use [this tutorial](https://learndjango.com/tutorials/django-login-and-logout-tutorial) for a class-based views approach
+
 ## Optional advanced version
 
 Make an Instagram clone! Your posts will need an associated image, check out the [instruction guide](../docs/08%20Uploading%20Files.md).
