@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grocery List</title>
 </head>
-<body style="background-color: lightgreen">
+<body style="background-color: lightgreen;">
     <h1>Grocery List</h1>
     <table>
         <tr>
@@ -17,7 +17,7 @@
         {% for item in grocery_list %}
         <tr>
             <td>{{ item.text_description }}</td>
-            <td><input type="checkbox" id="completed" name="completed">{{ item.completed }}</input></td>
+            <td><input type="button" value="incomplete"></input></td>
             <td><a href="delete/{{ item.text_description }}">delete</a></td>
         </tr>
         {% endfor %}

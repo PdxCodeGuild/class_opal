@@ -15,9 +15,16 @@ def index(request):
             completed_date=datetime.now(), 
             completed=False
         )
+        # how do I delete a list item?
+        # del_grocery_object = GroceryItem.objects.delete(text_description=form_data['text_description'])
         return HttpResponseRedirect(reverse('grocery_list:index'))
 
     else:
         grocery_list = GroceryItem.objects.all()
         context = {'grocery_list': grocery_list}
         return  render(request, 'grocery_list/index.html', context)
+
+def delete(request):
+    if request.method == 'POST':
+        form_data = request.POST
+        completed=True
