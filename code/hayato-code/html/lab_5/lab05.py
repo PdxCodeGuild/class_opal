@@ -25,10 +25,10 @@ def rot13(input_string, rotation):
 
 @app.route('/submit/', methods=['POST'])
 def handle_submit():
-    new_string = rot13(request.form['input_string'],
+    new_string = rot13(request.form['input_letter'],
                  int(request.form['rotation']))
     new_data = {
-        'input_string': request.form['input_string'],
+        'input_string': request.form['input_letter'],
         'rotation': request.form['rotation'],
         'new_string': new_string
     }
