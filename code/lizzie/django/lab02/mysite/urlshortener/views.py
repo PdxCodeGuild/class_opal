@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello, and welcome to the url shortener.")
+    return render(request, 'urlshortener/index.html')
