@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Lab 02</title>
+    <title>URL Shortener: Django Lab 02</title>
 </head>
 <body>
-    
+    <form action="{% url 'url_shortener:index' %}" method="post">
+        {% csrf_token %}
+        <label for="long_url">Please enter your URL here: </label>
+        <input type="text" id="url" name="long_url"><br>
+        <input type="submit" value="Click here to shorten URL">
+    </form>
+    {% for item in url_shortener %}
+    {{ item.long_url }} <a href="{% url 'url_shortener:redirect' id=item.id %}">{{ item.short_code }}</a>
+    {% endfor %}
 </body>
 </html>
