@@ -27,7 +27,7 @@
         {% if urls %}
         <p class="title">Shortened URLs</p>
         <ul>
-            <!-- Most recent item appears at top ('reversed' in for loop) -->
+            <!-- Most recent item appears at top (using 'reversed' in for loop) -->
             {% for url in urls reversed %}
             <li>
                 <a href="{% url 'urlshortener:redirect_user' url %}">{{ url }}</a>
