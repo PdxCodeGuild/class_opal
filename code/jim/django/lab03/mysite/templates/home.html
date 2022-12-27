@@ -10,32 +10,28 @@
 <p>
 <form action="{% url 'posts:add_post' %}" method="post">
     {% csrf_token %}
-    <label for="new_post">New Post:</label><br>
+    <label for="new_post">New Chirp:</label><br>
     <textarea id="new_post" name="new_post" rows="4" cols="50">Max 280 characters
         </textarea>
     <input type="submit" value="Submit">
 </form>
 </p>
 
-<h2>My Posts</h2>
+{% else %}
+<p>You are not logged in</p>
+
+{% endif %}
+
+<h2>Chirps</h2>
 {% if posts %}
 
-
 {% for p in posts %}
-{% if p.user_id == user.id %}
+<h3>{{ p.user.username }} -- <span id="post-date">{{ p.pub_date }}</span></h3>
 <div class="card">{{ p.post_text }}</div>
-{% endif %}
 {% endfor %}
-
 
 {% else %}
 <p>No posts are available.</p>
-
-{% endif %}
-
-
-{% else %}
-<p>You are not logged in</p>
 
 {% endif %}
 {% endblock %}

@@ -7,9 +7,9 @@ from .models import Post, User
 
 def index(request):
     posts = Post.objects.all()
-    user = request.user
-    filtered_posts = posts.filter(user_id=user.id)
-    context = {'posts': filtered_posts}
+    # user = request.user
+    # filtered_posts = posts.filter(user_id=user.id)
+    context = {'posts': posts}
     return render(request, 'home.html', context)
 
 

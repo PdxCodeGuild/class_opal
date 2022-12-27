@@ -3,12 +3,14 @@
 {% block title %}User Posts{% endblock %}
 
 {% block content %}
-<h1>{{ user.username }}</h1>
+<h1>{{ user.username }}'s Chirps</h1>
 
-<ul>
-    {% for post in user.post_set.all %}
-    <li>{{ post.post_text }}</li>
-    {% endfor %}
-</ul>
+
+{% for post in user.post_set.all %}
+<h4>{{ post.pub_date }}</h4>
+<div class="card">{{ post.post_text }}</div>
+{% endfor %}
+
+
 
 {% endblock %}
