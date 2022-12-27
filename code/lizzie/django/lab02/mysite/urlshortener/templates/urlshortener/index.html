@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shorten that URL!</title>
+</head>
+
+
+<body>
+    <header>
+        <h1 style="text-align: center">Welcome to the URL shortener</h1>
+    </header>
+
+    <form action="{% url 'urlshortener:submit_url' %}" method="post">
+        {% csrf_token %}
+        <label for="long_url">
+            <h3>Enter your URL here:</h3>
+        </label><br>
+        <input type="text" id="long_url" name="long_url" value=""><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
