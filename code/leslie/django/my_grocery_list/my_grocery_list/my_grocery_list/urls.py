@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('grocery_list/', include('grocery_list.urls')),
     path('admin/', admin.site.urls),
+    path('index/', include('grocery_list.urls'))
 ]
+
+#patterns in here come immediately after 127.0.0.1.8000/
