@@ -17,15 +17,19 @@
         {% csrf_token %}
         <label for="long_url">URL to Shorten</label><br>
         <input type="text" id="long_url" name="long_url" value=""><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Shorten">
     </form>
     
-    <h3>Most recent urls shortened:</h3>
+    {% if urls %}
     <ul>
+        {{ urls }}
+
+        {% for url in urls %}
         <li>
-            <a href="{% url 'urlshortener:redirect_user' url %}">{{ url }}</a>
-        </li>
-    </ul>
+        <p>Shortened URL: <a href="{% url 'urlshortener:redirect_user' url %}">{{ url }}</a></p>
+        {% endfor %}
+        {% endif %}
+</li></ul>
 
 </body>
 </html>
