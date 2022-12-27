@@ -1,35 +1,41 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'urlshortener/style.css' %}">
     <title>Shorten that URL!</title>
 </head>
 
 
 <body>
     <header>
-        <h1 style="text-align: center">Welcome to the URL shortener</h1>
+        <p>Welcome to the URL shortener</p>
     </header>
 
     <form action="{% url 'urlshortener:submit_url' %}" method="post">
         {% csrf_token %}
-        <label for="long_url">URL to Shorten</label><br>
-        <input type="text" id="long_url" name="long_url" value=""><br>
-        <input type="submit" value="Shorten">
+        <label for="long_url" class="title">URL to Shorten</label><br>
+        <input type="text" id="long_url" name="long_url" value="" placeholder="My url is...">
+        <input type="submit" value="Shorten my URL">
     </form>
     
-    {% if urls %}
-    <ul>
-        {{ urls }}
-
-        {% for url in urls %}
-        <li>
-        <p>Shortened URL: <a href="{% url 'urlshortener:redirect_user' url %}">{{ url }}</a></p>
-        {% endfor %}
+    <section>
+        {% if urls %}
+        <p class="title">Shortened URLs</p>
+        <ul>
+            <!-- Most recent item appears at top ('reversed' in for loop) -->
+            {% for url in urls reversed %}
+            <li>
+                <a href="{% url 'urlshortener:redirect_user' url %}">{{ url }}</a>
+            </li>
+            {% endfor %}
+        </ul>
         {% endif %}
-</li></ul>
+    </section>
 
 </body>
 </html>
