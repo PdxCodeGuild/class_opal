@@ -17,7 +17,6 @@
         {% for item in grocery_list %}
         <tr>
             <td>{{ item.text_description }}</td>
-            <!-- how do I write conditional so that buttons change? -->
             {% if item.completed == False %}
             <td><a href="{% url 'grocery_list:complete' id=item.id %}"><input type="button" value="incomplete"></input></a></td>
             {% else %}
