@@ -1,3 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}User Posts{% endblock %}
+
+{% block content %}
 <h1>{{ user.username }}</h1>
 
 <ul>
@@ -5,3 +10,5 @@
     <li>{{ post.post_text }}</li>
     {% endfor %}
 </ul>
+
+{% endblock %}

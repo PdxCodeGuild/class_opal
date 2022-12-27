@@ -5,7 +5,7 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-Hi {{ user.username }}!
+<h1>Hi {{ user.username }}!</h1>
 
 <p>
 <form action="{% url 'posts:add_post' %}" method="post">
@@ -20,13 +20,13 @@ Hi {{ user.username }}!
 <h2>My Posts</h2>
 {% if posts %}
 
-<ul>
-    {% for p in posts %}
-    {% if p.user_id == user.id %}
-    <li>{{ p.post_text }}</a></li>
-    {% endif %}
-    {% endfor %}
-</ul>
+
+{% for p in posts %}
+{% if p.user_id == user.id %}
+<div class="card">{{ p.post_text }}</div>
+{% endif %}
+{% endfor %}
+
 
 {% else %}
 <p>No posts are available.</p>
