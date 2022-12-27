@@ -22,9 +22,17 @@ def index(request):
     else:
         grocery_list = GroceryItem.objects.all()
         context = {'grocery_list': grocery_list}
-        return  render(request, 'grocery_list/index.html', context)
+        return render(request, 'grocery_list/index.html', context)
 
-def delete(request):
-    if request.method == 'POST':
-        form_data = request.POST
-        completed=True
+def complete(request, id):
+    grocery_item = GroceryItem.objects.get(id=id)
+    if grocery_item.completed == False:
+        grocery_item.completed = True
+    else:
+        grocery_item.completed = False
+    grocery_item.save()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
+def delete(request, id):
+    grocery_item = GroceryItem.objects.delete(id=id)
+    return HttpResponseRedirect(reverse('grocery_list:index'))

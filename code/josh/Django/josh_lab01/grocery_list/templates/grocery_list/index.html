@@ -19,11 +19,11 @@
             <td>{{ item.text_description }}</td>
             <!-- how do I write conditional so that buttons change? -->
             {% if item.completed == False %}
-            <td><input type="button" value="incomplete"></input></td>
+            <td><a href="{% url 'grocery_list:complete' id=item.id %}"><input type="button" value="incomplete"></input></a></td>
             {% else %}
-            <td><input type="button" value="complete"></input></td>
+            <td><a href="{% url 'grocery_list:complete' id=item.id %}"><input type="button" value="complete"></a></td>
             {% endif %}
-            <td><a href="delete/{{ item.text_description }}">delete</a></td>
+            <td><a href="{% url 'grocery_list:delete' id=item.id %}">delete</a></td>
         </tr>
         {% endfor %}
     </table>
