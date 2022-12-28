@@ -7,6 +7,12 @@
     <title>Grocery List</title>
 </head>
 <body>
+    <h2>Add New Item</h2>
+    <form action="{% url 'grocery_list:create' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="item" id="item" placeholder="Enter Item">
+        <button type="submit">Add</button>
+    </form>
     <h2>Incomplete</h2>
     {% if incomplete_list %}
             {% for  item in incomplete_list%}

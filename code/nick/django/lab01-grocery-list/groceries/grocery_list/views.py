@@ -33,4 +33,5 @@ def completer(request, item_id):
 
 
 def create(request):
-    ...
+    Item.objects.create(item_text=request.POST['item'])
+    return HttpResponseRedirect(reverse('grocery_list:index'))

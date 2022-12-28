@@ -8,4 +8,4 @@ class Item(models.Model):
     creation_date = models.DateTimeField('date created', auto_now=True)
     completed_date = models.DateTimeField(
         'date completed', null=True, blank=True)
-    completed = models.BooleanField()
+    completed = models.BooleanField(default=False)
