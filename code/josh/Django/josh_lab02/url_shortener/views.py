@@ -13,7 +13,6 @@ def index(request):
         while len(code) < 10:
             code.append(random.choice(all_characters))
         code_join = "".join(code)
-        print(code_join)
         url = UrlShortener.objects.create(
             long_url=form_data['long_url'], 
             short_code = code_join
@@ -27,4 +26,4 @@ def index(request):
 
 def redirect(request, id):
     url = UrlShortener.objects.get(id=id)
-    return HttpResponseRedirect(reverse('url_shortener:redirect'))
+    return HttpResponseRedirect(url.long_url)

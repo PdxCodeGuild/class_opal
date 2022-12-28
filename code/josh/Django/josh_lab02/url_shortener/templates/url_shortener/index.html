@@ -14,7 +14,7 @@
         <input type="submit" value="Click here to shorten URL">
     </form>
     {% for item in url_shortener %}
-    {{ item.long_url }} <a href="{% url 'url_shortener:redirect' id=item.id %}">{{ item.short_code }}</a>
+    {{ item.long_url }} <a href="{{ item.long_url }}">{{ item.short_code }}</a>
     {% endfor %}
 </body>
 </html>
