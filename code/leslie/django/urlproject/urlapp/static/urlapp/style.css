@@ -1,0 +1,82 @@
+body {
+    margin: 3em;
+    text-align: center;
+    font-family: 'Londrina Solid', cursive;
+    background-color: rgb(227, 191, 153);
+    background-color: #55856b;
+    background-image: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
+
+}
+
+#main {
+    border: 3px dotted;
+    height: 320px;
+    margin-right: 6em;
+    margin-left: 6em;
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+    padding: 1.3em;
+    font-size: 3em;
+    background-color: #2a2a5390;
+    color: whitesmoke;
+    width: 50%;
+}
+
+#form {
+    font-size: 2em;
+}
+
+#long_url {
+    font-size: 1em;
+    font-family: 'Londrina Solid', cursive;
+    text-align: center;
+    margin-bottom: 2em;
+    width: 60%;
+}
+
+#new_url_link {
+    font-size: 2em;
+}
+
+#submit {
+    background-color: #2a2a5390;
+
+    border: none;
+    color: whitesmoke;
+    padding: 15px 32px;
+    text-align: center;
+    margin: 4px 2px;
+    font-size: 30px;
+    width: 30%;
+    font-family: 'Londrina Solid', cursive;
+
+}
+
+#table {
+    margin: auto;
+    font-size: 1.5em;
+}
+
+th {
+    padding: 1em;
+    font-size: 1.5em;
+
+}
+
+
+td {
+    padding: 1.5em;
+}
+
+h3 {
+    margin: auto;
+    text-align: center;
+    padding: 1.3em;
+    font-size: 3em;
+    background-color: #2a2a5390;
+    color: whitesmoke;
+    width: 40%;
+}
