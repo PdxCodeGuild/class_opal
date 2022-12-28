@@ -19,8 +19,13 @@ from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # add a project-level url for the accounts app above our included Django auth app. 
+    # Django will look top to bottom for url patterns so when it sees a url route within 
+    # our accounts app that matches one in the built-in auth app, it will choose the accounts route first.
+    path("accounts/", include("accounts.urls")),
     # Including this auth app provides us with several authentication views and 
     # URLs for handling login, logout, and password management.
     path("accounts/", include("django.contrib.auth.urls")),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('', include('posts.urls'))
+    # path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]
