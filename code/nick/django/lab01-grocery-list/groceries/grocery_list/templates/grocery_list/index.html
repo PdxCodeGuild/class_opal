@@ -9,21 +9,19 @@
 <body>
     <h2>Incomplete</h2>
     {% if incomplete_list %}
-        <ul>
             {% for  item in incomplete_list%}
-                <li><a href="/grocery_list/{{ item.id }}/">{{ item.item_text }}</a></li>
+                <p>{{ item.item_text }}</p>
+                <form action="/grocery_list/{{ item.id }}/completer/" method="post">{% csrf_token %}<button type="submit">Mark Complete</button></form>
+                <form action="/grocery_list/{{ item.id }}/delete/" method="post">{% csrf_token %}<button type="submit">Delete</button></form>
             {% endfor %}
-        </ul>
     {% else %}
         <p>No incomplete items</p>
     {% endif %}
     <h2>Complete</h2>
     {% if complete_list %}
-        <ul>
             {% for item in complete_list%}
-                <li><a href="/grocery_list/{{ item.id }}/">{{ item.item_text }}</a></li>
+                <p>{{ item.item_text }}</p>
             {% endfor %}
-        </ul>
     {% else %}
         <p>No complete items</p>
     {% endif %}

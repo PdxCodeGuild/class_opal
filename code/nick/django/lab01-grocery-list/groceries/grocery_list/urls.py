@@ -4,6 +4,7 @@ from . import views
 app_name = 'grocery_list'
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<int:item_id>/delete', views.delete, name='delete'),
-    path('<int:item_id>/completer', views.completer, name='completer'),
+    path('<int:item_id>/delete/', views.delete, name='delete'),
+    path('<int:item_id>/completer/', views.completer, name='completer'),
+    path('create/', views.create, name='create'),
 ]
