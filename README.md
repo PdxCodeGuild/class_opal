@@ -11,9 +11,10 @@ M-F 9:30 am – 4:30 pm
 - November 8th (Election Day -- go vote!)
 - November 24th (Thanksgiving)
 - November 25th (Day after Thanksgiving)
+- December 23rd
 - December 26th (Day after Christmas)
 - January 2nd (Day after New Years)
-- (three more days TBD)
+- (two more days TBD)
 
 
 ### Staff
@@ -35,10 +36,10 @@ Presentation Day: February 15th, 2023
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
 | 00    | Polls                  | Dec 19th      | Dec 22nd              |               |
-| 01    | Grocery List           | Dec 21st      | Dec 27th              | Jan  4th      |
-| 02    | URL Shortener          | Dec 22nd      | Dec 29th              | Jan  5th      |
-<!-- | 03    | Chirp                  | Dec 21st      | Dec 27th              | Jul 5th       |
-| 04    | Students API           | Jul 14th      | Jul 20th              | Jul 28th      |
+| 01    | Grocery List           | Dec 21st      | Dec 27th              | Jan 4th       |
+| 02    | URL Shortener          | Dec 22nd      | Dec 29th              | Jan 5th       |
+| 03    | Chirp                  | Dec 27th      | Jan 3rd               | Jan 10th      |
+<!-- | 04    | Students API           | Jul 14th      | Jul 20th              | Jul 28th      |
 | 05    | Pokedex                | Jul 15th      | Jul 20th              | Jul 29th      | -->
 
 <!-- ## JavaScript Labs Assigned:
@@ -63,8 +64,8 @@ Presentation Day: February 15th, 2023
 | 04    | Burrito Order Form     | Dec  6th      | Dec  9th              | Dec 20th      |
 | 05    | Blog                   | Dec  8th      | Dec 14th              | Dec 22nd      |
 | 05    | Flask Redo             | Dec 12th      | Dec 15th              | Dec 27th      |
-| 06    | Flask Todos            | Dec 13th      | N/A                   | N/A           |
-<!--| 06    | Personal Portfolio     | Dec  3rd       | Dec  7th               | Dec  17th      | -->
+| 06    | MOB - Flask Todos      | Dec 13th      | N/A                   | N/A           |
+| 07    | Personal Portfolio     | Dec 14th      | Dec 19th              | Dec 28th      | 
 
 ## Python Labs Assigned:
 
