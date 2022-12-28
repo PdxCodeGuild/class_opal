@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener: Django Lab 02</title>
 </head>
-<body>
+<body style="background-color: rgb(162, 204, 90); text-align: center;">
+    <h1>Welcome to the URL Shortener!</h1>
     <form action="{% url 'url_shortener:index' %}" method="post">
         {% csrf_token %}
-        <label for="long_url">Please enter your URL here: </label>
+        <label for="long_url"><em>Please enter your URL here: </em></label><br>
         <input type="text" id="url" name="long_url"><br>
+        (your URL <em><strong>must</strong></em> begin with https://)<br><br>
         <input type="submit" value="Click here to shorten URL">
-    </form>
+    </form><br>
     {% for item in url_shortener %}
-    {{ item.long_url }} <a href="{{ item.long_url }}">{{ item.short_code }}</a>
+    <strong>Original URL: </strong> {{ item.long_url }} <strong>Shortened URL: </strong><a href="{{ item.long_url }}">{{ item.short_code }}</a><br>
     {% endfor %}
 </body>
 </html>

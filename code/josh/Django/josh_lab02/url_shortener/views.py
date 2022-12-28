@@ -1,9 +1,10 @@
 import random
 from string import ascii_letters as letters, digits as digits
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from . models import UrlShortener
+
 
 def index(request):
     if request.method == 'POST':
@@ -18,11 +19,11 @@ def index(request):
             short_code = code_join
         )
         return HttpResponseRedirect(reverse('url_shortener:index'))
-
     else:
         url = UrlShortener.objects.all()
         context = {'url_shortener': url}
         return render(request, 'url_shortener/index.html', context)
+
 
 def redirect(request, id):
     url = UrlShortener.objects.get(id=id)
