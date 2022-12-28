@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #cad2c5;
+    font-family: Palatino, "Palatino Linotype", "Book Antiqua", serif;
+    font-style: normal;
+    font-size: 16px;
+    color: #212721;
+}
+
+header {
+    height: 100px;
+    background: #212721;
+    display: flex;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-img {
+    max-width: 670px;
+    height: auto;
+}
+
+.content-left {
+    width: 30%;
+}
+
+main h1{
+    font-size: 54px;
+    color: #84a98c;
+    text-transform: uppercase;
+}
+
+main h2 {
+    font-size: 24px;
+    color: #2f3e46;
+    text-transform: uppercase;
+}
+
+main p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 30px 0;
+}
+
+.shop-btn {
+    padding: 15px 30px;
+    background: #84a98c;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.logo {
+    margin-top: 50px;
+    margin-left: 50px;
+    border-radius: 50px;
+    width: 100px;
+}
