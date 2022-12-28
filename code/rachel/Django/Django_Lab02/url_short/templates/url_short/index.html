@@ -8,12 +8,14 @@
 </head>
 <body>
     <h1>URL Shortener</h1>
-    <form action={% url %} method='post'>
+    <form action="/long_url/" method='post'>
         {% csrf_token %}
         <label for="long_url">Enter the long URL here: ></label>
-        <input type="text" name="long_url" id="long_url">
+        <input type="text" name="long_url" id="long_url" {# value="{{ current_url }} #}>
         <input type="submit" value="Submit">
     </form>
 
+
 </body>
 </html>
+
