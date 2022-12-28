@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+</head>
+<body>
+    <h2>Incomplete</h2>
+    {% if incomplete_list %}
+        <ul>
+            {% for  item in incomplete_list%}
+                <li><a href="/grocery_list/{{ item.id }}/">{{ item.item_text }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No incomplete items</p>
+    {% endif %}
+    <h2>Complete</h2>
+    {% if complete_list %}
+        <ul>
+            {% for item in complete_list%}
+                <li><a href="/grocery_list/{{ item.id }}/">{{ item.item_text }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No complete items</p>
+    {% endif %}
+</body>
+</html>
