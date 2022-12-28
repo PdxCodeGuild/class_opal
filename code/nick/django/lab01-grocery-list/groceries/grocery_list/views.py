@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from .models import Item
 # Create your views here.
 
@@ -16,6 +17,8 @@ def index(request):
 
 def delete(request, item_id):
     item_to_delete = get_object_or_404(Item, pk=item_id)
+    item_to_delete.delete()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
 
 
 def completer(request):

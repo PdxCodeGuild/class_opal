@@ -11,8 +11,8 @@
     {% if incomplete_list %}
             {% for  item in incomplete_list%}
                 <p>{{ item.item_text }}</p>
-                <form action="/grocery_list/{{ item.id }}/completer/" method="post">{% csrf_token %}<button type="submit">Mark Complete</button></form>
-                <form action="/grocery_list/{{ item.id }}/delete/" method="post">{% csrf_token %}<button type="submit">Delete</button></form>
+                <form action="{% url 'grocery_list:completer' item.id %}" method="post">{% csrf_token %}<button type="submit">Mark Complete</button></form>
+                <form action="{% url 'grocery_list:delete' item.id %}" method="post">{% csrf_token %}<button type="submit">Delete</button></form>
             {% endfor %}
     {% else %}
         <p>No incomplete items</p>
@@ -21,6 +21,8 @@
     {% if complete_list %}
             {% for item in complete_list%}
                 <p>{{ item.item_text }}</p>
+                <form action="{% url 'grocery_list:completer' item.id %}" method="post">{% csrf_token %}<button type="submit">Mark Complete</button></form>
+                <form action="{% url 'grocery_list:delete' item.id %}" method="post">{% csrf_token %}<button type="submit">Delete</button></form>
             {% endfor %}
     {% else %}
         <p>No complete items</p>
