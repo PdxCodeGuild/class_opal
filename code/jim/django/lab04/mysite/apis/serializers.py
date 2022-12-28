@@ -12,4 +12,4 @@ class StudentSerializer(serializers.ModelSerializer):
             'favorite_teacher',
             'capstone',
         )
-        model = models.Todo
+        model = models.Student
