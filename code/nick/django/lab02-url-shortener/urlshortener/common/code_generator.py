@@ -12,7 +12,7 @@ def code_generator():
     # put all characters into one list
     code_characters = []
 
-    for _ in range(4):
+    for _ in range(2):
         code_characters.append(random.choice(characters[0]))
         code_characters.append(random.choice(characters[1]))
         code_characters.append(random.choice(characters[2]))
