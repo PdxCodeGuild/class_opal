@@ -1,0 +1,5 @@
+body{
+    background-image: url('bird_background.jpeg');
+    background-attachment: fixed;
+    background-size: cover;
+}
