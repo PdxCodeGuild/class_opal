@@ -1,0 +1,40 @@
+<h1>Grocery List</h1>
+<form action="{% url 'grocery_list:add' %}" method="POST">
+    {% csrf_token %}
+    <label for="item_description">add item</label><br>
+    <input type="text" id="item_description" name='item_description'>
+    <input type="submit" value="add">
+</form>
+
+
+<h2>I Still Need...</h2>
+
+<ul>
+    {% for item in incomplete_items %}
+    <li>{{ item.item_description }}
+        <form action="{% url 'grocery_list:complete' item.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="complete">
+        </form>
+        <form action="{% url 'grocery_list:delete' item.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="delete">
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+<h2>Completed</h2>
+<ul>
+    {% for item in completed_items %}
+    <li>{{ item.item_description }}
+        <form action="{% url 'grocery_list:complete' item.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="incomplete"> <br>
+        </form>
+        <form action="{% url 'grocery_list:delete' item.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="delete"> <br>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
