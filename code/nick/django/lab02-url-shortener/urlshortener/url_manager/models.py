@@ -9,4 +9,4 @@ class Url(models.Model):
     code = models.CharField(max_length=12, blank=True)
 
     def __str__(self) -> str:
-        return f'http://127.0.0.1:8000/{self.code}'
+        return f'http://127.0.0.1:8000/url_manager/redirect/{self.code}'
