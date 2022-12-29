@@ -27,4 +27,4 @@ def add_post(request):
 
 def user_posts(request, user_id):
     user = User.objects.get(id=user_id)
-    return render(request, 'user-posts.html', {'user':user})
+    return render(request, 'userposts.html', {'user':user})

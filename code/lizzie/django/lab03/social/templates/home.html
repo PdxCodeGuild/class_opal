@@ -6,7 +6,7 @@
 {% if user.is_authenticated %}
 <!-- Once I add more information, this can change. Can still display whole site maybe but the login/logout is different -->
   {{ user.username }}!
-
+  <a href="{{ user.id }}">{{ user.username }}</a>
   <form action="{% url 'posts:add_post' %}" method="post">
     {% csrf_token %}
     <label for="new_post">New Shriek:</label>
@@ -17,7 +17,6 @@
   </form>
   <p><a href="{% url 'logout' %}">Log Out</a></p>
 
-
 {% else %}
   <p>You are not logged in</p>
   <p><a href="{% url 'login' %}">Log In</a></p>
@@ -27,7 +26,9 @@
 {% if posts %}
 
 {% for p in posts reversed %}
-{{ p.user.username }} — {{ p.pub_date }}
+
+  <a href="{{ p.user.id }}">{{ p.user.username }}</a> — {{ p.pub_date }}
+
 {{ p.post_text }}<br \>
 {% endfor %}
 
