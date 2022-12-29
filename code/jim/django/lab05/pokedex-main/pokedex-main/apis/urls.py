@@ -8,7 +8,7 @@ router.register('', PokemonViewSet, basename='pokemon')
 # router.register('', RetrieveUpdateDestroyPokemonAPIView, basename='pokemon')
 # Add the view to the URL patterns
 urlpatterns = [
-    path('pokemon/<int:pk>/',
+    path('<int:pk>/',
          RetrieveUpdateDestroyPokemonAPIView.as_view(), name='pokemon-detail'),
 ]
 # Add the router's URL patterns to the list
