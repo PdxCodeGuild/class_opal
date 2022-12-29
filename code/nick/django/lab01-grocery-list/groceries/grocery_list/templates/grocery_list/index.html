@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+</head>
+<body>
+    <h2>Add New Item</h2>
+    <form action="{% url 'grocery_list:create' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="item" id="item" placeholder="Enter Item">
+        <button type="submit">Add</button>
+    </form>
+    <h2>Incomplete</h2>
+    {% if incomplete_list %}
+            {% for  item in incomplete_list%}
+                <p>{{ item.item_text }}</p>
+                <form action="{% url 'grocery_list:completer' item.id %}" method="post">{% csrf_token %}<button type="submit">Mark Complete</button></form>
+                <form action="{% url 'grocery_list:delete' item.id %}" method="post">{% csrf_token %}<button type="submit">Delete</button></form>
+            {% endfor %}
+    {% else %}
+        <p>No incomplete items</p>
+    {% endif %}
+    <h2>Complete</h2>
+    {% if complete_list %}
+            {% for item in complete_list%}
+                <p>{{ item.item_text }}</p>
+                <form action="{% url 'grocery_list:completer' item.id %}" method="post">{% csrf_token %}<button type="submit">Mark Inomplete</button></form>
+                <form action="{% url 'grocery_list:delete' item.id %}" method="post">{% csrf_token %}<button type="submit">Delete</button></form>
+            {% endfor %}
+    {% else %}
+        <p>No complete items</p>
+    {% endif %}
+</body>
+</html>
