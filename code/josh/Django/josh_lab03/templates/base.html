@@ -11,6 +11,7 @@
 </head>
 <body>
   <div class="container">
+    <header>CHIRP</header>
     <nav><a href="{% url 'home' %}">| Home  </a><a href="{% url 'posts:index' %}">| Posts </a><a href="{% url 'logout' %}">|  Log Out |</a></nav>
     <article>
     {% block content %}
