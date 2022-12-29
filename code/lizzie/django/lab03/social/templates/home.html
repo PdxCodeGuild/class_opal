@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home — Shriek{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
@@ -10,9 +10,9 @@
   <form action="{% url 'posts:add_post' %}" method="post">
     {% csrf_token %}
     <label for="new_post">New Shriek:</label>
-    <textarea id="new_post" name="new_post" maxlength="120">
-    Max length: 120 chars.
-    </textarea>
+    <textarea id="new_post" name="new_post" maxlength="120" wrap="hard" required placeholder="Max length: 120 chars.">
+</textarea>
+    
     <input type="submit" value="Submit">
   </form>
   <p><a href="{% url 'logout' %}">Log Out</a></p>
