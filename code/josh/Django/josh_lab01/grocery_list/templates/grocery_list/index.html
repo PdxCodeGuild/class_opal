@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+</head>
+<body style="background-color: lightgreen;">
+    <h1>Grocery List</h1>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Completed</th>
+            <th>Delete</th>
+        </tr>
+        {% for item in grocery_list %}
+        <tr>
+            <td>{{ item.text_description }}</td>
+            {% if item.completed == False %}
+            <td><a href="{% url 'grocery_list:complete' id=item.id %}"><input type="button" value="incomplete"></input></a></td>
+            {% else %}
+            <td><a href="{% url 'grocery_list:complete' id=item.id %}"><input type="button" value="complete"></a></td>
+            {% endif %}
+            <td><a href="{% url 'grocery_list:delete' id=item.id %}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="{% url 'grocery_list:index' %}" method="post">
+        {% csrf_token %}
+        <label for="grocery_item">Add Item</label>
+        <input type="text" id="grocery_item" name="text_description"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
