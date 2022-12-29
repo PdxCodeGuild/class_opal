@@ -10,9 +10,15 @@
   <link rel="stylesheet" href="{% static 'static/styles.css' %}">
 </head>
 <body>
-  <main>
+  <div class="container">
+    <nav><a href="{% url 'home' %}">| Home  </a><a href="{% url 'posts:index' %}">| Posts </a><a href="{% url 'logout' %}">|  Log Out |</a></nav>
+    <article>
     {% block content %}
     {% endblock %}
+    </article>
+    <footer></footer>
+  </div>
+  <main>
   </main>
 </body>
 </html>
