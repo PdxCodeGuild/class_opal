@@ -1,9 +1,9 @@
 from django.db import models
-from common.url_generator import url_generator
+from common.code_generator import code_generator
 
 # Create your models here.
 
 
 class Url(models.Model):
     original_url = models.CharField(max_length=255)
-    short_url = models.CharField(max_length=15, default=url_generator())
+    code = models.CharField(max_length=12, default=code_generator())
