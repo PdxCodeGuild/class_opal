@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Url Shortener</title>
 </head>
 <body>
-    
+    <h1>URL Shortener</h1>
+    {% if new_url %}
+        <h2>Here's your new short URL!</h2>
+        <h3>{{ new_url }}</h3>
+    {% endif %}
+    <form action="{% url 'url_manager:generate' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="url" id="url">
+        <button type="submit">Generate</button>
+    </form>
 </body>
 </html>
