@@ -15,26 +15,3 @@ class PokemonSerializer(serializers.ModelSerializer):
         model = Pokemon
         fields = ('number', 'name', 'height', 'weight',
                   'image_front', 'image_back', 'caught_by', 'types')
-
-
-# class PokemonSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         fields = (
-#             'number',
-#             'name',
-#             'height',
-#             'weight',
-#             'image_front',
-#             'image_back',
-#             'caught_by',
-#         )
-#         model = models.Pokemon
-
-
-# class TypeSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         fields = (
-#             'type',
-#             'pokemon',
-#         )
-#         model = models.Type

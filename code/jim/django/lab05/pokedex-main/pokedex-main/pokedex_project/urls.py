@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from apis import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +24,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('apis/v1/', include('apis.urls')),
+    # path('apis/v1/create/', views.PokemonCreateView.as_view(), name='create_pokemon'),
 ]
