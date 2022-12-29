@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Grocery List</title>
+</head>
+
+
+<body style="color:#023020; background-color: #FFFEF2">
+    <h1 style="text-align: center">My Grocery List</h1>
+    <p style="text-align: center">Add, delete, and mark items complete or incomplete. Select a specific item to view its details.</p>
+    <form action="{% url 'grocery_list:add_item' %}" method="post" style="text-align: center">
+        {% csrf_token %}
+        <label for="input_item">Add a new item:</label>
+        <input type="text" name="input_item" id="input_item">
+        <input type="submit">
+    </form>
+    
+    <h1>Incomplete Items:</h1>
+    
+    {% if latest_grocery_items %}
+    <ul>
+        {% for item in latest_grocery_items %}
+        {% if item.is_complete == False %}
+        <li><a href="{% url 'grocery_list:detail' item.id %}">{{ item.text_desc }}</a></li>
+        <form action="{% url 'grocery_list:delete_item' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="delete_item" value="{{ item.id }}">
+            <input type="submit" value="Delete">
+        </form>
+        <form action="{% url 'grocery_list:complete_item' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="complete_item" value="{{ item.text_desc }}">
+            <input type="submit" value="Mark Complete">
+        </form>
+    {% endif %}
+    {% endfor %}
+    </ul>
+
+    <h1>Complete Items:</h1>
+    <ul>
+        {% for item in latest_grocery_items %}
+        {% if item.is_complete == True %}
+        <li><a href="{% url 'grocery_list:detail' item.id %}">{{ item.text_desc }}</a></li>
+        <form action="{% url 'grocery_list:delete_item' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="delete_item" value="{{ item.id }}">
+            <input type="submit" value="Delete">
+        </form>
+        <form action="{% url 'grocery_list:incomplete_item' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="incomplete_item" value="{{ item.text_desc }}">
+            <input type="submit" value="Mark Incomplete">
+        </form>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    
+{% else %}
+    <p>Your grocery list is empty.</p>
+{% endif %}
+</body>
+</html>
