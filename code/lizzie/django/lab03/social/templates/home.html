@@ -3,37 +3,55 @@
 {% block title %}Home — Shriek{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-<!-- Once I add more information, this can change. Can still display whole site maybe but the login/logout is different -->
-  {{ user.username }}!
-  <a href="{{ user.id }}">{{ user.username }}</a>
-  <form action="{% url 'posts:add_post' %}" method="post">
-    {% csrf_token %}
-    <label for="new_post">New Shriek:</label>
-    <textarea id="new_post" name="new_post" maxlength="120" wrap="hard" required placeholder="Max length: 120 chars.">
-</textarea>
+
+<body>
+  {% if request.user.is_authenticated %}
+  <header id="navbar">
+    <div class="icon">
+      <p><a href="{{ user.id }}"><img src="https://imgur.com/tSdtc2l.png"></a></p>
+    </div>
+    <p><a href="#"><i class="fa-solid fa-house fa-2xl"></i></a></p>
+    <div class="login-info">
+      <p class="username-small">Hello, {{ user.username }}!</p>
+    <p><a href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></p>
+    </div>
+  </header>
+  
+  <div id="new-shriek">
+    <form action="{% url 'posts:add_post' %}" method="post">
+      {% csrf_token %}
+      <label for="new_post">New Shriek:</label>
+      <textarea id="new_post" name="new_post" maxlength="120" wrap="hard" required placeholder="Max length: 120 chars."></textarea>
+      <input type="submit" value="Shriek">
+    </form>
+  </div>
+
+  {% else %}
+  <header id="navbar">
+    <p><a href="{% url 'login' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log In</a></p>
+    <p>Back to top</p>
+    <p><a href="{% url 'signup' %}"><i class="fa-regular fa-pen-to-square"></i> Sign Up</a></p>
+  </header>
+  {% endif %}
+
+
+  <main id="main">
+    {% if posts %}
+
+    {% for p in posts reversed %}
+    <p><a href="{{ p.user.id }}">{{ p.user.username }}</a> — <span class="date">{{ p.pub_date }}</span></p>
+    {{ p.post_text }}<br \>
+    <hr \>
+    {% endfor %}
     
-    <input type="submit" value="Submit">
-  </form>
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
+    {% else %}
+    <p>Your feed is empty.</p>
+    {% endif %}
+  </main>
 
-{% else %}
-  <p>You are not logged in</p>
-  <p><a href="{% url 'login' %}">Log In</a></p>
-  <p><a href="{% url 'signup' %}">Sign Up</a></p>
-{% endif %}
+  <footer id="footer">
+    <a href="#"><i class="fa-solid fa-house"></i>Go to top</a>
+  </footer>
 
-{% if posts %}
-
-{% for p in posts reversed %}
-
-  <a href="{{ p.user.id }}">{{ p.user.username }}</a> — {{ p.pub_date }}
-
-{{ p.post_text }}<br \>
-{% endfor %}
-
-{% else %}
-<p>Your feed is empty.</p>
-
-{% endif %}
 {% endblock %}
+</body>

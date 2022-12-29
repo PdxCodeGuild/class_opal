@@ -1,0 +1,85 @@
+/* This is just for ease of access so that it's in scope and I can call them when I want them. */
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.colors {
+    color: #1E2328;
+    color: #2A2E34;
+    color: #3b3f46;
+    color: #6b727d;
+    color: #f3a228;
+    color: #f5b301;
+    color: #Fed053;
+}
+
+body {
+    background-color: #1E2328;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a {
+    color: #f3a228;
+    text-decoration: none;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border-bottom: .4px solid;
+    padding-bottom: 12px;
+}
+
+#new-shriek {
+    padding-top: 1rem;
+    border: .4px solid #ccc;
+    border-radius: 4px;
+    margin-top: 2rem;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    background-color: #1E2328;
+    resize: none;
+    border: 0px;
+}
+
+.date {
+    color: #6b727d;
+}
+
+hr {
+    width: 100vw;
+}
+
+#footer {
+    background-color: yellow;
+}
+
+.icon {
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* targets the image in that class */
+.icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.username-small {
+    font-size: 8pt;
+}
