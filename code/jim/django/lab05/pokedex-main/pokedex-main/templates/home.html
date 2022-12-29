@@ -14,25 +14,25 @@
     <h2>Create a new Pokemon</h2>
     <form @submit="createPokemon">
         {% csrf_token %}
-        <label for="number">number:</label>
+        <label for="number">Number:</label>
         <input type="text" v-model="number" id="number" required>
         <br>
         <label for="name">Name:</label>
         <input type="text" v-model="name" id="name" required>
         <br>
-        <label for="height">height:</label>
+        <label for="height">Height:</label>
         <input type="text" v-model="height" id="height" required>
         <br>
-        <label for="weight">weight:</label>
+        <label for="weight">Weight:</label>
         <input type="text" v-model="weight" id="weight" required>
         <br>
-        <label for="image_front">image_front:</label>
+        <label for="image_front">Image_front:</label>
         <input type="text" v-model="image_front" id="image_front" required>
         <br>
-        <label for="image_back">image_back:</label>
+        <label for="image_back">Image_back:</label>
         <input type="text" v-model="image_back" id="image_back" required>
         <br>
-        <label for="caught_by">caught_by:</label>
+        <label for="caught_by">Caught_by:</label>
         <input type="text" v-model="caught_by" id="caught_by" required>
         <br>
         <!-- <label for="type">type:</label> -->
@@ -44,25 +44,25 @@
     <h2>Edit an existing Pokemon</h2>
     <form @submit="editPokemon(edit_number)">
         {% csrf_token %}
-        <label for="edit_number">number:</label>
+        <label for="edit_number">Number:</label>
         <input type="text" v-model="edit_number" id="edit_number" required>
         <br>
         <label for="edit_name">Name:</label>
         <input type="text" v-model="edit_name" id="edit_name" required>
         <br>
-        <label for="edit_height">height:</label>
+        <label for="edit_height">Height:</label>
         <input type="text" v-model="edit_height" id="edit_height" required>
         <br>
-        <label for="edit_weight">weight:</label>
+        <label for="edit_weight">Weight:</label>
         <input type="text" v-model="edit_weight" id="edit_weight" required>
         <br>
-        <label for="edit_image_front">image_front:</label>
+        <label for="edit_image_front">Image_front:</label>
         <input type="text" v-model="edit_image_front" id="edit_image_front" required>
         <br>
-        <label for="edit_image_back">image_back:</label>
+        <label for="edit_image_back">Image_back:</label>
         <input type="text" v-model="edit_image_back" id="edit_image_back" required>
         <br>
-        <label for="edit_caught_by">caught_by:</label>
+        <label for="edit_caught_by">Caught_by:</label>
         <input type="text" v-model="edit_caught_by" id="edit_caught_by" required>
         <br>
         <!-- <label for="edit_type">type:</label> -->
