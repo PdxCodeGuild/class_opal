@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import BothUrls
+from .models import BothUrl
 
-admin.site.register(BothUrls)
+admin.site.register(BothUrl)

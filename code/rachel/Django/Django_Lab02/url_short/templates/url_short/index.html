@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +9,17 @@
 </head>
 <body>
     <h1>URL Shortener</h1>
-    <form action="/long_url/" method='post'>
+    <form action="{% url 'url_short:urlCode' %}" method='post'>
         {% csrf_token %}
-        <label for="long_url">Enter the long URL here: ></label>
-        <input type="text" name="long_url" id="long_url" {# value="{{ current_url }} #}>
+        <label for="long_url">Enter the long URL here: </label>
+        <input type="text" name="long_url" id="long_url">
         <input type="submit" value="Submit">
     </form>
-
-
+    <url>
+    {% for i in data %} {# since data is the object we are returning #}
+        <li>Your short URL is {{ i.short_code }}<a href="{% url 'url_short:urlRedirect' i %}"> {{ i }} </a></li>
+    {% endfor %}
+    </ul>    
 </body>
 </html>
 
