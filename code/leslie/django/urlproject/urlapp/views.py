@@ -1,18 +1,8 @@
 from django.shortcuts import render
 from django.http import Http404, HttpResponse, HttpResponseRedirect
-# from django.urls import reverse
-# from django.template import loader
 import random
 import string
 from .models import Url
-
-
-# class IndexView(generic.ListView):
-#     template_name = 'urlapp/index.html'
-# context_object_name = 'Url_list'
-
-# def get_queryset(self):
-# return Url.objects.order_by('-date_created')[:10]
 
 
 def index(request):
@@ -33,20 +23,20 @@ def createshorturl(request):
 def url_created(request):
     url = Url.objects.all()
     list_of_short_urls = []
+    # turned list_of_short_urls into a dictionary so all 3 args could be added
     for x in url:
-        list_of_short_urls.append({'short_code':str(x.short_code), 'long_url':x.long_url, 'times_clicked': x.times_clicked})
+        list_of_short_urls.append({'short_code': str(
+            x.short_code), 'long_url': x.long_url, 'times_clicked': x.times_clicked})
     print(list_of_short_urls)
     return render(request, 'detail.html', {'url': list_of_short_urls})
 
 
 def direct_user(request, short_code):
     try:
-        # see if the short code URL exists
         short_url = Url.objects.get(short_code=short_code)
         print("short_url")
-        short_url.times_clicked += 1  # if it does, add 1 to times_clicked
-        short_url.save()  # save
-        # send user to the long URL site
+        short_url.times_clicked += 1
+        short_url.save()
         return HttpResponseRedirect(short_url.long_url)
     except:
         raise Http404('This URL not found!')
