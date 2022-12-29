@@ -1,0 +1,54 @@
+<h2>Enter an Item</h2>
+
+<form action="{% url 'grocery_list:add_item' %}" method="post">
+    {% csrf_token %}
+    <label for="new_item">New Grocery Item</label><br>
+    <input type="text" id="new_item" name="new_item" value=""><br>
+    <input type="submit" value="Submit">
+</form>
+
+<h2>Incomplete Items</h2>
+{% if latest_grocery_item_list %}
+<ul>
+    {% for grocery_item in latest_grocery_item_list %}
+    {% if grocery_item.is_complete == False %}
+    <li>{{ grocery_item.description }}</li>
+    <form action="{% url 'grocery_list:delete_item' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="delete_item" value="{{ grocery_item.id }}">
+        <input type="submit" value="Delete">
+    </form>
+    <form action="{% url 'grocery_list:mark_complete' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="mark_complete" value="{{ grocery_item.description }}">
+        <input type="submit" value="Mark Complete">
+    </form>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% else %}
+<p>No items are incomplete.</p>
+{% endif %}
+
+<h2>Complete Items</h2>
+{% if latest_grocery_item_list %}
+<ul>
+    {% for grocery_item in latest_grocery_item_list %}
+    {% if grocery_item.is_complete == True %}
+    <li>{{ grocery_item.description }}</li>
+    <form action="{% url 'grocery_list:delete_item' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="delete_item" value="{{ grocery_item.id }}">
+        <input type="submit" value="Delete">
+    </form>
+    <form action="{% url 'grocery_list:mark_incomplete' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="mark_incomplete" value="{{ grocery_item.description }}">
+        <input type="submit" value="Mark Incomplete">
+    </form>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% else %}
+<p>No items are complete.</p>
+{% endif %}
