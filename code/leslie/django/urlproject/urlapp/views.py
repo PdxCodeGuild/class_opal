@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404, HttpResponse, HttpResponseRedirect
+# from django.urls import reverse
 # from django.template import loader
 import random
 import string
@@ -31,7 +32,11 @@ def createshorturl(request):
 
 def url_created(request):
     url = Url.objects.all()
-    return render(request, 'detail.html', {'url': url})
+    list_of_short_urls = []
+    for x in url:
+        list_of_short_urls.append({'short_code':str(x.short_code), 'long_url':x.long_url, 'times_clicked': x.times_clicked})
+    print(list_of_short_urls)
+    return render(request, 'detail.html', {'url': list_of_short_urls})
 
 
 def direct_user(request, short_code):

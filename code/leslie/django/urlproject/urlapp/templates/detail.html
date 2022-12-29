@@ -15,7 +15,7 @@
 
     <body>
         <h3>Enjoy your brand new URLs!</h3><br>
-        <table style="border:1px solid #000" id='table'>
+        <table border='1px solid #000' id='table'> <!--don't know why this works, but the 'right' way doesn't-->
             <thead>
                 <tr>
                     <th>Long URL</th>
@@ -27,7 +27,7 @@
             <tbody>
                 <tr>
                     <td>{{ u.long_url }}</td>
-                    <td><a href="{% url 'urlapp:direct_user' short=u.short_code %}">{{ u.short_code }}</a></td>
+                    <td><a href="{% url 'urlapp:direct_user' u.short_code %}">{{ u.short_code }}</a></td>
                     <td>{{ u.times_clicked }}</td>
                     {% endfor %}
                 </tr>
