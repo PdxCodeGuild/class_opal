@@ -1,5 +1,7 @@
-body{
-    background-image: url('bird_background.jpeg');
-    background-attachment: fixed;
+body, html{
+    background-image: url('background_eggs.jpg');
     background-size: cover;
+    background-attachment: fixed;
+    margin: auto;
+    /* overflow-x: hidden; */
 }
