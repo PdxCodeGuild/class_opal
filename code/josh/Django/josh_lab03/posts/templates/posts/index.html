@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
-
-{% block title %}posts: Django Lab 03{% endblock %}
-
+{% block title %}Posts: Django Lab 03{% endblock %}
 {% block content %}
+
+<form action="{% url 'posts:index' %}" method="post">
+    {% csrf_token %}
+    <label for="chirp">Chirp: </label><br>
+    <textarea id="chirp" name="chirp" placeholder="What's chirping?" rows="2" columns="128"></textarea><br>
+    <input type="submit" value="Chirp">
+</form><br>
+
 {% endblock %}
