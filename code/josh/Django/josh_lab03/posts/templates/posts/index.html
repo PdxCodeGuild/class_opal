@@ -10,9 +10,9 @@
 </form><br>
 
 {% for item in posts reversed %}
-<article style="border-style: solid; border-width: 0.5vw; background-color: rgba(87, 188, 235, 0.801); padding: 1vw; font-size: 2vw; margin: 0 1vw 0 1vw;">
+<article style="border-style: solid; border-width: 0.5vw; background-color: rgba(87, 188, 235, 0.801); padding: 1vw; font-size: 2vw;">
 {{ item.chirp }}
-</article><br>
+</article>
 {% endfor %}
 
 {% endblock %}
