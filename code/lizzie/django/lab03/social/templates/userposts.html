@@ -3,12 +3,28 @@
 {% block title %}User Posts{% endblock %}
 
 {% block content %}
-<h1>{{ user.username }}'s Chirps</h1>
+<header id="navbar">
+    <p style="font-size:1.2rem">{{ user.username }}'s Shrieks</p>
+</header>
 
 
-{% for post in user.post_set.all %}
-<h4>{{ post.pub_date }}</h4>
-<div>{{ post.post_text }}</div>
+{% for post in user.post_set.all reversed %}
+<hr \>
+<div class="message">
+  <div class="user-info">
+    <div class="icon" class="padding">
+      <p><a href="#"><img src="https://imgur.com/DrDZAT0.png"></a></p>
+    </div>
+    <div class="text">
+      <p class="name-date"><a href="{{ p.user.id }}">{{ user.username }}</a> · <span class="date">{{ post.pub_date }}</span></p>
+      <p>{{ post.post_text }}</p>
+    </div>
+  </div>
+</div>
 {% endfor %}
+
+<footer id="footer">
+    <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+</footer>
 
 {% endblock %}
