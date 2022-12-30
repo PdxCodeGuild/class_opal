@@ -5,6 +5,7 @@ from . import views
 app_name = 'chirpapp'
 
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+
     
 ]
