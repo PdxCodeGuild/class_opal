@@ -153,3 +153,24 @@ input[type=password] {
     background-color: #3b3f46;
     color: white;
 }
+
+/* media query for tablet */
+@media screen and (min-width: 641px) {
+
+    main {
+        display: flex;
+    }
+
+    textarea {
+        width: 40vw;
+    }
+
+    .user-info {
+        width: 55vw;
+    }
+
+    #new-shriek {
+        height: 200px;
+    }
+
+}
