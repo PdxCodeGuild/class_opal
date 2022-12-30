@@ -1,0 +1,7 @@
+<h2>Log In Here</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }} <!--form contents are outputted between paragraph tags-->
+    <button type="submit">Log In</button>
+</form>
