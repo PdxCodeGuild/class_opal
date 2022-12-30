@@ -31,8 +31,8 @@ body, html {
 
 header {
     grid-area: header;
-    font-family: fantasy;
-    font-size: 15vw;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 10vw;
     
 }
 
