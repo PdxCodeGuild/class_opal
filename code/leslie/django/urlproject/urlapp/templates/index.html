@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+    <head>
+        <meta charset='UTF-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <link rel='preconnect' href='https://fonts.googleapis.com'>
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+        <link href='https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap' rel='stylesheet'>
+        {% load static %}
+        <link rel='stylesheet' href="{% static 'urlapp/style.css' %}">
+        <title>URL Shortener</title>
+    </head>
+    <div id='main'>
+
+        <body>
+            <h1>URL Shortener</h1>
+            <div id='form'>
+                <form action='createshorturl/' method='POST'>
+                    {% csrf_token %}
+                    <br>
+                    <label for='long_url'>Enter long URL here:</label><br><br>
+                    <input type='text' name='long_url' id='long_url' placeholder='Feed me delicious URLs!'><br>
+                    <input type='submit' id='submit'>
+                </form>
+            </div>
+            <br>
+            <br>
+            
+            <a href='url_created' id='new_url_link'>Click here to view your fancy new URL!</a>
+            
+        </body>
+    </div>
+
+</html>
