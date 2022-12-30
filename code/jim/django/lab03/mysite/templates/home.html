@@ -1,0 +1,37 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Hi {{ user.username }}!</h1>
+
+<p>
+<form action="{% url 'posts:add_post' %}" method="post">
+    {% csrf_token %}
+    <label for="new_post">New Chirp:</label><br>
+    <textarea id="new_post" name="new_post" rows="4" cols="50">Max 280 characters
+        </textarea>
+    <input type="submit" value="Submit">
+</form>
+</p>
+
+{% else %}
+<p>You are not logged in</p>
+
+{% endif %}
+
+<h2>Chirps</h2>
+{% if posts %}
+
+{% for p in posts %}
+<h3>{{ p.user.username }} -- <span id="post-date">{{ p.pub_date }}</span></h3>
+<div class="card">{{ p.post_text }}</div>
+{% endfor %}
+
+{% else %}
+<p>No posts are available.</p>
+
+{% endif %}
+{% endblock %}
