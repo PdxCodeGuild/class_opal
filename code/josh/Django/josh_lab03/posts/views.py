@@ -9,15 +9,16 @@ def index(request):
     if request.method == 'POST':
         form_data = request.POST
         user = User.objects.filter(username=request.user)
-        # date = 
+        date = Posts.objects.all()
+        print(date)
         post = Posts.objects.create(
             chirp = form_data['chirp'],
-            users = user[0]
+            users = user[0],
+            # timestamp = date[0]
         )
         return HttpResponseRedirect(reverse('posts:index'))
     else:
         post = Posts.objects.all()
-        print(post)
         user = User.objects.filter(username=request.user)
         context = {'posts': post}
         return render(request, 'posts/index.html', context)

@@ -5,13 +5,13 @@
 <form action="{% url 'posts:index' %}" method="post">
     {% csrf_token %}
     <label for="chirp"></label><br>
-    <textarea id="chirp" name="chirp" placeholder="What's chirping?" row="2" column="64"></textarea><br>
+    <textarea id="chirp" name="chirp" placeholder="{{ user.username }} is chirping." row="2" column="64"></textarea><br>
     <input type="submit" value="Chirp">
 </form><br>
 
 {% for item in posts reversed %}
-<article style="border-style: solid; border-width: 2px; background-color: rgba(87, 188, 235, 0); font-size: 2vw;">
-{{ item.chirp }}{{item.users}}
+<article style="width: 100%; border-style: solid; border-width: 1px 0 1px 0; background-color: rgba(87, 188, 235, 0); font-size: 2vw;">
+{{ item.users }} says "{{ item.chirp }}" {{ item.pub_date }}
 </article>
 {% endfor %}
 

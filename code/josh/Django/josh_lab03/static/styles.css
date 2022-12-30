@@ -9,7 +9,7 @@ body, html {
 .container {
     display: grid;
     /* position: fixed; */
-    grid-template-columns: auto;
+    grid-template-columns: 70vw;
     grid-template-areas: 
     "header"
     "nav"
