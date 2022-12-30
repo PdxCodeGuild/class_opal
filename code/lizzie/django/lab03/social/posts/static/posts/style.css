@@ -59,7 +59,8 @@ textarea {
     color: #Fed053
 }
 
-input[type=submit] {
+input[type=submit],
+button[type=submit] {
     background-color: #f3a228;
     color: #3b3f46;
 
@@ -120,4 +121,35 @@ footer {
 
 .name-date {
     padding-bottom: .4rem;
+}
+
+.title {
+    font-size: 2rem;
+    background-color: #6b727d;
+}
+
+#signup,
+#login {
+    padding: 1rem;
+}
+
+ul {
+    padding: 1rem;
+    font-size: .8rem;
+    list-style: none;
+}
+
+#signup>form>p,
+#signup>.title,
+#login>form>p,
+#login>.title {
+    padding: .5rem;
+}
+
+input[type=text],
+input[type=password] {
+    font-family: Palatino, Georgia, 'Times New Roman', Times, serif;
+    padding: .5rem;
+    background-color: #3b3f46;
+    color: white;
 }
