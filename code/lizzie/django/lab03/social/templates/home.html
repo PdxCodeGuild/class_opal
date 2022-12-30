@@ -8,7 +8,7 @@
   {% if request.user.is_authenticated %}
   <header id="navbar">
     <div class="icon">
-      <p><a href="{{ user.id }}"><img src="https://imgur.com/l9eN02b.png"></a></p>
+      <p><a href="{{ user.id }}"><img src="https://imgur.com/ejwhvcR.png"></a></p>
     </div>
     <p><a href="#"><i class="fa-solid fa-house fa-2xl"></i></a></p>
     <div class="login-info">
@@ -39,9 +39,18 @@
     {% if posts %}
 
     {% for p in posts reversed %}
-    <p><a href="{{ p.user.id }}">{{ p.user.username }}</a> — <span class="date">{{ p.pub_date }}</span></p>
-    {{ p.post_text }}<br \>
     <hr \>
+    <div class="message">
+      <div class="user-info">
+        <div class="icon" class="padding">
+          <p><a href="{{ user.id }}"><img src="https://imgur.com/DrDZAT0.png"></a></p>
+        </div>
+        <div class="text">
+          <p class="name-date"><a href="{{ p.user.id }}">{{ p.user.username }}</a> · <span class="date">{{ p.pub_date }}</span></p>
+          <p>{{ p.post_text }}</p>
+        </div>
+      </div>
+    </div>
     {% endfor %}
     
     {% else %}
