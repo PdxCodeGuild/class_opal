@@ -7,4 +7,4 @@ class Posts(models.Model):
     pub_date = models.DateTimeField('date published', auto_now_add=True, null=True)
 
     def __str__(self):
-        return self.chirp
+        return(f'{self.chirp}, {self.users}, {self.pub_date}')

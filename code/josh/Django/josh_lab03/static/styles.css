@@ -44,7 +44,7 @@ nav {
 article {
     grid-area: article;
     border-style: solid;
-    border-width: 0.5vw;
+    border-width: 2px;
     background-color: rgba(87, 188, 235, 0.801);
     padding: 1vw;
     font-size: 2vw;
