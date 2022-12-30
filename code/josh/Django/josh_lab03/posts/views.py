@@ -3,7 +3,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from . models import Posts
 from django.contrib.auth.models import User
-import datetime
 
 def index(request):
     if request.method == 'POST':
@@ -13,8 +12,7 @@ def index(request):
         print(date)
         post = Posts.objects.create(
             chirp = form_data['chirp'],
-            users = user[0],
-            # timestamp = date[0]
+            users = user[0]
         )
         return HttpResponseRedirect(reverse('posts:index'))
     else:

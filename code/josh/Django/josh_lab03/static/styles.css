@@ -3,12 +3,10 @@ body, html {
     background-size: cover;
     background-attachment: fixed;
     margin: auto;
-    /* overflow-x: hidden; */
 }
 
 .container {
     display: grid;
-    /* position: fixed; */
     grid-template-columns: 70vw;
     grid-template-areas: 
     "header"
