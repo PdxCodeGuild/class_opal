@@ -10,4 +10,9 @@
   {{ form.as_p }}
   <button type="submit">Log In</button>
 </form>
+or
+<form action="{% url 'users:signup' %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Create a New Account</button>
+</form>
 {% endblock %}

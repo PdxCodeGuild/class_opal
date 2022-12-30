@@ -32,7 +32,8 @@ body, html {
 header {
     grid-area: header;
     font-family: fantasy;
-    font-size: 25vw;
+    font-size: 15vw;
+    
 }
 
 nav {
@@ -48,8 +49,6 @@ article {
     padding: 1vw;
     font-size: 2vw;
     margin: 0 1vw 0 1vw;
-    /* justify-content: center;
-    justify-items: center; */
 }
 
 footer {
