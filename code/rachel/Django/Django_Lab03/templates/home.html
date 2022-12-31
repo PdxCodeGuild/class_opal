@@ -4,12 +4,13 @@
     <div class='join'>
         <p>Like what you see? <a href="">Join</a> the Chirp! Catmosphere and never miss another impurrtent post</p>
     </div>
-    {% for post in posts %} {# or 'for post in object_list'#}
+    {% for post in post_list %} {# or 'for post in object_list'#}
         <div class='post_list'>
-            <h2> {{ post.title }} </h2>
-            <h3> {{ post.author.username }} </h2>
+            <h2><a href="{% url 'post:BlogDetailView' %}">{{ post.title }} </a></h2>
+            <h3><a href="{% url 'user:FILLL' %}">{{ post.author.username }} </a></h2>
             <h4><em> posted on{{ post.created_date }} </em></h4>
-            <p> {{ post.blog_text }} </p>
+            <p> {{ post.blog_text|linebreaksbr }} </p>
         </div>
     {% endfor %}
+
 {% endblock content %}
