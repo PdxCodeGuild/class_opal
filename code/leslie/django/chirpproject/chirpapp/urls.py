@@ -1,11 +1,12 @@
 from django.urls import path
-
 from . import views
-
+from .views import PostListView, PostDetailView, PostCreateView
 app_name = 'chirpapp'
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', PostListView.as_view(), name='chirpapp-home'),
+    path('post/new/', PostCreateView.as_view(), name='post-create'),
+    path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail')
 
-    
+
 ]

@@ -2,6 +2,8 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<p><a href="{% url 'signup' %}">Need to Sign Up?</a></p>
+
 {% if user.is_authenticated %}
 Hey there, {{ user.username }}!
 <p><a href="{% url 'logout' %}">Log Out</a></p>
