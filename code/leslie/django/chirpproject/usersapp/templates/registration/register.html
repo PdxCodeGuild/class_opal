@@ -9,20 +9,20 @@
     </head>
 
     <body>
-
         {% extends 'base.html' %}
-        {% block title %}Login{% endblock %}
+
+        {% block title %}Sign Up{% endblock %}
 
         {% block content %}
-        <h2>Log In Here</h2>
-
+        <h2>Sign Up</h2>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }} <!--form contents are outputted between paragraph tags-->
-            <button type="submit">Log In</button>
+            {{ form.as_p }}
+            <button type="submit">Sign Up!</button>
         </form>
-        <small>Do you need an accound?<a href="{% url 'register-users' %}">Sign Up</a></small>
+        <small>Already have an account?<a href="{% url 'login' %}"></a>Sign in!</small>
         {% endblock %}
+
     </body>
 
 </html>
