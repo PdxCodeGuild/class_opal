@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Post</h3>
+
+<a href="{% url 'user-posts' post.author %}">{{ post.author }}</a>
+
+<p>{{ post.content }}</p>
+<small> {{ post.date_posted }}</small>
+
+{% endblock content %}

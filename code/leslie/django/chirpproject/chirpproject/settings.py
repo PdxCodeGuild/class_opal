@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'chirpapp.apps.ChirpappConfig',
     'usersapp.apps.UsersappConfig',
     'django.contrib.admin',
