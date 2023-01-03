@@ -1,0 +1,5 @@
+{% if ad %}
+<a href="{{ad.link}}"  target="_blank" class="ad-holder" style="background:url({{ad.image.url}}) ; background-size: cover; background-repeat: no-repeat;background-position: center;">
+    <div class="ad-title"><span>{{ad.title}}</span> <i class="fas fa-angle-right fa-lg"></i></div>
+</a>
+{% endif %}

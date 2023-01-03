@@ -1,0 +1,55 @@
+{% extends 'authentication_base.html' %} {% block content %} {% load static %}
+<div class="auth-background">
+  <div class="signin-signup main">
+    <div class="main-form">
+      <form
+        method="POST"
+        id="login-form"
+        action="{% url 'login' %}"
+        name="login-form"
+      >
+        {% load widget_tweaks %}
+        <h2 class="mt-3 g-0 text-center">Sign in</h2>
+        {% csrf_token %}
+        <div class="text-danger">
+          {% if form.errors %}
+          <p>Your Email and password didn't match. Please try again.</p>
+          {% endif %}
+        </div>
+
+        <div class="form-group text-start mb-4">
+          <label for="{{form.username.id_for_label}}"
+            >{{form.username.label}}</label
+          >
+          <span id="login_username"></span>
+          {{form.username|add_class:'form-control input'}}
+        </div>
+
+        <div class="form-group text-start  mb-4">
+          <label for="{{sign_in_form.password.id_for_label}}"
+            >{{form.password.label}}</label
+          >
+          {{form.password|add_class:'form-control input'}}
+        </div>
+        <div class="form-group">
+          <p class="text-center">
+            Don't have an account
+            <a href="{% url 'register' %}"> register</a>
+          </p>
+        </div>
+
+        <div class="form-group justify-content-center d-flex">
+          <button
+            type="submit"
+            name="submit-sign-in-form"
+            id="submit-sign-in-form"
+            class="btn btn-primary btn-lg"
+          >
+            Sign in
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

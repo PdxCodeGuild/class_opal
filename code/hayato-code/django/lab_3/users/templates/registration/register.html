@@ -1,0 +1,69 @@
+{% extends 'authentication_base.html' %} 
+{% block content %} 
+{% load static %}
+{% load widget_tweaks %}
+<div class="auth-background">
+  <div class="signin-signup main">
+    <div class="main-form">
+      <form method="POST" id="sign-up-form">
+        <h2  class="mt-3 g-0 text-center">Sign up</h2>
+        {% csrf_token %}
+
+        <div class="form-group text-start mb-4">
+          <label for="{{form.username.id_for_label}}"
+            >{{form.username.label}}</label
+          >
+          {{form.username|add_class:'form-control input'}}
+          <div class="text-danger">
+            {% if form.username.errors %} {{form.username.errors.0}} {% endif %}
+          </div>
+        </div>
+
+        <div class="form-group text-start  mb-4">
+          <label for="{{form.profile_picture.id_for_label}}"
+            >{{form.profile_picture.label}}</label
+          >
+          {{form.profile_picture|attr:"type:file"|add_class:'form-control'}}
+          
+          <div class="text-danger">
+            {% if form.username.errors %} {{form.profile_picture.errors.0}} {% endif %}
+          </div>
+        </div>
+
+        <div class="form-group text-start  mb-4">
+          <label for="{{form.password1.id_for_label}}">
+            {{form.password1.label}}
+          </label>
+          {{form.password1|add_class:'form-control input'}}
+        </div>
+
+        <div class="form-group text-start mt-3 ">
+          <label for="{{form.password2.id_for_label}}"
+            >{{form.password2.label}}</label
+          >
+          {{form.password2|add_class:'form-control input'}}
+          <div class="text-danger mt-2">
+            {% if form.password2.errors %} {{form.password2.errors.0}} {% endif %}
+          </div>
+        </div>
+        <div class="form-group">
+          <p class="text-center">
+            already have an account
+            <a href="{% url 'login' %}">login</a>
+          </p>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <button
+            type="submit"
+            name="submit-sign-up-form"
+            id="submit-sign-up-form"
+            class="btn btn-primary btn-lg"
+          >
+            Sign up
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

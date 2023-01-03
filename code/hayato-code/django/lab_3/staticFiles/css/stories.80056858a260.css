@@ -1,0 +1,169 @@
+body{
+    background: #f2f2f2;
+  
+}
+.stories-holder{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+
+}
+
+.story{
+     border: 0;
+     position: relative;
+     
+}
+.story-actions{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background: rgba(0,0,0 ,0.6);
+    padding: 8px 5px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.dropdown{
+    cursor: pointer;
+}
+
+.story-image{
+    width: 100%;
+    height: auto;
+}
+
+.navbar-logo{
+    width: 130px;
+    height: auto;
+}
+
+.story-title{
+    font-weight: 500;
+    font-size:  2.4rem;
+    margin-bottom: 0.5rem;
+    font-family: "librebaskerville-bold", serif;
+}
+
+.story-content, .story-author{
+    font-size: 17px;
+    font-family: "metropolis-regular", sans-serif;
+    color: #656565;
+    line-height: 1.8;
+}
+
+#submit-post-btn{
+    background: #212529;
+    color: #fff;
+    width: 170px;
+    height: 50px;
+    margin-left: auto;
+    font-size: 18px;
+}
+
+.like-btn.active{
+    color: #0b5ed7;
+}
+
+.facebook-this button{
+	background: #3b5998;
+    color: #fff;
+    width: 180px;
+}
+.tweet-this a {
+    background: #00acee;
+}
+
+.whatsapp-this button{
+    background:  #28D146;
+    color: #fff;
+    width: 180px;
+    margin-top: 0.5rem;
+}
+
+.mail-this a{
+    background: #ddd;
+    color: #000!important;
+}
+
+.tweet-this a, .mail-this a{
+    margin-top: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    width: 180px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.tweet-this a:hover{
+    color: #212529;
+}
+
+.mail-this a:hover{
+    color: #fff;
+}
+
+
+/* ads  */
+
+.ad-holder{
+    width: 100%;
+    height: 150px;
+    background: red;
+    margin-bottom: 1rem;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: #000;
+    margin-top: 1rem;
+}
+.ad-title{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0 ,0.6);
+    height: 40px;
+    color: #fff;
+    box-sizing: border-box;
+    display: flex; 
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    justify-content: space-between;
+    font-size: 18px;
+   
+    font-weight: bold;
+}
+/* responsiveness */
+
+
+@media screen and (max-width:1020px) {
+    .stories-holder{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+
+@media screen and (max-width:620px) {
+    .stories-holder{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+}

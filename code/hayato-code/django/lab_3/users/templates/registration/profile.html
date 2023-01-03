@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block content %}
+
+<div class="container mt-5 mb-5">
+  <!-- if the one viewing the profile is the owner of the profile show a form to add a chirp -->
+    {% if user_id == request.user.id %}
+    {% include 'posts/includes/add-chirp-form.html'%}
+    <hr/>
+    {% endif %}
+  
+<h1 class="display-6 mt-3 mb-3">Chirps</h1>
+  <div>
+    {% include 'posts/includes/chirps.html' %}
+</div>
+
+</div>
+
+{% endblock %}
