@@ -1,0 +1,36 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Chirp Lab{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'posts/style.css' %}">
+</head>
+
+<body>
+    <main>
+        {% block navbar %}
+        <ul id="nav-ul">
+            {% if user.is_authenticated %}
+            <li id="nav-li"><a class="active" href="{% url 'posts:index' %}">Home</a></li>
+            <li id="nav-li"><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+            <li id="nav-li"><a class="active" href="{% url 'posts:index' %}">Home</a></li>
+            <li id="nav-li"><a href="{% url 'login' %}">Login</a></li>
+            <li id="nav-li"><a href="{% url 'signup' %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
+        {% endblock navbar %}
+        {% block content %}
+        {% endblock %}
+
+        <div class="footer">
+            <p> &copy; 2022 <b>JAMES BRENNAN</b>, source code released under the GNU General Public License</p>
+        </div>
+
+    </main>
+</body>
+
+</html>
