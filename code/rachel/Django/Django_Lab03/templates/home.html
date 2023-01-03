@@ -6,10 +6,10 @@
     </div>
     {% for post in post_list %} {# or 'for post in object_list'#}
         <div class='post_list'>
-            <h2><a href="{% url 'post:BlogDetailView' %}">{{ post.title }} </a></h2>
-            <h3><a href="{% url 'user:FILLL' %}">{{ post.author.username }} </a></h2>
+            <h2><a href="{% url 'posts:Detail' post.id %}">{{ post.title }} </a></h2>
+            <h3><a href="{% url 'user:FILLLL' %}">{{ post.author.username }} </a></h2>
             <h4><em> posted on{{ post.created_date }} </em></h4>
-            <p> {{ post.blog_text|linebreaksbr }} </p>
+            <p> {{ post.body|linebreaksbr }} </p>
         </div>
     {% endfor %}
 

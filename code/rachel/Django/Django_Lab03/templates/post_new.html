@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2><em>Submit a New Post</em></h2>
+    <form action="" method="post"> {# same URL for post & get #}
+        {% csrf_token %}
+        {{ form.as_p }} {# .as_p = make each form element a paragraph; there's also .as_div, .as_table #}
+        <input type="submit" value="Submit">
+    </form>
+
+{% endblock content %}

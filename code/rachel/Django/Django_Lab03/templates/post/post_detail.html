@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class='post_detail'>
+        <h2> {{ post.title }} </h2>
+        <h3><a href="{% url 'user:FILLLL' %}">{{ post.author.username }} </a></h2>
+        <h4><em> Originally posted on {{ post.created }} </em></h4>
+        <h4><em> Edited on {{ post.updated }} </em></h4>
+        <p> {{ post.body|linebreaksbr }} </p>
+        </div>
+
+        <p><a href="{% url 'posts:edit' post.pk %}">Edit Your Post</a></p>
+        <p><a href="{% url 'posts:delete' post.pk %}">Delete Your Post</a></p>
+{% endblock content %}
