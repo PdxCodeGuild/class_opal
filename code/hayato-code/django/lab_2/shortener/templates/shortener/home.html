@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shortener</title>
+
+    <!-- bootstrap cdn to use bootstrap styles -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+        <div class="card mt-5" style="width: 100%; max-width: 500px">
+          <div class="card-header text-center">
+            <h2>URL Shortner</h2>
+          </div>
+          <div class="p-4">
+            <form action="" method="POST">
+              {% csrf_token %}
+              <div class="row g-1 flex-column">
+                <!-- display the url field to allow user to enter url to shorten -->
+                <div>{{form.url}}</div>
+
+                <!-- button to submit form and shorted url -->
+                <button
+                  class="btn btn-success mt-4 align-self-center"
+                  type="submit"
+                  style="width: 200px"
+                >
+                  Shorten
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- if there are any errors  after form submission display them here -->
+      {% if errors %}
+      <div class="text-danger mt-5">{{errors.as_p}}</div>
+      {% endif %}
+
+      <!-- show only if there is a short url in context -->
+      {% if short_url %}
+
+      <div class="mx-auto text-center mt-5">
+        <h2 class="text-success">Shortened URL</h2>
+        <p>{{short_url}}</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
