@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class='join'>
-        <p>Like what you see? <a href="">Join</a> the Chirp! Catmosphere and never miss another impurrtent post</p>
-    </div>
+
     {% for post in post_list %} {# or 'for post in object_list'#}
         <div class='post_list'>
             <h2><a href="{% url 'posts:Detail' post.id %}">{{ post.title }} </a></h2>
-            <h3><a href="{% url 'user:FILLLL' %}">{{ post.author.username }} </a></h2>
+            <h3><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a></h2>
             <h4><em> posted on{{ post.created_date }} </em></h4>
             <p> {{ post.body|linebreaksbr }} </p>
         </div>

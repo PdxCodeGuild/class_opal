@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.list import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy #keeps the server from going to reverse right away before importing the URLs in the classes - reverse_lazy won’t evaluate until the value is needed
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Post
 
 class BlogListView(ListView): #general read view
@@ -13,17 +14,28 @@ class BlogDetailView(DetailView): #this is the read view for a specific post
     template = 'post_detail.html'
 
 #create, update & delete views have auto-generated views, just specify which fields you want (dates are added automatically) 
-class BlogCreateView(CreateView): #handles both POST & GET
+class BlogCreateView(LoginRequiredMixin, CreateView): #handles both POST & GET
     model = Post
     template = 'post_new.html'
-    fields = ['title', 'author', 'body'] #fields are shown on page according to how they are ordered here
+    fields = ['title', 'body'] #fields are shown on page according to how they are ordered here; 'author' was removed since we added the form_valid function below
+    def form_valid(self, form):
+        form.instance.author = self.request.user # automatically makes the user who submitted the request, the author
+        return super().form_valid(form) #go back to doing everything you were going to do anyway
 
-class BlogEditView(UpdateView):
+class BlogEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'body'] #the post is already tied to the user name so no need to add the author field
     template = 'post_edit.html'
 
-class BlogDeleteView(DeleteView):
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
+
+class BlogDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy('posts:home')
-    template = 'post_delete.html'   
+    template = 'post_delete.html'
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
