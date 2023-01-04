@@ -2,12 +2,14 @@
 
 let numList = []
 
-while true:
+while (true) {
     let userInput = prompt("Enter number or 'done' to quit: ")
-    if userInput == 'done':
+    if (userInput == 'done') {
         alert(`The average is: ${average}`)
         break
-    else:
+    }
+    else {
         userInput = parseInt(userInput)
-        numList.append(userInput)
-        let average = sum(numList)/len(numList)
+        numList.push(userInput)
+        let average = sum(numList)/numList.length
+    }}
