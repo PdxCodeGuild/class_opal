@@ -1,6 +1,6 @@
 // Python Lab 3 Version 2
 
-let numList = []
+let numArr = []
 
 while (true) {
     let userInput = prompt("Enter number or 'done' to quit: ")
@@ -10,6 +10,7 @@ while (true) {
     }
     else {
         userInput = parseInt(userInput)
-        numList.push(userInput)
-        let average = sum(numList)/numList.length
+        numArr.push(userInput)
+        let numRedArr = numArr.reduce((x, y) => x + y)
+        average = numRedArr/numArr.length
     }}
