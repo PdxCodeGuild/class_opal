@@ -1,0 +1,181 @@
+:root {
+  --main: #0dacf2;
+  --comp: #f2530d;
+  --comp-hover: #fa770b;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  padding: 0;
+}
+
+.main {
+  width: 32rem;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 0.6rem;
+  padding-bottom: 3rem;
+  background: #fff;
+}
+.auth-background {
+  background: #ddd;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.signin-signup {
+  min-height: 60vh;
+  height: auto;
+  width: 27rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-form {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+#sign-up-form {
+  width: 90%;
+  height: 100%;
+}
+#login-form {
+  width: 90%;
+  height: 100%;
+}
+
+#submit-sign-in-form,
+#submit-sign-up-form {
+  width: 15rem;
+  margin: 2rem auto;
+  background: var(--comp);
+  color: #fff;
+}
+
+.error-list,
+.errorlist {
+  color: red;
+  text-align: left;
+  padding-top: 0.2rem;
+}
+.errorlist {
+  list-style: none;
+  padding-left: 0;
+}
+
+.help-text {
+  color: #000;
+  text-align: center;
+  padding-top: 0.2rem;
+}
+
+.input {
+  border: 1px solid var(--main);
+}
+
+@media screen and (max-width: 460px) {
+  .main {
+    width: 94%;
+  }
+}
+
+.primary-background {
+  background-color: var(--main);
+  color: #fff;
+}
+
+#country-code-addon {
+  border: 1px solid var(--main);
+}
+/* accounts page */
+
+.info-list-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+
+.info-list-row {
+  max-width: 920px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.account-image-holder {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.account-image-holder img {
+  max-width: 200px;
+  height: auto;
+  max-height: 170px;
+  min-height: 170px;
+  border: 1px solid #333;
+  border-radius: 10px 10px;
+}
+
+.heading {
+  text-align: center;
+  background: var(--main);
+  color: #fff;
+  width: 100%;
+}
+.info-list {
+  list-style: none;
+  width: 100%;
+  padding-top: 0.4rem;
+  box-sizing: border-box;
+}
+.info-list-item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 0.4rem;
+  box-sizing: border-box;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid #333;
+  flex-wrap: wrap;
+}
+
+.info-list-item a {
+  text-decoration: none;
+}
+.fullname-holder {
+  text-align: center;
+}
+
+.info-list-value {
+  display: flex;
+  overflow: hidden;
+}
+
+.current-info {
+  background-color: var(--main);
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+  color: #fff;
+  word-wrap: break-word;
+}
+
+/* end of accounts page */

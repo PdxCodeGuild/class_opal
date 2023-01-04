@@ -1,0 +1,29 @@
+{% load widget_tweaks %}
+
+<form method="POST" class="mb-5 mt-5" enctype="multipart/form-data" action="{% url 'add_post' %}">
+    <h1 class="display-6">Post a chirp</h1>
+    {% csrf_token %}
+    <div class="mb-3 mt-3">
+        <label for="formFile" class="form-label">Photo</label>
+        <input class="form-control" type="file" id="image-input" name="image" accept="image/*">
+      </div>
+
+    
+      <div class="form-group text-start">
+        <label class="form-label" for="{{form.content.id_for_label}}"
+          >{{form.content.label}}<span class="text-danger">*</span></label
+        >
+        {{form.content|add_class:'form-control'|attr:"placeholder:Chirp"|attr:"required:true"}}
+        <div class="error-list" id="title-error"></div>
+    </div>
+
+    <div class="form-group mt-3 d-flex justify-content-end">
+        <button
+          type="submit"
+          id="submit-post-btn"
+          class="bt btn-lg btn-primary"
+        >
+          Tweet
+        </button>
+      </div>
+</form>

@@ -1,0 +1,32 @@
+{% load humanize %}
+<div class="d-flex chirps-holder flex-column mt-4">
+    {% for post in posts %}
+    <div class="chirp d-flex pb-2 mb-4">
+        <div class="chirp-uploader">
+            <img src="{{post.uploaded_by.get_photo_url}}"/>
+        </div>
+        <div class="chirp-content ps-2 w-100">
+            <div class="d-flex justify-content-between w-100">
+                <div><a class="name fw-bold" href="{% url 'profile' post.uploaded_by.id %}">@{{post.uploaded_by}}</a> <span class="date text-muted">{{post.created_at|naturaltime}}</span></div>
+           
+                <!-- if the logged in user is the one viewing allow them to delete -->
+            {% if request.user == post.uploaded_by %}
+            <div class="dropdown">
+                <i class="fas fa-ellipsis-v" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li><a class="dropdown-item" href="{% url 'delete_post' post.id %}">Delete</a></li>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+            <div class="chirp-text">{{post.content}}</div>
+            {% if post.image %}
+            <div class="chirp-image d-flex justify-content-start mt-3">
+                <img class="rounded" src="{{post.image.url}}" />
+            </div>
+            {% endif %}
+        </div>
+        
+    </div>
+    {% endfor %}
+</div>
