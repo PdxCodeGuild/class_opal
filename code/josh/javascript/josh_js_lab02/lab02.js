@@ -86,31 +86,26 @@ hundredsRemainder = Math.floor(number%100/10)
 unitsRemainder = number%100%10
 teensRemainder = number%100
 
-// Creates a conditional to print an error message for negative integers out of range.
-if number < 0:
-    print("Your entry is invalid.  You did not enter a number from 0 to 999.")
-// Creates a conditional to print the integer "0" as a word.
-elif number == 0:
-    print("0 is written out as zero.")
-// Creates a conditional to print integers as words if user input is 1 - 19.
-elif number <= 19:
-    print(f"{number} is written out as {numberListTo19[number]}.")
-// Creates a conditional to print integers as words if user input is a multiple of 10, starting at 20
-elif number == 20 or number == 30 or number == 40 or number == 50 or number == 60 or number == 70 or number == 80 or number == 90:
-    print(f"{number} is written out as {numberListByTens[number]}.")
-// Creates a conditional to print integers as words for all other user input less than 100
-elif number >= 21 and number <= 99:
-    print(f"{number} is written out as {tensPlaceNumberList[tensPlace]}{numberListTo19[unitsPlace]}.")
-// Creates a conditional to print integers as words for all numbers from 100 to 999.
-elif number >= 100 and number <= 999:
-    if number == 100 or number == 200 or number == 300 or number == 400 or number == 500 or number == 600 or number == 700 or number == 800 or number == 900:
-        print(f"{number} is written out as {hundredsPlaceNumberList[hundredsPlace]}")
-    elif unitsRemainder == 0:
-        print(f"{number} is written out as {hundredsPlaceNumberList[hundredsPlace]} {numberListByTensOver100[hundredsRemainder]}")
-    elif hundredsRemainder == 1:
-        print(f"{number} is written out as {hundredsPlaceNumberList[hundredsPlace]} {numberListForTeensOver100[teensRemainder]}")
-    else:
-        print(f"{number} is written out as {hundredsPlaceNumberList[hundredsPlace]} {tensPlaceNumberList[hundredsRemainder]}{numberListTo19[unitsRemainder]}.")
-// Creates a conditional to print an error message for positive integers out of range.
-else:
-    print("Your entry is invalid.  You did not enter a number from 0 to 999.")
+if (number < 0) {
+    alert("Your entry is invalid.  You did not enter a number from 0 to 999.")
+} else if (number == 0) {
+    alert("0 is written out as zero.")
+} else if (number <= 19) {
+    alert(`{number} is written out as {numberListTo19[number]}.`)
+} else if (number == 20 || number == 30 || number == 40 || number == 50 || number == 60 || number == 70 || number == 80 || number == 90) {
+    alert(`{number} is written out as {numberListByTens[number]}.`)
+} else if (number >= 21 && number <= 99) {
+    alert(`{number} is written out as {tensPlaceNumberList[tensPlace]}{numberListTo19[unitsPlace]}.`)
+} else if (number >= 100 && number <= 999) {
+    if (number == 100 || number == 200 || number == 300 || number == 400 || number == 500 || number == 600 || number == 700 || number == 800 || number == 900) {
+        alert(`{number} is written out as {hundredsPlaceNumberList[hundredsPlace]}`)
+    } else if (unitsRemainder == 0) {
+        alert(`{number} is written out as {hundredsPlaceNumberList[hundredsPlace]} {numberListByTensOver100[hundredsRemainder]}`)
+    } else if (hundredsRemainder == 1) {
+        alert(`{number} is written out as {hundredsPlaceNumberList[hundredsPlace]} {numberListForTeensOver100[teensRemainder]}`)
+    } else {
+        alert(`{number} is written out as {hundredsPlaceNumberList[hundredsPlace]} {tensPlaceNumberList[hundredsRemainder]}{numberListTo19[unitsRemainder]}.`)
+    }
+} else {
+    alert("Your entry is invalid.  You did not enter a number from 0 to 999.")
+}
