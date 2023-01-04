@@ -7,22 +7,28 @@
     <title>JavaScript Lab 01 Part B</title>
     <script src='lab01_partB.js'></script>
 </head>
-<body style="text-align: center;">
+<body style="text-align: center; background-color: rgb(78, 166, 255);">
     <h1>Unit Converter</h1>
     <div>
         <h4>What is the distance (ft, mi, m, km, yd or in)?</h4>
         <input id="user distance" type="text" placeholder="Enter distance">
-        <button>Enter</button>
+        <!-- <button>Enter</button> -->
     </div>
     <div>
         <h4>What are the input units (ft, mi, m, km, yd, or in)?</h4>
         <input id="units input" type="text" placeholder="Enter input units">
-        <button>Enter</button>
+        <!-- <button>Enter</button> -->
     </div>
     <div>
         <h4>What are the output units (ft, mi, m, km, yd, or in)?</h4>
         <input id="units output" type="text" placeholder="Enter output units">
-        <button>Enter</button>
+        <!-- <button>Enter</button> -->
+    </div><br>
+    <div>
+        <button onclick="convert()">Click Here to Convert!</button>
+    </div>
+    <div>
+        <p id="converted units"></p>
     </div>
 </body>
 </html>
