@@ -1,3 +1,3 @@
 from django.db import models
 
-# Create your models here.
+#no need for model here thanks to the built-in auth application
