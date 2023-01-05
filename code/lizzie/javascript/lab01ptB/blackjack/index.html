@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(Bad) Blackjack Helper</title>
+    <script src="blackjack.js" defer></script>
+</head>
+
+<body style=text-align:center>
+    <h1>Bad Blackjack advice</h1>
+
+    <h3>Welcome to the (bad) Blackjack Advice-Giver!</h3>
+    <p>Available cards: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, and K.</p>
+    <p>This assumes ace has a value of 1.</p>
+
+    <div id="output_advice"></div>
+
+    <label for="card1">First card:</label>
+    <input type="text" id="card1" name="card1" required minlength="1" maxlength="2"><br \>
+
+    <label for="card2">Second card:</label>
+    <input type="text" id="card2" name="card2" required minlength="1" maxlength="2"><br \>
+
+    <label for="card3">Third card:</label>
+    <input type="text" id="card3" name="card3" required minlength="1" maxlength="2"><br \>
+    
+    <button id="run_bt">Give me advice!</button>
+</body>
+
+</html>
