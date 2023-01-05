@@ -3,17 +3,16 @@
 let average = document.getElementById('average')
 average.addEventListener('click', findAverage)
 function findAverage() {
-    let number = document.getElementById('number').value
+    let number = document.getElementById('number')
     let numArr = []
     while (true) {
-        let userInput = prompt("Enter number or 'done' to quit: ")
-        if (userInput == 'done') {
-            alert(`The average is: ${average}`)
+        if (number == 'done') {
+            document.getElementById("output").innerText = `The average is: ${average}.`
             break
         }
         else {
-            userInput = parseInt(userInput)
-            numArr.push(userInput)
+            number = parseInt(number)
+            numArr.push(number)
             let numRedArr = numArr.reduce((x, y) => x + y)
             average = numRedArr/numArr.length
         }}}
