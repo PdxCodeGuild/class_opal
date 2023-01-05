@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% block content %}
+<body>
+    {% if user.is_authenticated %}
+        Hello, {{ user.username }}!
+        <p><a href="{% url 'logout' %}">Log Out</a></p>
+        <h1>Feed</h1>
+        {% block posts %}
+        {% endblock %}
+    {% else %}
+        {% block login %}
+        {% endblock %}
+    {% endif %}
+</body>
+{% endblock %}
+</html>

@@ -19,8 +19,8 @@ from django.shortcuts import redirect
 
 
 urlpatterns = [
-    path('', lambda _: redirect('posts/')),
-    path('posts/', include('posts.urls')),
+    path('', include('posts.urls')),
     path("accounts/", include("django.contrib.auth.urls")),
     path('admin/', admin.site.urls),
+    path('users/', include('chirp_users.urls')),
 ]
