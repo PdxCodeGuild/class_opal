@@ -14,12 +14,12 @@
         <h2>The <em>Definitive</em> Blog for Kitties in the Know!</h2>
     </div>
     {% if user.is_authenticated %} {# make user log in before they can do anything #}
-        <p>Welcome, <a href="{% url 'users:profile' user.username %}">{{ user.username}}</a></p>
+        <p>Welcome, <a href="{% url 'users:profile' user.username %}">{{ user.username }}</a></p>
         <p><a href="{% url 'logout' %}">Log Out</a></p>
         <p><a href="{% url 'posts:new' %}">Submit a New Post</a></p>
     {% else %}
         <p><a href="{% url 'login' %}">Log In</a></p>
-        <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+        {# <p><a href="{% url 'users:signup' %}">Sign Up</a></p>#}
         <p>Like what you see? <a href="{% url 'users:signup' %}">Join the Chirp! Catmosphere and never miss another impurrtent post</a></p>
     {% endif %}
     <div class='block_content'>
