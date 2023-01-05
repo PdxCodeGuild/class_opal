@@ -4,6 +4,7 @@ let average = document.getElementById('average')
 average.addEventListener('click', findAverage)
 let reset = document.getElementById('reset')
 reset.addEventListener('click', resetNumArr)
+
 let numArr = []
 
 function findAverage() {
