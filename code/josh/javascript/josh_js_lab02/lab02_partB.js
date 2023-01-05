@@ -88,25 +88,25 @@ function convert() {
     teensRemainder = number%100
 
     if (number < 0) {
-        alert("Your entry is invalid.  You did not enter a number from 0 to 999.")
+        document.getElementById("output").innerText = "Your entry is invalid.  You did not enter a number from 0 to 999."
     } else if (number == 0) {
-        alert("0 is written out as zero.")
+        document.getElementById("output").innerText = "0 is written out as zero."
     } else if (number <= 19) {
-        alert(`${number} is written out as ${numberListTo19[number]}.`)
+        document.getElementById("output").innerText = `${number} is written out as ${numberListTo19[number]}.`
     } else if (number == 20 || number == 30 || number == 40 || number == 50 || number == 60 || number == 70 || number == 80 || number == 90) {
-        alert(`${number} is written out as ${numberListByTens[number]}.`)
+        document.getElementById("output").innerText = `${number} is written out as ${numberListByTens[number]}.`
     } else if (number >= 21 && number <= 99) {
-        alert(`${number} is written out as ${tensPlaceNumberList[tensPlace]}${numberListTo19[unitsPlace]}.`)
+        document.getElementById("output").innerText = `${number} is written out as ${tensPlaceNumberList[tensPlace]}${numberListTo19[unitsPlace]}.`
     } else if (number >= 100 && number <= 999) {
         if (number == 100 || number == 200 || number == 300 || number == 400 || number == 500 || number == 600 || number == 700 || number == 800 || number == 900) {
-            alert(`${number} is written out as ${hundredsPlaceNumberList[hundredsPlace]}`)
+            document.getElementById("output").innerText = `${number} is written out as ${hundredsPlaceNumberList[hundredsPlace]}`
         } else if (unitsRemainder == 0) {
-            alert(`${number} is written out as ${hundredsPlaceNumberList[hundredsPlace]} ${numberListByTensOver100[hundredsRemainder]}`)
+            document.getElementById("output").innerText = `${number} is written out as ${hundredsPlaceNumberList[hundredsPlace]} ${numberListByTensOver100[hundredsRemainder]}`
         } else if (hundredsRemainder == 1) {
-            alert(`${number} is written out as ${hundredsPlaceNumberList[hundredsPlace]} ${numberListForTeensOver100[teensRemainder]}`)
+            document.getElementById("output").innerText = `${number} is written out as ${hundredsPlaceNumberList[hundredsPlace]} ${numberListForTeensOver100[teensRemainder]}`
         } else {
-            alert(`${number} is written out as ${hundredsPlaceNumberList[hundredsPlace]} ${tensPlaceNumberList[hundredsRemainder]}${numberListTo19[unitsRemainder]}.`)
+            document.getElementById("output").innerText = `${number} is written out as ${hundredsPlaceNumberList[hundredsPlace]} ${tensPlaceNumberList[hundredsRemainder]}${numberListTo19[unitsRemainder]}.`
         }
     } else {
-        alert("Your entry is invalid.  You did not enter a number from 0 to 999.")
+        document.getElementById("output").innerText = "Your entry is invalid.  You did not enter a number from 0 to 999."
     }}
