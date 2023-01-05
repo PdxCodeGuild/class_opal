@@ -1,0 +1,29 @@
+#box {
+    border: 3px solid black;
+    width: 5em;
+    height: 5em;
+}
+
+.red {
+    background-color: red;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+
+}
+
+table {
+    margin-top: 2em;
+}
+
+#warning {
+    color: red;
+}
+
+.voted {
+    text-decoration: line-through;
+}
