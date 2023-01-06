@@ -18,13 +18,34 @@
 
     <!-- I cannot even begin to tell you how many times I have misunderstood this question and tried to input "ft". So THERE, only number field -->
     <label for="distance">What is the distance being converted?</label>
-    <input type="number" id="distance" name="distance" min="0" placeholder="1"><br \>
+    <input type="number" id="distance" name="distance" min="0" placeholder="1" style="width:60px"><br \>
+    
+    <!-- <label for="input_unit">What are the input units?</label>
+    <input type="text" id="input_unit" name="input_unit" required minlength="1" maxlength="2"><br \> -->
 
     <label for="input_unit">What are the input units?</label>
-    <input type="text" id="input_unit" name="input_unit" required minlength="1" maxlength="2"><br \>
-
+    <select name="input_unit" id="input_unit">
+        <option value="">--Choose an option--</option>
+        <option value="ft">feet</option>
+        <option value="mi">miles</option>
+        <option value="m">meter</option>
+        <option value="km">kilometer</option>
+        <option value="yd">yard</option>
+        <option value="in">inch</option>
+    </select><br \>
+    
     <label for="output_unit">What are the output units?</label>
-    <input type="text" id="output_unit" name="output_unit" required minlength="1" maxlength="2"><br \>
+    <select name="pets" id="output_unit">
+        <option value="">--Choose an option--</option>
+        <option value="ft">feet</option>
+        <option value="mi">miles</option>
+        <option value="m">meter</option>
+        <option value="km">kilometer</option>
+        <option value="yd">yard</option>
+        <option value="in">inch</option>
+    </select><br \>
+    <!-- <label for="output_unit">What are the output units?</label>
+    <input type="text" id="output_unit" name="output_unit" required minlength="1" maxlength="2"><br \> -->
     
     <button id="run_bt">Convert that distance!</button>
 </body>
