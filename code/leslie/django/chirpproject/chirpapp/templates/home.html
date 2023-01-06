@@ -5,18 +5,11 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-Hey there, {{ user.username }}!
+<h1>Hey there, {{ user.username }}!</h1>
 
-<h1>Chirp Here</h1>
+<h2>Chirp Here</h2>
+<a href="{% url 'chirpapp:new_post' %}">Click here to chirp!</a>
 
-<p>
-<form action="{% url 'new_post' %}" method="post">
-    {% csrf_token %}
-    <label for="new_post">Chirp Something!</label><br>
-    <textarea name="new_post" id="new_post" cols="30" rows="10"></textarea>
-    <input type="submit">
-</form>
-</p>
 
 <p><a href="{% url 'logout' %}">Log Out</a></p>
 
@@ -28,8 +21,8 @@ Hey there, {{ user.username }}!
 <h2>My Chirps</h2>
 {% if posts %}
 {% for p in posts %}
-<h3>{{ p.user.username }} -posted- <span id="date-posted">{{ p.date_posted }}</span></h3>
-{{ p.content }}
+<h5>{{ p.user.username }} -posted- <span id="date-posted">{{ p.date_posted }}</span></h5>
+<h3>{{ p.content }}</h3>
 {% endfor %}
 {% endif %}
 {% endblock %}

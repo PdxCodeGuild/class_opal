@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.http import HttpResponse
 from .models import Post
 from django.views.generic import ListView, DetailView, CreateView
@@ -15,16 +16,8 @@ class PostListView(ListView):
     context_object_name = 'posts'
 
 
-class PostDetailView(DetailView):
-    model = Post
-    template_name = 'chirpapp/post_detail.html'
-
-
 class PostCreateView(CreateView):
     model = Post
-    fields = ['content']
-    template_name = 'new_post.html'
-    success_url = 'home' 
-
-    def post(self, request):
-        return self.get(self, request)
+    fields = ['content', 'author']
+    template_name = 'chirpapp/new_post.html'
+    success_url = '/'
