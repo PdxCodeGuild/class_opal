@@ -6,15 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit Converter</title>
-    <script src="unit-converter.js">
-
-    </script>
-
-
+    <script src="unit-converter.js" defer></script>
 </head>
 
-<body>
+<body style=text-align:center;background-color:#ddd;font-family:Arial,Helvetica,sans-serif>
+    <h1>Convert that Unit!</h1>
+
+    <p>Available units to convert: ft, mi, m, km, yd, in</p>
+
+    <div id="output_advice" style=background-color:#0b0424;color:white></div><br \>
+
+    <!-- I cannot even begin to tell you how many times I have misunderstood this question and tried to input "ft". So THERE, only number field -->
+    <label for="distance">What is the distance being converted?</label>
+    <input type="number" id="distance" name="distance" min="0" placeholder="1"><br \>
+
+    <label for="input_unit">What are the input units?</label>
+    <input type="text" id="input_unit" name="input_unit" required minlength="1" maxlength="2"><br \>
+
+    <label for="output_unit">What are the output units?</label>
+    <input type="text" id="output_unit" name="output_unit" required minlength="1" maxlength="2"><br \>
     
+    <button id="run_bt">Convert that distance!</button>
 </body>
 
 </html>
