@@ -24,7 +24,7 @@ class PostCreateView(CreateView):
     model = Post
     fields = ['content']
     template_name = 'new_post.html'
-    success_url = '/'  # sends user back to '/'
+    success_url = 'home' 
 
     def post(self, request):
         return self.get(self, request)
