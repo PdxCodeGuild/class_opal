@@ -16,6 +16,7 @@
         {% block posts %}
         {% endblock %}
     {% else %}
+        {% include 'chirp_users/index.html' %}
         {% block login %}
         {% endblock %}
     {% endif %}
