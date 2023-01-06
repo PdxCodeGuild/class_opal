@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit COnverter</title>
+</head>
+<body>
+    <script>
+        function measurementConverter(distance, start, end) {
+            const meterConversionTable = {
+                'in': .0254,
+                'ft': .3048,
+                'yd': .9144,
+                'm': 1,
+                'km': 1000,
+                'mi':1609.34,
+            }
+
+            let meters = distance * meterConversionTable[start]
+            let distanceEnd = meters / meterConversionTable[end]
+            return distanceEnd
+        }
+
+
+        const validInputs = "'in', 'ft', 'yd', 'm', 'km', 'mi'"
+        const distanceStart = prompt('What is the distance?')
+        const unitStart = prompt(`Enter the start unit from the list: ${validInputs}`)
+        const unitEnd = prompt(`Enter the desired end unit from the list: ${validInputs}`)
+        const distanceEnd = measurementConverter(distanceStart, unitStart, unitEnd).toFixed(3)
+
+        alert(`${distanceStart} ${unitStart} = ${distanceEnd} ${unitEnd}`)
+    </script>
+</body>
+</html>
