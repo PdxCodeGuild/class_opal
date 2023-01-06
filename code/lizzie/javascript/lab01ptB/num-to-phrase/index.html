@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number to Phrase</title>
+    <script src="num-to-phrase.js" defer></script>
+</head>
+
+<body>
+    <body style=text-align:center>
+        <h1>Number to Phrase</h1>
+    
+        <p>The site will prompt you for a minute and minute and return the time in text.</p>
+    
+        <label for="hour">Please give your current hour (in military time):</label>
+        <input type="number" id="hour" name="hour" min="1" max="24" placeholder="1"><br \>
+        
+        <label for="minute">Please give your current minute:</label>
+        <input type="number" id="minute" name="minute" min="0" max="59" placeholder="00"><br \><br \>
+
+        <button id="run_bt">Convert the number</button><br \>
+        <div id="output_phrase" style=background-color:pink></div>
+</body>
+
+</html>
