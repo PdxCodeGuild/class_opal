@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>Investor Portal</title>
+</head>
+
+<body>
+    <div id="app">
+        <input v-model="symbol" type="text" placeholder="Enter a symbol">
+        <button v-on:click="getChart">Get Quote</button>
+        <!-- <pre v-bind:data-financial-data="financialData">{{ financialData }}</pre> -->
+        <div id="myChart"></div>
+    </div>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/site.js"></script>
+</body>
+
+</html>

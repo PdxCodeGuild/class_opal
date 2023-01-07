@@ -1,7 +1,7 @@
 # PDX Code Guild Fullstack Developer Capstone
-## James Brennan - 2023.01.01
+### *James Brennan - 2023.01.01*
 
-## summary of python minicap features
+## Summary of Python Minicapstone Features
 
 ### `personlized_index.py` 
 Reads a stock metadata csv and uses pandas to manipulate the data and produce a list of stock orders for a personalized index based on a set of input parameters.
@@ -23,6 +23,7 @@ This module returns uses pandas_datareader to determine which S&P 500 tickers fr
 ### `index_parameters.py`
 Set of input parameters for the personalized_index.py module. (Could be integrated as a cash flow planning class.) The parameter data is stored in python dictionaries. Could store these in a database and provide an interface to allow a user to modify the parameters for a particular personalized index.
 
+## Javascript Minicapstone Plan
 
 
 
