@@ -10,8 +10,13 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
+    <h1>To Do List</h1>
     <div id="app">
-        {{ message }}
+        <ol>
+            <li v-for="(item, index) in listItems">{{ item }}</li>
+        </ol>
+        <input type="text" placeholder="Enter New Item">
+        <button v-bind:value="listItems" v-on:click="userItem">Add</button>
     </div>
 </body>
 </html>
