@@ -6,10 +6,9 @@ new Vue({
         message: 'Hello world!',
         newTodoText: '',
         todos: [
-        {item: 'Do the dishes'},
+        {item: 'Create 5 more todo lists'},
         ],
         completeTodo: [''],
-        inputField: 'starter value',
     },
     methods: {
         addNewTodo: function () {
@@ -17,6 +16,10 @@ new Vue({
               item: this.newTodoText
             })
             this.newTodoText = ''
-          }
-    }
+          },
+        removeTodo(todoItem) {
+            // Remove item at its index in the array
+            this.todos.splice(this.todos.indexOf(todoItem), 1);
+          },
+    },
 })

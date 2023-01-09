@@ -18,11 +18,6 @@
     <p>My To-Do List</p>
 
     <div id="app">
-        {{ cohortName }}
-        {{ message }}
-
-        <!-- Have an empty array of objects to add to -->
-        {{ message }}
 
         <!-- Add functionality to add items to todo -->
         <form v-on:submit.prevent="addNewTodo">
@@ -35,12 +30,14 @@
         
         <div id="imcomplete-todos" class="title">Incomplete Todos:</div>
         {{ todos }}
-            <ul>
-                <!-- Looping over each object in the array and listing them using index -->
-                <li v-for="t in todos" :key="t.item">— {{ t.item }}</li>
-            </ul>
-        </div>
-
+        <ul>
+            <!-- v if item has complate = false -->
+            <!-- Looping over each object in the array and listing them using index -->
+            <li v-for="todo in todos" :key="todo.item">— {{ todo.item }} <button @click="removeTodo(todo)">Remove</button></li>
+        </ul>
+    </div>
+        <!-- v if item has complete = true attribube -->
+        <div id="complete-todos" class="title">Complete Todos:</div>
 
     </div>
 </body>
