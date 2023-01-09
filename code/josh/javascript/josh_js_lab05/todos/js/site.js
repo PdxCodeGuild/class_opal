@@ -1,7 +1,7 @@
 new Vue({
     el: '#app',
     data: {
-        listItems: ['Laundry'],
+        listItems: [],
         completed: '',
         delete: '',
         userItem: ''
@@ -10,18 +10,19 @@ new Vue({
         addItem () {
             this.listItems.push(this.userItem)
         },
-        completed () {
-
+        clearInput () {
+            this.userItem.value = ''
         },
-        delete () {
-            
-        }
+        // completed () {
+
+        // },
+        // delete () {
+        //     delete this.userItem?
+        // }
     }})
 
 
 /* 
-Store an array of objects (the todos themselves)
-List each todo
-Allow the user to add and remove todos
+Allow the user to remove todos
 Allow a user to toggle if a task is complete or not
 */

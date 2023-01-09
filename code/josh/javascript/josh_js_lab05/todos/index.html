@@ -13,10 +13,10 @@
     <h1>To Do List</h1>
     <div id="app">
         <ol>
-            <li v-for="(item, index) in listItems">{{ item }}</li>
+            <li v-for="(item, index) in listItems">{{ item }} <a href="delete">delete</a></li>
         </ol>
         <input type="text" v-model="userItem" placeholder="Enter New Item">
-        <button v-on:click="addItem">Add</button>
+        <button v-on:mouseDown="addItem" v-on:mouseUp="clearInput">Add</button>
     </div>
 </body>
 </html>
