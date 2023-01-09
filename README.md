@@ -49,10 +49,10 @@ Presentation Day: February 15th, 2023
 | 01    | Pick 3                 | Jan 3rd       | Jan 10th              | Jan 17th      |
 | 02    | Pick 3                 | Jan 3rd       | Jan 10th              | Jan 17th      |
 | 03    | Pick 3                 | Jan 3rd       | Jan 10th              | Jan 17th      |
-| o4 | Todo List              | Jan 6th       | N/A                   | N/A           |
-<!--| 05    | Vue Todos              | Jul 5th       | Jul 11th              | Jul 19th      |
-| 06    | Quotes in Vue          | Jul 7th       | Jul 11th              | Jul 21st      |
-| 07    | Mini-Capstone          | Jul 11th      | Jul 14th              | Jul 25th      | -->
+| 04    | Todo List              | Jan 6th       | N/A                   | N/A           |
+| 05    | Vue Todos              | Jan 9th       | Jan 12th              | Jan 23rd      |
+<!--| 06    | Quotes in Vue          | Jan 7th       | Jan 11th              | Jan 21st      |
+| 07    | Mini-Capstone          | Jan 11th      | Jan 14th              | Jan 25th      | -->
 
 
 ## HTML/CSS Labs Assigned:
