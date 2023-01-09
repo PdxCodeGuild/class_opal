@@ -6,3 +6,8 @@
 body {
     background-color: rgb(234, 208, 213);
 }
+
+.title {
+    padding-top: 1rem;
+    font-size: larger;
+}
