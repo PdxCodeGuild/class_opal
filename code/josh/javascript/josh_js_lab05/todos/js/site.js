@@ -3,14 +3,18 @@ new Vue({
     data: {
         listItems: ['Laundry'],
         completed: '',
-        delete: ''
-    },
-    userItem: () => {
-        this.listItems.push()
+        delete: '',
+        userItem: ''
     },
     methods: {
-        logInput(e) {
-            this.userItem = e.target.value
+        addItem () {
+            this.listItems.push(this.userItem)
+        },
+        completed () {
+
+        },
+        delete () {
+            
         }
     }})
 

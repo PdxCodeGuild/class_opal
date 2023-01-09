@@ -15,8 +15,8 @@
         <ol>
             <li v-for="(item, index) in listItems">{{ item }}</li>
         </ol>
-        <input type="text" placeholder="Enter New Item">
-        <button v-bind:value="listItems" v-on:click="userItem">Add</button>
+        <input type="text" v-model="userItem" placeholder="Enter New Item">
+        <button v-on:click="addItem">Add</button>
     </div>
 </body>
 </html>
