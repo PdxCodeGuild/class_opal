@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+<h1>{{ user.username }}'s Chirps</h1>
+
+{% for post in user.post_set.all %}
+<h3>{{ post.date_posted }}</h3>
+{{ post.content }}
+{% endfor %}
+{% endblock content %}

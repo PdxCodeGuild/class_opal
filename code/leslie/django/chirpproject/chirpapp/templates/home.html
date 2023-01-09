@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1>Hey there, {{ user.username }}!</h1>
+
+<h2>Chirp Here</h2>
+<a href="{% url 'chirpapp:new_post' %}">Click here to chirp!</a>
+
+
+<p><a href="{% url 'logout' %}">Log Out</a></p>
+
+{% else %}
+<p>You aren't logged in!</p>
+<a href="{% url 'login' %}">Log In</a>
+{% endif %}
+
+<h2>My Chirps</h2>
+{% if posts %}
+{% for p in posts %}
+<h5>{{ p.user.username }} -posted- <span id="date-posted">{{ p.date_posted }}</span></h5>
+<h3>{{ p.content }}</h3>
+{% endfor %}
+{% endif %}
+{% endblock %}
