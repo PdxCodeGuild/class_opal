@@ -19,7 +19,7 @@ todos
 │   └── site.css
 ├── index.html
 └── js
-    └── site.js`
+    └── site.js
 ```
 
 ## How to serve your application
