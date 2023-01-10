@@ -33,6 +33,7 @@ if (total <= 10 && hand.includes('A')) {
     numCards['A'] = 1
 }
 
+
 if (total < 17) {
     alert(`${total}, Hit!`);
 } else if (total >= 17 && total < 21) {
