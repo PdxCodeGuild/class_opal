@@ -20,31 +20,34 @@
     <div id="app">
 
         <!-- Add functionality to add items to todo -->
-        <form v-on:submit.prevent="addNewTodo">
-            <label for="new-todo" class="title">Add a todo</label>
-            <input
-              v-model="newTodoText"
-              placeholder="E.g. Feed the cat">
+        <label for="new-todo" class="title">Add a todo</label>
+        <form @submit.prevent="addNewTodo">
+            <input v-model="newTodoText" placeholder="E.g. Feed the cat">
             <button>Add</button>
+        </form>
 
-            <ul>
-                <p>Incomplete todos:</p>{{ incompleteTodos }}
-                <p>omplete todos:</p>{{ completeTodos }}
-                
-                
-                <div id="imcomplete-todos" class="title">Incomplete Todos:</div>
-                <li v-for="(todo, index) in incompleteTodos" :key="todo.id">— {{ todo.item }} | {{ index }}<br ><button @click="removeTodo(todo)">Remove</button>
-                    <button @click="markComplete(index)">Mark Todo Complete</button></li>
-                </ul>
-                
+
+            <p>Incomplete todos:</p>{{ incompleteTodos }}
+            <p>complete todos:</p>{{ completeTodos }}
+
+        <p id="imcomplete-todos" class="title">Incomplete Todos:</p>
         <ul>
-            <li v-for="(todo, index) in completeTodos" :key="todo.id">— {{ todo.item }} | {{ index }}<br ><button @click="removeTodo(todo)">Remove</button>
+            <li v-for="(todo, index) in incompleteTodos" :key="todo.id">— {{ todo.item }} | {{ index }}<br >
+                <button @click="removeTodo(todo)">Remove</button>
+                {{ index }}
+                <button @click="markComplete(index)">Mark Todo Complete</button></li>
+        </ul>
+        
+        
+        
+        <p id="imcomplete-todos" class="title">Complete Todos:</p>
+        <ul>
+            <li v-for="(todo, index) in completeTodos" :key="todo.id">— {{ todo.item }} | {{ index }}<br >
+                <button @click="removeTodo(todo)">Remove</button>
+                {{ index }}
+                <button @click="markIncomplete(index)">Mark Todo Incomplete</button></li>
         </ul>
 
-
-
-        
-        </div>
     </div>
 </body>
 </html>
