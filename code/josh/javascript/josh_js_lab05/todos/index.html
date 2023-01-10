@@ -12,11 +12,22 @@
 <body>
     <h1>To Do List</h1>
     <div id="app">
-        <ol>
-            <li v-for="(item, index) in listItems">{{ item }} <a href="delete">delete</a></li>
-        </ol>
-        <input id="input" type="text" v-model="userItem" placeholder="Enter New Item">
-        <button v-on:click="addItem">Add</button>
+        <table>
+            <tr>
+                <th>Complete</th>
+                <th>Item</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" v-for="(item, index) in listItems" v-on:click="completed = !completed"></td>
+                <td>
+                    <ol>
+                        <li v-bind:class="itemComplete" v-for="(item, index) in listItems">{{ item.name }}</li>
+                    </ol>
+                </td>
+            </tr>
+        </table>
+        <input id="input" type="text" v-model="userItem" placeholder="Enter New Item"><br>
+        <button v-on:click="addItem">Add</button><button v-on:click="">Delete</button>
     </div>
 </body>
 </html>

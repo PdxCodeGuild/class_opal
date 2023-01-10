@@ -2,23 +2,35 @@ new Vue({
     el: '#app',
     data: {
         listItems: [],
-        completed: '',
+        completed: false,
         delete: '',
         userItem: ''
     },
     methods: {
         // Appends user input to 'listItems' array and clears input field
         addItem () {
-            this.listItems.push(this.userItem)
+            this.listItems.push({
+                name: this.userItem,
+                completed: false,
+              }),
             this.userItem = ''
-        },
-        completed () {
-            // toggle completed/incomplete checkbox and strikethrough
-        },
-        delete () {
-        //     delete this.userItem
         }
-    }})
+            // this.listItems.push(this.userItem)
+            // this.userItem = ''
+    },
+    computed: {
+        itemComplete () {
+            return {
+                completedItem: this.completed
+            }},
+
+            
+        // itemDelete () {
+        //     return {
+        //         deletedItem: this.delete
+        //     }
+        // }
+}})
 
 
 /* 
