@@ -35,7 +35,11 @@ function conversion() {
     const outputUnit = document.getElementById('outputUnit').value
     let outputConv = inputConv / conversions[outputUnit]
     //console.log(outputConv)
-    alert(`${inputDist} ${inputUnit} is equal to ${outputConv} ${outputUnit}.`)
+    //alert(`${inputDist} ${inputUnit} is equal to ${outputConv} ${outputUnit}.`)
+    const body = document.querySelector('body')
+    const result = document.createElement('result')
+    result.innerText = `${inputDist} ${inputUnit} is equal to ${outputConv} ${outputUnit}.`
+    body.appendChild(result)
 }
 
 convert.addEventListener('click', conversion) 
