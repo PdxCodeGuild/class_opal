@@ -1,25 +1,33 @@
 {% extends 'home.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chirp Feed</title>
-</head>
 {% block posts %}
+<div class="container ">
+    <form action="{% url 'posts:new-post' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="post" id="post" placeholder="What's on your mind?">
+        <button type="submit">Chirp!</button><br><br>
+    </form>
+</div>
 <body>
-    <h1>Global Feed</h1>
+<div class="container">
     {% if post_feed %}
         {% for post in post_feed %}
-            <a href=""><h2>{{ post.user }}</h2></a>
-            <h4>{{ post.pub_date }}</h4>
-            <h3>{{ post.post_text }}</h3>
-            <h6>{{ post.like_set.all.count }} Likes</h6>
-            <button type="submit">Like</button>
+    <div class="row">
+        <div class="col card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title blue-grey-text text-darken-4">{{ post.user }}</span>
+                <p class="red-text text-lighten-3">{{ post.pub_date }}</p>
+                <p>{{ post.post_text }}</p><br>
+                <p>{{ post.like_set.all.count }} Likes</p>
+                <div class="card-action">
+                    <a href="#">Like</a>
+                    <a href="#">Comment</a>
+                </div>
+            </div>
+        </div>
+    </div>
         {% endfor %}
     {% endif  %}
     
+</div>
 </body>
 {% endblock %}
-</html>

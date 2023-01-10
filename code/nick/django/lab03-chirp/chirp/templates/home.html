@@ -1,25 +1,29 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 {% block content %}
-<body>
+<body class="card blue-grey">
     {% if user.is_authenticated %}
-        Hello, {{ user.username }}!
-        <p><a href="{% url 'logout' %}">Log Out</a></p>
-        <h1>Feed</h1>
+        <div class="container">
+            <div class="card row blue-grey darken-1">
+                <div class="col l6 card-content white-text">
+                    <h5 class="">
+                        Hello, {{ user.username }}!
+                    </h5>
+                    <p>
+                        <a href="{% url 'logout' %}" class="orange-text text-accent-2">Log Out</a>
+                    </p>
+                </div>
+                <div class="col l4 card-content"><h1 class="yellow-text text-accent-3">Chirp</h1></div>
+            </div>
+        </div>
         {% block posts %}
         {% endblock %}
     {% else %}
-        {% include 'chirp_users/index.html' %}
-        {% block login %}
-        {% endblock %}
+        <div class="container">
+            {% block login %}
+            {% endblock %}
+            <h2>Sign Up!</h2>
+            <div>{% include "chirp_users/index.html" %}</div>
+        </div>
     {% endif %}
 </body>
 {% endblock %}
-</html>
