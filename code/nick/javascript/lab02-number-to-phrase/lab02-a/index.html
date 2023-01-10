@@ -50,7 +50,7 @@
 
         function intToWords(num) {
             console.log(num)
-            if (Object.keys(intWordsObj).includes(num)) 
+            if (Object.keys(intWordsObj).includes(num.toString())) 
                 {return intWordsObj[num][0]}
             else { 
                 const hundred = Math.floor(num / 100)
@@ -111,7 +111,7 @@
         }
 
 
-        const request = prompt("What number do you want to convert?")
+        const request = prompt("What number do you want to convert? If it is a time, please denote it with an appropriately placed ':'")
 
         if (request.includes(':')) {alert(timeConverter(request))}
         else if (!parseInt(request)) {alert('zero')}
