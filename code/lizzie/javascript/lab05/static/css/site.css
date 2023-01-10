@@ -1,0 +1,48 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(234, 208, 213);
+    
+}
+
+.title {
+    font-size: larger;
+    padding-bottom: .5rem;
+}
+
+.card {
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: rgba(30, 36, 52, 0.6);
+}
+
+li, h1 {
+    padding: 15px;
+}
+
+button {
+    margin-left: .5rem;
+}
+
+li {
+    list-style: none;
+}
+
+.night {
+    color: #fff;
+    display: block;
+    /* box-shadow: 0 0 6px 10px black; */
+    background-color: rgb(30, 28, 34);
+    background-image: url("../images/Faraway_Town_Night.png");
+    background-repeat: repeat-x;
+    background-size: auto;
+    background-position: bottom;
+}
+
+.done {
+    text-decoration: line-through;
+}

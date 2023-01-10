@@ -5,57 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Add your styles here! -->
-    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="static/css/site.css" />
     <!-- Include Vue from a CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- Include the JS file where your Vue instance is defined -->
     <script src="js/site.js" defer></script>
+    <script src="https://kit.fontawesome.com/0cc09580ea.js" crossorigin="anonymous"></script>
 
     <title>My Todo List</title>
 </head>
 
-<body>
+<body class="night">
     <h1>My To-Do List</h1>
 
     <div id="app">
         <!-- Add functionality to add items to todo -->
         <div class="card">
-            <label for="new-todo" class="title">Add a todo</label>
+            <!-- <label for="new-todo" class="title">Add a todo:</label> -->
+            <p id="new-todos" class="title">Add a todo:</p>
             <form @submit.prevent="addNewTodo">
                 <input v-model="newTodoText" placeholder="E.g. Feed the cat">
-                <button>Add</button>
+                <button>
+                    <i class="fa-solid fa-square-plus"></i>
+                </button>
             </form>
         </div>
 
         <div class="card">
-            <p id="imcomplete-todos" class="title">Todos:</p>
+            <p id="imcomplete-todos" class="title">All Todos:</p>
             <ul>
-                <li v-for="(todo, index) in todos" :key="todo.id">— Item: {{ todo.item }} Id: {{ todo.id }} Completed? {{ todo.completed }}<br >
-                    <p>Index: {{ index }}</p>
+                <!-- <li v-for="(todo, index) in todos" :key="todo.id"> Item: {{ todo.item }} Id: {{ todo.id }} Completed? {{ todo.completed }}<br > -->
+                <li v-for="(todo, index) in todos" :key="todo.id">{{ todo.item }}<br >
                 </li>
             </ul>
         </div>
-        <!-- <p>Incomplete todos:</p>{{ incompleteTodos }}
-        <p>complete todos:</p>{{ completeTodos }} -->
+        <!-- <p>Incomplete todos:</p>{{ incompleteTodos }} -->
+        <!-- <p>complete todos:</p>{{ completeTodos }} -->
 
         <div class="card">
             <p id="imcomplete-todos" class="title">Incomplete Todos:</p>
             <ul>
-                <li v-for="(todo, index) in incompleteTodos" :key="todo.id">— {{ todo.item }} | ID:{{ todo.id }}<br >
-                    <button @click="removeTodo(todo)">Remove</button>
-                    <button @click="markComplete(todo.id)">Mark Todo Complete</button>
-                    <p>Index: {{ index }}</p>
+                <li v-for="(todo, index) in incompleteTodos" :key="todo.id">
+                    <span>{{ todo.item }}</span>
+                    <button @click="removeTodo(todo)">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                    <button @click="markComplete(todo)">
+                        <i class="fa-regular fa-square"></i>
+                    </button>
                 </li>
             </ul>
         </div>
 
         <div class="card">
-            <p id="imcomplete-todos" class="title">Complete Todos:</p>
+            <p id="complete-todos" class="title">Complete Todos:</p>
             <ul>
-                <li v-for="(todo, index) in completeTodos" :key="todo.id">— {{ todo.item }} | ID:{{ todo.id }}<br >
-                    <button @click="removeTodo(todo)">Remove</button>
-                    <button @click="markIncomplete(todo.id)">Mark Todo Incomplete</button>
-                    <p>Index: {{ index }}</p>
+                <li v-for="(todo, index) in completeTodos" :key="todo.id">
+                    <span class="done">{{ todo.item }}</span>
+                    <button @click="removeTodo(todo)">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                    <button @click="markIncomplete(todo)">
+                        <i class="fa-solid fa-square-check"></i>
+                    </button>
                 </li>
             </ul>
         </div>

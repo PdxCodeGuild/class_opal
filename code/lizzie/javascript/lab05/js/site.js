@@ -3,9 +3,9 @@ new Vue({
     data: {
         newTodoText: '',
         todos: [
-            {item: 'Learn how to make a todo list',
-            completed: false,
-            id: 1,}
+            {item: 'Step 1: Learn how to make a todo list',
+            completed: true,
+            id: 0,},
         ],
         itemIncrement: 1
     },
@@ -25,11 +25,11 @@ new Vue({
             const myIndex = this.todos.indexOf(todoItem)
             this.todos.splice(myIndex, 1);
         },
-        markComplete(id) {
-            this.id.completed = true;
+        markComplete(task) {
+            task.completed = true;
         },
-        markIncomplete(id) {
-            this.todos[id].completed = false;
+        markIncomplete(task) {
+            task.completed = false;
         },
     },
     computed: {
