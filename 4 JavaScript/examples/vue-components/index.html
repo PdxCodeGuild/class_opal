@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Intro</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>
+            {{ libraryName }}
+        </h1>
+
+        <!-- catch emitted events on the component -->
+        <counter @my-event="emittedCount++"></counter> {{ emittedCount }}
+
+        <template v-for="book in books">
+            <book-item :book="book" @delete-book="removeBook" :key="book.id"></book-item>
+        </template>
+
+    </div>
+</body>
+
+</html>
