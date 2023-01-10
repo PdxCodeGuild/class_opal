@@ -7,16 +7,17 @@ new Vue({
         userItem: ''
     },
     methods: {
+        // Appends user input to 'listItems' array and clears input field
         addItem () {
             this.listItems.push(this.userItem)
             this.userItem = ''
         },
-        // completed () {
-
-        // },
-        // delete () {
+        completed () {
+            // toggle completed/incomplete checkbox and strikethrough
+        },
+        delete () {
         //     delete this.userItem
-        // }
+        }
     }})
 
 
