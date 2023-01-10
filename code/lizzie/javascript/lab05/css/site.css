@@ -19,6 +19,6 @@ body {
     background-color: rgba(181, 133, 143, 0.685);
 }
 
-li {
+li, h1 {
     padding: 15px;
 }

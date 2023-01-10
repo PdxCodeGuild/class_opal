@@ -27,26 +27,36 @@
             </form>
         </div>
 
+        <div class="card">
+            <p id="imcomplete-todos" class="title">Todos:</p>
+            <ul>
+                <li v-for="(todo, index) in todos" :key="todo.id">— Item: {{ todo.item }} Id: {{ todo.id }} Completed? {{ todo.completed }}<br >
+                    <p>Index: {{ index }}</p>
+                </li>
+            </ul>
+        </div>
         <!-- <p>Incomplete todos:</p>{{ incompleteTodos }}
         <p>complete todos:</p>{{ completeTodos }} -->
 
         <div class="card">
             <p id="imcomplete-todos" class="title">Incomplete Todos:</p>
             <ul>
-                <li v-for="(todo, index) in incompleteTodos" :key="todo.id">— {{ todo.item }} | {{ index }}<br >
+                <li v-for="(todo, index) in incompleteTodos" :key="todo.id">— {{ todo.item }} | ID:{{ todo.id }}<br >
                     <button @click="removeTodo(todo)">Remove</button>
+                    <button @click="markComplete(todo.id)">Mark Todo Complete</button>
                     <p>Index: {{ index }}</p>
-                    <button @click="markComplete(index)">Mark Todo Complete</button></li>
+                </li>
             </ul>
         </div>
 
         <div class="card">
             <p id="imcomplete-todos" class="title">Complete Todos:</p>
             <ul>
-                <li v-for="(todo, index) in completeTodos" :key="todo.id">— {{ todo.item }} | {{ index }}<br >
+                <li v-for="(todo, index) in completeTodos" :key="todo.id">— {{ todo.item }} | ID:{{ todo.id }}<br >
                     <button @click="removeTodo(todo)">Remove</button>
+                    <button @click="markIncomplete(todo.id)">Mark Todo Incomplete</button>
                     <p>Index: {{ index }}</p>
-                <button @click="markIncomplete(index)">Mark Todo Incomplete</button></li>
+                </li>
             </ul>
         </div>
 
