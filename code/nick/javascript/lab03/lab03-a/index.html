@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROT13</title>
+</head>
+<body>
+    <script>
+        const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        
+        
+        function ceasar(startText, shiftAmount, cipherDirection) {
+            let endText = ''
+            while (shiftAmount >= 26) { shiftAmount = shiftAmount % 26 }
+            if (cipherDirection == 'decode') { shiftAmount *= -1 }
+            for (char of startText) {
+                console.log(char)
+                let newChar = char
+                if (alphabet.includes(char)) {
+                    newChar = alphabet[alphabet.indexOf(char) + shiftAmount]
+                    console.log(newChar)
+                }
+                endText += newChar
+                console.log(endText)
+            }
+            const endResult = [cipherDirection, endText]
+            return endResult
+        }
+
+
+        const direction = prompt("Type 'encode' to encrypt, type 'decode' to decrypt.")
+        const text = prompt('type your message').toLowerCase()
+        const shift = parseInt(prompt('Type the shift number'))
+        const result = ceasar(text, shift, direction)
+        alert(`Your ${result[0]}d message is ${result[1]}`)
+    </script>
+</body>
+</html>
