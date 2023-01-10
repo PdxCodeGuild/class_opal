@@ -7,7 +7,8 @@ new Vue({
             completed: true,
             id: 0,},
         ],
-        itemIncrement: 1
+        itemIncrement: 1,
+        isImportant: false,
     },
     methods: {
         addNewTodo: function () {
@@ -39,6 +40,11 @@ new Vue({
         incompleteTodos() {
             return this.todos.filter(todo => !todo.completed);
         },
+        listClasses() {
+            return {
+                important: this.isImportant
+            }
+        }
     },
 },
 )
