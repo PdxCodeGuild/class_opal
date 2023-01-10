@@ -9,15 +9,13 @@ new Vue({
     methods: {
         addItem () {
             this.listItems.push(this.userItem)
-        },
-        clearInput () {
-            this.userItem.value = ''
+            this.userItem = ''
         },
         // completed () {
 
         // },
         // delete () {
-        //     delete this.userItem?
+        //     delete this.userItem
         // }
     }})
 
