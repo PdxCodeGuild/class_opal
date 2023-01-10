@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<body class="card blue-grey">
+    {% if user.is_authenticated %}
+        <div class="container">
+            <div class="card row blue-grey darken-1">
+                <div class="col l6 card-content white-text">
+                    <h5 class="">
+                        Hello, {{ user.username }}!
+                    </h5>
+                    <p>
+                        <a href="{% url 'logout' %}" class="orange-text text-accent-2">Log Out</a>
+                    </p>
+                </div>
+                <div class="col l4 card-content"><h1 class="yellow-text text-accent-3">Chirp</h1></div>
+            </div>
+        </div>
+        {% block posts %}
+        {% endblock %}
+    {% else %}
+        <div class="container">
+            {% block login %}
+            {% endblock %}
+            <h2>Sign Up!</h2>
+            <div>{% include "chirp_users/index.html" %}</div>
+        </div>
+    {% endif %}
+</body>
+{% endblock %}
