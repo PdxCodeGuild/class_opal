@@ -41,6 +41,8 @@ new Vue({
             fall: ['September', 'October', 'November'],
             winter: ['December', 'January', 'February']
         },
+        isRed: false,
+        isTransparent: false
     },
     methods: {
         clicker(count) {
@@ -62,6 +64,12 @@ new Vue({
         },
         realStaff() {
             return this.staff.filter(s => s.isReal)
+        },
+        boxClasses() {
+            return {
+                boxRed: this.isRed,
+                transparent: this.isTransparent
+            }
         }
     }
 })

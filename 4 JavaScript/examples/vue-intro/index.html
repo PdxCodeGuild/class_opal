@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- Include the JS file where your Vue instance is defined -->
     <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
 
     <title>Vue Basics</title>
 </head>
@@ -107,6 +108,19 @@
                 <li v-for="m in months">{{ m }}</li>
             </ul>
         </template>
+        <hr>
+
+
+        <!-- Dynamic CSS Classes -->
+        <!-- bind the class attribute to a JS object -->
+        <!-- where the keys are class names and the values are booleans -->
+        <h3>Dynamic CSS Classes</h3>
+        <button @click="isRed = !isRed">Make it red</button>
+        <button @click="isTransparent = !isTransparent">Make it transparent</button>
+        <br>
+
+        <div id="box" v-bind:class="boxClasses">Look, a box</div>
+
     </div>
 
 </body>
