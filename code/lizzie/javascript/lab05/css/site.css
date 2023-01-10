@@ -8,6 +8,17 @@ body {
 }
 
 .title {
-    padding-top: 1rem;
     font-size: larger;
+    padding-bottom: .5rem;
+}
+
+.card {
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: rgba(181, 133, 143, 0.685);
+}
+
+li {
+    padding: 15px;
 }

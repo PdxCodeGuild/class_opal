@@ -18,35 +18,37 @@
     <h1>My To-Do List</h1>
 
     <div id="app">
-
         <!-- Add functionality to add items to todo -->
-        <label for="new-todo" class="title">Add a todo</label>
-        <form @submit.prevent="addNewTodo">
-            <input v-model="newTodoText" placeholder="E.g. Feed the cat">
-            <button>Add</button>
-        </form>
+        <div class="card">
+            <label for="new-todo" class="title">Add a todo</label>
+            <form @submit.prevent="addNewTodo">
+                <input v-model="newTodoText" placeholder="E.g. Feed the cat">
+                <button>Add</button>
+            </form>
+        </div>
 
+        <!-- <p>Incomplete todos:</p>{{ incompleteTodos }}
+        <p>complete todos:</p>{{ completeTodos }} -->
 
-            <p>Incomplete todos:</p>{{ incompleteTodos }}
-            <p>complete todos:</p>{{ completeTodos }}
+        <div class="card">
+            <p id="imcomplete-todos" class="title">Incomplete Todos:</p>
+            <ul>
+                <li v-for="(todo, index) in incompleteTodos" :key="todo.id">— {{ todo.item }} | {{ index }}<br >
+                    <button @click="removeTodo(todo)">Remove</button>
+                    <p>Index: {{ index }}</p>
+                    <button @click="markComplete(index)">Mark Todo Complete</button></li>
+            </ul>
+        </div>
 
-        <p id="imcomplete-todos" class="title">Incomplete Todos:</p>
-        <ul>
-            <li v-for="(todo, index) in incompleteTodos" :key="todo.id">— {{ todo.item }} | {{ index }}<br >
-                <button @click="removeTodo(todo)">Remove</button>
-                {{ index }}
-                <button @click="markComplete(index)">Mark Todo Complete</button></li>
-        </ul>
-        
-        
-        
-        <p id="imcomplete-todos" class="title">Complete Todos:</p>
-        <ul>
-            <li v-for="(todo, index) in completeTodos" :key="todo.id">— {{ todo.item }} | {{ index }}<br >
-                <button @click="removeTodo(todo)">Remove</button>
-                {{ index }}
+        <div class="card">
+            <p id="imcomplete-todos" class="title">Complete Todos:</p>
+            <ul>
+                <li v-for="(todo, index) in completeTodos" :key="todo.id">— {{ todo.item }} | {{ index }}<br >
+                    <button @click="removeTodo(todo)">Remove</button>
+                    <p>Index: {{ index }}</p>
                 <button @click="markIncomplete(index)">Mark Todo Incomplete</button></li>
-        </ul>
+            </ul>
+        </div>
 
     </div>
 </body>
