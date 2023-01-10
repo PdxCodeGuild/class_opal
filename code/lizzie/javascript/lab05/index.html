@@ -33,6 +33,7 @@
 
         <div class="card">
             <p id="imcomplete-todos" class="title">All Todos:</p>
+            <p v-if="todos.length == 0">You have no todos.</p>
             <ul>
                 <!-- <li v-for="(todo, index) in todos" :key="todo.id"> Item: {{ todo.item }} Id: {{ todo.id }} Completed? {{ todo.completed }}<br > -->
                 <li v-for="(todo, index) in todos" :key="todo.id">{{ todo.item }}<br >
@@ -44,6 +45,7 @@
 
         <div class="card">
             <p id="imcomplete-todos" class="title">Incomplete Todos:</p>
+            <p v-if="incompleteTodos.length == 0">You have no incomplete todos.</p>
             <ul>
                 <li v-for="(todo, index) in incompleteTodos" :key="todo.id">
                     <span>{{ todo.item }}</span>
@@ -56,9 +58,10 @@
                 </li>
             </ul>
         </div>
-
+        
         <div class="card">
             <p id="complete-todos" class="title">Complete Todos:</p>
+            <p v-if="completeTodos.length == 0">You have no complete todos.</p>
             <ul>
                 <li v-for="(todo, index) in completeTodos" :key="todo.id">
                     <span class="done">{{ todo.item }}</span>
