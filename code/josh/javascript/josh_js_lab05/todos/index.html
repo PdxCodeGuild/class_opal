@@ -19,7 +19,7 @@
                 <th>Delete</th>
             </tr>
             <tr v-for="(item, index) in listItems">
-                <td><input type="checkbox" value="item.completed" v-on:click="boxChecked(item)"></td>
+                <td><input id="checkbox" type="checkbox" value="item.completed" v-on:click="boxChecked(item)"></td>
                 <td><p v-bind:class="itemComplete(item)">{{ item.name }}</p></td>
                 <td><img src="css/delete-button.png" alt="Delete Button" @click="deleteItem(item)"></td>
             </tr>

@@ -5,4 +5,17 @@
 img {
     max-width: 1vw;
     max-height: 1vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#checkbox {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    border: ;
 }

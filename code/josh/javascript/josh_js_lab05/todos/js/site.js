@@ -24,13 +24,9 @@ new Vue({
             let todoIndex = this.listItems.indexOf(todoItem)
             this.listItems[todoIndex].completed = !this.listItems[todoIndex].completed
         },
-
+        // Item is deleted from list
         deleteItem (todoItem) {
-            this.listItems[todoIndex].delete(todoItem)
+            // this.listItems[todoIndex].delete(todoItem)
+            this.listItems.splice(todoItem, 1)
         }
-    },
-    computed: {
-}})
-
-
-// Allow the user to remove todos
+    }})
