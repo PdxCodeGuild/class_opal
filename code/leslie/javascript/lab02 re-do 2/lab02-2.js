@@ -9,7 +9,11 @@ function rotate() {
     for (let char of inputString) {
         let inputIndex = abc.indexOf(char);
         let outputIndex = (inputIndex - rotations);
+        if (outputIndex < 0) {
+            outputIndex += 26
+        }
         output += abc[outputIndex]
+
     }
 
     let result = document.getElementById('resultDiv')

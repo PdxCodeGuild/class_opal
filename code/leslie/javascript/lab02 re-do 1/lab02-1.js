@@ -7,6 +7,9 @@ let output = ""
 for (let char of inputString) {
     let inputIndex = abc.indexOf(char);
     let outputIndex = (inputIndex - rotation);
+    if (outputIndex < 0) {
+        outputIndex += 26
+    }
     output += abc[outputIndex]
 }
 console.log(output)
