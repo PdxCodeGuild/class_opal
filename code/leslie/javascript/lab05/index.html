@@ -26,7 +26,7 @@
                         <h2>Things To Do</h2>
                         <ul class="list">
                             <li class="list-item" :class="{completed: item.completed}" v-for="item in reversedItems">
-                                <button class="list-item-toggle" @click="toggleCompleted(item)">done</button><span>{{
+                                <button class="list-item-toggle" @click="toggleCompleted(item)">done!</button><span>{{
                                     item.name }}</span>
                                 <button class="list-item-delete" @click="removeItem(item)">X</button>
                             </li>

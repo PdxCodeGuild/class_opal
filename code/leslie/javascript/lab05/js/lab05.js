@@ -1,7 +1,7 @@
 new Vue({
     el: '#app',
     data: {
-        newItem: '', // Add Todo input goes here
+        newItem: '', // input from "add Todo" goes in here, added "v-model='newItem'" to input tag
         items: [
             {
                 id: 1,
@@ -19,19 +19,19 @@ new Vue({
     },
     computed: {
         reversedItems() {
-            return this.items.slice(0).reverse();
+            return this.items.slice(0).reverse(); // renders items list backwards
         },
     },
     methods: {
-        addItem: function () {
+        addItem: function () { //pushes newItem to items array
             this.items.push({
                 id: this.items.length + 1,
                 name: this.newItem,
                 completed: false,
             });
-            this.newItem = '';
+            this.newItem = ''; //clears out newItem value from input
         },
-        toggleCompleted: function (item) {
+        toggleCompleted: function (item) { //can toggle item from comeplete to incomplete
             item.completed = !item.completed;
         },
         removeItem: function (item) {
