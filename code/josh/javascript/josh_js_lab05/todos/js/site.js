@@ -26,7 +26,6 @@ new Vue({
         },
         // Item is deleted from list
         deleteItem (todoItem) {
-            // this.listItems[todoIndex].delete(todoItem)
             this.listItems.splice(todoItem, 1)
         }
     }})
