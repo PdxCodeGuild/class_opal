@@ -2,6 +2,11 @@ body {
     background-color: rgb(204, 162, 55);
 }
 
+div {
+    display: flex;
+    flex-direction: column;
+
+}
 .completedItem {
     text-decoration: line-through;
 }
@@ -40,5 +45,10 @@ h1 {
 }
 
 #input {
-    text-align: center;    
+    text-align: center;
+    margin: auto;    
+}
+
+button {
+    margin: auto;
 }
