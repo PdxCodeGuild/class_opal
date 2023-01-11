@@ -26,8 +26,7 @@ new Vue({
         },
 
         deleteItem (todoItem) {
-            let todoDelete = this.listItems.indexOf(todoItem)
-            this.listItems[todoDelete].delete
+            this.listItems[todoIndex].delete(todoItem)
         }
     },
     computed: {
