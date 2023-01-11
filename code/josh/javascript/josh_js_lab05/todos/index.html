@@ -21,7 +21,7 @@
             <tr v-for="(item, index) in listItems">
                 <td><input id="checkbox" type="checkbox" value="item.completed" v-on:click="boxChecked(item)"></td>
                 <td><p v-bind:class="itemComplete(item)">{{ item.name }}</p></td>
-                <td><img src="css/delete-button.png" alt="Delete Button" @click="deleteItem(item)"></td>
+                <td><img src="css/delete-button.png" alt="Delete Button" @click="deleteItem(index)"></td>
             </tr>
         </table>
         <input id="input" type="text" v-model="userItem" placeholder="Enter New Item">
