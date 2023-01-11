@@ -43,9 +43,9 @@ li {
     background-position: bottom;
 }
 
-.important {
-    font-weight: bold;
+.important-item {
     text-decoration: underline;
+    font-weight: bold;
 }
 
 /* CSS doing its job and overriding the underline, keeping strikethrough, if the item is in complete todos list. */

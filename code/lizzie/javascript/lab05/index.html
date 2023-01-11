@@ -48,14 +48,15 @@
             <p v-if="incompleteTodos.length == 0">You have no incomplete todos.</p>
             <ul>
                 <li v-for="(todo, index) in incompleteTodos" :key="todo.id">
-                    <span v-bind:class="listClasses">{{ todo.item }}</span>
+                    <span v-bind:class="[todo.isActive ? '' : 'important-item']">{{ todo.item }}</span>
+                    <!-- <span v-bind:class="[todo.isActive ? '' : 'important-item']" @click="toggleClass(todo.id)">{{ todo.item }}</span> -->
                     <button @click="removeTodo(todo)">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
                     <button @click="markComplete(todo)">
                         <i class="fa-regular fa-square"></i>
                     </button>
-                    <button @click="isImportant = !isImportant">
+                    <button @click="toggleClass(todo.id)">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </button>
                 </li>
@@ -67,17 +68,18 @@
             <p v-if="completeTodos.length == 0">You have no complete todos.</p>
             <ul>
                 <li v-for="(todo, index) in completeTodos" :key="todo.id">
-                    <span class="done" v-bind:class="listClasses">{{ todo.item }}</span>
+                    <span class="done" v-bind:class="[todo.isActive ? '' : 'important-item']">{{ todo.item }}</span>
                     <button @click="removeTodo(todo)">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
                     <button @click="markIncomplete(todo)">
                         <i class="fa-solid fa-square-check"></i>
                     </button>
-                    <button @click="isImportant = !isImportant">
+
+                    <!-- This code is problematic -->
+                    <button @click="toggleClass(todo.id)">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </button>
-
                 </li>
             </ul>
         </div>

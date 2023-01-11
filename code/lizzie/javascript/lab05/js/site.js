@@ -4,11 +4,11 @@ new Vue({
         newTodoText: '',
         todos: [
             {item: 'Step 1: Learn how to make a todo list',
-            completed: true,
+            completed: false,
+            isActive: true,
             id: 0,},
         ],
         itemIncrement: 1,
-        isImportant: false,
     },
     methods: {
         addNewTodo: function () {
@@ -16,7 +16,7 @@ new Vue({
                 // builds the new todo item then clears the string afterward to be reused
               item: this.newTodoText,
               completed: false,
-              id: this.itemIncrement,
+              isActive: true,
             },)
             this.itemIncrement++
             this.newTodoText = ''
@@ -32,6 +32,11 @@ new Vue({
         markIncomplete(task) {
             task.completed = false;
         },
+        toggleClass: function(id){
+            // this.isActive =!this.isActive;
+            this.todos[id].isActive =!this.todos[id].isActive;
+            // console.log(this.isActive)
+        }
     },
     computed: {
         completeTodos() {
@@ -40,11 +45,6 @@ new Vue({
         incompleteTodos() {
             return this.todos.filter(todo => !todo.completed);
         },
-        listClasses() {
-            return {
-                important: this.isImportant
-            }
-        }
     },
 },
 )
