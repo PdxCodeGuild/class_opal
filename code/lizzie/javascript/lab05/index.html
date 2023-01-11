@@ -19,7 +19,6 @@
     <h1>My To-Do List</h1>
 
     <div id="app">
-        <!-- Add functionality to add items to todo -->
         <div class="card">
             <!-- <label for="new-todo" class="title">Add a todo:</label> -->
             <p id="new-todos" class="title">Add a todo:</p>
@@ -32,22 +31,13 @@
         </div>
 
         <div class="card">
-            <p id="imcomplete-todos" class="title">All Todos:</p>
-            <p v-if="todos.length == 0">You have no todos.</p>
-            <ul>
-                <!-- <li v-for="(todo, index) in todos" :key="todo.id"> Item: {{ todo.item }} Id: {{ todo.id }} Completed? {{ todo.completed }}<br > -->
-                <li v-for="(todo, index) in todos" :key="todo.id">{{ todo.item }}<br >
-                </li>
-            </ul>
-        </div>
-        <!-- <p>Incomplete todos:</p>{{ incompleteTodos }} -->
-        <!-- <p>complete todos:</p>{{ completeTodos }} -->
-
-        <div class="card">
             <p id="imcomplete-todos" class="title">Incomplete Todos:</p>
             <p v-if="incompleteTodos.length == 0">You have no incomplete todos.</p>
             <ul>
                 <li v-for="(todo, index) in incompleteTodos" :key="todo.id">
+                    <button @click="toggleClass(todo)">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </button>
                     <span v-bind:class="[todo.isActive ? '' : 'important-item']">{{ todo.item }}</span>
                     <!-- <span v-bind:class="[todo.isActive ? '' : 'important-item']" @click="toggleClass(todo.id)">{{ todo.item }}</span> -->
                     <button @click="removeTodo(todo)">
@@ -55,9 +45,6 @@
                     </button>
                     <button @click="markComplete(todo)">
                         <i class="fa-regular fa-square"></i>
-                    </button>
-                    <button @click="toggleClass(todo.id)">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
                     </button>
                 </li>
             </ul>
@@ -68,6 +55,10 @@
             <p v-if="completeTodos.length == 0">You have no complete todos.</p>
             <ul>
                 <li v-for="(todo, index) in completeTodos" :key="todo.id">
+                    <!-- Accesising whole todo object and passing it into toggleClass -->
+                    <button @click="toggleClass(todo)">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </button>
                     <span class="done" v-bind:class="[todo.isActive ? '' : 'important-item']">{{ todo.item }}</span>
                     <button @click="removeTodo(todo)">
                         <i class="fa-solid fa-trash-can"></i>
@@ -76,10 +67,6 @@
                         <i class="fa-solid fa-square-check"></i>
                     </button>
 
-                    <!-- This code is problematic -->
-                    <button @click="toggleClass(todo.id)">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                    </button>
                 </li>
             </ul>
         </div>

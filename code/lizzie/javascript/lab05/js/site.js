@@ -4,11 +4,19 @@ new Vue({
         newTodoText: '',
         todos: [
             {item: 'Step 1: Learn how to make a todo list',
-            completed: false,
+            completed: true,
             isActive: true,
             id: 0,},
+            {item: 'Step 2: Finish drafting first ver',
+            completed: true,
+            isActive: false,
+            id: 1,},
+            {item: 'Step 3: Make important toggle',
+            completed: false,
+            isActive: false,
+            id: 2,},
         ],
-        itemIncrement: 1,
+        itemIncrement: 3,
     },
     methods: {
         addNewTodo: function () {
@@ -17,12 +25,13 @@ new Vue({
               item: this.newTodoText,
               completed: false,
               isActive: true,
+              id: this.itemIncrement,
             },)
             this.itemIncrement++
             this.newTodoText = ''
         },
         removeTodo(todoItem) {
-            // Remove item at its index in the array
+            // Accessing relevant index of the todo and removing the item in the array
             const myIndex = this.todos.indexOf(todoItem)
             this.todos.splice(myIndex, 1);
         },
@@ -32,10 +41,9 @@ new Vue({
         markIncomplete(task) {
             task.completed = false;
         },
-        toggleClass: function(id){
-            // this.isActive =!this.isActive;
-            this.todos[id].isActive =!this.todos[id].isActive;
-            // console.log(this.isActive)
+        toggleClass: function(todo){
+            const myIndex = this.todos.indexOf(todo)
+            this.todos[myIndex].isActive =!this.todos[myIndex].isActive;
         }
     },
     computed: {
