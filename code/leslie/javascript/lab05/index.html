@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="js/lab05.js" defer></script>
+        <link rel="stylesheet" href="css/styles.css">
+        <title>To Do List</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="app">
+                <h1>To Do List</h1>
+                <div class="card">
+                    <div class="flex">
+                        <input v-model="newItem" @keyup.enter="addItem" placeholder="Add new todo" />
+                        <button @click="addItem" :disabled="newItem.length === 0">Add</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <h2>Things To Do</h2>
+                        <ul class="list">
+                            <li class="list-item" :class="{completed: item.completed}" v-for="item in reversedItems">
+                                <button class="list-item-toggle" @click="toggleCompleted(item)">done</button><span>{{
+                                    item.name }}</span>
+                                <button class="list-item-delete" @click="removeItem(item)">X</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

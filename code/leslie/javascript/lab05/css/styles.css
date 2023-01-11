@@ -1,0 +1,57 @@
+.container {
+    width: 100%;
+    margin: auto;
+    padding: 0%;
+    text-align: center;
+
+}
+
+.list-item.completed {
+    border: 3px solid rgb(255, 165, 47)
+}
+
+.list-item.completed span {
+    text-decoration: line-through;
+}
+
+
+.card-inner {
+    padding: 16px 24px;
+}
+
+
+input {
+    border-radius: 4px;
+    background: transparent;
+    width: 50%;
+    padding: 14px;
+    font-size: 20px;
+    border: 1px solid;
+    
+}
+
+button {
+    background: #569fb1;
+    padding: 8px 12px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    margin: 8px;
+    font-size: 16px;
+}
+.list-item {
+    border: 1px solid #e8e8e8;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.list-item-delete {
+    margin-left: auto;
+    color: tomato;
+    font-weight: bold;
+    
+}
