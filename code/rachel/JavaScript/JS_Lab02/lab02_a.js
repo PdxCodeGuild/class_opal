@@ -1,8 +1,9 @@
 //Blackjack advice//
 
 let cardValues = {a: 1, Ace: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, j: 10, jack: 10, q: 10, queen: 10, k: 10, king: 10}
-//console.log("cardValues", cardValues) - ensuring cardValues outputs the values
+
 let firstCard = prompt("What's your first card? Enter the number, or for face cards, enter j for jack, q for queen, k for king, and a for ace. ")
+//console.log(typeof firstCard)
 let secondCard = prompt("What's your second card? ")
 let thirdCard = prompt("What's your third card? ")
 
@@ -15,7 +16,7 @@ console.log("value3", thirdCard, value3)
 
 let cardsTotal = value1 + value2 + value3
 console.log("cards total", cardsTotal)
-//let cards_total = parseInt(value_1) + parseInt(value_2) + parseInt(value_3) -- since all the values in the object are numbers, no need to parseInt
+
 
 if (cardsTotal <= 16) {
     alert(cardsTotal + " hit me")
