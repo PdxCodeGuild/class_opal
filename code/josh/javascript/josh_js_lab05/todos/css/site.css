@@ -1,3 +1,8 @@
 .completedItem {
     text-decoration: line-through;
 }
+
+img {
+    max-width: 1vw;
+    max-height: 1vw;
+}

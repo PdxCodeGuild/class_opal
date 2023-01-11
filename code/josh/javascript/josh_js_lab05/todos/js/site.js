@@ -2,7 +2,6 @@ new Vue({
     el: '#app',
     data: {
         listItems: [],
-        completed: false,
         delete: '',
         userItem: ''
     },
@@ -14,26 +13,25 @@ new Vue({
                 completed: false,
               }),
             this.userItem = ''
+        },
+        // Item text is lined-through if complete
+        itemComplete (todoItem) {
+            return {
+                completedItem: todoItem.completed
+            }},
+        // Item is marked complete/incomplete
+        boxChecked (todoItem) {
+            let todoIndex = this.listItems.indexOf(todoItem)
+            this.listItems[todoIndex].completed = !this.listItems[todoIndex].completed
+        },
+
+        deleteItem (todoItem) {
+            let todoDelete = this.listItems.indexOf(todoItem)
+            this.listItems[todoDelete].delete
         }
-            // this.listItems.push(this.userItem)
-            // this.userItem = ''
     },
     computed: {
-        itemComplete () {
-            return {
-                completedItem: this.completed
-            }},
-
-            
-        // itemDelete () {
-        //     return {
-        //         deletedItem: this.delete
-        //     }
-        // }
 }})
 
 
-/* 
-Allow the user to remove todos
-Allow a user to toggle if a task is complete or not
-*/
+// Allow the user to remove todos
