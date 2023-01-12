@@ -15,11 +15,18 @@
     <h3><a href="https://favqs.com/api/qotd/"></a></h3>
     <div id="app">
         <input id="search" type="text" v-model="userInput" placeholder="Search Quotes">
-        <button v-on:click="getQuote()">Search</button>
+        <select name="searchType" id="searchType" v-model="typeChoice">
+            <option value="keyword">keyword</option>
+            <option value="author">author</option>
+            <option value="tag">tag</option>
+        </select><br>
+        <button v-on:click="getQuote()">Search</button><br>
         <div v-for="(item, index) in output">
             "{{ item.body }}"<br>
-            - {{ item.author }}<br>
+            - {{ item.author }}<br><br>
         </div>
+        <button v-on:click="getQuote()">Next Page ></button>
+        {{  }}
 
     </div>
 </body>

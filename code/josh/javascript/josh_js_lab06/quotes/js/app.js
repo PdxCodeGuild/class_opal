@@ -4,7 +4,9 @@ new Vue ({
     el: '#app',
     data: {
         output: {},
-        userInput: ''
+        userInput: '',
+        typeChoice: '',
+        currentPage: 1
         },
     methods: {
         getQuote() {
@@ -14,7 +16,8 @@ new Vue ({
                     'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'},
                 params: {
                     'filter': this.userInput,
-                    // 'type': 
+                    'type': this.typeChoice,
+                    'page': this.currentPage + 1
                 }
     }).then(response => this.output = response.data.quotes)
     .then(data => console.log(data))
@@ -31,7 +34,6 @@ new Vue ({
 // Remember to use your Vue app data as your single source of truth.
 // You'll need to set the Authorization header for the FavQs API to work.
 
-            // header: {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'},
             // parameters: {'filter': keyword, 'page': page}, //stores user input and page number to allow search terms and next page functionality in URL
             // searchResponse: requests.get('https://favqs.com/api/quotes', params=parameters, headers=header),
         //     searchResponseText: search_response.json(),

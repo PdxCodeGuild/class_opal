@@ -5,6 +5,6 @@ body, html {
 #app, h1 {
     display: grid;
     margin: auto;
-    max-width: 50vw;
+    max-width: 67vw;
     justify-content: center;
 }
