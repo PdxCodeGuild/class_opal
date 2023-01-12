@@ -25,7 +25,7 @@
             "{{ item.body }}"<br>
             - {{ item.author }}<br><br>
         </div>
-        <button v-on:click="getQuote()">Next Page ></button>
+        <button v-model="currentPage" v-on:click="getQuote()">Next Page ></button>
         {{  }}
 
     </div>
