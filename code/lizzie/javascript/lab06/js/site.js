@@ -1,34 +1,58 @@
-// Vue.component({
-// We will get back to this...
-//  template: ``,
-//  data: () => {},
-// props: {},
-// methods: {},
-// computed: {}
-//})
-
+Vue.component('section-title', {
+  props: ['isSearch'],
+  template: '<h2>{{ title }}</h2>',
+  computed: {
+      title() {
+          return this.isSearch ? 'Search Results' : 'Random Quotes';
+      }
+  }
+});
 
 new Vue({
   el: '#app',
   data: {
+    searchTerm: '',
+    searchOption: '',
+    searchOptions: [
+        { value: 'filter', label: 'Keyword', type: '' },
+        { value: 'author', label: 'Author', type: 'author' },
+        { value: 'tag', label: 'Tag', type: 'tag' }
+    ],
     quotes: [],
+    errored: false,
+    page: 0,
+    isSearch: false
   },
-  // mounted() {
-  //   this.fetchQuotes()
-  // },
+  mounted() {
+    this.randQuotes()
+  },
   methods: {
-    fetchQuotes() {
+    randQuotes() {
       axios.get(`https://favqs.com/api/quotes`, {
-        params: {
-          page: '1',
-          // Take this out if you want to mount random results (apparently)
-          filter: 'flower',
-          type: '',
-        },
         headers: {
           Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
         },
-      }).then(response => this.quotes = response.data.quotes)
+      }).then(response => {
+        this.quotes = response.data.quotes
+      }).catch(error => { //How make this work?
+        console.log(error)
+        this.errored = true
+    })
     },
+    searchQuote() {
+      this.isSearch = true;
+      axios.get(`https://favqs.com/api/quotes`, {
+        headers: {
+          Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+        },
+        params: {
+          // fetching the information retrieved from data that stores user input
+          filter: this.searchTerm,
+          type: this.searchOption
+        },
+      }).then(response => {
+        this.quotes = response.data.quotes
+      })
+    }
   }
 })

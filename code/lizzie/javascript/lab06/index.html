@@ -23,21 +23,39 @@
                 <li>Interact with the results</li>
                 <li>Let the user enter a search term and select whether to search by keyword, author, or tag.</li>
                 <li>When the page first loads, show the user a set of completely random quotes.</li>
-                <li>You must have at least one Vue component in your app. Review components here<</li>
+                <li>You must have at least one Vue component in your app.</li>
             </ul>
             <hr>
         </div>
-        
-        <div id="app">
 
-            <button class="btn btn-primary" @click="fetchQuotes">GET KEYWORD </button>
-            <ul v-for = "quote in quotes">
-                <li>
-                    {{ quote.body }}
-                    — {{ quote.author }}
-                </li>
-                </ul>
+        <section v-if="errored">
+            <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
+        </section>
+        
+        <div>
+            <form @submit.prevent="searchQuote">
+                <label>Your search term:
+                    <input type="text" v-model="searchTerm">
+                </label>
+            
+                <label v-for="option in searchOptions" :key="option.value">
+                    <input type="radio" v-model="searchOption" :value="option.type">
+                    {{ option.label }}
+                </label>
+                <button type="submit">Search</button>
+            </form>
         </div>
+
+
+        <section-title :is-search="isSearch"></section-title>
+    <button class="btn btn-primary" @click="randQuotes">Get 25 random quotes</button>
+        <ul v-for="quote in quotes" :key="quote.id">
+            <li>
+                {{ quote.body }}
+                — {{ quote.author }}
+            </li>
+        </ul>
+
     </div>
 </body>
 
