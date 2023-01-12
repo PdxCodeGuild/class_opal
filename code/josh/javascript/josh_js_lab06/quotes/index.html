@@ -14,11 +14,13 @@
     <h1>Welcome to the Quotes App</h1>
     <h3><a href="https://favqs.com/api/qotd/"></a></h3>
     <div id="app">
-        <input id="search" type="text" placeholder="Search Quotes">
-        <!-- <input id="search" v-model="quote-search" type="text" placeholder="Search Quotes"> -->
+        <input id="search" type="text" v-model="quote-search" placeholder="Search Quotes">
         <button v-on:click="getQuote()">Search</button>
+        <!-- {{ output.data }} -->
+        <div v-for="(item, index) in output">
+            {{ item }}
+        </div>
 
-        {{ output.data }}
     </div>
 </body>
 </html>

@@ -10,30 +10,18 @@ new Vue ({
             console.log('GET request');
             axios.get('https://favqs.com/api/quotes/', {
                 headers: {
-                    'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'},
+                    'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"',
+                    'Content-Type': 'application/json'},
                 params: {
-                    // 'author': userInput,
-                    // 'body': userInput,
-                    // 'keyword': userInput,
-                    // 'author': data.quote.author,
-                    // 'tag': tag
+                    'filter': 'keyword',
+                    // 'type': 
                 }
-    }).then(res => this.output = res)
+    }).then(response => this.output = response)
     .then(data => console.log(data))
-    .catch(err => console.error(err))
+    .catch(error => console.error(error))
     },
 }})
 
-
-//   .then(function (response) {
-//     console.log(response);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   })
-//   .then(function () {
-//     // always executed
-//   });
 
 // Let the user enter a search term and select whether to search by keyword, author, or tag.
 // When the page first loads, show the user a set of completely random quotes.
