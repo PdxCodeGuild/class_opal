@@ -2,7 +2,7 @@ body, html {
     background-color: indianred;
 }
 
-#app, h1 {
+#app, h1, h3 {
     display: grid;
     margin: auto;
     max-width: 67vw;

@@ -11,8 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <h1>Welcome to the Quotes App</h1>
-    <h3><a href="https://favqs.com/api/qotd/"></a></h3>
+    <h1>The Quotes App</h1><br>
+    <h3 v-on:load="getQOTD()">Quote of the Day:<br>
+    "{{ output }}"</h3><br>
     <div id="app">
         <input id="search" type="text" v-model="userInput" placeholder="Search Quotes">
         <select name="searchType" id="searchType" v-model="typeChoice">
@@ -25,7 +26,7 @@
             "{{ item.body }}"<br>
             - {{ item.author }}<br><br>
         </div>
-        <button v-model="currentPage" v-on:click="getQuote()">Next Page ></button>
+        <!-- <button v-model="currentPage" v-on:click="getQuote()">Next Page ></button> -->
         {{  }}
 
     </div>

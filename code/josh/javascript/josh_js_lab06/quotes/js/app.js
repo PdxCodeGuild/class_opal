@@ -23,6 +23,13 @@ new Vue ({
     .then(data => console.log(data))
     .catch(error => console.error(error))
     },
+        getQOTD() {
+            console.log('GET request');
+            axios.get('https://favqs.com/api/qotd/')
+            .then(response => this.output = response)
+            .then(data => console.log(data))
+            .catch(error => console.error(error))
+        }
 }})
 
 
