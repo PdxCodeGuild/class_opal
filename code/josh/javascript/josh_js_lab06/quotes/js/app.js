@@ -3,20 +3,20 @@
 new Vue ({
     el: '#app',
     data: {
-        output: {}
+        output: {},
+        userInput: ''
         },
     methods: {
         getQuote() {
             console.log('GET request');
             axios.get('https://favqs.com/api/quotes/', {
                 headers: {
-                    'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"',
-                    'Content-Type': 'application/json'},
+                    'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'},
                 params: {
-                    'filter': 'keyword',
+                    'filter': this.userInput,
                     // 'type': 
                 }
-    }).then(response => this.output = response)
+    }).then(response => this.output = response.data.quotes)
     .then(data => console.log(data))
     .catch(error => console.error(error))
     },
