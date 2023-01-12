@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/todo.js" defer></script>
     <title>Todoism</title>
@@ -17,29 +17,36 @@
             <h3 class="blue-grey-text text-lighten-5 center-align">Todoism</h3>
             <h5 class="blue-grey-text text-lighten-5 center-align">For when your other todo apps are too robust</h5> 
     </header>
+
+    <!-- Main Vue APP**************************************************************************************************** -->
     <main class="blue-grey darken-1" id="app">
-        <div class="row">
-            <form class="col s12">
-              <div class="row center">
-                <div class="input-field col s12">
-                  <textarea id="textarea1" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Enter a new Todo Item</label>
-                </div>
-                <div class="col s12">
-                    <button class="btn red lighten-2 waves-effect waves-light" type="submit" name="action">Create Todo
-                        <i class="material-icons right">create</i>
-                      </button>
-                    
-                </div>
-              </div>
-            </form>
-          </div>
+        <div class="row center">
+           <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea" v-model="newTodoText"></textarea>
+                <label for="textarea1">Enter a new Todo Item</label>
+            </div>
+            <div class="col s12">
+                <button class="btn red lighten-2 waves-effect waves-light" name="create" @click="addTodo()">Create Todo
+                    <i class="material-icons right">create</i>
+                </button>
+
+                <!-- Test Lines*********************************************************************************************-->
+                <p>{{ newTodoText }}</p>
+                <p>{{ todoItems }}</p>
+            </div>
+          </div>  
         <div class="row">
             <div class="col s6">
                 <h5 class="center-align red-text text-lighten-1">Incomplete</h5>
+                <!-- <template v-for="todo in incomplete">
+                  <todo-item :todo="todo" @delete-todo="removeTodo" :key="todo.id"></todo-item>
+                </template> -->
             </div>
             <div class="col s6">
                 <h5 class="center-align red-text text-lighten-1">Complete</h5>
+                <!-- <template v-for="todo in complete">
+                  <todo-item :todo="todo" @delete-todo="removeTodo" @complete-todo="completer" :key="todo.id"></todo-item>
+                </template> -->
             </div>
         </div>
     </main>
@@ -47,6 +54,9 @@
           <div class="container">
           © 2022 Nicholas C. Murdaugh
           </div>
-      </footer>
+    </footer>
+
+
+
 </body>
 </html>

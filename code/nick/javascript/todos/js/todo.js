@@ -1,10 +1,41 @@
-new VTTCue({
+// Vue.component('incompleteItem', {
+//     template: '...'
+//     ,
+//     data: () => {
+//         return {
+            
+//         }
+//     },
+//     props: {
+//         todo: {
+//             type: Object,
+//         },
+//     },
+//     methods: {
+
+//     },
+// })
+
+
+
+
+
+new Vue({
     el: '#app',
     methods: {
-
+        addTodo() {
+            console.log(this.newTodoText)
+            if ( this.newTodoText.length > 0 ) {
+                this.currentId++
+                this.todoItems.unshift({ id: this.currentId, todoText: this.newTodoText, complete: false })
+                console.log(this.todoItems[0])
+                this.newTodoText = ''
+            }
+        }
     },
     data: {
-        currentId: 1,
+        currentId: 0,
+        newTodoText: '',
         todoItems: [
             // {
                 // id: this.currentId,
@@ -13,5 +44,13 @@ new VTTCue({
             // },
         ],
     },
-
+    computed: {
+        incomplete() {
+            return this.todoItems.filter( (td) => td.complete )
+        },
+        complete() {
+            return this.todoItems.filter( (td) => !td.complete )
+        },
+    }
 })
+     
