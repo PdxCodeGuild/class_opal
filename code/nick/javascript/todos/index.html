@@ -38,15 +38,15 @@
         <div class="row">
             <div class="col s6">
                 <h5 class="center-align red-text text-lighten-1">Incomplete</h5>
-                <!-- <template v-for="todo in incomplete">
-                  <todo-item :todo="todo" @delete-todo="removeTodo" :key="todo.id"></todo-item>
-                </template> -->
+                <template v-for="todo in incomplete">
+                  <todo-item :todo="todo" @delete-todo="removeTodo" @complete-todo="completeTodo" :key="todo.id"></todo-item>
+                </template>
             </div>
             <div class="col s6">
                 <h5 class="center-align red-text text-lighten-1">Complete</h5>
-                <!-- <template v-for="todo in complete">
-                  <todo-item :todo="todo" @delete-todo="removeTodo" @complete-todo="completer" :key="todo.id"></todo-item>
-                </template> -->
+                <template v-for="todo in complete">
+                  <todo-item :todo="todo" @delete-todo="removeTodo" @complete-todo="completeTodo" :key="todo.id"></todo-item>
+                </template>
             </div>
         </div>
     </main>

@@ -1,20 +1,20 @@
-// Vue.component('incompleteItem', {
-//     template: '...'
-//     ,
-//     data: () => {
-//         return {
+Vue.component('incompleteItem', {
+    template: '...'
+    ,
+    data: () => {
+        return {
             
-//         }
-//     },
-//     props: {
-//         todo: {
-//             type: Object,
-//         },
-//     },
-//     methods: {
+        }
+    },
+    props: {
+        todo: {
+            type: Object,
+        },
+    },
+    methods: {
 
-//     },
-// })
+    },
+})
 
 
 
@@ -31,7 +31,16 @@ new Vue({
                 console.log(this.todoItems[0])
                 this.newTodoText = ''
             }
-        }
+        },
+        removeTodo(todo) {
+            const index = this.todoItems.indexOf(todo)
+            if (index !== -1) {
+                this.todoItems.splice(index, 1)
+            }
+        },
+        completeTodo() {
+
+        },
     },
     data: {
         currentId: 0,
