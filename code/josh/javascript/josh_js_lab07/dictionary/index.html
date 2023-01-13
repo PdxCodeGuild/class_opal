@@ -11,7 +11,21 @@
 </head>
 <body>
     <div id="app">
-        
+        <h3>Online Dictionary:<br>
+            <!-- "{{ qotd.body }}"<br>
+            - {{ qotd.author }}</h3><br> -->
+            <input id="search" type="text" v-model="userInput" placeholder="Search Words">
+            <!-- <select name="searchType" id="searchType" v-model="typeChoice">
+                <option value="keyword">keyword</option>
+                <option value="author">author</option>
+                <option value="tag">tag</option>
+            </select><br> -->
+            <button v-on:click="getDefinition()">Search</button><br>
+            {{ output }}
+            <!-- <div v-for="(item, index) in output">
+                "{{ item }}"<br>
+                - {{ item }}<br><br>
+            </div> -->
     </div>
 </body>
 </html>

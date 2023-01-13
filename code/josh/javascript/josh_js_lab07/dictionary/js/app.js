@@ -9,15 +9,10 @@ new Vue({
     methods: {
         getDefinition() {
             console.log('GET Request');
-            axios.get('https://api.dictionaryapi.dev/api/v2/entries/en/<word>', {
-                params: {
-                    'word': this.userInput,
-                    'phonetics': this.userInput,
-                    'meanings': this.userInput,
-                }
-            }).then(response => this.output = response)
+            axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.userInput}`)
+            .then(response => this.output = response.data[0].meanings[0])//.definitions//[0].definition)
             .then(data => console.log(data))
-            .catch(error => console.error(error))
+            .catch(error => console.error(error));
         },
     }
 })
