@@ -12,3 +12,6 @@ main {
     color: #e57373;
   }
 
+p {
+  word-wrap: break-word
+}

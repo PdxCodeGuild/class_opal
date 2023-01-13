@@ -1,6 +1,19 @@
-Vue.component('incompleteItem', {
-    template: '...'
-    ,
+Vue.component('TodoItem', {
+    template: `
+    <div class="col s12">
+    <div class="card blue-grey darken-2 center">
+      <div class="card-content white-text">
+        <p>{{ todo.todoText }}</p>
+        <div class="card-action">
+          <label class="left">
+            <input type="checkbox" class="filled-in  red lighten-2" @click="$emit('complete-todo', todo)" :checked="todo.complete"/>
+            <span class=" red-text text-lighten-2">Complete</span>
+          </label>
+          <a class="waves-effect waves-light btn-small red lighten-2 right" @click="$emit('delete-todo', todo)"><i class="material-icons right">delete</i>Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>`,
     data: () => {
         return {
             
@@ -38,8 +51,8 @@ new Vue({
                 this.todoItems.splice(index, 1)
             }
         },
-        completeTodo() {
-
+        completeTodo(todo) {
+            todo.complete = !todo.complete
         },
     },
     data: {
@@ -55,10 +68,10 @@ new Vue({
     },
     computed: {
         incomplete() {
-            return this.todoItems.filter( (td) => td.complete )
+            return this.todoItems.filter( (td) => !td.complete )
         },
         complete() {
-            return this.todoItems.filter( (td) => !td.complete )
+            return this.todoItems.filter( (td) => td.complete )
         },
     }
 })

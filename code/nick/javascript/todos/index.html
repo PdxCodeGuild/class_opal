@@ -29,24 +29,24 @@
                 <button class="btn red lighten-2 waves-effect waves-light" name="create" @click="addTodo()">Create Todo
                     <i class="material-icons right">create</i>
                 </button>
-
-                <!-- Test Lines*********************************************************************************************-->
-                <p>{{ newTodoText }}</p>
-                <p>{{ todoItems }}</p>
             </div>
           </div>  
         <div class="row">
             <div class="col s6">
                 <h5 class="center-align red-text text-lighten-1">Incomplete</h5>
-                <template v-for="todo in incomplete">
-                  <todo-item :todo="todo" @delete-todo="removeTodo" @complete-todo="completeTodo" :key="todo.id"></todo-item>
-                </template>
+                <div class="row">
+                  <template v-for="todo in incomplete">
+                    <todo-item :todo="todo" @delete-todo="removeTodo" @complete-todo="completeTodo" :key="todo.id"></todo-item>
+                  </template>
+                </div>
             </div>
             <div class="col s6">
                 <h5 class="center-align red-text text-lighten-1">Complete</h5>
-                <template v-for="todo in complete">
-                  <todo-item :todo="todo" @delete-todo="removeTodo" @complete-todo="completeTodo" :key="todo.id"></todo-item>
-                </template>
+                <div class="row">
+                  <template v-for="todo in complete">
+                    <todo-item :todo="todo" @delete-todo="removeTodo" @complete-todo="completeTodo" :key="todo.id"></todo-item>
+                  </template>
+                </div>
             </div>
         </div>
     </main>
@@ -55,8 +55,5 @@
           © 2022 Nicholas C. Murdaugh
           </div>
     </footer>
-
-
-
 </body>
 </html>
