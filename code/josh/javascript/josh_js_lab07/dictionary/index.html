@@ -14,7 +14,8 @@
         <h3>Online Dictionary<br>
             <input id="search" type="text" v-model="userInput" placeholder="Search Dictionary">
             <button v-on:click="getDefinition()">Search</button><br><br>
-            {{ output }}
+            Definition:<br> {{ output }}<br><br>
+            Pronunciation: {{ pronunciation }}
             <a v-bind:href="audio" target="_blank"><button>Listen</button></a>
             <!-- <div v-for="(item, index) in output">
                 "{{ item }}"<br>
