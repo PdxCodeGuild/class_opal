@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Vue via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Include the JS file where your Vue instance is defined -->
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>To-Do List</title>
+</head>
+
+<body>
+    <h1>The <em>To-Do</em> List</h1>
+    <div id="app">
+        <h2>Incomplete Items</h2>
+        <ul>
+            <li v-for="todo in todos">
+            {{ todo.text }}
+            </li>
+        </ul>
+        <!-- <form v-on:submit.prevent="addNewItem"> -->
+        <input v-model="newItem" type="text"/>
+        <button @click="addNewItem">Add Item</button>
+        <!-- </form> -->
+        <h2>Completed Items</h2>
+        <ul>
+            <li v-for="completedItem in completedItems">
+            {{ completedItem.text }}
+            </li>
+        </ul>
+        
+    </div>
+    
+
+
+</body>
+
+</html>
