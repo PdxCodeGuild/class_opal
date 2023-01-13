@@ -51,8 +51,8 @@ Presentation Day: February 15th, 2023
 | 03    | Pick 3                 | Jan 3rd       | Jan 10th              | Jan 17th      |
 | 04    | Todo List              | Jan 6th       | N/A                   | N/A           |
 | 05    | Vue Todos              | Jan 9th       | Jan 12th              | Jan 23rd      |
-<!--| 06    | Quotes in Vue          | Jan 7th       | Jan 11th              | Jan 21st      |
-| 07    | Mini-Capstone          | Jan 11th      | Jan 14th              | Jan 25th      | -->
+| 06    | Quotes in Vue          | Jan 11th      | Jan 16th              | Jan 25th      |
+<!--| 07    | Mini-Capstone          | Jan 11th      | Jan 14th              | Jan 25th      | -->
 
 
 ## HTML/CSS Labs Assigned:

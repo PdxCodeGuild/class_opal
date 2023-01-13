@@ -1,0 +1,44 @@
+/* Chicago #615F5B
+Brandy #D9BC8A
+Shadow Green #99C0BB
+Amethyst Smoke #9C93B9 */
+
+body {
+    background-color: #D9BC8A;
+    color: #615F5B;
+    text-align: center;
+}
+header {
+    background-color: #9C93B9;
+    color: #615F5B;
+    margin: 2em;
+    padding: 2em;
+}
+.main_title {
+    text-align: center;
+}
+.wrapper {
+    display: grid; 
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+}
+.left {
+    display: grid;
+    grid-column-start: 1;
+    grid-row-start: 2;
+
+}
+#not {
+    display: grid;
+    grid-column-start: 3;
+    grid-row-start: 1;
+}
+#join {
+    display: grid;
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+#name {
+    text-align: center;
+
+}
