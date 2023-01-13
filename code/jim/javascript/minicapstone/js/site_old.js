@@ -10,44 +10,33 @@ new Vue({
     },
     methods: {
         stockProfile() {
-            return axios.get('https://mboum-finance.p.rapidapi.com/mo/module/', {
-                params: { symbol: this.symbol, module: 'asset-profile' },
-                headers: {
-                    'X-RapidAPI-Key': '2df7056317msh20576ff712682cbp16b7afjsn7f62ee5d3bca',
-                    'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
-                }
+            // may need to request access at https://cors-anywhere.herokuapp.com/corsdemo
+            // or https://thingproxy.freeboard.io/fetch/
+            return axios.get('https://tiny-mountain-5aa6.jamesbrennan21.workers.dev/https://query1.finance.yahoo.com/v11/finance/quoteSummary/', {
+                params: { symbol: this.symbol, modules: 'assetProfile' }
             })
                 .then(response => {
                     const data = response.data;
                     this.assetProfile = data;
-                    console.log(this.assetProfile)
-                    console.log(this.assetProfile['longBusinessSummary'])
                 }).catch(function (error) {
                     console.error(error);
                 })
         },
         stockInfo() {
-            return axios.get('https://mboum-finance.p.rapidapi.com/qu/quote', {
-                params: { symbol: this.symbol },
-                headers: {
-                    'X-RapidAPI-Key': '2df7056317msh20576ff712682cbp16b7afjsn7f62ee5d3bca',
-                    'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
-                }
+            return axios.get('https://tiny-mountain-5aa6.jamesbrennan21.workers.dev/https://query1.finance.yahoo.com/v7/finance/quote', {
+                params: { symbols: this.symbol }
             })
                 .then(response => {
                     const data = response.data;
                     this.companyInfo = data;
+                    console.log(this.companyInfo['quoteResponse']['result'][0]['longName'])
                 }).catch(function (error) {
                     console.error(error);
                 })
         },
         stockQuote() {
-            return axios.get('https://mboum-finance.p.rapidapi.com/hi/history', {
-                params: { symbol: this.symbol, interval: '1mo', diffandsplits: 'false' },
-                headers: {
-                    'X-RapidAPI-Key': '2df7056317msh20576ff712682cbp16b7afjsn7f62ee5d3bca',
-                    'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
-                }
+            return axios.get('https://tiny-mountain-5aa6.jamesbrennan21.workers.dev/https://query1.finance.yahoo.com/v8/finance/chart/', {
+                params: { symbol: this.symbol, interval: '1mo', diffandsplits: 'false' }
             })
                 .then(response => {
                     const data = response.data;
