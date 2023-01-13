@@ -6,8 +6,11 @@ new Vue ({
         output: {},
         userInput: '',
         typeChoice: '',
-        currentPage: 1
+        qotd: '',
         },
+    mounted() {
+        this.getQOTD()
+    },
     methods: {
         getQuote() {
             console.log('GET request');
@@ -17,7 +20,6 @@ new Vue ({
                 params: {
                     'filter': this.userInput,
                     'type': this.typeChoice,
-                    'page': this.currentPage + 1
                 }
     }).then(response => this.output = response.data.quotes)
     .then(data => console.log(data))
@@ -26,12 +28,10 @@ new Vue ({
         getQOTD() {
             console.log('GET request');
             axios.get('https://favqs.com/api/qotd/')
-            .then(response => this.output = response)
+            .then(response => this.qotd = response.data.quote)
             .then(data => console.log(data))
             .catch(error => console.error(error))
         }
 }})
 
-
-// When the page first loads, show the user a set of completely random quotes.
 // You must have at least one Vue component in your app. Review components here
