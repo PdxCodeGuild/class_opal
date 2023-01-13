@@ -46,15 +46,10 @@
             </form>
         </div>
 
+        <button class="btn btn-primary" @click="randQuotes">Get 25 random quotes</button>
 
         <section-title :is-search="isSearch"></section-title>
-    <button class="btn btn-primary" @click="randQuotes">Get 25 random quotes</button>
-        <ul v-for="quote in quotes" :key="quote.id">
-            <li>
-                {{ quote.body }}
-                — {{ quote.author }}
-            </li>
-        </ul>
+        <text-comp></text-comp>
 
     </div>
 </body>

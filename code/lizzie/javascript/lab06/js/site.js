@@ -1,12 +1,22 @@
-Vue.component('section-title', {
+Vue.component('SectionTitle', {
   props: ['isSearch'],
   template: '<h2>{{ title }}</h2>',
   computed: {
-      title() {
-          return this.isSearch ? 'Search Results' : 'Random Quotes';
-      }
+    title() {
+      return this.isSearch ? 'Search Results' : 'Random Quotes';
+    }
   }
 });
+
+Vue.component('TextComp', {
+  // gonna need props to properly retrieve this info I think
+  template: `<ul v-for="quote in quotes" :key="quote.id">
+  <li>
+      {{ quote.body }}
+      — {{ quote.author }}
+  </li>
+  </ul>`
+})
 
 new Vue({
   el: '#app',
