@@ -1,7 +1,6 @@
 <head>
     <meta charset="UTF-8">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> <!-- Import Vue 2 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script> <!-- Import Axios -->
     <script src="js/site.js" defer></script> <!-- javascript file -->
@@ -10,7 +9,7 @@
 </head>
 
 <body>
-    <div id="app" class="container my-5">
+    <div id="app" class="container">
 
         <div class="text-center">
             <h1 class="text-center">FavQuotes</h1>
@@ -49,7 +48,16 @@
         <button class="btn btn-primary" @click="randQuotes">Get 25 random quotes</button>
 
         <section-title :is-search="isSearch"></section-title>
-        <text-comp></text-comp>
+        <ul v-for="quote in quotes" :key="quote.id">
+            <li>
+                <div class="card">
+                    {{ quote.body }}
+                </div>
+                <div class="author">
+                    — {{ quote.author }}
+                </div>
+            </li>
+        </ul>
 
     </div>
 </body>

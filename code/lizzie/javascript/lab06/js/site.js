@@ -8,15 +8,15 @@ Vue.component('SectionTitle', {
   }
 });
 
-Vue.component('TextComp', {
-  // gonna need props to properly retrieve this info I think
-  template: `<ul v-for="quote in quotes" :key="quote.id">
-  <li>
-      {{ quote.body }}
-      — {{ quote.author }}
-  </li>
-  </ul>`
-})
+// Vue.component('TextComp', {
+//   // gonna need props to properly retrieve this info I think
+//   template: `<ul v-for="quote in quotes" :key="quote.id">
+//   <li>
+//       {{ quote.body }}
+//       — {{ quote.author }}
+//   </li>
+//   </ul>`
+// })
 
 new Vue({
   el: '#app',
