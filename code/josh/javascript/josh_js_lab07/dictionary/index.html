@@ -17,10 +17,10 @@
             Definition:<br> {{ output }}<br><br>
             Pronunciation: {{ pronunciation }}
             <a v-bind:href="audio" target="_blank"><button>Listen</button></a>
-            <!-- <div v-for="(item, index) in output">
+            <div v-for="(item, index) in savedWords">
                 "{{ item }}"<br>
-                - {{ item }}<br><br>
-            </div> -->
+            </div>
+            <button v-on:click="saveNewWord()">Save</button><button v-on:click="deleteWord()">Delete</button>
     </div>
 </body>
 </html>

@@ -5,6 +5,7 @@ new Vue({
         userInput: '',
         audio: '',
         pronunciation: '',
+        savedWords: {},
     },
     mounted() {
     },
@@ -31,6 +32,12 @@ new Vue({
             .then(response => this.pronunciation = response.data[0].phonetics[0].text)
             .then(data => console.log(data))
             .catch(error => console.error(error));
+        },
+        saveNewWord() {
+            this.savedWords.push({word: this.userInput, definition: this.output})
+        },
+        deleteWord(word) {
+            this.saveWords.splice(word, 1)
         },
     }
 })
