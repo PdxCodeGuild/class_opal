@@ -19,14 +19,14 @@
     <div id="app">
         <h2>Incomplete Items</h2>
         <ul>
-            <li v-for="todo in todos">
-            {{ todo.text }}
-            </li>
+            <!-- assign id to each item to remove specific item? or can button be added inline? -->
+            <li v-for="todo in todos">{{ todo.text }}</li>
+            <button @click="complete">Complete!</button>
         </ul>
-        <!-- <form v-on:submit.prevent="addNewItem"> -->
+      
         <input v-model="newItem" type="text"/>
         <button @click="addNewItem">Add Item</button>
-        <!-- </form> -->
+        
         <h2>Completed Items</h2>
         <ul>
             <li v-for="completedItem in completedItems">

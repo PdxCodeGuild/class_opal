@@ -18,6 +18,10 @@ new Vue({
                 text: this.newItem
             }
             this.todos.push(newItem)
+        },
+        complete () {
+            this.todos.remove(this.todo)
+            this.completedItems.push(this.todo)
         }
     }
   })
