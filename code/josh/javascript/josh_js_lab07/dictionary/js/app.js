@@ -34,14 +34,14 @@ new Vue({
             .catch(error => console.error(error));
         },
         saveNewWord() {
-            this.savedWords.push({word: this.userInput, definition: this.output})
+            this.savedWords.push({word: this.userInput, definition: this.output});
         },
         deleteWord(word) {
-            this.savedWords.splice(word, 1)
+            console.log(word);
+            let wordIndex = this.savedWords.indexOf(word);
+            this.savedWords.splice(wordIndex, 1);
         },
-    }
-})
+}})
 
-// Your page should offer some sort of interactivity with the results. You should also apply some sort of basic professional styling.
-// Using a CSS framework is totally fine. Your webpage should utilize Vue to build the interface and Axios for making ajax requests.
+// You should also apply some sort of basic professional styling. Using a CSS framework is fine.
 // https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html

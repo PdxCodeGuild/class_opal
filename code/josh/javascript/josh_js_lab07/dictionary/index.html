@@ -19,8 +19,9 @@
             <a v-bind:href="audio" target="_blank"><button>Listen</button></a>
             <div v-for="(item, index) in savedWords">
                 <span style="text-transform:capitalize;">{{ item.word }}: </span>{{ item.definition }}<br>
+                <button v-on:click="deleteWord(item)">Delete</button>
             </div>
-            <button v-on:click="saveNewWord()">Save</button><button v-on:click="deleteWord(index)">Delete</button>
+            <button v-on:click="saveNewWord()">Save</button>
     </div>
 </body>
 </html>
