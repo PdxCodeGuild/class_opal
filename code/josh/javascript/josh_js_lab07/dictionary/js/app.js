@@ -5,7 +5,7 @@ new Vue({
         userInput: '',
         audio: '',
         pronunciation: '',
-        savedWords: {},
+        savedWords: [],
     },
     mounted() {
     },
@@ -37,7 +37,7 @@ new Vue({
             this.savedWords.push({word: this.userInput, definition: this.output})
         },
         deleteWord(word) {
-            this.saveWords.splice(word, 1)
+            this.savedWords.splice(word, 1)
         },
     }
 })

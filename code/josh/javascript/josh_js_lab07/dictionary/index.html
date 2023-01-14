@@ -18,9 +18,9 @@
             Pronunciation: {{ pronunciation }}
             <a v-bind:href="audio" target="_blank"><button>Listen</button></a>
             <div v-for="(item, index) in savedWords">
-                "{{ item }}"<br>
+                <span style="text-transform:capitalize;">{{ item.word }}: </span>{{ item.definition }}<br>
             </div>
-            <button v-on:click="saveNewWord()">Save</button><button v-on:click="deleteWord()">Delete</button>
+            <button v-on:click="saveNewWord()">Save</button><button v-on:click="deleteWord(index)">Delete</button>
     </div>
 </body>
 </html>
