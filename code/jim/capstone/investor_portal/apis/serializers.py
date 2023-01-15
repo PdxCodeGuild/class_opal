@@ -3,9 +3,12 @@ from personalized_index import models
 
 
 class PersonalizedIndexSerializer(serializers.ModelSerializer):
+    user = serializers.ReadOnlyField(source='user.id')
+
     class Meta:
         fields = (
             'user',
+            'id',
             'index_name',
             'index_allocation',
             'market_cap_min',

@@ -4,11 +4,207 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-Hi {{ user.username }}!
+<h1>Welcome {{ user.username }}!</h1>
 <p><a href="{% url 'logout' %}">Log Out</a></p>
 {% else %}
 <p>You are not logged in</p>
 <a href="{% url 'login' %}">Log In</a> |
 <a href="{% url 'signup' %}">Sign Up</a>
 {% endif %}
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<div id="app" v-bind:user_id="{{ user_id }}">
+    <h2>Create a new Personalized Index</h2>
+    <form @submit="createPersonalizedIndex">
+        {% csrf_token %}
+        <label for="index_name">Index Name:</label>
+        <input type="text" v-model="index_name" id="index_name" required>
+        <br>
+        <label for="index_allocation">Index Allocation:</label>
+        <input type="text" v-model="index_allocation" id="index_allocation" required>
+        <br>
+        <label for="market_cap_min">Market Cap Min:</label>
+        <input type="text" v-model="market_cap_min" id="market_cap_min" required>
+        <br>
+        <label for="dividend_yield_min">Dividend Yield Min:</label>
+        <input type="text" v-model="dividend_yield_min" id="dividend_yield_min" required>
+        <br>
+        <label for="pe_ratio_max">PE Ratio Max:</label>
+        <input type="text" v-model="pe_ratio_max" id="pe_ratio_max" required>
+        <br>
+        <label for="sector_exclude_1">Sector Exclude 1:</label>
+        <input type="text" v-model="sector_exclude_1" id="sector_exclude_1" required>
+        <br>
+        <label for="sector_exclude_2">Sector Exclude 2:</label>
+        <input type="text" v-model="sector_exclude_2" id="sector_exclude_2" required>
+        <br>
+        <!-- <label for="type">type:</label> -->
+        <!-- <input type="text" v-model="type" id="type" required> -->
+        <!-- <br> -->
+        <button type="submit">Create Index</button>
+    </form>
+
+    <h2>Edit an existing Personalized Index</h2>
+    <form @submit="editPersonalizedIndex(edit_index_id)">
+        {% csrf_token %}
+        <label for="edit_index_id">Index ID:</label>
+        <input type="text" v-model="edit_index_id" id="edit_index_id" required>
+        <br>
+        <label for="edit_index_name">Index Name:</label>
+        <input type="text" v-model="edit_index_name" id="edit_index_name" required>
+        <br>
+        <label for="edit_index_allocation">Index Allocation:</label>
+        <input type="text" v-model="edit_index_allocation" id="edit_index_allocation" required>
+        <br>
+        <label for="edit_market_cap_min">Market Cap Min:</label>
+        <input type="text" v-model="edit_market_cap_min" id="edit_market_cap_min" required>
+        <br>
+        <label for="edit_dividend_yield_min">Dividend Yield Min:</label>
+        <input type="text" v-model="edit_dividend_yield_min" id="edit_dividend_yield_min" required>
+        <br>
+        <label for="edit_pe_ratio_max">PE Ratio Max:</label>
+        <input type="text" v-model="edit_pe_ratio_max" id="edit_pe_ratio_max" required>
+        <br>
+        <label for="edit_sector_exclude_1">Sector Exclude 1:</label>
+        <input type="text" v-model="edit_sector_exclude_1" id="edit_sector_exclude_1" required>
+        <br>
+        <label for="edit_sector_exclude_2">Sector Exclude 2:</label>
+        <input type="text" v-model="edit_sector_exclude_2" id="edit_sector_exclude_2" required>
+        <br>
+        <button type="submit">Save Edits</button>
+    </form>
+
+    <h2>List of existing Personalized Indexes</h2>
+    <ul>
+        <li v-for="index in indexes">
+            <ul>
+                <li>Index Number: [[ index.id ]]</li>
+                <li>Index Name: [[ index.index_name ]]</li>
+                <li>Index Allocation: [[ index.index_allocation]]</li>
+                <li>Market Cap Min: [[ index.market_cap_min]]</li>
+                <li>Dividend Yield Min: [[ index.dividend_yield_min]]</li>
+                <li>PE Ratio Max: [[ index.pe_ratio_max]]</li>
+                <li>Sector Exclude 1: [[ index.sector_exclude_1 ]]</li>
+                <li>Sector Exclude 1: [[ index.sector_exclude_2 ]]</li>
+            </ul>
+            <button @click="deletePersonalizedIndex(index.id)">Delete</button>
+        </li>
+    </ul>
+</div>
+
+<script>
+    const { createApp } = Vue
+
+    createApp({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: function () {
+            return {
+                user: '',
+                indexes: [],
+                index_name: '',
+                index_allocation: '',
+                market_cap_min: '',
+                dividend_yield_min: '',
+                pe_ratio_max: '',
+                sector_exclude_1: '',
+                sector_exclude_2: '',
+                edit_index_id: '',
+                edit_index_name: '',
+                edit_index_allocation: '',
+                edit_market_cap_min: '',
+                edit_dividend_yield_min: '',
+                edit_pe_ratio_max: '',
+                edit_sector_exclude_1: '',
+                edit_sector_exclude_2: '',
+                csrfToken: '',
+            }
+        },
+        mounted() {
+            // fetch the CSRF token from a meta tag when the component is created
+            this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+            console.log(`the component is now mounted.`);
+        },
+        methods: {
+            fetchPersonalizedIndex: function () {
+                axios.get('/apis/v1/')
+                    .then(response => {
+                        this.indexes = response.data;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            },
+            createPersonalizedIndex: function (event) {
+                event.preventDefault();
+                axios.post('/apis/v1/', {
+                    index_name: this.index_name,
+                    index_allocation: this.index_allocation,
+                    market_cap_min: this.market_cap_min,
+                    dividend_yield_min: this.dividend_yield_min,
+                    pe_ratio_max: this.pe_ratio_max,
+                    sector_exclude_1: this.sector_exclude_1,
+                    sector_exclude_2: this.sector_exclude_2,
+                    user: this.user_id,
+                }, {
+                    headers: {
+                        'X-CSRFToken': this.csrfToken,
+                    },
+                })
+                    .then(response => {
+                        // Assume that the response data is a list of items
+                        let items = response.data;
+                        // Loop through the list of items
+                        for (let i = 0; i < items.length; i++) {
+                            let item = items[i];
+                            // Append the item to the list
+                            this.itemList.push(item);
+                        }
+                    });
+            },
+            deletePersonalizedIndex: function (indexId) {
+                axios.delete(`/apis/v1/${indexId}/`, {
+                    headers: {
+                        'X-CSRFToken': this.csrfToken,
+                    },
+                })
+                    .then(response => {
+                        console.log(response.data);
+                        this.indexes = this.indexes.filter(p => p.number !== indexId);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            },
+            editPersonalizedIndex: function (indexId) {
+                axios.put(`/apis/v1/${indexId}/`, {
+                    index_name: this.edit_index_name,
+                    index_allocation: this.edit_index_allocation,
+                    market_cap_min: this.edit_market_cap_min,
+                    dividend_yield_min: this.edit_dividend_yield_min,
+                    pe_ratio_max: this.edit_pe_ratio_max,
+                    sector_exclude_1: this.edit_sector_exclude_1,
+                    sector_exclude_2: this.edit_sector_exclude_2,
+                }, {
+                    headers: {
+                        'X-CSRFToken': this.csrfToken,
+                    },
+                })
+                    .then(response => {
+                        console.log(response.data);
+                        this.fetchPersonalizedIndex();
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            },
+        },
+        created: function () {
+            this.fetchPersonalizedIndex();
+        },
+    }).mount('#app')
+</script>
+
 {% endblock %}
