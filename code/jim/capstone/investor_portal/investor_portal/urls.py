@@ -22,4 +22,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("personalized_index/", include("personalized_index.urls")),
     path("personalized_index/", include("django.contrib.auth.urls")),
+    path('apis/v1/', include('apis.urls')),
 ]
