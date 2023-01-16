@@ -46,7 +46,8 @@ new Vue({
             this.savedWords.splice(wordIndex, 1);
         },
         clearInput() {
-            this.userInput = ''
+            this.userInput = '';
+            this.output = {};
         }
 }})
 
