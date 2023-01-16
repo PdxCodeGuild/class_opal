@@ -6,6 +6,7 @@ new Vue({
         audio: '',
         pronunciation: '',
         savedWords: [],
+        searchError: false
     },
     mounted() {
     },
@@ -17,7 +18,10 @@ new Vue({
             .then(data => console.log(data))
             .then(() => this.getAudio())
             .then(() => this.getPronunciation())
-            .catch(error => console.error(error));
+            .catch(error => console.error(error))
+            if (AxiosError) {
+                this.searchError = true
+            }
         },
         getAudio() {
             console.log('GET Request');
