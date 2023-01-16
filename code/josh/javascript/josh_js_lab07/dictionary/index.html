@@ -20,6 +20,7 @@
             <a v-bind:href="audio" target="_blank"><button v-if="audio.length > 0">Listen</button></a>
             <button v-if="output.length > 0" v-on:click="saveNewWord()">Save</button><br><br><br>
             <!-- <p>Pronunciation: {{ pronunciation }}</p> -->
+            <h3 v-if="savedWords.length > 0">Saved Words</h3>
             <div v-for="(item, index) in savedWords">
                 <span style="text-transform:capitalize;">{{ item.word }}: {{ item.definition }}</span>
                 <button v-on:click="deleteWord(item)">Delete</button>

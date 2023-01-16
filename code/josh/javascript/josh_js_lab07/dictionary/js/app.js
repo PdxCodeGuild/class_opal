@@ -35,12 +35,18 @@ new Vue({
         //     .catch(error => console.error(error));
         // },
         saveNewWord() {
-            this.savedWords.push({word: this.userInput, definition: this.output});
-            this.clearInput();
+            // fix this loop, it is currently empty so conditional doesn't run
+            for (el in this.savedWords) {
+                if (this.userInput in el) {
+                    alert('You have already saved this word.');
+                    this.clearInput();
+            } else {            
+                this.savedWords.push({word: this.userInput, definition: this.output});
+                this.clearInput();
             // this.userInput = '';
             // this.output = {};
             // this.audio = '';
-        },
+        }}},
         deleteWord(word) {
             console.log(word);
             let wordIndex = this.savedWords.indexOf(word);
