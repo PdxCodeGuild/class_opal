@@ -45,6 +45,9 @@ new Vue({
             let wordIndex = this.savedWords.indexOf(word);
             this.savedWords.splice(wordIndex, 1);
         },
+        clearInput() {
+            this.userInput = ''
+        }
 }})
 
 // You should also apply some sort of basic professional styling. Using a CSS framework is fine.
