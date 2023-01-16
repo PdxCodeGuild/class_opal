@@ -5,8 +5,11 @@ new Vue({
       spaceimage: null,
       loading: true,
       errored: false,
-      pun: null,
+      jokes: null,
+      totalJokes: null,
       definition: null,
+      userResponse: 'cat',
+      itemIncremenet: 1
     },
     mounted() {
       this.getSpaceImage(),
@@ -37,17 +40,20 @@ new Vue({
       },
       getPun() {
         axios.get('https://icanhazdadjoke.com/search', {
-          params: {term: 'cat'},
+          // the term is whatever was determined by user in the text input
+          params: {term: this.userResponse},
           headers: {accept: 'application/json'},
         }).then(response =>
           // Hard-coded but might just have to go 
           // v-for pun in puns, pun at indexof .joke or something like that
-          (this.pun = response.data.results[0].joke
+          (this.jokes = response.data.results,
+          this.totalJokes = response.data.total_jokes
         ))
       },
+      // Un-comment out later once done messign with user input. It is hardcoded into the url.
       getDefinition() {
-        axios.get('https://wordsapiv1.p.rapidapi.com/words/cat/definitions', {
-          params: {word: 'word'},
+        axios.get(`https://wordsapiv1.p.rapidapi.com/words/${this.userResponse}/definitions`, {
+          params: {},
           headers: {
             'X-Mashape-Key': "baa65c740dmsh7c4edd371ac192ap10438bjsn187c5c8263c4",
             // 'X-RapidAPI-Key': 'EUgrtpQMpfvvYbZp6zqMmJiWNGtGENsuoY1D00TL',
