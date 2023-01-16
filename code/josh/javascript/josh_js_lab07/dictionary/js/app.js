@@ -39,7 +39,9 @@ new Vue({
                 }
             } else {
                 this.savedWords.push({word: this.userInput, definition: this.output});
-            }},
+            };
+            this.clearInput();
+        },
         deleteWord(word) {
             console.log(word);
             let wordIndex = this.savedWords.indexOf(word);
@@ -49,7 +51,14 @@ new Vue({
             this.userInput = '';
             this.output = {};
             this.audio = '';
-        }
+        },
+        downloadWordList() {
+            this.savedWords.writeFileSync("./savedWords.json", JSON.stringify(this.savedWords));
+        },
+        uploadWordList() {
+            const savedWordsFromFile = JSON.parse(this.savedWords.readFileSync("./savedWords.json", "utf8"));
+            console.log("Words from file:", savedWordsFromFile);  
+        },
 }})
 
 // You should also apply some sort of basic professional styling. Using a CSS framework is fine.
