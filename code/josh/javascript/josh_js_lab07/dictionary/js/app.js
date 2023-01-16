@@ -33,7 +33,6 @@ new Vue({
                         alert('You have already saved this word.');
                         break;
                     } else {
-                        console.log('something')
                         this.savedWords.push({word: this.userInput, definition: this.output});
                         break;
                     }
