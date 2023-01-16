@@ -21,7 +21,8 @@
         <ul>
             <!-- assign id to each item to remove specific item? or can button be added inline? -->
             <div>
-                <li v-for="todo in todos">{{ todo.text }} <button @click="complete">Complete!</button></li>
+                <!-- <li v-for="todo in todos">{{ todo.text }} <button @click="complete">Complete!</button></li> -->
+                <li id="todoItem" v-for="todo in todos">{{ todo.text }} <button @click="complete" v-model="completedItems">Complete!</button></li>
             </div>
         </ul>
       
