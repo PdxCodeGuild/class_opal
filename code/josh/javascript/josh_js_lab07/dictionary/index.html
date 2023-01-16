@@ -11,16 +11,16 @@
 </head>
 <body>
     <div id="app">
-        <h3>Online Dictionary<br>
+        <h3>Online Dictionary</h3><br>
             <input id="search" type="text" v-model="userInput" placeholder="Search Dictionary">
             <button v-on:click="getDefinition()">Search</button><br><br>
             <p v-if="searchError"></p>
-            Definition:<br> {{ output }}
+            <p>Definition: {{ output }}</p><br>
             <button v-on:click="saveNewWord()">Save</button><br><br>
-            Pronunciation: {{ pronunciation }}
+            <p>Pronunciation: {{ pronunciation }}</p>
             <a v-bind:href="audio" target="_blank"><button>Listen</button></a><br><br>
             <div v-for="(item, index) in savedWords">
-                <span style="text-transform:capitalize;">{{ item.word }}: </span>{{ item.definition }}
+                <span style="text-transform:capitalize;">{{ item.word }}: {{ item.definition }}</span>
                 <button v-on:click="deleteWord(item)">Delete</button>
             </div>
     </div>
