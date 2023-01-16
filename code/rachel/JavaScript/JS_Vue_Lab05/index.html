@@ -20,8 +20,9 @@
         <h2>Incomplete Items</h2>
         <ul>
             <!-- assign id to each item to remove specific item? or can button be added inline? -->
-            <li v-for="todo in todos">{{ todo.text }}</li>
-            <button @click="complete">Complete!</button>
+            <div>
+                <li v-for="todo in todos">{{ todo.text }} <button @click="complete">Complete!</button></li>
+            </div>
         </ul>
       
         <input v-model="newItem" type="text"/>

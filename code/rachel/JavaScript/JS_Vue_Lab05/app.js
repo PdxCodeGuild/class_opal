@@ -19,9 +19,9 @@ new Vue({
             }
             this.todos.push(newItem)
         },
-        complete () {
-            this.todos.remove(this.todo)
-            this.completedItems.push(this.todo)
+        complete: function(todo) {
+            this.todos.splice(this.todos.indexOf(todo), 1)
+            this.completedItems.push(this.todos)
         }
     }
   })
