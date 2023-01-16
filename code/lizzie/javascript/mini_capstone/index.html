@@ -5,7 +5,7 @@
     <title>Random Fox</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-    <script src="site.js" defer></script>
+    <script src="js/site.js" defer></script>
 </head>
 
 <body>
@@ -14,8 +14,18 @@
     <section v-if="errored">
         <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
     </section>
-    <img :src="image">
-    {{ image }}
+
+    <button @click="getDefinition">Get a Definition</button>
+    {{ definition }}<br>
+
+
+    <button @click="getPun">Get a Pun</button>
+    {{ pun }}<br>
+
+    <img :src="foximage" style="width:100px">
+    <img :src="spaceimage" style="width:100px">
+
+    <!-- {{ image }} -->
 
     <!-- <div v-for="currency in info" class="currency">
         {{ currency.description }}
