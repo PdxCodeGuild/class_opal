@@ -18,10 +18,7 @@ new Vue({
             .then(data => console.log(data))
             .then(() => this.getAudio())
             .then(() => this.getPronunciation())
-            .catch(error => console.error(error))
-            if (AxiosError) {
-                this.searchError = true
-            }
+            .catch(error => this.searchError = true)
         },
         getAudio() {
             console.log('GET Request');
