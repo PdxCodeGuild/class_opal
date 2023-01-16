@@ -6,7 +6,7 @@ new Vue({
         audio: '',
         pronunciation: '',
         savedWords: [],
-        searchError: false
+        searchError: false,
     },
     mounted() {
     },
@@ -18,7 +18,7 @@ new Vue({
             .then(data => console.log(data))
             .then(() => this.getAudio())
             .then(() => this.getPronunciation())
-            .catch(error => this.searchError = true)
+            .catch(error => this.searchError = true && alert('Your search did not produce any results.  Please check your spelling and try again.'))
         },
         getAudio() {
             console.log('GET Request');
@@ -35,7 +35,9 @@ new Vue({
             .catch(error => console.error(error));
         },
         saveNewWord() {
-            this.savedWords.push({word: this.userInput, definition: this.output});
+            this.savedWords.push({word: this.userInput, definition: this.output})
+            this.userInput = '';
+            this.output = {};
         },
         deleteWord(word) {
             console.log(word);

@@ -14,7 +14,7 @@
         <h3>Online Dictionary<br>
             <input id="search" type="text" v-model="userInput" placeholder="Search Dictionary">
             <button v-on:click="getDefinition()">Search</button><br><br>
-            <p v-if="searchError">Your search did not produce any results.</p><br>
+            <p v-if="searchError"></p>
             Definition:<br> {{ output }}
             <button v-on:click="saveNewWord()">Save</button><br><br>
             Pronunciation: {{ pronunciation }}
