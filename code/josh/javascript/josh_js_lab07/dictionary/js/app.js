@@ -36,9 +36,10 @@ new Vue({
         // },
         saveNewWord() {
             this.savedWords.push({word: this.userInput, definition: this.output});
-            this.userInput = '';
-            this.output = {};
-            this.audio = '';
+            this.clearInput();
+            // this.userInput = '';
+            // this.output = {};
+            // this.audio = '';
         },
         deleteWord(word) {
             console.log(word);
@@ -48,6 +49,7 @@ new Vue({
         clearInput() {
             this.userInput = '';
             this.output = {};
+            this.audio = '';
         }
 }})
 
