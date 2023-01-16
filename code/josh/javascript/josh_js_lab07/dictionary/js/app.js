@@ -4,7 +4,6 @@ new Vue({
         output: {},
         userInput: '',
         audio: '',
-        // pronunciation: '',
         savedWords: [],
         searchError: false,
     },
@@ -17,7 +16,6 @@ new Vue({
             .then(response => this.output = response.data[0].meanings[0].definitions[0].definition)
             .then(data => console.log(data))
             .then(() => this.getAudio())
-            // .then(() => this.getPronunciation())
             .catch(error => this.searchError = true && alert('Your search did not produce any results.  Please check your spelling and try again.'))
         },
         getAudio() {
@@ -27,26 +25,22 @@ new Vue({
             .then(data => console.log(data))
             .catch(error => console.error(error));
         },
-        // getPronunciation() {
-        //     console.log('GET Request');
-        //     axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.userInput}`)
-        //     .then(response => this.pronunciation = response.data[0].phonetics[0].text)
-        //     .then(data => console.log(data))
-        //     .catch(error => console.error(error));
-        // },
         saveNewWord() {
-            // fix this loop, it is currently empty so conditional doesn't run
-            for (el in this.savedWords) {
-                if (this.userInput in el) {
-                    alert('You have already saved this word.');
-                    this.clearInput();
-            } else {            
+            if (this.savedWords.length >= 1) {
+                for (el of this.savedWords) {
+                    console.log(el.word)
+                    if (this.userInput === el.word) {
+                        alert('You have already saved this word.');
+                        break;
+                    } else {
+                        console.log('something')
+                        this.savedWords.push({word: this.userInput, definition: this.output});
+                        break;
+                    }
+                }
+            } else {
                 this.savedWords.push({word: this.userInput, definition: this.output});
-                this.clearInput();
-            // this.userInput = '';
-            // this.output = {};
-            // this.audio = '';
-        }}},
+            }},
         deleteWord(word) {
             console.log(word);
             let wordIndex = this.savedWords.indexOf(word);
