@@ -18,29 +18,28 @@
     </header>
     
     <div id="app">
-        <!-- v-model: can use same model for both types of inputs to use in language translator? -->
-        {{ test }}
-        <div class="haveInsult">
-            <label for="myInsult">Already have an insult in mind? Enter it here: </label>
-            <input v-model="insultText" id="myInsult" type="text"> 
-        </div>
+        <!-- v-model: use for both types of input (getInsult or user input) -->
         <div class="getInsult">
             <p>Need an insult? We can create one for you.</p>
-            <span>
-                <button id="submit" @click="getInsult" >Get an Insult</button> {{ insultText }}
-            </span>
+            <button id="submit" @click="getInsult" >Get an Insult</button>
+        </div>
+        <!-- <div id='or'>
+            <p>....or....</p>
+        </div> -->
+        <div class="haveInsult">
+            <label for="myInsult">Insult: (... or if you already have an insult in mind, you can also enter it here) </label>
+            <input v-model="insultText" id="myInsult" type="text"> 
         </div>
         <div class="language">
             <p>Select the personality / language type that best describes the person you want to insult:</p>
             <button id="shakespeare" @click="shakespeare(insultText)">Theater Nerd</button>
-            <!-- <button id="klingon" @click="klingon">Violent Trekkie</button>
-            <button id="vulcan" @click="vulcan">Smart Trekkie</button>
-            <button id="pirate" @click="pirate">Pirate</button>
-            <button id="redneck" @click="redneck">Redneck</button> --> 
+            <button id="klingon" @click="klingon(insultText)">Violent Trekkie</button>
+            <button id="vulcan" @click="vulcan(insultText)">Smart Trekkie</button>
+            <button id="pirate" @click="pirate(insultText)">Pirate</button>
+            <button id="redneck" @click="redneck(insultText)">Redneck</button> 
         </div>
         <div class="showInsult">
-            <p>Translation: {{ translation }} </p>
-            
+            <p>Translation: {{ translation }}</p>
         </div>
     </div>
 
