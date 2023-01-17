@@ -2,7 +2,7 @@ body {
     background: url("dictionary.jpg") no-repeat center;
     background-attachment: fixed;
     background-size: cover;
-    margin: auto
+    /* margin: auto */
 }
 
 .container {
@@ -50,4 +50,12 @@ saved {
     /* align-content: center; */
     max-width: 75vw;
     margin: 2vw, 10vw, 2vw, 10vw;
+}
+
+img {
+    max-width: 15px;
+    max-height: 15px;
+    /* display: block; */
+    margin-left: auto;
+    margin-right: auto;
 }
