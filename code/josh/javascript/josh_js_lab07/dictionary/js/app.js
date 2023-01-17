@@ -66,4 +66,3 @@ new Vue({
 }})
 
 // You should also apply some sort of basic professional styling. Using a CSS framework is fine.
-// https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
