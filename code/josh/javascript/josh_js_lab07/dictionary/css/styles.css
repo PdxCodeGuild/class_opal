@@ -2,7 +2,7 @@ body {
     background: url("dictionary.jpg") no-repeat center;
     background-attachment: fixed;
     background-size: cover;
-    /* margin: auto */
+    margin: auto
 }
 
 .container {
@@ -46,6 +46,7 @@ saved {
     display: flex;
     flex-flow: column wrap;
     text-align: left;
+    /* align-self: center; */
     /* justify-content: center; */
     /* align-content: center; */
     max-width: 75vw;
