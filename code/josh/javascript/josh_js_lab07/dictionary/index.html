@@ -36,8 +36,7 @@
             <!-- displays saved word and definition from app array and individual 'Delete' buttons  -->
             <div v-for="(item, index) in savedWords">
                 <img src="css/delete-button.png" alt="Delete Button" v-on:click="deleteWord(item)">
-                <span style="text-transform:capitalize;">{{ item.word }}: </span><span>{{ item.definition }}</span>
-                <!-- <button v-on:click="deleteWord(item)">Delete</button> -->
+                <span style="text-transform:capitalize;">{{ item.word }}: </span><span>{{ item.definition }}</span><br><br>
             </div>
         </saved>
     </div>

@@ -46,7 +46,7 @@ saved {
     display: flex;
     flex-flow: column wrap;
     text-align: left;
-    justify-content: center;
+    /* justify-content: center; */
     /* align-content: center; */
     max-width: 75vw;
     margin: 2vw, 10vw, 2vw, 10vw;
@@ -56,6 +56,6 @@ img {
     max-width: 15px;
     max-height: 15px;
     /* display: block; */
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
