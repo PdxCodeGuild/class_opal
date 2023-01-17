@@ -17,7 +17,7 @@
         <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
     </section>
 
-    <input type="text" v-model="userResponse">
+    <input type="text" v-model="userResponse"><br>
     <!-- Un-comment out later once I return to fuckign with user input. -->
     <button @click="getDefinition(); getPun(); clearList()">Get Info</button>
     
@@ -37,10 +37,9 @@
         </div>
     </div>
     
-    <p v-for="def in definition">
-    {{ def.partOfSpeech }}
-    {{ def.definition }}<br></p>
-
+    <ul v-for="def in definition">
+    <li>{{ def.partOfSpeech }}</li>
+    <li>{{ def.definition }}</li></ul>
 
     <img :src="foxImage" style="width:100px">
     <img :src="spaceImage" style="width:100px">
@@ -49,4 +48,5 @@
     
     
 </div>
+<footer>Footer stuff</footer>
 </body>
