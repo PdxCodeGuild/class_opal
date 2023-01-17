@@ -2,7 +2,7 @@ body {
     background: url("dictionary.jpg") no-repeat center;
     background-attachment: fixed;
     background-size: cover;
-    text-align: center;
+    margin: auto
 }
 
 .container {
@@ -29,6 +29,7 @@ body {
 header {
     grid-area: header;
     background-color: rgb(138, 43, 226);
+    width: 100vw
 }
 
 search {
