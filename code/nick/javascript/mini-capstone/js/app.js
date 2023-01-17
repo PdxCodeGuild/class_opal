@@ -11,6 +11,7 @@ new Vue({
                 'Teddy': 'TM:pn9edma33t2j',
             },
             kanyeQuote: null,
+            ttsStatus: null,
             audioPath: null,
 
         }
@@ -18,7 +19,10 @@ new Vue({
     methods: {
         getKanyeQuote() {
             axios.get('https://api.kanye.rest')
-            .then(res => this.kanyeQuote = res)
+            .then(res => this.kanyeQuote = res.data.quote)
+        },
+        getTextToSpeech() {
+            axios.post()
         }
     },
     computed: {
