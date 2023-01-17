@@ -39,8 +39,9 @@ header {
     margin: 0 auto 0 auto;
 }
 
-#result>p{
+#result>p {
     background-color: rgba(226, 153, 43, 0.8);
+    padding: 1vw;
 }
 
 #saved {
@@ -57,4 +58,5 @@ header {
 img {
     max-width: 15px;
     max-height: 15px;
+    /* padding-left: 1vw; */
 }
