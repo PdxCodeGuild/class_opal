@@ -39,18 +39,27 @@ header {
 
 #result {
     grid-area: result;
+    max-width: 80vw;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+
+#result>p{
+    background-color: rgba(226, 153, 43, 0.8);
 }
 
 #saved {
     grid-area: saved;
     display: flex;
     flex-flow: column wrap;
-    text-align: left;
+    text-align: center;
     /* align-self: center; */
     /* justify-content: center; */
-    /* align-content: center; */
-    max-width: 75vw;
-    margin: 2vw, 10vw, 2vw, 10vw;
+    align-content: center;
+    max-width: 80vw;
+    margin: 2vw, 10vw, 2vw, 10vw !important;
+    background-color: rgba(226, 153, 43, 0.8);
 }
 
 img {
