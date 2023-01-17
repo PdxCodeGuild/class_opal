@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "Bob's Burgers";
+    src: url('https://www.fontsaddict.com/fontface/bobs-burgers.ttf');
+}
+
+html {
+    font-family: "Bob's Burgers";
+}
+
+.characters {
+    display: inline-block;
+    padding: 1em;
+    margin: 0.7em;
+    border-radius: 7%;
+    border: 1px solid red
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+    font-size: 44px;
+}
+
+img {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+#search {
+    margin: auto;
+    text-align: center;
+}
+
+#searchImg {
+    height: 200px;
+    margin: auto;
+    text-align: center;
+}
