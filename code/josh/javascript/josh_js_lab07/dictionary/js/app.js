@@ -60,8 +60,8 @@ new Vue({
             alert('You have successfully downloaded your saved words.')
         },
         uploadWordList() {
-            // not working yet
             const upload = JSON.parse(localStorage.getItem('download'));
+            this.savedWords = upload
         },
 }})
 
