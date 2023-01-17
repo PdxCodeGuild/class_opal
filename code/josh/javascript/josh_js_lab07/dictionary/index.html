@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="css/dictionary-favicon.png">
     <script src="js/app.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -12,8 +13,8 @@
 <body>
     <div class="container" id="app">
         <header>
-            <h1>Online Dictionary <button v-if="savedWords.length == 0" v-on:click="uploadWordList()">Upload Saved List</button></h1><br>
-        </header>
+            <h1><strong> ONLINE DICTIONARY </strong><button v-if="savedWords.length == 0" v-on:click="uploadWordList()">Upload Saved List</button></h1>
+        </header><br>
         <search>
             <input id="search" type="text" v-model="userInput" placeholder="Search Dictionary">
             <button v-on:click="getDefinition()">Search</button>

@@ -28,12 +28,13 @@ body {
 
 header {
     grid-area: header;
-    background-color: rgb(138, 43, 226);
+    background-color: rgb(226, 153, 43);
     width: 100vw
 }
 
 search {
     grid-area: search;
+    margin: 2vw 0 2vw 0;
 }
 
 result {
@@ -42,4 +43,11 @@ result {
 
 saved {
     grid-area: saved;
+    display: flex;
+    flex-flow: column wrap;
+    text-align: left;
+    justify-content: center;
+    /* align-content: center; */
+    max-width: 75vw;
+    margin: 2vw, 10vw, 2vw, 10vw;
 }
