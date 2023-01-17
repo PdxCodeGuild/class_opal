@@ -52,24 +52,16 @@ new Vue({
             this.output = {};
             this.audio = '';
         },
-        // not working yet
         downloadWordList() {
-            // in order to use this, I would have to npm install node
-            const fs = require('fs');
-            fs.writeFile("./savedWords.json", JSON.stringify(this.savedWords), error => {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('File successfully written.')
-                }
-            });
-            // console.log(jsonString);
-            // this.savedWords.writeFileSync("./savedWords.json", JSON.stringify(this.savedWords));
+            const download = this.savedWords
+            localStorage.setItem('download', JSON.stringify(download));
+            console.log(download);
+            this.savedWords = [];
+            alert('You have successfully downloaded your saved words.')
         },
-        // not working yet
         uploadWordList() {
-            const savedWordsFromFile = JSON.parse(this.savedWords.readFileSync("./savedWords.json", "utf8"));
-            console.log("Words from file:", savedWordsFromFile);  
+            // not working yet
+            const upload = JSON.parse(localStorage.getItem('download'));
         },
 }})
 
