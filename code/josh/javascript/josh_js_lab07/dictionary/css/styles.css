@@ -5,6 +5,40 @@ body {
     text-align: center;
 }
 
+.container {
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "search"
+    "result"
+    "saved";
+    text-align: center;
+    justify-content: center;
+
+}
+
+/* .container > *{
+    display: flex;
+    max-width: 95vw;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+} */
+
 header {
-    background-color: blueviolet;
+    grid-area: header;
+    background-color: rgb(138, 43, 226);
+}
+
+search {
+    grid-area: search;
+}
+
+result {
+    grid-area: result;
+}
+
+saved {
+    grid-area: saved;
 }
