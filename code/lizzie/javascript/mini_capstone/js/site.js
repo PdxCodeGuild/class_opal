@@ -1,28 +1,41 @@
 new Vue({
     el: '#app',
     data: {
-      foximage: null,
-      spaceimage: null,
+      foxImage: null,
+      foxInfo: null,
+      spaceImage: null,
+      // Work on this loding thing
       loading: true,
       errored: false,
       jokes: null,
       totalJokes: null,
       definition: null,
-      userResponse: 'cat',
-      itemIncremenet: 1
+      userResponse: '',
+      index: 1,
+      jokesLeft: null,
+      spaceCopyright: null,
+      spaceDescription: null
     },
     mounted() {
       this.getSpaceImage(),
       this.getFoxImage()
     },
     methods: {
+      addList() {
+        this.index = Math.min(this.index + 1, this.jokes.length),
+        this.jokesLeft = Math.min(this.totalJokes - this.index)
+      },
+      clearList() {
+        this.index = 1
+      },
       getFoxImage() {
         axios
         .get('https://randomfox.ca/floof/?ref=apilist.fun/', {
           params: {},
         headers: {},
         }).then(response => 
-            (this.foximage = response.data.image
+          (this.foxImage = response.data.image,
+            this.foxInfo = response.data
         ))
         .catch(error => {
             console.log(error)
@@ -35,8 +48,15 @@ new Vue({
           params: {},
           headers: {},
         }).then(response =>
-          (this.spaceimage = response.data.hdurl
+          (this.spaceImage = response.data.hdurl,
+            this.spaceCopyright = response.data.copyright,
+            this.spaceDescription = response.data.explanation
         ))
+        .catch(error => {
+          console.log(error)
+          this.errored = true
+      })
+      .finally(() => this.loading = false)
       },
       getPun() {
         axios.get('https://icanhazdadjoke.com/search', {
@@ -49,6 +69,11 @@ new Vue({
           (this.jokes = response.data.results,
           this.totalJokes = response.data.total_jokes
         ))
+        .catch(error => {
+          console.log(error)
+          this.errored = true
+      })
+      .finally(() => this.loading = false)
       },
       // Un-comment out later once done messign with user input. It is hardcoded into the url.
       getDefinition() {
@@ -65,6 +90,14 @@ new Vue({
           // Returns an array with dicts storing defintion and partOfSpeech:
           //  [ {"definition": "blah", "partOfSpeech": "blah"}... ] accessed by index
           (this.definition = response.data.definitions))
+          .catch(error => {
+            console.log(error)
+            this.errored = true
+        })
+        .finally(() => this.loading = false)
       }
-    }
+    },
+    computed: {
+      list: ({ jokes, index }) => jokes.slice(0, index)
+    },
 })

@@ -2,46 +2,51 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Random Fox</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script src="js/site.js" defer></script>
+    <link rel="stylesheet" href="css/site.css">
+    <title>Space Fox</title>
 </head>
 
 <body>
 <div id="app">
-    <h1>Test site</h1>
+    <header>Space Fox</header>
+
     <section v-if="errored">
         <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
     </section>
 
-
     <input type="text" v-model="userResponse">
     <!-- Un-comment out later once I return to fuckign with user input. -->
-    <button @click="getDefinition(); getPun()">Get Info</button>
+    <button @click="getDefinition(); getPun(); clearList()">Get Info</button>
+    
+    <!-- Conditional for displaying statement: -->
+    <div v-if="userResponse.length > 0">
+        <div v-if="totalJokes > 1">
+        <h2>There are {{ totalJokes }} total jokes.</h2>
+            <ul>
+                <li v-for="item in list">{{ item.joke }}</li>
+            </ul>
+    <div v-if="list.length > 1">
+        {{ jokesLeft }} Joke(s) left</div>
+        <button @click="addList">Next</button>
+    </div>
+    <div v-if="totalJokes == 1">
+        <p>There are no jokes left.</p>
+        </div>
+    </div>
+    
     <p v-for="def in definition">
     {{ def.partOfSpeech }}
     {{ def.definition }}<br></p>
-        
-        
-    <!-- Conditional for displaying statement: -->
-    <h2>There are {{ totalJokes }} total jokes.</h2>
-    <p v-for="j in jokes">
-    {{ j.joke }}<br></p>
-    <!-- <button @click="nextPun">Get next</button> -->
 
 
-    <img :src="foximage" style="width:100px">
-    <img :src="spaceimage" style="width:100px">
-
-    <!-- {{ image }} -->
-
-    <!-- <div v-for="currency in info" class="currency">
-        {{ currency.description }}
-        <span class="lighten">
-            <span v-html="currency.symbol"></span>{{ currency.rate_float | currencydecimal }}
-        </span>
-    </div> -->
-
+    <img :src="foxImage" style="width:100px">
+    <img :src="spaceImage" style="width:100px">
+    <p>By: {{ spaceCopyright }}</p><br>
+    <p>Explanation: {{ spaceDescription }}</p>
+    
+    
 </div>
 </body>
