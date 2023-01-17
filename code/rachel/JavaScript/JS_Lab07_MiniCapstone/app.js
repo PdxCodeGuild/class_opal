@@ -2,15 +2,16 @@ new Vue({
     el: '#app',
     data: () => {
         return {
-            output: 'hello',
+            test: 'hello',
             insultText: '',
+            translation: '',
         }
     },
     // Question 1: how to take output from getInsult and/or haveInsult text input and use as parameter for the language translations - work on post response
     // Question 2: Instead of having a seperate method for each language, can I just substitute in a keyword in the URL? and what would the button input in HTML need to look like?
     methods: {
         getInsult() {
-            console.log('GET Request'),
+            //console.log('GET Request'),
             axios({
                 method: 'get',
                 url: 'https://insult.mattbas.org/api/insult/type=json',
@@ -20,6 +21,56 @@ new Vue({
             //     console.log(response.data);
             // })
         }, 
+        
+        //do the languages need to have a separate post and get? or can both be handled in one action by using insultText as a parameter?
+
+        //shakespeare get test:
+        //just return the response: GTG
+        //data/text: GTG, 
+        //pass insultText as parametert:
+        //   tried to do a patch w/ it, website does not allow
+        
+        shakespeare(insultText) {
+            console.log(insultText),
+            axios({
+                method: 'get',
+                url: 'https://api.funtranslations.com/translate/klingon.json',
+                //params: {'text': 'hey girl'} //this works
+                params: {'text':insultText.trimEnd()} // insultText returns a string w/ an extra space on the end and returns a 404 error, so using trimEnd to remove that space 
+            }).then(response => this.translation = response.data.contents.translated) // this works
+            .catch(err => console.error(err))
+            // }).then(function (response) {
+            //     console.log(response.data);
+            // })
+        }, 
+
+
+
+
+
+
+
+
+
+        // shakespearePost () {
+        //     axios.post('https://evilinsult.com/generate_insult.php?lang=en&type=json' {
+        //         text: insultText
+        //     // }).then(function (response) {
+        //     //     console.log(response);
+        //     }).then(response => this.insultText = res)
+        //         .catch(err => console.error(err))
+        // },
+        // shakespeareGet () {
+        //     axios({
+        //         method: 'get',
+        //         url: 'https://evilinsult.com/generate_insult.php?lang=en&type=json',
+        //     }).then(res => this.insultText = res.data)
+        //     .catch(err => console.error(err))
+        //     // }).then(function (response) {
+        //     //     console.log(response.data);
+        //     // })
+        // }, 
+        // }
         // sendInsult() {
         //     axios({
         //         method: 'post',

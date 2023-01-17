@@ -19,7 +19,7 @@
     
     <div id="app">
         <!-- v-model: can use same model for both types of inputs to use in language translator? -->
-        {{ output }}
+        {{ test }}
         <div class="haveInsult">
             <label for="myInsult">Already have an insult in mind? Enter it here: </label>
             <input v-model="insultText" id="myInsult" type="text"> 
@@ -30,17 +30,18 @@
                 <button id="submit" @click="getInsult" >Get an Insult</button> {{ insultText }}
             </span>
         </div>
-        <!-- <div class="language">
+        <div class="language">
             <p>Select the personality / language type that best describes the person you want to insult:</p>
-            <button id="shakespeare" @click="shakespeare">Theater Nerd</button>
-            <button id="klingon" @click="klingon">Violent Trekkie</button>
+            <button id="shakespeare" @click="shakespeare(insultText)">Theater Nerd</button>
+            <!-- <button id="klingon" @click="klingon">Violent Trekkie</button>
             <button id="vulcan" @click="vulcan">Smart Trekkie</button>
             <button id="pirate" @click="pirate">Pirate</button>
-            <button id="redneck" @click="redneck">Redneck</button>
+            <button id="redneck" @click="redneck">Redneck</button> --> 
         </div>
         <div class="showInsult">
-            <p>Translation: {{ output.translation }} </p>
-        </div> -->
+            <p>Translation: {{ translation }} </p>
+            
+        </div>
     </div>
 
 </body>
