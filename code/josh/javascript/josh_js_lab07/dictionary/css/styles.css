@@ -1,4 +1,6 @@
 body {
+    display: flex;
+    flex-direction: column;
     background: url("dictionary.jpg") no-repeat center;
     background-attachment: fixed;
     background-size: cover;
@@ -12,6 +14,7 @@ body {
     "search"
     "result"
     "saved";
+    align-items: center;
     text-align: center;
     justify-content: center;
 
@@ -53,12 +56,12 @@ header {
     grid-area: saved;
     display: flex;
     flex-flow: column wrap;
-    text-align: center;
+    text-align: left;
     /* align-self: center; */
     /* justify-content: center; */
     align-content: center;
     max-width: 80vw;
-    margin: 2vw, 10vw, 2vw, 10vw !important;
+    margin: 0 auto;
     background-color: rgba(226, 153, 43, 0.8);
 }
 
