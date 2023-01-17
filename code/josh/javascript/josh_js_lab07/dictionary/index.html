@@ -15,22 +15,22 @@
         <header>
             <h1><strong> ONLINE DICTIONARY </strong><button v-if="savedWords.length == 0" v-on:click="uploadWordList()">Upload Saved List</button></h1>
         </header><br>
-        <search>
-            <input id="search" type="text" v-model="userInput" placeholder="Search Dictionary">
+        <div id="search">
+            <input type="text" v-model="userInput" placeholder="Search Dictionary">
             <button v-on:click="getDefinition()">Search</button>
             <button v-on:click="clearInput()">Clear</button><br><br>
             <!-- allows app to display alert if dictionary API does not load result -->
             <p v-if="searchError"></p>
-        </search>
-        <result>
+        </div>
+        <div id="result">
             <!-- displays definition if output object from app has returns a result  -->
             <p v-if="output.length > 0">Definition: {{ output }}</p>
             <!-- opens new webpage that plays audio file when 'Listen' button is clicked -->
             <a v-bind:href="audio" target="_blank"><button v-if="audio.length > 0">Listen</button></a>
             <!-- displays 'Save' button when output object from app returns a result -->
             <button v-if="output.length > 0" v-on:click="saveNewWord()">Save</button><br><br><br>
-        </result>
-        <saved>
+        </div>
+        <div id="saved">
             <!-- displays 'Download' button when any words are saved to array from app -->
             <h3 v-if="savedWords.length > 0">Saved Words <button v-if="savedWords.length > 0" v-on:click="downloadWordList()">Download</button></h3><br>
             <!-- displays saved word and definition from app array and individual 'Delete' buttons  -->
@@ -38,7 +38,7 @@
                 <img src="css/delete-button.png" alt="Delete Button" v-on:click="deleteWord(item)">
                 <span style="text-transform:capitalize;">{{ item.word }}: </span><span>{{ item.definition }}</span><br><br>
             </div>
-        </saved>
+        </div>
     </div>
 </body>
 </html>

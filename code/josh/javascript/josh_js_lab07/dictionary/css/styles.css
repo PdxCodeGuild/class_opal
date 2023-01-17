@@ -32,16 +32,16 @@ header {
     width: 100vw
 }
 
-search {
+#search {
     grid-area: search;
     margin: 2vw 0 2vw 0;
 }
 
-result {
+#result {
     grid-area: result;
 }
 
-saved {
+#saved {
     grid-area: saved;
     display: flex;
     flex-flow: column wrap;
