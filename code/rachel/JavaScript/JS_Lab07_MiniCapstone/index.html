@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" /> -->
+    <title>JS Mini-Capstone</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>The Insult Translator</h1>
+        <h2><em>Helping you insult people in a way they can understand.</em></h2>
+    </header>
+    
+    <div id="app">
+        <!-- v-model: can use same model for both types of inputs to use in language translator? -->
+        {{ output }}
+        <div class="haveInsult">
+            <label for="myInsult">Already have an insult in mind? Enter it here: </label>
+            <input v-model="insultText" id="myInsult" type="text"> 
+        </div>
+        <div class="getInsult">
+            <p>Need an insult? We can create one for you.</p>
+            <span>
+                <button id="submit" @click="getInsult" >Get an Insult</button> {{ insultText }}
+            </span>
+        </div>
+        <!-- <div class="language">
+            <p>Select the personality / language type that best describes the person you want to insult:</p>
+            <button id="shakespeare" @click="shakespeare">Theater Nerd</button>
+            <button id="klingon" @click="klingon">Violent Trekkie</button>
+            <button id="vulcan" @click="vulcan">Smart Trekkie</button>
+            <button id="pirate" @click="pirate">Pirate</button>
+            <button id="redneck" @click="redneck">Redneck</button>
+        </div>
+        <div class="showInsult">
+            <p>Translation: {{ output.translation }} </p>
+        </div> -->
+    </div>
+
+</body>
+
+</html>
