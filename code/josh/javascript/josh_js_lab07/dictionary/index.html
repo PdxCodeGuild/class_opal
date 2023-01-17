@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="app">
-        <h3>Online Dictionary <button v-if="savedWords.length == 0" v-on:click="uploadWordList()">Upload Saved List</button></h3><br>
+        <h1 class="header">Online Dictionary <button v-if="savedWords.length == 0" v-on:click="uploadWordList()">Upload Saved List</button></h1><br>
             <input id="search" type="text" v-model="userInput" placeholder="Search Dictionary">
             <button v-on:click="getDefinition()">Search</button>
             <button v-on:click="clearInput()">Clear</button><br><br>
