@@ -1,7 +1,9 @@
 Vue.component('save-quote', {
     data: function () {
-        savedQuotes: [];
-        },
+        return {
+            savedQuotes: []
+        }
+    },
     template: '<button v-on:click="saveNewQuote">Save Quote</button>',
     methods: {
         saveNewQuote() {
