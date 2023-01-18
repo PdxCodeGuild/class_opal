@@ -5,8 +5,10 @@ Vue.component('save-quote', {
         }
     },
     template: '<button v-on:click="saveNewQuote">Save Quote</button>',
+    props: ['favQuotes'],    
     methods: {
         saveNewQuote() {
+            console.log(this.favQuotes)
             if (this.savedQuotes.length >= 1) {
                 for (el of this.savedQuotes) {
                     console.log(el.quote)
@@ -14,12 +16,12 @@ Vue.component('save-quote', {
                         alert('You have already saved this quote.');
                         break;
                     } else {
-                        this.savedQuotes.push({quote: this.output.body, author: this.output.author});
+                        this.savedQuotes.push({quote: this.favQuotes, author: this.favQuotes});
                         break;
                     }
                 }
             } else {
-                this.savedQuotes.push({word: this.output.body, definition: this.output.author});
+                this.savedQuotes.push({word: this.favQuotes, author: this.favQuotes});
             };
             this.clearInput();
         },
