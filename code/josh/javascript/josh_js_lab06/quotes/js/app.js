@@ -1,4 +1,10 @@
-// const axios = require('axios');
+Vue.component('save-quote', {
+    data: function () {
+        savedQuotes: [];
+        }
+    },
+    template: '<button v-on:click="count++">Save Quote{{ count }}</button>'
+})
 
 new Vue ({
     el: '#app',
@@ -33,5 +39,3 @@ new Vue ({
             .catch(error => console.error(error))
         }
 }})
-
-// You must have at least one Vue component in your app. Review components here
