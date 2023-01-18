@@ -20,7 +20,10 @@ new Vue({
             // }).then(function (response) {
             //     console.log(response.data);
             // })
-        }, 
+        },
+        resize() {
+            this.style.width = this.value.length + "ch"
+        },
         shakespeare(insultText) {
             console.log(insultText),
             axios({
@@ -86,11 +89,24 @@ new Vue({
             //     console.log(response.data);
             // })
         },
+        yoda(insultText) {
+            console.log(insultText),
+            axios({
+                method: 'get',
+                url: 'https://api.funtranslations.com/translate/yoda.json',
+                //params: {'text': 'hey girl'} 
+                params: {'text':insultText.trimEnd()} 
+            }).then(response => this.translation = response.data.contents.translated)
+            .catch(err => console.error(err))
+            // }).then(function (response) {
+            //     console.log(response.data);
+            // })
+        },
     }
 })
 //Problems:
 // API calls limited to 5 per hour / 60 per day which is not great for testing
 
 //Additional options:
-// 1) Instead of having a seperate method for each language, can I just substitute in a keyword in the URL? and what would the button input in HTML need to look like?
-// 2) Return (render) error message if user goes over the allotted 5 requests to a specific API (per hour)
+// 1) Instead of having a seperate method for each language: substitute in keyword in the URL.
+// 2) Return/render error message (429) if user goes over the allotted 5 requests to a specific API (per hour)
