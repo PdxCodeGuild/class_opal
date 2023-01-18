@@ -109,4 +109,7 @@ new Vue({
 
 //Additional options:
 // 1) Instead of having a seperate method for each language: substitute in keyword in the URL.
-// 2) Return/render error message (429) if user goes over the allotted 5 requests to a specific API (per hour)
+// 2) Return/render error message (429) if user goes over the allotted 5 requests to a specific API (per hour); add counter so user knows they have just 5 submittals / how many they have left
+// 3) Add email / sms / etc link for user to send their translated insult to someone
+// 4) Improve user experience w/ how-to notes and the ability to resubmit the same insult (whether from user input or insult generator) to multiple languages (sequentially, not at same time) and possibly to retain the inults to compare their translations.
+// Styling: include media queries / responsiveness; improve images; continue working on making the input text field responsive to the amount of characters (size-wise)

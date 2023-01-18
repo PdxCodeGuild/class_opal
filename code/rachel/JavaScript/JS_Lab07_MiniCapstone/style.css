@@ -9,10 +9,8 @@ body {
     display: flex;
 }
 h4 {
-    /* display: flex; */
     text-align: center;
     margin-top: 1em;
-    /* align-self: flex-end; */
 }
 #insult {
     text-align: center;
