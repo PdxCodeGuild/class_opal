@@ -4,7 +4,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: "Sina Nova Regular", Palatino, Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 *, *:before, *:after {
@@ -13,13 +13,12 @@
 
 body {
     color: #181123;
-    background-color: rgb(176, 119, 119);
+    background-color: #3b4d79;
 }
 
 header {
     height: 100%;
     width: auto;
-    background-color: rgb(130, 85, 85);
     font-weight: bold;
     -webkit-text-stroke: .8px #bfdff4
 }
@@ -58,11 +57,10 @@ input[type=text] {
     text-align: center;
     padding: 1rem;
     margin-bottom: 1.5rem;
-    background-color: rgba(0, 255, 89, 0.263);
 }
 
 .list-of-puns {
-    background-color: pink;
+    background: linear-gradient(rgb(59 77 121), #e67e64);
     padding: 1rem;
     text-align: center;
 }
@@ -87,7 +85,7 @@ li {
 }
 
 #definitions {
-    background-color: purple;
+    background-color: #e67e64;
     padding: 1rem;
 }
 
@@ -113,7 +111,8 @@ li {
 
 .def-speech > span {
     font-size: 18px;
-    background-color: green;
+    background-color: #181123;
+    color: white;
     padding: .7rem;
     border-radius: 10px;
 }
@@ -123,12 +122,19 @@ img {
     height: auto;
 }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .fox-button {
     display: flex;
     justify-content: space-around;
 }
 
 .fox-body {
+    background: linear-gradient(#e67e64, #181123);;
     padding: 2rem;
 }
 
@@ -146,7 +152,7 @@ img {
 .caption {
     font-size: 12pt;
     /* Tutorial on https://fossheim.io/writing/posts/css-text-gradient. */
-
+    
     /* Fallback: Set a background color. */
     background-color: rgb(169, 169, 169);
     
@@ -163,32 +169,65 @@ img {
 }
 
 aside {
+    background-color: #181123;
     padding: 2rem;
     text-align: center;
 }
 
-.my-button {
+.my-button,
+button {
     /* from w3docs tutorial https://www.w3docs.com/snippets/html/how-to-create-an-html-button-that-acts-like-a-link.html */
     display: inline-block;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    color: #ffffff;
-    background-color: #7aa8b7;
+    background-color: #20172e;
+    color: white;
     border-radius: 6px;
+    border: none;
     outline: none;
     margin: .4rem;
+    cursor: pointer;
 }
 
 footer {
-    background-color: green;
+    background-color: #e67e64;
     display: flex;
     justify-content: space-around;
 }
 
+/* unvisited link */
+a:link {
+    color: #20172e;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+aside > a:visited {
+    color: white;
+}
+
+a:hover, 
+aside > a:hover {
+    color: #bf4366;
+}
+
 /* Media query for tablet */
 @media screen and (min-width: 800px) {
-    * {
-        background-color: yellow;
+
+    .container {
+        display: flex;
+    }
+
+    img {
+        max-width: 750px;
+        text-align: center;
+    }
+
+    aside {
+        background: linear-gradient(#3b4d79, #181123);
     }
 }

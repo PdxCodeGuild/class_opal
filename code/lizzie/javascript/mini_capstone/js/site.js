@@ -1,20 +1,19 @@
 new Vue({
     el: '#app',
     data: {
+      userResponse: '',
       foxImage: null,
-      foxInfo: null,
       spaceImage: null,
-      // Work on this loding thing
+      spaceCopyright: null,
+      spaceDescription: null,
+      defLoading: true,
       loading: true,
       errored: false,
       jokes: null,
       totalJokes: null,
-      definition: null,
-      userResponse: '',
-      index: 1,
       jokesLeft: null,
-      spaceCopyright: null,
-      spaceDescription: null
+      definition: null,
+      index: 1
     },
     mounted() {
       this.getSpaceImage(),
@@ -34,8 +33,7 @@ new Vue({
           params: {},
         headers: {},
         }).then(response => 
-          (this.foxImage = response.data.image,
-            this.foxInfo = response.data
+          (this.foxImage = response.data.image
         ))
         .catch(error => {
             console.log(error)
@@ -64,8 +62,6 @@ new Vue({
           params: {term: this.userResponse},
           headers: {accept: 'application/json'},
         }).then(response =>
-          // Hard-coded but might just have to go 
-          // v-for pun in puns, pun at indexof .joke or something like that
           (this.jokes = response.data.results,
           this.totalJokes = response.data.total_jokes
         ))
@@ -94,7 +90,7 @@ new Vue({
             console.log(error)
             this.errored = true
         })
-        .finally(() => this.loading = false)
+        .finally(() => this.defLoading = false)
       }
     },
     computed: {
