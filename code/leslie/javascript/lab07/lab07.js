@@ -7,7 +7,8 @@ new Vue({
             res: '',
             myChar: {},
             searchInput: '',
-            searchResults: ''
+            searchResults: '',
+            charNotFound: false
         }
     },
     mounted() {
@@ -15,24 +16,24 @@ new Vue({
     },
     methods: {
         getCharPics() {
-            myParams = { limit: 100 }
-            axios.get('https://bobsburgers-api.herokuapp.com/characters/', {
-                params: myParams
-            }).then(res => {
+
+            axios.get('https://bobsburgers-api.herokuapp.com/characters/').then(res => {
                 this.characters = res.data
             }).catch(err => console.error(err))
         },
         searchForChar() {
-            axios.get('https://bobsburgers-api.herokuapp.com/characters/').then(res => {
-                for (char of res.data) {
-                    if (char.name.includes(this.searchInput)) {
-                        console.log(char)
-                        this.searchResults = char
-                        break
-                    }
+            for (char of this.characters) {
+                if (char.name.includes(this.searchInput)) {
+                    console.log(char)
+                    this.searchResults = char
+                    this.charNotFound = false
+                    break
+                }
+                else {
+                    this.charNotFound = true
+                    this.searchResults = ''
                 }
             }
-            )
         }
 
     }

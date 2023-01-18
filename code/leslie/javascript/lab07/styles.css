@@ -5,6 +5,7 @@
 
 html {
     font-family: "Bob's Burgers";
+    background-color: #9ac7e8;
 }
 
 .characters {
@@ -12,17 +13,61 @@ html {
     padding: 1em;
     margin: 0.7em;
     border-radius: 7%;
-    border: 1px solid red
+    border: 2px solid #f0262977;
+}
+
+
+
+#burger {
+    margin-top: -90px;
+    margin-left: 15px;
+    border: 2px solid #f0262977;
+    border-radius: 50%;
+    display: inline;
+    height: 100px
+}
+
+#belcher-family {
+    margin-top: -90px;
+    /* margin-right: 10px; */
+    display: inline
 }
 
 h1 {
     margin: auto;
     text-align: center;
-    font-size: 44px;
+    font-size: 64px;
+    background-color: #fcdd60;
+    border: 2px solid #f0262a;
+    letter-spacing: 2px;
+}
+
+input[type=text] {
+    border: 2px solid #f0262977;
+    border-radius: 4px;
+    width: 30%;
+    padding: 8px;
+    background-color: #9ac7e8;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    font-family: "Bob's Burgers";
+
+
+}
+
+button {
+    padding: 12px 26px;
+    margin: 4px 2px;
+    background-color: #95d244;
+    font-family: "Bob's Burgers";
+    font-size: 2em;
+    font-weight: bold;
+
 }
 
 img {
-    height: 100px;
+    height: 10em;
     display: flex;
     flex-direction: column;
 }
@@ -30,10 +75,24 @@ img {
 #search {
     margin: auto;
     text-align: center;
+    padding-top: 0px
 }
 
 #searchImg {
-    height: 200px;
+    height: 10em;
     margin: auto;
     text-align: center;
+
+
+}
+
+#searchResults {
+    font-size: 10px;
+}
+
+#name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 0.1em;
 }
