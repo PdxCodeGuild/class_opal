@@ -2,22 +2,22 @@ Vue.component('save-quote', {
     data: function () {
         savedQuotes: [];
         },
-    template: '<button v-on:click="saveNewQuote()">Save Quote</button>',
+    template: '<button v-on:click="saveNewQuote">Save Quote</button>',
     methods: {
         saveNewQuote() {
             if (this.savedQuotes.length >= 1) {
                 for (el of this.savedQuotes) {
                     console.log(el.quote)
                     if (this.userInput === el.quote) {
-                        alert('You have already saved this word.');
+                        alert('You have already saved this quote.');
                         break;
                     } else {
-                        this.savedQuotes.push({quote: this.userInput, author: this.output});
+                        this.savedQuotes.push({quote: this.output.body, author: this.output.author});
                         break;
                     }
                 }
             } else {
-                this.savedWords.push({word: this.userInput, definition: this.output});
+                this.savedQuotes.push({word: this.output.body, definition: this.output.author});
             };
             this.clearInput();
         },
@@ -33,7 +33,7 @@ Vue.component('save-quote', {
             localStorage.setItem('download', JSON.stringify(download));
             console.log(download);
             this.savedWords = [];
-            alert('You have successfully downloaded your saved words.')
+            alert('You have successfully downloaded your saved quotes.')
         },
         // loads stored words from local storage
         uploadQuoteList() {
