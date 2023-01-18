@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+
+<body>
+    <h1>Todo List</h1>
+    <div id="app">
+        <h2>Add a Todo Item</h2>
+        <form @submit.prevent="addTodo">
+            <input v-model="newTodo" placeholder="Add a todo">
+            <button>Add</button>
+        </form>
+        <h2>List of Todo Items</h2>
+        <ul>
+            <li v-for="(todo, index) in incompleteTodos" :key="todo.text">
+                <input type="checkbox" @change="handleCompleteness(todo)">
+                {{ todo.text }}
+                <button @click=" removeTodo(todo)">Remove</button>
+            </li>
+        </ul>
+        <h2>Completed Items</h2>
+        <ul>
+            <li v-for="(todo, index) in completedTodos" :key="todo.text">
+                <input type="checkbox" @change="handleCompleteness(todo)" checked="todo.completed">
+                <!-- replace v-model with v-bind, add @change action might need a new method in the vue app or could use todo.completed = !todo.completed-->
+                {{ todo.text }}
+                <button @click=" removeTodo(todo)">Remove</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue@2"></script>
+    <!-- Include your code here... -->
+    <script src="js/site.js"></script>
+</body>
+
+</html>

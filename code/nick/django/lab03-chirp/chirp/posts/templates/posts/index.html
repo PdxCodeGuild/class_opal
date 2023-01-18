@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+{% block posts %}
+<div class="container ">
+    <form action="{% url 'posts:new-post' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="post" id="post" placeholder="What's on your mind?">
+        <button type="submit">Chirp!</button><br><br>
+    </form>
+</div>
+<body>
+<div class="container">
+    {% if post_feed %}
+        {% for post in post_feed %}
+    <div class="row">
+        <div class="col card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title blue-grey-text text-darken-4">{{ post.user }}</span>
+                <p class="red-text text-lighten-3">{{ post.pub_date }}</p>
+                <p>{{ post.post_text }}</p><br>
+                <p>{{ post.like_set.all.count }} Likes</p>
+                <div class="card-action">
+                    <a href="#">Like</a>
+                    <a href="#">Comment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% endfor %}
+    {% endif  %}
+    
+</div>
+</body>
+{% endblock %}
