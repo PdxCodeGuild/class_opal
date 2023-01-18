@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Vue via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Include the JS file where your Vue instance is defined -->
+    <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Vue Basics</title>
+</head>
+
+<body>
+
+    <!-- this is outside the Vue instance -->
+    {{ cohortName }}
+
+
+    <!-- The Vue instance gets loaded here! -->
+    <div id="app">
+
+        <!-- Declarative Rendering -->
+        <!-- Render data from the App's 'data' object into the template -->
+        <h3>{{ cohortName }}</h3>
+        <p>Started on: {{ startDate }}</p>
+        <p>Graduating on: {{ gradDate }}</p>
+
+
+        <!-- Data Binding -->
+        <!-- Bind DOM element attributes to app data -->
+        <a v-bind:href='repo'>Github repository</a>
+        <!-- : is short for v-bind -->
+        <a :href='repo'>Github repository</a>
+        <hr>
+
+
+        <!-- DOM Events -->
+        <!-- the v-on directive attaches a method to an event listener -->
+        <!-- https://vuejs.org/guide/essentials/event-handling.html#event-modifiers -->
+        <h3>Events and modifiers</h3>
+        <p>Clicks: {{ clicks }}</p>
+        <button v-on:click="clicks++">Click me!</button>
+        <button @dblclick.once="clicker(100)" @click="clicker(5)">No, click me!</button>
+        <hr>
+
+
+        <!-- Two-way Data Binding -->
+        <h3>Two-way Data Binding</h3>
+        <p>{{ inputField }}</p>
+
+        <p>V-bind + key event listener: </p>
+        <input type="text" v-bind:value="inputField" @keyup.enter="logInput">
+        <p>V-model: </p>
+        <input type="text" v-model="inputField">
+        <hr>
+
+
+        <!-- Conditionals -->
+        <h3>Conditional Rendering</h3>
+
+        <!-- v-if only renders the element if the condition is true -->
+        <input type="text" v-model="inputField2">
+        <span v-if="inputField2.length == 0">type something!</span>
+        <span v-else-if="inputField2.length < 3">keep going :)</span>
+        <span v-else-if="inputField2.length > 10">Too long!</span>
+
+        <!-- v-show always renders to the page, sets display:none if false -->
+        <input type="text" v-model="inputField2">
+        <span v-show="inputField2.length == 0">type something!</span>
+        <span v-show="inputField2.length > 0 && inputField2.length < 3">keep going :)</span>
+        <span v-show="inputField2.length > 10">Too long!</span>
+        <hr>
+
+
+        <!-- Computed Properties -->
+        <!-- Computed properties are written like methods, but with no arguments -->
+        <!-- and referred to just like a data property -->
+        <h3>Computed Properties</h3>
+        <button @click="a++">Team A scores</button>
+        <button @click="b++">Team B scores</button>
+        <p>Team A's score: {{ a }}</p>
+        <p>Team B's score: {{ b }}</p>
+        <p>Team A's season total: {{ scoreA }}</p>
+        <p>Team B's season total: {{ scoreB }}</p>
+        <hr>
+
+
+        <!-- Loops -->
+        <h3>Loops</h3>
+        <h4>Class Opal students and staff</h4>
+        <ul>
+            <li v-for="(s, indx) in students">{{ indx + 1}}: {{ s }}</li>
+            <!-- Don't do this! Use a computed property with a filter instead -->
+            <!-- <li v-for="s in staff" v-if="s.isReal">{{ s.title }}: {{ s.name }}</li> -->
+            <li v-for="s in realStaff">{{ s.title }}: {{ s.name }}</li>
+        </ul>
+
+        <h4>Seasons</h4>
+        <!-- template tags don't get rendered -->
+        <template v-for="(months, season) in seasons">
+            <!-- loop over object with (value, name) -->
+            <h5>{{ season }}</h5>
+            <ul>
+                <li v-for="m in months">{{ m }}</li>
+            </ul>
+        </template>
+        <hr>
+
+
+        <!-- Dynamic CSS Classes -->
+        <!-- bind the class attribute to a JS object -->
+        <!-- where the keys are class names and the values are booleans -->
+        <h3>Dynamic CSS Classes</h3>
+        <button @click="isRed = !isRed">Make it red</button>
+        <button @click="isTransparent = !isTransparent">Make it transparent</button>
+        <br>
+
+        <div id="box" v-bind:class="boxClasses">Look, a box</div>
+
+    </div>
+
+</body>
+
+</html>

@@ -42,17 +42,17 @@ Presentation Day: February 15th, 2023
 <!-- | 04    | Students API           | Jul 14th      | Jul 20th              | Jul 28th      |
 | 05    | Pokedex                | Jul 15th      | Jul 20th              | Jul 29th      | -->
 
-<!-- ## JavaScript Labs Assigned:
+ ## JavaScript Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 01    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
-| 02    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
-| 03    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
-| Group | Todo List              | Jul 1st       | Jul 5th               | Jul 15th      |
-| 04    | Vue Todos              | Jul 5th       | Jul 11th              | Jul 19th      |
-| 05    | Quotes in Vue          | Jul 7th       | Jul 11th              | Jul 21st      |
-| 06    | Mini-Capstone          | Jul 11th      | Jul 14th              | Jul 25th      | -->
+| 01    | Pick 3                 | Jan 3rd       | Jan 10th              | Jan 17th      |
+| 02    | Pick 3                 | Jan 3rd       | Jan 10th              | Jan 17th      |
+| 03    | Pick 3                 | Jan 3rd       | Jan 10th              | Jan 17th      |
+| 04    | Todo List              | Jan 6th       | N/A                   | N/A           |
+| 05    | Vue Todos              | Jan 9th       | Jan 12th              | Jan 23rd      |
+| 06    | Quotes in Vue          | Jan 11th      | Jan 16th              | Jan 25th      |
+<!--| 07    | Mini-Capstone          | Jan 11th      | Jan 14th              | Jan 25th      | -->
 
 
 ## HTML/CSS Labs Assigned:

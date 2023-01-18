@@ -1,0 +1,23 @@
+body {
+    background-color: #7b9ea8;
+    color: #292f36;
+}
+
+h1 {
+    text-align: center;
+}
+
+.book {
+    display: inline-block;
+    padding: 1em;
+    margin: 0.7em;
+    border-radius: 5%;
+    border: 3px solid #a30000;
+    user-select: none;
+    line-height: 1.5;
+    background-color: #fcecc9;
+}
+
+.out {
+    opacity: 0.3;
+}

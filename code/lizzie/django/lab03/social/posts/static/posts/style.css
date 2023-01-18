@@ -1,0 +1,176 @@
+/* This is just for ease of access so that it's in scope and I can call them when I want them. */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.colors {
+    color: #1E2328;
+    color: #2A2E34;
+    color: #3b3f46;
+    color: #6b727d;
+    color: #f3a228;
+    color: #f5b301;
+    color: #Fed053;
+}
+
+body {
+    background-color: #1E2328;
+    color: white;
+    font-family: Palatino, Georgia, 'Times New Roman', Times, serif;
+    /* Hides the horizontal scrollbar */
+    overflow-x: hidden;
+}
+
+a {
+    color: #f3a228;
+    text-decoration: none;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header,
+footer {
+    border-bottom: .4px solid;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#new-shriek {
+    padding-top: 1rem;
+    border: .4px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    margin: 2rem 0;
+}
+
+textarea {
+    width: 98vw;
+    height: 100px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    background-color: #1E2328;
+    resize: none;
+    border: 0px;
+    font-family: Palatino, Georgia, 'Times New Roman', Times, serif;
+    color: #Fed053
+}
+
+input[type=submit],
+button[type=submit] {
+    background-color: #f3a228;
+    color: #3b3f46;
+
+    border: none;
+    padding: .5rem;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+.date {
+    color: #6b727d;
+    font-size: .7rem;
+}
+
+hr {
+    width: 100vw;
+    border-width: .4px;
+}
+
+#footer {
+    background-color: #2A2E34;
+}
+
+.icon {
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* targets the image in that class */
+.icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.username-small {
+    font-size: 8pt;
+}
+
+.user-info {
+    display: flex;
+    padding: 1rem;
+}
+
+.text {
+    padding-left: 1rem;
+}
+
+footer {
+    text-align: center;
+}
+
+.name-date {
+    padding-bottom: .4rem;
+}
+
+.title {
+    font-size: 2rem;
+    background-color: #6b727d;
+}
+
+#signup,
+#login {
+    padding: 1rem;
+}
+
+ul {
+    padding: 1rem;
+    font-size: .8rem;
+    list-style: none;
+}
+
+#signup>form>p,
+#signup>.title,
+#login>form>p,
+#login>.title {
+    padding: .5rem;
+}
+
+input[type=text],
+input[type=password] {
+    font-family: Palatino, Georgia, 'Times New Roman', Times, serif;
+    padding: .5rem;
+    background-color: #3b3f46;
+    color: white;
+}
+
+/* media query for tablet */
+@media screen and (min-width: 641px) {
+
+    main {
+        display: flex;
+    }
+
+    textarea {
+        width: 40vw;
+    }
+
+    .user-info {
+        width: 55vw;
+    }
+
+    #new-shriek {
+        height: 200px;
+    }
+
+}

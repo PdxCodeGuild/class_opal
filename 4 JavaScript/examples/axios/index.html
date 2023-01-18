@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <title>Axios Crash Course</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <div id="app" class="container my-5">
+
+        <div class="text-center">
+            <h1 class="text-center">Basic Axios </h1>
+            <button class="btn btn-primary" @click="getUsers">GET </button>
+            <button class="btn btn-info" @click="addUser">POST</button>
+            <button class="btn btn-warning" @click="updateUser">PUT/PATCH</button>
+            <button class="btn btn-danger" @click="removeUser">DELETE</button>
+        </div>
+
+        <div>
+            <!-- {{ output }} -->
+            <h3>Data</h3>
+            {{ output.data }}
+            <hr>
+            <h3>Headers</h3>
+            {{ output.headers }}
+            <hr>
+            <h3>Config</h3>
+            {{ output.config }}
+        </div>
+
+    </div>
+</body>
+
+</html>

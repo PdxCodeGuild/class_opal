@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Home — Shriek{% endblock %}
+
+{% block content %}
+
+<body>
+  {% if request.user.is_authenticated %}
+  <header id="navbar">
+    <div class="icon">
+      <p><a href="{{ user.id }}"><img src="https://imgur.com/ejwhvcR.png"></a></p>
+    </div>
+    <p><a href="#"><i class="fa-solid fa-house fa-2xl"></i></a></p>
+    <div class="login-info">
+      <p class="username-small">Hello, {{ user.username }}!</p>
+    <p><a href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></p>
+    </div>
+  </header>
+
+  {% else %}
+  <header id="navbar">
+    <p><a href="{% url 'login' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log In</a></p>
+    <p><a href="#"><i class="fa-solid fa-house fa-2xl"></i></a></p>    
+    <p><a href="{% url 'signup' %}"><i class="fa-regular fa-pen-to-square"></i> Sign Up</a></p>
+  </header>
+  {% endif %}
+
+
+  <main>
+    {% if request.user.is_authenticated %}
+    <!-- Needs to have two containers displayed so I can flex them and put them beside each other -->
+    <div id="new-shriek">
+      <form action="{% url 'posts:add_post' %}" method="post">
+        {% csrf_token %}
+        <label for="new_post"><p style="text-align: center">You shall be heard.</label></p>
+        <textarea id="new_post" name="new_post" maxlength="120" wrap="hard" required placeholder="Max length: 120 chars."></textarea>
+        <input type="submit" value="Shriek">
+      </form>
+    </div>
+    {% endif %}
+
+    <div>
+    {% if posts %}
+    {% for p in posts reversed %}
+      <hr \>
+        <div class="user-info">
+          <div class="icon" class="padding">
+            <p><a href="{{ user.id }}"><img src="https://imgur.com/DrDZAT0.png"></a></p>
+          </div>
+          <div class="text">
+            <p class="name-date"><a href="{{ p.user.id }}">{{ p.user.username }}</a> · <span class="date">{{ p.pub_date }}</span></p>
+            <p>{{ p.post_text }}</p>
+          </div>
+    </div>
+    {% endfor %}
+    </div>
+    
+    {% else %}
+    <p>Your feed is empty.</p>
+    {% endif %}
+  </main>
+
+  <footer id="footer">
+    <a href="#"><i class="fa-solid fa-house"></i> Go to top</a>
+  </footer>
+
+{% endblock %}
+</body>
