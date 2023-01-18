@@ -1,22 +1,13 @@
-Vue.component('SectionTitle', {
+Vue.component('QuoteTitle', {
   props: ['isSearch'],
   template: '<h2>{{ title }}</h2>',
   computed: {
     title() {
-      return this.isSearch ? 'Search Results' : 'Random Quotes';
+      // condition is: this.isSearch ? True : False
+      return this.isSearch ? 'Your Results' : 'Random Quotes';
     }
   }
 });
-
-// Vue.component('TextComp', {
-//   // gonna need props to properly retrieve this info I think
-//   template: `<ul v-for="quote in quotes" :key="quote.id">
-//   <li>
-//       {{ quote.body }}
-//       — {{ quote.author }}
-//   </li>
-//   </ul>`
-// })
 
 new Vue({
   el: '#app',
@@ -30,7 +21,8 @@ new Vue({
     ],
     quotes: [],
     errored: false,
-    page: 0,
+    // isSearch is a boolen that resolves to true only after a user has searched for a term
+    // This boolen will determine whether the quote title is one string or another. 
     isSearch: false
   },
   mounted() {
