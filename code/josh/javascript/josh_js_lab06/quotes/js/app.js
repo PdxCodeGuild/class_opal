@@ -1,9 +1,46 @@
 Vue.component('save-quote', {
     data: function () {
         savedQuotes: [];
-        }
+        },
+    template: '<button v-on:click="saveNewQuote()">Save Quote</button>',
+    methods: {
+        saveNewQuote() {
+            if (this.savedQuotes.length >= 1) {
+                for (el of this.savedQuotes) {
+                    console.log(el.quote)
+                    if (this.userInput === el.quote) {
+                        alert('You have already saved this word.');
+                        break;
+                    } else {
+                        this.savedQuotes.push({quote: this.userInput, author: this.output});
+                        break;
+                    }
+                }
+            } else {
+                this.savedWords.push({word: this.userInput, definition: this.output});
+            };
+            this.clearInput();
+        },
+        // clears unsaved user input from search field, loaded definition, and audio link 
+        clearInput() {
+            this.userInput = '';
+            this.output = {};
+            this.audio = '';
+        },
+        // stores saved words to local storage, alerts user, and empties savedWords array
+        downloadQuoteList() {
+            const download = this.savedWords
+            localStorage.setItem('download', JSON.stringify(download));
+            console.log(download);
+            this.savedWords = [];
+            alert('You have successfully downloaded your saved words.')
+        },
+        // loads stored words from local storage
+        uploadQuoteList() {
+            const upload = JSON.parse(localStorage.getItem('download'));
+            this.savedWords = upload
+        },
     },
-    template: '<button v-on:click="count++">Save Quote{{ count }}</button>'
 })
 
 new Vue ({
