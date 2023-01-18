@@ -24,19 +24,6 @@ Vue.component('save-quote', {
                 this.savedQuotes.push({word: this.favQuotes.body, author: this.favQuotes.author});
             };
         },
-        // stores saved words to local storage, alerts user, and empties savedWords array
-        downloadQuoteList() {
-            const download = this.savedQuotes
-            localStorage.setItem('download', JSON.stringify(download));
-            console.log(download);
-            this.savedQuotes = [];
-            alert('You have successfully downloaded your saved quotes.')
-        },
-        // loads stored words from local storage
-        uploadQuoteList() {
-            const upload = JSON.parse(localStorage.getItem('download'));
-            this.savedQuotes = upload
-        },
     },
 })
 
