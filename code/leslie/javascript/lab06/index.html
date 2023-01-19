@@ -19,14 +19,18 @@
             <input type="text" id="authorSearch" placeholder="author"><br>
             <input type="text" id="tagSearch" placeholder="tag"><br>
 
+            <search-buttons></search-buttons>
 
-            <button class="btn search-keyword" @click="getQuoteByKeyword">Keyword</button>
+
+            <!-- <button class="btn search-keyword" @click="getQuoteByKeyword">Keyword</button>
             <button class="btn search-author" @click="getQuoteByAuthor">Author</button>
-            <button class="btn search-tag" @click="getQuoteByTag">Tag</button>
+            <button class="btn search-tag" @click="getQuoteByTag">Tag</button> -->
 
-            <ul v-for="r in output">
+            <ul class="loop" v-for="r in quotes">
                 <li>{{ r.body }} -- {{ r.author }}</li>
             </ul>
+
+
         </div>
 
     </body>
