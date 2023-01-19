@@ -16,12 +16,12 @@ Vue.component('save-quote', {
                         alert('You have already saved this quote.');
                         break;
                     } else {
-                        this.savedQuotes.push({quote: this.favQuotes.body, author: this.favQuotes.author});
+                        this.savedQuotes.push(this.favQuotes);
                         break;
                     }
                 }
             } else {
-                this.savedQuotes.push({word: this.favQuotes.body, author: this.favQuotes.author});
+                this.savedQuotes.push(this.favQuotes);
             };
         },
     },
