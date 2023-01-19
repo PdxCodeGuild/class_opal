@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -12,14 +13,52 @@
     <script src="js/app.js" defer></script>
     <title>Hella Quotes</title>
 </head>
-<body class="container blue-grey darken-4" id="app">
-    <header class="section red lighten-2">
-        <h3 class="blue-grey-text text-lighten-5 center-align">Hella Quotes</h3>
-        <h4 class="blue-grey-text text-lighten-5 center-align">Quote of the Day</h4>
-        <p><h5 class="blue-grey-text text-lighten-5 center-align">Placeholder for quote of the day</h5></p> 
+<body class="container black darken-4">
+    <header class="section teal accent-4">
+        <h3 class="blue-grey-text text-lighten-4 center-align">Hella Quotes</h3>
     </header>    
+    
+    <main class="cyan darken-3"  id="app">
 
-    <main class="blue-grey darken-1">
+        <!-- quote of the day -->
+        <div class="container blue-grey-text text-lighten-5 center-align" v-if="qotd && random">
+            <h4 class="lime-text text-darken-3">Quote of the Day</h4>
+            <p><h5 class="">"{{ qotd.body }}"</h5></p>
+            <h5 class="right">-{{ qotd.author }}</h5><br><br>
+            <h5 class="lime-text text-darken-3">Take a look at some random quotes!</h5>
+        </div>
+
+
+        <div class="row center">
+            <div class="input-field col s6">
+                <input placeholder="Search Term" type="text" class="validate" v-model="newSearchTerm">
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="keyword, author, or tag" type="text" class="validate" v-model="newSearchType">
+            </div>
+            <div class="col s12">
+                <a class="waves-effect waves-light btn center" @click="newQuotesSearch()"><i class="material-icons right">search</i>Search</a>
+            </div>
+        </div>
+
+        
+        <div class="container blue-grey-text text-lighten-5 center-align" v-if="!random">
+            <h5 class="lime-text text-darken-3">Results for the {{ cacheSearchType }}: {{ cacheSearchTerm }}</h5>
+        </div>
+        
+        
+        <ul class="pagination center">
+            <li :class="{ disabled: disabled, 'waves-effect': !disabled }"><a href="#!" @click="pageMove('down')"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active"><a href="#!">{{ page }}</a></li>
+            <li :class="{ disabled: lastPage, 'waves-effect': !lastPage }"><a href="#!" @click="pageMove('up')"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+
+
+        <div class="row">
+            <template v-for="quote in quotesArray">
+                <quote-item :quote="quote" :key="quote.id"></quote-item>
+            </template>
+        </div>
 
     </main>
 
