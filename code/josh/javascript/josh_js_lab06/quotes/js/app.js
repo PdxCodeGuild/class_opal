@@ -4,15 +4,17 @@ Vue.component('save-quote', {
             savedQuotes: []
         }
     },
-    template: '<button v-on:click="saveNewQuote">Save Quote</button>',
+    template: '<div :id="savedQuotes"><button v-on:click="saveNewQuote">Save Quote</button><br><h2>Saved Quotes List</h2><br><p v-for="(item) in savedQuotes">{{ item }}</p></div>',
     props: ['favQuotes'],    
     methods: {
         saveNewQuote() {
-            console.log(this.favQuotes)
+            let userSearch = document.getElementById('search').value
+            this.savedQuotes.push(this.favQuotes);
+            console.log(this.savedQuotes)
             if (this.savedQuotes.length >= 1) {
                 for (el of this.savedQuotes) {
-                    console.log(el.quote)
-                    if (this.userInput === el.quote) {
+                    console.log(el)
+                    if (userSearch === el) {
                         alert('You have already saved this quote.');
                         break;
                     } else {

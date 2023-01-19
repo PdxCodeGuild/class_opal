@@ -28,14 +28,6 @@
             - {{ item.author }}<br>
             <save-quote v-bind:fav-quotes="item.body + ' - ' + item.author"></save-quote><br>
         </div>
-
-        <!-- <component v-for="item in savedQuotes" :is="item.component" :item="item"> -->
-        <!-- <div v-for="(item) in savedQuotes" :is="item.save-quote" :item="item">
-            {{ item }}
-        </div> -->
-        <!-- {{ fav-quotes }} -->
-        <!-- <button v-on:click="save-quote">Show Saved Quotes</button> -->
-        
     </div>
 </body>
 </html>
