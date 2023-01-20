@@ -1,38 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lab06 - Axios</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-        <script src="lab06.js" defer></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab06 - Axios</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="lab06.js" defer></script>
+</head>
 
-    <body>
-        <div id="app">
-
-
-            <input type="text" id="search" placeholder="keyword"><br>
-            <input type="text" id="authorSearch" placeholder="author"><br>
-            <input type="text" id="tagSearch" placeholder="tag"><br>
-
-            <search-buttons></search-buttons>
+<body>
+    <div id="app">
 
 
-            <!-- <button class="btn search-keyword" @click="getQuoteByKeyword">Keyword</button>
-            <button class="btn search-author" @click="getQuoteByAuthor">Author</button>
-            <button class="btn search-tag" @click="getQuoteByTag">Tag</button> -->
-
-            <ul class="loop" v-for="r in quotes">
-                <li>{{ r.body }} -- {{ r.author }}</li>
-            </ul>
+        <input type="text" id="search" placeholder="keyword"><br>
+        <input type="text" id="authorSearch" placeholder="author"><br>
+        <input type="text" id="tagSearch" placeholder="tag"><br>
 
 
-        </div>
+        <button class="btn search-keyword" @click="getQuoteByKeyword">Keyword</button>
+        <button class="btn search-author" @click="getQuoteByAuthor">Author</button>
+        <button class="btn search-tag" @click="getQuoteByTag">Tag</button>
 
-    </body>
+        <ul v-for="r in output">
+            <li>{{ r.body }} -- {{ r.author }}</li>
+        </ul>
+    </div>
+
+</body>
 
 </html>

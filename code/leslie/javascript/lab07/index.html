@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bob's Burgers</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="lab07.js" defer></script>
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+
+    <body>
+        <div id="app">
+            <header id="container">
+                <h1>Bob's Burgers Characters</h1>
+                <a href="https://bobs-burgers.fandom.com/wiki/Bob%27s_Burgers_Wiki"><img src="burger3.png" alt="burger"
+                        id="burger"></a>
+            </header>
+
+            <div id="search">
+                <input type="text" id="search" v-model='searchInput' placeholder="ex: 'Linda' or 'Linda Belcher' ">
+                <button @click="searchForChar">Search for character</button>
+
+                
+                    
+
+                    <div id="searchResults">
+                        <img id="searchImg" :src="searchResults.image">
+
+                        <a id="name" :href="searchResults.wikiUrl">{{ searchResults.name }}</a>
+                    </div>
+                    <div v-if="charNotFound">
+                        <h2>Character not found!</h2>
+                        <iframe src="https://giphy.com/embed/WO6xBeRC7AA8MplkrR" width="211" height="280"
+                            frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                        <p><a href="https://giphy.com/gifs/psasupplyco-upworthy-WO6xBeRC7AA8MplkrR">via GIPHY</a></p>
+                    </div>
+
+
+
+                    <div v-for="char in characters" :key="char.id" class="characters">
+                        <div>
+                            <img :src="char.image">
+
+                            <a id="name" :href="char.wikiUrl">{{ char.name }}</a>
+                        </div>
+                    </div>
+            </div>
+
+
+        </div>
+
+
+
+    </body>
+
+</html>
