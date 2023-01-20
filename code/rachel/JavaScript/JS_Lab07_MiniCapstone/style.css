@@ -1,0 +1,61 @@
+/* #2A9D8F */
+/* #E9C46A */
+/* #E76F51 */
+body {
+    background-color: #243653;
+    color: #f4a261; 
+}
+#header {
+    display: flex;
+}
+h4 {
+    text-align: center;
+    margin-top: 1em;
+}
+#insult {
+    text-align: center;
+    margin-top: 1em;
+}
+#submit {
+    background-color: #2A9D8F;
+    color: #E9C46A;
+}
+#myInsult {
+    font-size: 10px;
+    width: 40em; 
+    height: 29px;
+    padding: .5em;
+    background-color: #2A9D8F;
+    color: #E9C46A;
+}
+#select {
+    text-align: center;
+}
+.showInsult {
+    text-align: center;
+}
+#select {
+    text-align: center;
+    margin-top: 2em;
+}
+#cardRow {
+    margin-top: 1em;
+    margin-right: 2em;
+    padding: 1em;
+}
+
+.card_body {
+    text-align: center;
+    background-color: whitesmoke;
+}
+.language button {
+    padding: .5em;
+    margin: .5em;
+}
+img {
+    width: 200px;
+    height: 127px;
+}
+.showInsult {
+    color: #E76F51;
+}
