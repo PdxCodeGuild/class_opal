@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    color: #181123;
+    background-color: #3b4d79;
+}
+
+header {
+    height: 100%;
+    width: auto;
+    font-weight: bold;
+    -webkit-text-stroke: .8px #bfdff4
+}
+
+header,
+footer {
+    font-size: 40px;
+    
+    /* topbottom leftright */
+    padding: 2rem 0;
+    text-align: center;
+}
+
+p,
+input, 
+li,
+button {
+    letter-spacing: -.003em;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.58;
+}
+
+input[type=text] {
+    padding:10px;
+    margin:10px auto; /* add top and bottom margin */
+    border: 0;
+    border-bottom: 2px solid black;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    font-size: 30px;
+    width: 70vw;
+}
+
+#user-input {
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.list-of-puns {
+    background: linear-gradient(rgb(59 77 121), #e67e64);
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Selects: "There are {{ jokesLeft }} jokes left" */
+.list-of-puns > :nth-child(2) {
+    padding: 1rem;
+}
+
+li {
+    list-style: none;
+}
+
+.pun {
+    background-color: rgb(108, 108, 155);
+    margin-bottom: 20px;
+    /* border-bottom: 2px solid black; */
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#definitions {
+    background-color: #e67e64;
+    padding: 1rem;
+}
+
+.def-container {
+    margin: .5rem;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.def-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: .5rem;
+}
+
+.def-speech {
+    display: table; /* keep the background color wrapped tight */
+    padding:5px;
+    margin-top: -12px;
+    align-self: flex-end
+}
+
+.def-speech > span {
+    font-size: 18px;
+    background-color: #181123;
+    color: white;
+    padding: .7rem;
+    border-radius: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fox-button {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fox-body {
+    background: linear-gradient(#e67e64, #181123);;
+    padding: 2rem;
+}
+
+.fox-body > img,
+.space-body > h2 {
+    padding: 1rem;
+}
+
+.space-body {
+    padding: 1rem;
+    background-color: #181123;
+    color: white;
+}
+
+.caption {
+    font-size: 12pt;
+    /* Tutorial on https://fossheim.io/writing/posts/css-text-gradient. */
+    
+    /* Fallback: Set a background color. */
+    background-color: rgb(169, 169, 169);
+    
+    /* Create the gradient. */
+    background-image: linear-gradient(45deg, #f3ec78, #bf4366);
+    
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+aside {
+    background-color: #181123;
+    padding: 2rem;
+    text-align: center;
+}
+
+.my-button,
+button {
+    /* from w3docs tutorial https://www.w3docs.com/snippets/html/how-to-create-an-html-button-that-acts-like-a-link.html */
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #20172e;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    margin: .4rem;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #e67e64;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* unvisited link */
+a:link {
+    color: #20172e;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+aside > a:visited {
+    color: white;
+}
+
+a:hover, 
+aside > a:hover {
+    color: #bf4366;
+}
+
+/* Media query for tablet */
+@media screen and (min-width: 800px) {
+
+    .container {
+        display: flex;
+    }
+
+    img {
+        max-width: 750px;
+        text-align: center;
+    }
+
+    aside {
+        background: linear-gradient(#3b4d79, #181123);
+    }
+}
