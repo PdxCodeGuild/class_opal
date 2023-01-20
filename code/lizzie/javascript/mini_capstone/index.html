@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <title>Space Fox</title>
+    <script src="js/site.js" defer></script>
+    <script src="https://kit.fontawesome.com/0cc09580ea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="static/css/site.css">
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.png">
+</head>
+
+<body>
+<div id="app">
+    <header :style="{ backgroundImage: `url(${spaceImage})` }">
+        Space Fox
+    </header>
+    
+    <div class="container">
+        <div class="container-child">
+            <div id="user-input">
+                    <input type="text" v-model="userResponse" placeholder="Your term: "/><br>
+                <button @click="getDefinition(); getPun(); clearList()">Get Info</button>
+            </div>
+        
+        <!-- Conditional for displaying statement: -->
+            <section v-if="errored">
+                <p>We're sorry, we're not able to retrieve this information at the moment, please reload the page or try back later</p>
+            </section>
+        
+            <section v-else> <!-- section broken up into puns and definitions -->
+                <!-- If the user has given input, display the joke, "total jokes", and "see next joke" btn -->
+                <div v-if="userResponse.length > 0">
+                    <div v-if="totalJokes > 1" class=list-of-puns>
+                        <ul>
+                            <li v-for="item in list" class="pun">
+                                &#8220;{{ item.joke }}&#8221;
+                            </li>
+                        </ul>
+                        <h2>There are {{ totalJokes }} total jokes.</h2>
+                        <div v-if="list.length > 1">
+                            <p>{{ jokesLeft }} Joke(s) left</p>
+                        </div>
+                        <button @click="addList">See next joke</button>
+                    </div>
+                    <div v-if="totalJokes == 1">
+                        <p>There are no jokes left.</p>
+                    </div>
+                </div>
+                
+                <div v-if="defLoading">Loading...</div>
+                <div id="definitions">
+                    <h2 v-if="definition != null">The word "{{ userResponse }}" can mean:</h2>
+                    <ul v-for="def in definition" class="def-container">
+                        <li class="def-card">{{ def.definition }}</li>
+                        <li class="def-speech"><span>{{ def.partOfSpeech }}</span></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <article>
+                <div class="fox-body">
+                    <div class="fox-button">
+                        <h2>Your fox image:</h2>
+                        <button @click="getFoxImage()">Get Another fox</button>
+                    </div>
+                    <img :src="foxImage" class="center">
+                </div>
+                <div class="space-body">
+                    <h2>Today's space image:</h2>
+                    <img :src="spaceImage">
+                    <p>By: {{ spaceCopyright }}</p><br>
+                    <p class="caption"><strong>Explanation:</strong> {{ spaceDescription }}</p>
+                </div>
+            </article>
+        </div>
+
+        <aside>
+            <a href="https://icanhazdadjoke.com/api" target="_blank" class="my-button">Joke API</a>
+            <a href="https://www.wordsapi.com/" target="_blank" class="my-button">WordsAPI</a>
+            <a href="https://randomfox.ca/" target="_blank" class="my-button">Fox API</a>
+            <a href="https://api.nasa.gov/" target="_blank" class="my-button">NASA APIs</a>
+        </aside>
+    </div>
+</div>
+
+<footer>
+    <div>
+        <p><a href="https://github.com/elizabethquinlan" target="_blank"> <!-- target="_blank" will make it open in new window-->
+            <i class="fa-brands fa-github fa-2x"></i></a></p>
+    </div>
+    <div>
+        <p><a href="https://github.com/PdxCodeGuild/class_opal" target="_blank">
+            <i class="fa-regular fa-gem fa-2x"></i></a></p>
+    </div>
+    <div>
+        <p><a href="https://www.linkedin.com/in/elizabeth-quinlan-/" target="_blank">
+            <i class="fa-brands fa-linkedin fa-2x"></i></a></p>
+    </div>
+</footer>
+</body>

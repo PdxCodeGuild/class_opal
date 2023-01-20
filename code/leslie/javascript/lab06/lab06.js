@@ -34,7 +34,7 @@ new Vue({
         },
         getQuoteByAuthor() {
             let searchByAuthor = document.getElementById('authorSearch').value;
-            myParams = {filter: searchByAuthor, type: 'author'}
+            myParams = { filter: searchByAuthor, type: 'author' }
             axios.get('https://favqs.com/api/quotes', {
                 headers: {
                     Authorization:
@@ -42,11 +42,11 @@ new Vue({
                 }
                 , params: myParams
             }).then(res => this.output = res.data.quotes)
-            .catch(err => console.error(err))
+                .catch(err => console.error(err))
         },
         getQuoteByTag() {
             let searchByTag = document.getElementById('tagSearch').value;
-            myParams = {filter: searchByTag, type: 'tag'}
+            myParams = { filter: searchByTag, type: 'tag' }
             axios.get('https://favqs.com/api/quotes', {
                 headers: {
                     Authorization:
@@ -54,7 +54,7 @@ new Vue({
                 }
                 , params: myParams
             }).then(res => this.output = res.data.quotes)
-            .catch(err => console.error(err))
+                .catch(err => console.error(err))
         }
 
 

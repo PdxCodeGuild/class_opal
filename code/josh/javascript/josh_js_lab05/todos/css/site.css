@@ -1,0 +1,54 @@
+body {
+    background-color: rgb(204, 162, 55);
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+
+}
+.completedItem {
+    text-decoration: line-through;
+}
+
+img {
+    max-width: 1vw;
+    max-height: 1vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#checkbox {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, td, th {
+    border: 1px solid;
+    border-collapse: collapse;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    text-align: center;
+    margin: 1vw;
+}
+
+h1 {
+    text-align: center;
+}
+
+#input {
+    text-align: center;
+    margin: auto;    
+}
+
+button {
+    margin: auto;
+}

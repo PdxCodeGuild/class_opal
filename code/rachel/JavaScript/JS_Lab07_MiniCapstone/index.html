@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>JS Mini-Capstone</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <div class="container" id="header">
+        <div class="row">
+            <div class="col-sm-3">
+                <h2>The Insult Translator</h2>
+            </div>
+            <div class="col-sm-9">
+                <h4><em>Helping you insult people in a way they can understand.</em></h4>
+            </div>
+        </div>
+    </div>
+    
+    <div id="app"> <!-- call to 1st API -->
+        <!-- v-model: use for both types of input (getInsult or user input) -->
+        <div class="container" id="insult">
+            <!-- <div class="row">
+                <div class="col-sm-3"> -->
+                    <button id="submit" @click="getInsult" >Need an insult? Click here for a fresh one</button>
+                <!-- </div>
+                <div class="col-sm-9"> -->
+                    <label for="myInsult">... or enter yours here</label>
+                    <input v-model="insultText" id="myInsult" type="text" @input="resize"> 
+                <!-- </div>
+            </div> -->
+        </div>
+        <div class="language">
+            <h5 id="select">Select the personality / language type that best describes the person you want to insult</h5>
+            <div class="container" id="cardRow">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card" style="width: 15rem;">
+                            <img class="card-img-top" src="640px-King_of_the_Tampa_Ren_Fest.jpg" alt="Card image cap">
+                            <div class="card_body">
+                                <button id="shakespeare" class="btn btn-outline-info btn-sm" @click="shakespeare(insultText)">Theater Nerd</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card" style="width: 15rem;">
+                            <img class="card-img-top" src="Klingon_(1305760507).jpg" alt="Card image cap">
+                            <div class="card_body">
+                                <button id="klingon" class="btn btn-outline-info btn-sm" @click="klingon(insultText)">Violent Trekkie</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card" style="width: 15rem;">
+                            <img class="card-img-top" src="640px-Vulcan_cosplayer.jpg" alt="Card image cap">
+                            <div class="card_body">
+                                <button id="vulcan" class="btn btn-outline-info btn-sm" @click="vulcan(insultText)">Smart Trekkie</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="cardRow">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card" style="width: 15rem;">
+                            <img class="card-img-top" src="640px-Pirateguys_portrait_2005HR.jpg" alt="Card image cap">
+                            <div class="card_body">
+                                <button id="pirate" class="btn btn-outline-info btn-sm" @click="pirate(insultText)">Pirate</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card" style="width: 15rem;">
+                            <img class="card-img-top" src="640px-Robert_Earl_Keen_at_the_Redneck_Country_Club,_June_30,_2018_MG_1438_(29273605388).jpg" alt="Card image cap">
+                            <div class="card_body">
+                                <button id="redneck" class="btn btn-outline-info btn-sm" @click="redneck(insultText)">Redneck</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card" style="width: 15rem;">
+                            <img class="card-img-top" src="640px-2015Yoda.JPG" alt="Card image cap">
+                            <div class="card_body">
+                                <button id="yoda" class="btn btn-outline-info btn-sm" @click="yoda(insultText)">Yoda</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <div class="showInsult">
+            <h3><em>{{ translation }}</em></h3>
+        </div>
+    </div>
+
+</body>
+
+</html>
