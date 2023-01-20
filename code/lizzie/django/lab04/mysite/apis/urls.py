@@ -11,5 +11,5 @@ urlpatterns = [
     path('new/', CreateStudent.as_view()),
     # accessing url at primary key to retrieve student's info.
     # This one is capable of handling 
-    path('<int:pk/', StudentView.as_view())
+    path('<int:pk>/', StudentView.as_view())
 ]
