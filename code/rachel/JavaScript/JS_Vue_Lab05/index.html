@@ -18,16 +18,15 @@
     <h1>The <em>To-Do</em> List</h1>
     <div id="app">
         <h2>Incomplete Items</h2>
+
+        <input v-model="newItem" type="text"/>
+        <button @click="addNewItem" >Add Item</button>
+        <!-- @click="clear(i)" -->
         <ul>
-            <!-- assign id to each item to remove specific item? or can button be added inline? -->
             <div>
-                <!-- <li v-for="todo in todos">{{ todo.text }} <button @click="complete">Complete!</button></li> -->
-                <li id="todoItem" v-for="todo in todos">{{ todo.text }} <button @click="complete" v-model="completedItems">Complete!</button></li>
+                <li v-for="todo in todos">{{ todo.text }}<button  v-model="newItem" @click="add" >Complete!</button></li>
             </div>
         </ul>
-      
-        <input v-model="newItem" type="text"/>
-        <button @click="addNewItem">Add Item</button>
         
         <h2>Completed Items</h2>
         <ul>
@@ -38,8 +37,6 @@
         
     </div>
     
-
-
 </body>
 
 </html>
