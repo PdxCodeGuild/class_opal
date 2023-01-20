@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background: url("dictionary.jpg") no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: auto
+}
+
+.container {
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "search"
+    "result"
+    "saved";
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+}
+
+header {
+    grid-area: header;
+    background-color: rgb(226, 153, 43);
+    width: 100vw
+}
+
+#search {
+    grid-area: search;
+    margin: 2vw 0 2vw 0;
+}
+
+#result {
+    grid-area: result;
+    max-width: 80vw;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+
+#result>p {
+    background-color: rgba(226, 153, 43, 0.8);
+    padding: 1vw;
+}
+
+#saved {
+    grid-area: saved;
+    display: flex;
+    flex-flow: column wrap;
+    text-align: left;
+    align-content: center;
+    max-width: 80vw;
+    margin: 0 auto;
+    background-color: rgba(226, 153, 43, 0.8);
+}
+
+img {
+    max-width: 15px;
+    max-height: 15px;
+}

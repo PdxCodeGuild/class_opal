@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="css/dictionary-favicon.png">
+    <script src="js/app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>JS Mini-Capstone</title>
+</head>
+<body>
+    <div class="container" id="app">
+        <header>
+            <h1><strong> ONLINE DICTIONARY </strong><button v-if="savedWords.length == 0" v-on:click="uploadWordList()">Upload Saved List</button></h1>
+        </header><br>
+        <div id="search">
+            <input type="text" v-model="userInput" placeholder="Search Dictionary">
+            <button v-on:click="getDefinition()">Search</button>
+            <button v-on:click="clearInput()">Clear</button><br><br>
+            <!-- allows app to display alert if dictionary API does not load result -->
+            <p v-if="searchError"></p>
+        </div>
+        <div id="result">
+            <!-- displays definition if output object from app has returns a result  -->
+            <p v-if="output.length > 0">Definition: {{ output }}</p>
+            <!-- opens new webpage that plays audio file when 'Listen' button is clicked -->
+            <a v-bind:href="audio" target="_blank"><button v-if="audio.length > 0">Listen</button></a>
+            <!-- displays 'Save' button when output object from app returns a result -->
+            <button v-if="output.length > 0" v-on:click="saveNewWord()">Save</button><br><br><br>
+        </div>
+        <div id="saved">
+            <!-- displays 'Download' button when any words are saved to array from app -->
+            <h2 style="text-align:center;" v-if="savedWords.length > 0">Saved Words <button v-if="savedWords.length > 0" v-on:click="downloadWordList()">Download</button></h2>
+            <!-- displays saved word and definition from app array and individual 'Delete' buttons  -->
+            <div style="padding: 1vw;" v-for="(item, index) in savedWords">
+                <img src="css/delete-button.png" alt="Delete Button" v-on:click="deleteWord(item)">
+                <span style="text-transform:capitalize;">{{ item.word }}: </span><span>{{ item.definition }}</span><br><br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
