@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+    flex: 1 0 auto;
+  }
+
+  .input-field label {
+    color: #e57373;
+  }
+
+p {
+  word-wrap: break-word
+}
+
+a { color: inherit; }
