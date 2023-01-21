@@ -40,9 +40,6 @@
         <label for="sector_exclude_2">Sector Exclude 2:</label>
         <input type="text" v-model="sector_exclude_2" id="sector_exclude_2" required>
         <br>
-        <!-- <label for="type">type:</label> -->
-        <!-- <input type="text" v-model="type" id="type" required> -->
-        <!-- <br> -->
         <button type="submit">Create Index</button>
     </form>
 
@@ -90,6 +87,7 @@
                 <li>Sector Exclude 1: [[ index.sector_exclude_2 ]]</li>
             </ul>
             <button @click="deletePersonalizedIndex(index.id)">Delete</button>
+            <button @click="getOrders(index.index_name)">Download Orders</button>
         </li>
     </ul>
 </div>
@@ -199,6 +197,23 @@
                     .catch(error => {
                         console.error(error);
                     });
+            },
+            async getOrders(index_name) {
+                try {
+                    const response = await axios({
+                        url: '/apis/v1/download/orders/' + index_name + '/',
+                        method: 'GET',
+                        responseType: 'blob',
+                    });
+                    const url = window.URL.createObjectURL(new Blob([response.data]));
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.setAttribute('download', 'orders_${index_name}.csv'.replace('${index_name}', index_name));
+                    document.body.appendChild(link);
+                    link.click();
+                } catch (error) {
+                    console.log(error);
+                }
             },
         },
         created: function () {
