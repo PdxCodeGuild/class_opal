@@ -87,7 +87,8 @@
                 <li>Sector Exclude 1: [[ index.sector_exclude_2 ]]</li>
             </ul>
             <button @click="deletePersonalizedIndex(index.id)">Delete</button>
-            <button @click="getOrders(index.index_name)">Download Orders</button>
+            <button @click="getOrders(index.id)">Download Orders</button>
+            <button @click="getIndex(index.id)">Download Personalized Index</button>
         </li>
     </ul>
 </div>
@@ -198,17 +199,40 @@
                         console.error(error);
                     });
             },
-            async getOrders(index_name) {
+            async getOrders(index_id) {
                 try {
+                    const { data } = await axios.get('/apis/v1/download/orders/' + index_id + '/');
+
+                    console.log(index_name)
                     const response = await axios({
-                        url: '/apis/v1/download/orders/' + index_name + '/',
+                        url: '/apis/v1/download/orders/' + index_id + '/',
                         method: 'GET',
                         responseType: 'blob',
                     });
                     const url = window.URL.createObjectURL(new Blob([response.data]));
                     const link = document.createElement('a');
                     link.href = url;
-                    link.setAttribute('download', 'orders_${index_name}.csv'.replace('${index_name}', index_name));
+                    link.setAttribute('download', 'orders_' + index_id + '.csv'); //, `orders_${index_name}.csv`); //.replace('${index_name}', index_name));
+                    document.body.appendChild(link);
+                    link.click();
+                } catch (error) {
+                    console.log(error);
+                }
+            },
+            async getIndex(index_id) {
+                try {
+                    const { data } = await axios.get('/apis/v1/download/index/' + index_id + '/');
+
+                    console.log(index_name)
+                    const response = await axios({
+                        url: '/apis/v1/download/index/' + index_id + '/',
+                        method: 'GET',
+                        responseType: 'blob',
+                    });
+                    const url = window.URL.createObjectURL(new Blob([response.data]));
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.setAttribute('download', 'personalized_index_' + index_id + '.csv');
                     document.body.appendChild(link);
                     link.click();
                 } catch (error) {

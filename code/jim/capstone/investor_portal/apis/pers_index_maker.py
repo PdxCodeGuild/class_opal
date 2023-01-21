@@ -9,6 +9,7 @@ import time
 from math import ceil
 import pandas as pd
 import numpy as np
+from pathlib import Path
 from pandas_datareader import get_quote_yahoo
 from .index_parameters import index_filter_parameters, rank_order, sector_target_parameters, position_weight_parameters, user_parameters, columns_of_interest
 
@@ -16,7 +17,8 @@ from .index_parameters import index_filter_parameters, rank_order, sector_target
 # TODO (if needed) write function to clean yf data; check data quality
 def import_data(filename: str) -> pd.DataFrame:
     """import yf data from csv and return as pandas dataframe"""
-    df = pd.read_csv(filename)
+    filepath = Path(__file__).parent / filename
+    df = pd.read_csv(filepath)
     return df[columns_of_interest]
     # Note: could filter out excluded sectors here
 
@@ -103,10 +105,12 @@ def get_order_quantity(df: pd.DataFrame) -> pd.DataFrame:
 
 def orders_to_csv(df: pd.DataFrame, index_name) -> None:
     index_name = index_name.replace(" ", "_")
-    df.to_csv(f"data/personalized_index_{index_name}.csv", index=True)
+    filepath = Path(__file__).parent / "data"
+    df.to_csv(
+        filepath / f"personalized_index_{index_name}.csv", mode='w', index=True)
     df = df[['symbol', 'order_quantity']]
     df['order_quantity'] = df['order_quantity'].apply(np.int64)
-    df.to_csv(f"data/orders_{index_name}.csv", index=False)
+    df.to_csv(filepath / f"orders_{index_name}.csv", mode='w', index=False)
     return None
 
 
@@ -114,7 +118,7 @@ def get_personalized_index(index_name, index_allocation, market_cap_min=5_000_00
     start_time = time.time()
 
     # Import stock data
-    filename = "data/universe.csv"
+    filename = "universe.csv"
     df = import_data(filename)
 
     # Create index selection based on personalized parameters
