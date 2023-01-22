@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}Research{% endblock %}
+
+{% block content %}
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<body>
+    <div id="app">
+        <div class="sidebar">
+            <h2>Search for Stock Info</h2>
+            <input v-model="symbol" type="text" placeholder="Enter a symbol">
+            <button v-on:click="getChart">Get Quote</button>
+            <br>
+            <h3>Summary</h3>
+            <div v-bind:data-company-info="companyInfo" id="summary">
+                <p><b>Company Name</b> [[ companyInfo.length > 0 ? companyInfo[0].longName : '' ]]</p>
+                <p><b>Sector</b>: [[ Object.entries(assetProfile).length > 0 ? assetProfile.assetProfile.sector : '' ]]
+                </p>
+                <p><b>Current Price</b>: [[ companyInfo.length > 0 ? '$' + companyInfo[0].regularMarketPrice : '' ]]</p>
+                <p><b>Market Cap(B)</b>: [[ companyInfo.length > 0 ? '$' + (companyInfo[0].marketCap /
+                    1000000000).toFixed(2) : '' ]]
+                </p>
+                <p><b>Trailing PE Ratio</b>: [[ companyInfo.length > 0 ? (companyInfo[0].trailingPE).toFixed(2) : '' ]]
+                </p>
+                <p><b>Dividend Yield</b>: [[ companyInfo.length > 0 ? companyInfo[0].trailingAnnualDividendRate : '' ]]
+                </p>
+                <p><b>Business Summary</b>:<span id="long-summary"> [[ Object.entries(assetProfile).length > 0 ?
+                        assetProfile.assetProfile.longBusinessSummary : '' ]] </span></p>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="content">
+            <div id="myChart"></div>
+        </div>
+
+    </div>
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data() {
+                return {
+                    financialData: '',
+                    symbol: '',
+                    companyInfo: '',
+                    assetProfile: '',
+                }
+            },
+            methods: {
+                stockProfile() {
+                    return axios.get('https://mboum-finance.p.rapidapi.com/mo/module/', {
+                        params: { symbol: this.symbol, module: 'asset-profile' },
+                        headers: {
+                            'X-RapidAPI-Key': '2df7056317msh20576ff712682cbp16b7afjsn7f62ee5d3bca',
+                            'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
+                        }
+                    })
+                        .then(response => {
+                            const data = response.data;
+                            this.assetProfile = data;
+                            console.log(this.assetProfile)
+                            console.log(this.assetProfile['longBusinessSummary'])
+                        }).catch(function (error) {
+                            console.error(error);
+                        })
+                },
+                stockInfo() {
+                    return axios.get('https://mboum-finance.p.rapidapi.com/qu/quote', {
+                        params: { symbol: this.symbol },
+                        headers: {
+                            'X-RapidAPI-Key': '2df7056317msh20576ff712682cbp16b7afjsn7f62ee5d3bca',
+                            'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
+                        }
+                    })
+                        .then(response => {
+                            const data = response.data;
+                            this.companyInfo = data;
+                        }).catch(function (error) {
+                            console.error(error);
+                        })
+                },
+                stockQuote() {
+                    return axios.get('https://mboum-finance.p.rapidapi.com/hi/history', {
+                        params: { symbol: this.symbol, interval: '1mo', diffandsplits: 'false' },
+                        headers: {
+                            'X-RapidAPI-Key': '2df7056317msh20576ff712682cbp16b7afjsn7f62ee5d3bca',
+                            'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
+                        }
+                    })
+                        .then(response => {
+                            const data = response.data;
+                            const result = Object.entries(data.items).map(([timestamp, item]) => [item.date, item.close]);
+                            result.unshift(['date', 'close']);
+                            this.financialData = result;
+                        }).catch(function (error) {
+                            console.error(error);
+                        });
+                    return this.financialData
+                },
+                drawChart(dataArray) {
+                    // Convert data array to DataTable object
+                    var data = google.visualization.arrayToDataTable(dataArray);
+                    // Set Options
+                    var options = {
+                        title: this.symbol + ' Closing Price History',
+                        hAxis: { title: 'Date' },
+                        vAxis: { title: 'Closing Share Price' },
+                        legend: 'none'
+                    };
+                    // Draw Chart
+                    var chart = new google.visualization.LineChart(document.getElementById('myChart'));
+                    chart.draw(data, options);
+                },
+                async getChart() {
+                    google.charts.load('current', { packages: ['corechart'] });
+                    const dataArray = await this.stockQuote();
+                    const infoArray = await this.stockInfo();
+                    const profileArray = await this.stockProfile();
+                    return this.drawChart(this.financialData);
+                }
+            },
+        })
+    </script>
+</body>
+{% endblock %}

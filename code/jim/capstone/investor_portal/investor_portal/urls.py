@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
+    path("research/", TemplateView.as_view(template_name="research.html"),
+         name="research"),
     path("admin/", admin.site.urls),
     path("personalized_index/", include("personalized_index.urls")),
     path("personalized_index/", include("django.contrib.auth.urls")),

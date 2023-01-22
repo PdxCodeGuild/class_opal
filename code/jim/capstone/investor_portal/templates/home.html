@@ -29,7 +29,7 @@
             <slot name="footer">
               default footer
               <button class="modal-default-button" @click="$emit('close')">
-                OK
+                Cancel
               </button>
             </slot>
           </div>
@@ -42,7 +42,7 @@
     <div class="sidebar">
         {% if user.is_authenticated %}
         <h1>Welcome {{ user.username }}!</h1>
-        <button id="show-modal" @click="showModal = true">Show Modal</button>
+        <button id="show-modal" @click="showModal = true">Create an Index</button>
         <!-- use the modal component -->
         <transition name="modal">
             <modal v-if="showModal" @close="showModal = false">
@@ -51,7 +51,9 @@
         default content
       -->
                 <template v-slot:header>
-                    <h2>Create a new Personalized Index</h2>
+                    <h3>Create a new Personalized Index</h2>
+                </template>
+                <template v-slot:body>
                     <form @submit="createPersonalizedIndex">
                         {% csrf_token %}
                         <label for="index_name">Index Name:</label>
@@ -75,8 +77,11 @@
                         <label for="sector_exclude_2">Sector Exclude 2:</label>
                         <input type="text" v-model="sector_exclude_2" id="sector_exclude_2" required>
                         <br>
-                        <button type="submit">Create Index</button>
+                        <button type="submit" class="modal-default-button" @click="$emit('close')">Create Index</button>
                     </form>
+                </template>
+                <template v-slot:footer>
+
                 </template>
             </modal>
         </transition>
@@ -88,33 +93,6 @@
 
     </div>
     <div class="content">
-        <h2>Create a new Personalized Index</h2>
-        <form @submit="createPersonalizedIndex">
-            {% csrf_token %}
-            <label for="index_name">Index Name:</label>
-            <input type="text" v-model="index_name" id="index_name" required>
-            <br>
-            <label for="index_allocation">Index Allocation:</label>
-            <input type="text" v-model="index_allocation" id="index_allocation" required>
-            <br>
-            <label for="market_cap_min">Market Cap Min:</label>
-            <input type="text" v-model="market_cap_min" id="market_cap_min" required>
-            <br>
-            <label for="dividend_yield_min">Dividend Yield Min:</label>
-            <input type="text" v-model="dividend_yield_min" id="dividend_yield_min" required>
-            <br>
-            <label for="pe_ratio_max">PE Ratio Max:</label>
-            <input type="text" v-model="pe_ratio_max" id="pe_ratio_max" required>
-            <br>
-            <label for="sector_exclude_1">Sector Exclude 1:</label>
-            <input type="text" v-model="sector_exclude_1" id="sector_exclude_1" required>
-            <br>
-            <label for="sector_exclude_2">Sector Exclude 2:</label>
-            <input type="text" v-model="sector_exclude_2" id="sector_exclude_2" required>
-            <br>
-            <button type="submit">Create Index</button>
-        </form>
-
         <h2>Edit an existing Personalized Index</h2>
         <form @submit="editPersonalizedIndex(edit_index_id)">
             {% csrf_token %}
@@ -344,7 +322,8 @@
     }
 
     .modal-container {
-        width: 300px;
+        width: 350px;
+        height: 275px;
         margin: 0px auto;
         padding: 20px 30px;
         background-color: #fff;
