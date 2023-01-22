@@ -5,13 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'personalized_index/style.css' %}">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <title>Investor Portal</title>
 </head>
 
 <body>
     <main>
+        {% block navbar %}
+        <div id="navbar">
+            <ul id="nav-ul">
+                {% if user.is_authenticated %}
+                <li id="nav-li"><a href="{% url 'home' %}">Home</a></li>
+                <li id="nav-li"><a href="{% url 'logout' %}">Log Out</a></li>
+                {% else %}
+                <li id="nav-li"><a href="">Home</a></li>
+                <li id="nav-li"><a href="{% url 'login' %}">Login</a></li>
+                <li id="nav-li"><a href="{% url 'signup' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        {% endblock navbar %}
         {% block content %}
         {% endblock %}
+        <div class="footer">
+            <p> &copy; 2022 <b>JAMES BRENNAN</b>, source code released under the GNU General Public License</p>
+        </div>
     </main>
 </body>
 

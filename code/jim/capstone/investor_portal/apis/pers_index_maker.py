@@ -107,7 +107,7 @@ def orders_to_csv(df: pd.DataFrame, index_name) -> None:
     index_name = index_name.replace(" ", "_")
     filepath = Path(__file__).parent / "data"
     df.to_csv(
-        filepath / f"personalized_index_{index_name}.csv", mode='w', index=True)
+        filepath / f"personalized_index_{index_name}.csv", mode='w', index=False)
     df = df[['symbol', 'order_quantity']]
     df['order_quantity'] = df['order_quantity'].apply(np.int64)
     df.to_csv(filepath / f"orders_{index_name}.csv", mode='w', index=False)
