@@ -1,8 +1,6 @@
 // https://jsonplaceholder.typicode.com/
 // response headers: [ "data", "status", "statusText", "headers", "config", "request" ]
 
-
-
 const App = {
     el: '#app',
     data() {

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>Investor Portal</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="navbar">
+            <ul id="nav-ul">
+                <li id="nav-li"><a href="">Home</a></li>
+                <li id="nav-li"><a href="">Login</a></li>
+                <li id="nav-li"><a href="">Sign Up</a></li>
+            </ul>
+        </div>
+        <div class="sidebar">
+            <h2>Search for Stock Info</h2>
+            <input v-model="symbol" type="text" placeholder="Enter a symbol">
+            <button v-on:click="getChart">Get Quote</button>
+            <br>
+            <h3>Summary</h3>
+            <div v-bind:data-company-info="companyInfo" id="summary">
+                <p><b>Company Name</b> {{ companyInfo.length > 0 ? companyInfo.quoteResponse.result[0].longName : '' }}
+                </p>
+                <p><b>Sector</b>: {{ Object.entries(assetProfile).length > 0 ?
+                    assetProfile.quoteSummary.result[0].assetProfile.sector : '' }}
+                </p>
+                <p><b>Current Price</b>: {{ companyInfo.length > 0 ? '$' +
+                    companyInfo.quoteResponse.result[0].regularMarketPrice : '' }}</p>
+                <p><b>Market Cap(B)</b>: {{ companyInfo.length > 0 ? '$' +
+                    (companyInfo.quoteResponse.result[0].marketCap
+                    /
+                    1000000000).toFixed(2) : '' }}
+                </p>
+                <p><b>Trailing PE Ratio</b>: {{ companyInfo.length > 0 ?
+                    (companyInfo.quoteResponse.result[0].trailingPE).toFixed(2) : '' }}
+                </p>
+                <p><b>Dividend Yield</b>: {{ companyInfo.length > 0 ?
+                    companyInfo.quoteResponse.result[0].trailingAnnualDividendRate : '' }}
+                </p>
+                <p><b>Business Summary</b>:<span id="long-summary"> {{ Object.entries(assetProfile).length > 0 ?
+                        assetProfile.quoteSummary.result[0].assetProfile.longBusinessSummary : '' }} </span></p>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="content">
+            <div id="myChart"></div>
+        </div>
+        <div class="footer">
+            <p> &copy; 2022 <b>JAMES BRENNAN</b>, source code released under the GNU General Public License</p>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/site_old.js"></script>
+</body>
+
+</html>
