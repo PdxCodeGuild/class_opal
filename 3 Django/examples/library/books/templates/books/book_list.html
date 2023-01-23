@@ -1,7 +1,44 @@
-<h1>All Books</h1>
-{% for book in object_list %}
-<ul>
-    <li>Title: {{ book.title }}</li>
-    <li>Author: {{ book.author }}</li>
-</ul>
-{% endfor %}
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Intro</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="{% static 'js/app.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    {% csrf_token %}
+    <!-- Vue App -->
+    <div id="app">
+        <h1>
+            [[ libraryName ]]
+        </h1>
+
+        <template v-for="book in books">
+            <!-- <book-item :book="book" @delete-book="removeBook" :key="book.id"></book-item> -->
+            <book-item :book="book" :csrftoken="csrfToken" :key="book.id"></book-item>
+        </template>
+
+        <h3>Add a New Book:</h3>
+        <span>Title</span><input type="text" v-model="newTitle"><br>
+        <span>Author</span><input type="text" v-model="newAuthor"><br>
+        <button @click="addBook">Add Book</button>
+    </div>
+
+
+    <!-- Django version -->
+    <h1>All Books</h1>
+    {% for book in object_list %}
+    <ul>
+        <li>Title: {{ book.title }}</li>
+        <li>Author: {{ book.author }}</li>
+    </ul>
+    {% endfor %}
+</body>
+
+</html>
