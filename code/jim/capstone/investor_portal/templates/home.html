@@ -42,19 +42,17 @@
     <div class="sidebar">
         {% if user.is_authenticated %}
         <h1>Welcome {{ user.username }}!</h1>
-        <button id="show-modal" @click="showModal = true">Create an Index</button>
+        <button id="show-modal" @click="setModalType('create'); showModal = true">Create an Index</button>
         <!-- use the modal component -->
         <transition name="modal">
             <modal v-if="showModal" @close="showModal = false">
-                <!--
-        you can use custom content here to overwrite
-        default content
-      -->
+                <!-- you can use custom content here to overwrite default content -->
                 <template v-slot:header>
-                    <h3>Create a new Personalized Index</h2>
+                    <h3 v-if="modalType === 'create'">Create a new Personalized Index</h3>
+                    <h3 v-else>Edit a Personalized Index</h3>
                 </template>
                 <template v-slot:body>
-                    <form @submit="createPersonalizedIndex">
+                    <form v-if="modalType === 'create'" @submit="createPersonalizedIndex">
                         {% csrf_token %}
                         <label for="index_name">Index Name:</label>
                         <input type="text" v-model="index_name" id="index_name" required>
@@ -79,6 +77,34 @@
                         <br>
                         <button type="submit" class="modal-default-button" @click="$emit('close')">Create Index</button>
                     </form>
+                    <form v-else @submit="editPersonalizedIndex(edit_index_id)">
+                        {% csrf_token %}
+                        <label for="edit_index_id">Index ID:</label>
+                        <input type="text" v-model="edit_index_id" id="edit_index_id" required>
+                        <br>
+                        <label for="edit_index_name">Index Name:</label>
+                        <input type="text" v-model="edit_index_name" id="edit_index_name" required>
+                        <br>
+                        <label for="edit_index_allocation">Index Allocation:</label>
+                        <input type="text" v-model="edit_index_allocation" id="edit_index_allocation" required>
+                        <br>
+                        <label for="edit_market_cap_min">Market Cap Min:</label>
+                        <input type="text" v-model="edit_market_cap_min" id="edit_market_cap_min" required>
+                        <br>
+                        <label for="edit_dividend_yield_min">Dividend Yield Min:</label>
+                        <input type="text" v-model="edit_dividend_yield_min" id="edit_dividend_yield_min" required>
+                        <br>
+                        <label for="edit_pe_ratio_max">PE Ratio Max:</label>
+                        <input type="text" v-model="edit_pe_ratio_max" id="edit_pe_ratio_max" required>
+                        <br>
+                        <label for="edit_sector_exclude_1">Sector Exclude 1:</label>
+                        <input type="text" v-model="edit_sector_exclude_1" id="edit_sector_exclude_1" required>
+                        <br>
+                        <label for="edit_sector_exclude_2">Sector Exclude 2:</label>
+                        <input type="text" v-model="edit_sector_exclude_2" id="edit_sector_exclude_2" required>
+                        <br>
+                        <button type="submit">Save Edits</button>
+                    </form>
                 </template>
                 <template v-slot:footer>
 
@@ -90,39 +116,9 @@
         <a href="{% url 'login' %}">Log In</a> |
         <a href="{% url 'signup' %}">Sign Up</a>
         {% endif %}
-
     </div>
     <div class="content">
-        <h2>Edit an existing Personalized Index</h2>
-        <form @submit="editPersonalizedIndex(edit_index_id)">
-            {% csrf_token %}
-            <label for="edit_index_id">Index ID:</label>
-            <input type="text" v-model="edit_index_id" id="edit_index_id" required>
-            <br>
-            <label for="edit_index_name">Index Name:</label>
-            <input type="text" v-model="edit_index_name" id="edit_index_name" required>
-            <br>
-            <label for="edit_index_allocation">Index Allocation:</label>
-            <input type="text" v-model="edit_index_allocation" id="edit_index_allocation" required>
-            <br>
-            <label for="edit_market_cap_min">Market Cap Min:</label>
-            <input type="text" v-model="edit_market_cap_min" id="edit_market_cap_min" required>
-            <br>
-            <label for="edit_dividend_yield_min">Dividend Yield Min:</label>
-            <input type="text" v-model="edit_dividend_yield_min" id="edit_dividend_yield_min" required>
-            <br>
-            <label for="edit_pe_ratio_max">PE Ratio Max:</label>
-            <input type="text" v-model="edit_pe_ratio_max" id="edit_pe_ratio_max" required>
-            <br>
-            <label for="edit_sector_exclude_1">Sector Exclude 1:</label>
-            <input type="text" v-model="edit_sector_exclude_1" id="edit_sector_exclude_1" required>
-            <br>
-            <label for="edit_sector_exclude_2">Sector Exclude 2:</label>
-            <input type="text" v-model="edit_sector_exclude_2" id="edit_sector_exclude_2" required>
-            <br>
-            <button type="submit">Save Edits</button>
-        </form>
-
+        {% csrf_token %}
         <h2>List of existing Personalized Indexes</h2>
         <ul>
             <li v-for="index in indexes">
@@ -136,6 +132,78 @@
                     <li>Sector Exclude 1: [[ index.sector_exclude_1 ]]</li>
                     <li>Sector Exclude 2: [[ index.sector_exclude_2 ]]</li>
                 </ul>
+                <button id="show-modal" @click="setModalType('edit'); showModal = true">Edit Index</button>
+                <!-- use the modal component -->
+                <transition name="modal">
+                    <modal v-if="showModal" @close="showModal = false">
+                        <!--you can use custom content here to overwrite default content -->
+                        <template v-slot:header>
+                            <h3 v-if="modalType === 'create'">Create a new Personalized Index</h3>
+                            <h3 v-else>Edit a Personalized Index</h3>
+                        </template>
+                        <template v-slot:body>
+                            <form v-if="modalType === 'create'" @submit="createPersonalizedIndex">
+                                {% csrf_token %}
+                                <label for="index_name">Index Name:</label>
+                                <input type="text" v-model="index_name" id="index_name" required>
+                                <br>
+                                <label for="index_allocation">Index Allocation:</label>
+                                <input type="text" v-model="index_allocation" id="index_allocation" required>
+                                <br>
+                                <label for="market_cap_min">Market Cap Min:</label>
+                                <input type="text" v-model="market_cap_min" id="market_cap_min" required>
+                                <br>
+                                <label for="dividend_yield_min">Dividend Yield Min:</label>
+                                <input type="text" v-model="dividend_yield_min" id="dividend_yield_min" required>
+                                <br>
+                                <label for="pe_ratio_max">PE Ratio Max:</label>
+                                <input type="text" v-model="pe_ratio_max" id="pe_ratio_max" required>
+                                <br>
+                                <label for="sector_exclude_1">Sector Exclude 1:</label>
+                                <input type="text" v-model="sector_exclude_1" id="sector_exclude_1" required>
+                                <br>
+                                <label for="sector_exclude_2">Sector Exclude 2:</label>
+                                <input type="text" v-model="sector_exclude_2" id="sector_exclude_2" required>
+                                <br>
+                                <button type="submit" class="modal-default-button" @click="$emit('close')">Create
+                                    Index</button>
+                            </form>
+                            <form v-else @submit="editPersonalizedIndex(edit_index_id)">
+                                {% csrf_token %}
+                                <label for="edit_index_id">Index ID:</label>
+                                <input type="text" v-model="edit_index_id" id="edit_index_id" required>
+                                <br>
+                                <label for="edit_index_name">Index Name:</label>
+                                <input type="text" v-model="edit_index_name" id="edit_index_name" required>
+                                <br>
+                                <label for="edit_index_allocation">Index Allocation:</label>
+                                <input type="text" v-model="edit_index_allocation" id="edit_index_allocation" required>
+                                <br>
+                                <label for="edit_market_cap_min">Market Cap Min:</label>
+                                <input type="text" v-model="edit_market_cap_min" id="edit_market_cap_min" required>
+                                <br>
+                                <label for="edit_dividend_yield_min">Dividend Yield Min:</label>
+                                <input type="text" v-model="edit_dividend_yield_min" id="edit_dividend_yield_min"
+                                    required>
+                                <br>
+                                <label for="edit_pe_ratio_max">PE Ratio Max:</label>
+                                <input type="text" v-model="edit_pe_ratio_max" id="edit_pe_ratio_max" required>
+                                <br>
+                                <label for="edit_sector_exclude_1">Sector Exclude 1:</label>
+                                <input type="text" v-model="edit_sector_exclude_1" id="edit_sector_exclude_1" required>
+                                <br>
+                                <label for="edit_sector_exclude_2">Sector Exclude 2:</label>
+                                <input type="text" v-model="edit_sector_exclude_2" id="edit_sector_exclude_2" required>
+                                <br>
+                                <button type="submit">Save Edits</button>
+                            </form>
+
+                        </template>
+                        <template v-slot:footer>
+
+                        </template>
+                    </modal>
+                </transition>
                 <button @click="deletePersonalizedIndex(index.id)">Delete</button>
                 <button @click="getOrders(index.id)">Download Orders</button>
                 <button @click="getIndex(index.id)">Download Personalized Index</button>
@@ -170,6 +238,7 @@
                 edit_sector_exclude_1: '',
                 edit_sector_exclude_2: '',
                 csrfToken: '',
+                modal: 'create',
                 showModal: false,
             }
         },
@@ -184,6 +253,9 @@
             console.log(`the component is now mounted.`);
         },
         methods: {
+            setModalType(type) {
+                this.modalType = type;
+            },
             fetchPersonalizedIndex: function () {
                 axios.get('/apis/v1/')
                     .then(response => {
@@ -260,16 +332,16 @@
                 try {
                     const { data } = await axios.get('/apis/v1/download/orders/' + index_id + '/');
 
-                    console.log(index_name)
                     const response = await axios({
                         url: '/apis/v1/download/orders/' + index_id + '/',
                         method: 'GET',
                         responseType: 'blob',
                     });
+                    console.log(response.data)
                     const url = window.URL.createObjectURL(new Blob([response.data]));
                     const link = document.createElement('a');
                     link.href = url;
-                    link.setAttribute('download', 'orders_' + index_id + '.csv'); //, `orders_${index_name}.csv`); //.replace('${index_name}', index_name));
+                    link.setAttribute('download', 'orders_' + index_id + '.csv');
                     document.body.appendChild(link);
                     link.click();
                 } catch (error) {
@@ -280,12 +352,12 @@
                 try {
                     const { data } = await axios.get('/apis/v1/download/index/' + index_id + '/');
 
-                    console.log(index_name)
                     const response = await axios({
                         url: '/apis/v1/download/index/' + index_id + '/',
                         method: 'GET',
                         responseType: 'blob',
                     });
+                    console.log(response.data)
                     const url = window.URL.createObjectURL(new Blob([response.data]));
                     const link = document.createElement('a');
                     link.href = url;
@@ -348,7 +420,7 @@
 
     .modal-enter-from,
     .modal-leave-to {
-        opacity: 1;
+        opacity: 0;
     }
 
     .modal-enter-active .modal-container,

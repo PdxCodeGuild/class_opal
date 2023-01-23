@@ -115,7 +115,7 @@ def orders_to_csv(df: pd.DataFrame, index_name) -> None:
 
 
 def get_personalized_index(index_name, index_allocation, market_cap_min=5_000_000_000, dividend_yield_min=0, pe_ratio_max="", sector_exclude_1="", sector_exclude_2=""):
-    start_time = time.time()
+    # start_time = time.time()
 
     # Import stock data
     filename = "universe.csv"
@@ -136,13 +136,13 @@ def get_personalized_index(index_name, index_allocation, market_cap_min=5_000_00
 
     # Save index metadata (and print), and save stock orders to csv
     orders_to_csv(personalized_index, index_name)
-    print(personalized_index.head(30))
 
     # Print summary portfolio metrics. Should have sum(potion_weight) near 1.
-    print(personalized_index['position_weight'].sum())
-    print(personalized_index['target_allocation'].sum())
+    # print(personalized_index.head(30))
+    # print(personalized_index['position_weight'].sum())
+    # print(personalized_index['target_allocation'].sum())
 
-    print(f"My program took {time.time() - start_time} seconds to run.")
+    # print(f"My program took {time.time() - start_time} seconds to run.")
 
 
 # TODO special handling for dual tickers like GOOG and GOOGL
