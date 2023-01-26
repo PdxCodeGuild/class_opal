@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'apis',
     'personalized_index',
+    'personalized_index.management.commands'
 ]
 
 REST_FRAMEWORK = {

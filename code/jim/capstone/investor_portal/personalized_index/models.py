@@ -22,3 +22,19 @@ class PersonalizedIndex(models.Model):
 
     def __str__(self):
         return self.index_name
+
+
+class Stock(models.Model):
+    symbol = models.CharField(max_length=10, primary_key=True)
+    sector = models.CharField(max_length=200, null=True)
+    long_business_summary = models.CharField(max_length=2500, null=True)
+    country = models.CharField(max_length=200, null=True)
+    short_name = models.CharField(max_length=200, null=True)
+    trailing_eps = models.FloatField(null=True)
+    forward_pe = models.FloatField(null=True)
+    market_cap = models.FloatField(null=True)
+    dividend_yield = models.FloatField(null=True)
+    trailing_pe = models.FloatField(null=True)
+
+    def __str__(self):
+        return self.symbol
