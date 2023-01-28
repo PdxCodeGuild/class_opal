@@ -4,9 +4,9 @@ Set of input parameters for the personalized_index.py module.
 Could be integrated as a cash flow planning classs.
 """
 
-columns_of_interest = ['sector', 'longBusinessSummary',
-                       'country', 'shortName', 'symbol',
-                       'trailingEps', 'forwardPE', 'marketCap', 'dividendYield', 'trailingPE']
+columns_of_interest = ['sector', 'long_business_summary',
+                       'country', 'short_name', 'symbol',
+                       'trailing_eps', 'forward_pe', 'market_cap', 'dividend_yield', 'trailing_pe']
 
 index_filter_parameters = {
     'market_cap_min': 5_000_000_000,
@@ -22,7 +22,7 @@ sector_target_parameters = {
     'sector_exclude_2': 'Energy',
 }
 
-rank_order = ['dividendYield', 'marketCap', 'trailingPE']
+rank_order = ['dividend_yield', 'market_cap', 'trailing_pe']
 
 position_weight_parameters = {
     'position_weight_max': 0.03,

@@ -38,3 +38,19 @@ class Stock(models.Model):
 
     def __str__(self):
         return self.symbol
+
+
+class PersonalizedIndexStock(models.Model):
+    personalized_index = models.ForeignKey(
+        'PersonalizedIndex', on_delete=models.CASCADE, related_name='personalized_indexes')
+    symbol = models.ForeignKey(
+        'Stock', on_delete=models.CASCADE, related_name='stocks')
+    position_weight = models.FloatField(null=True)
+    target_allocation = models.FloatField(null=True)
+    current_price = models.FloatField(null=True)
+    quantity = models.FloatField(null=True)
+    order_quantity = models.FloatField(null=True)
+    rounding_loss = models.FloatField(null=True)
+
+    def __str__(self):
+        return self.current_price

@@ -42,14 +42,9 @@ class OrderDownloadView(APIView):
                                dividend_yield_min, pe_ratio_max, sector_exclude_1, sector_exclude_2)
         file_path = os.path.join(os.path.dirname(
             os.path.abspath(__file__)), 'data', f'orders_{index_name}.csv')
-        # response = FileResponse(open(file_path, 'rb'))
-        # response['Content-Disposition'] = f'attachment; filename="orders_{index_name}.csv"'
-        # # return Response(data={'index_name': index_name}, content_type='application/json')
-        # return response
         file = open(file_path, 'rb')
         response = HttpResponse(file, content_type='text/csv')
         response['Content-Disposition'] = f'attachment; filename="orders_{index_name}.csv"'
-        # response.write(json.dumps({'index_name': index_name}))
         return response
 
 

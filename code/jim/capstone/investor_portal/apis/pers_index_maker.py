@@ -1,12 +1,5 @@
-"""
-PDX Code Guild Python Minicapstone - James Brennan - 2022.11.28 
-This module reads a stock metadata csv and uses pandas to
-manipulate the data and produce a list of stock orders for
-a personalized index based on a set of input parameters.
-"""
-
-import time
 from math import ceil
+import sqlite3
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -15,21 +8,23 @@ from .index_parameters import index_filter_parameters, rank_order, sector_target
 
 
 # TODO (if needed) write function to clean yf data; check data quality
-def import_data(filename: str) -> pd.DataFrame:
-    """import yf data from csv and return as pandas dataframe"""
-    filepath = Path(__file__).parent / filename
-    df = pd.read_csv(filepath)
-    return df[columns_of_interest]
+def import_data(db_file: str) -> pd.DataFrame:
+    """import yf data from database and return as pandas dataframe"""
+    conn = sqlite3.connect(db_file)
+    query = "SELECT * FROM personalized_index_stock"
+    df = pd.read_sql_query(query, conn)
+    conn.close()
+    return df
     # Note: could filter out excluded sectors here
 
 
 # TODO write test to check that these filters are working correctly
 def filter_universe(df: pd.DataFrame, market_cap_min, dividend_yield_min, pe_ratio_max) -> pd.DataFrame:
     """Filters the universe of stock data by conditions on attributes."""
-    df = df[(df['dividendYield'] >= dividend_yield_min) &
-            (df['marketCap'] >= market_cap_min) &
-            (df['forwardPE'] <= pe_ratio_max) &
-            (df['forwardPE'] >= index_filter_parameters['pe_ratio_min'])]
+    df = df[(df['dividend_yield'] >= dividend_yield_min) &
+            (df['market_cap'] >= market_cap_min) &
+            (df['forward_pe'] <= pe_ratio_max) &
+            (df['forward_pe'] >= index_filter_parameters['pe_ratio_min'])]
     return df
 
 
@@ -65,7 +60,8 @@ def get_stock_selection(sorted_df: pd.DataFrame, sector_table: pd.DataFrame) -> 
         sector_list = sorted_df[sorted_df['sector'] == sector].head(ceil(min(
             sector_table.loc[sector]['sector_count'], sector_table.loc[sector]['sector_target'])))
         stock_selection = pd.concat([stock_selection, sector_list])
-    stock_selection = stock_selection.sort_values('marketCap', ascending=False)
+    stock_selection = stock_selection.sort_values(
+        'market_cap', ascending=False)
     return stock_selection
 
 
@@ -115,11 +111,10 @@ def orders_to_csv(df: pd.DataFrame, index_name) -> None:
 
 
 def get_personalized_index(index_name, index_allocation, market_cap_min=5_000_000_000, dividend_yield_min=0, pe_ratio_max="", sector_exclude_1="", sector_exclude_2=""):
-    # start_time = time.time()
-
     # Import stock data
-    filename = "universe.csv"
-    df = import_data(filename)
+    db_file = (Path(__file__).parent.parent / "db.sqlite3").resolve()
+    df = import_data(db_file)
+    # r"C:\Users\jbrennan\Google Drive\Architecture\Tests\pdx_code_guild\fullstack_bootcamp\class_opal\code\jim\capstone\investor_portal\db.sqlite3")
 
     # Create index selection based on personalized parameters
     filtered_df = filter_universe(
@@ -136,13 +131,6 @@ def get_personalized_index(index_name, index_allocation, market_cap_min=5_000_00
 
     # Save index metadata (and print), and save stock orders to csv
     orders_to_csv(personalized_index, index_name)
-
-    # Print summary portfolio metrics. Should have sum(potion_weight) near 1.
-    # print(personalized_index.head(30))
-    # print(personalized_index['position_weight'].sum())
-    # print(personalized_index['target_allocation'].sum())
-
-    # print(f"My program took {time.time() - start_time} seconds to run.")
 
 
 # TODO special handling for dual tickers like GOOG and GOOGL
