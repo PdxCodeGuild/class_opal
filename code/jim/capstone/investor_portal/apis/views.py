@@ -32,14 +32,8 @@ class OrderDownloadView(APIView):
     def get(self, request, index_id, format=None):
         index = models.PersonalizedIndex.objects.get(id=index_id)
         index_name = index.index_name
-        index_allocation = index.index_allocation
-        market_cap_min = index.market_cap_min
-        dividend_yield_min = index.dividend_yield_min
-        pe_ratio_max = index.pe_ratio_max
-        sector_exclude_1 = index.sector_exclude_1
-        sector_exclude_2 = index.sector_exclude_2
-        get_personalized_index(index_name, index_allocation, market_cap_min,
-                               dividend_yield_min, pe_ratio_max, sector_exclude_1, sector_exclude_2)
+        get_personalized_index(index_id)
+
         file_path = os.path.join(os.path.dirname(
             os.path.abspath(__file__)), 'data', f'orders_{index_name}.csv')
         file = open(file_path, 'rb')
@@ -52,17 +46,20 @@ class PersonalizedIndexDownloadView(APIView):
     def get(self, request, index_id, format=None):
         index = models.PersonalizedIndex.objects.get(id=index_id)
         index_name = index.index_name
-        index_allocation = index.index_allocation
-        market_cap_min = index.market_cap_min
-        dividend_yield_min = index.dividend_yield_min
-        pe_ratio_max = index.pe_ratio_max
-        sector_exclude_1 = index.sector_exclude_1
-        sector_exclude_2 = index.sector_exclude_2
-        get_personalized_index(index_name, index_allocation, market_cap_min,
-                               dividend_yield_min, pe_ratio_max, sector_exclude_1, sector_exclude_2)
+        get_personalized_index(index_id)
+
         file_path = os.path.join(os.path.dirname(
             os.path.abspath(__file__)), 'data', f'personalized_index_{index_name}.csv')
         file = open(file_path, 'rb')
         response = HttpResponse(file, content_type='text/csv')
         response['Content-Disposition'] = f'attachment; filename="personalized_index_{index_name}.csv"'
+        return response
+
+
+class PersonalizedIndexStatsView(APIView):
+    def get(self, request, index_id, format=None):
+        get_personalized_index(index_id)
+
+        # TODO results of get_p_i saved to database and returned in reponse
+        response = ''
         return response

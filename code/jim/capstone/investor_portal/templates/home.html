@@ -111,13 +111,7 @@
                 </template>
             </modal>
         </transition>
-        {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">Log In</a> |
-        <a href="{% url 'signup' %}">Sign Up</a>
-        {% endif %}
-    </div>
-    <div class="content">
+
         {% csrf_token %}
         <h2>List of existing Personalized Indexes</h2>
         <ul>
@@ -207,8 +201,18 @@
                 <button @click="deletePersonalizedIndex(index.id)">Delete</button>
                 <button @click="getOrders(index.id)">Download Orders</button>
                 <button @click="getIndex(index.id)">Download Personalized Index</button>
+                <button @click="getIndexStats(index.id)">Show</button>
             </li>
         </ul>
+
+        {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a> |
+        <a href="{% url 'signup' %}">Sign Up</a>
+        {% endif %}
+    </div>
+    <div class="content">
+
     </div>
 </div>
 
@@ -364,6 +368,22 @@
                     link.setAttribute('download', 'personalized_index_' + index_id + '.csv');
                     document.body.appendChild(link);
                     link.click();
+                } catch (error) {
+                    console.log(error);
+                }
+            },
+            async getIndexStats(index_id) {
+                try {
+                    const { data } = await axios.get('/apis/v1/download/index/' + index_id + '/');
+
+                    const response = await axios({
+                        url: '/apis/v1/download/index/' + index_id + '/',
+                        method: 'GET',
+                        responseType: 'blob',
+                    });
+                    console.log(response.data)
+                    // TODO: rewrite endpoints in this method and write code to display response
+                    // TODO: response data shown in content section of this page
                 } catch (error) {
                     console.log(error);
                 }

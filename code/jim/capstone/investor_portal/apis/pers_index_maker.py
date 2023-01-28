@@ -4,7 +4,10 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from pandas_datareader import get_quote_yahoo
+from django.db import transaction
+
 from .index_parameters import index_filter_parameters, rank_order, sector_target_parameters, position_weight_parameters, user_parameters, columns_of_interest
+from personalized_index.models import PersonalizedIndex, PersonalizedIndexStock, Stock
 
 
 # TODO (if needed) write function to clean yf data; check data quality
@@ -110,11 +113,33 @@ def orders_to_csv(df: pd.DataFrame, index_name) -> None:
     return None
 
 
-def get_personalized_index(index_name, index_allocation, market_cap_min=5_000_000_000, dividend_yield_min=0, pe_ratio_max="", sector_exclude_1="", sector_exclude_2=""):
+# TODO Rewrite this function
+def store_personalized_index(df: pd.DataFrame, index_id) -> None:
+    df = df.drop(columns=['index', 'sector', 'country', 'dividend_yield', 'forward_pe', 'long_business_summary',
+                 'market_cap', 'short_name', 'trailing_eps', 'trailing_pe'], inplace=False)
+    df = df.assign(personalized_index_id=index_id)
+    df.rename(columns={'symbol': 'symbol_id'}, inplace=True)
+    with transaction.atomic():
+        PersonalizedIndexStock.objects.filter(
+            personalized_index_id=index_id).delete()
+        PersonalizedIndexStock.objects.bulk_create(
+            [PersonalizedIndexStock(**row) for row in df.to_dict("records")])
+
+
+# def get_personalized_index(index_name, index_allocation, market_cap_min=5_000_000_000, dividend_yield_min=0, pe_ratio_max="", sector_exclude_1="", sector_exclude_2=""):
+def get_personalized_index(index_id):
     # Import stock data
     db_file = (Path(__file__).parent.parent / "db.sqlite3").resolve()
     df = import_data(db_file)
-    # r"C:\Users\jbrennan\Google Drive\Architecture\Tests\pdx_code_guild\fullstack_bootcamp\class_opal\code\jim\capstone\investor_portal\db.sqlite3")
+
+    index = PersonalizedIndex.objects.get(id=index_id)
+    index_name = index.index_name
+    index_allocation = index.index_allocation
+    market_cap_min = index.market_cap_min
+    dividend_yield_min = index.dividend_yield_min
+    pe_ratio_max = index.pe_ratio_max
+    sector_exclude_1 = index.sector_exclude_1
+    sector_exclude_2 = index.sector_exclude_2
 
     # Create index selection based on personalized parameters
     filtered_df = filter_universe(
@@ -128,6 +153,9 @@ def get_personalized_index(index_name, index_allocation, market_cap_min=5_000_00
         personalized_index, index_allocation)
     personalized_index = get_current_price(personalized_index)
     personalized_index = get_order_quantity(personalized_index)
+
+    # Save real-time index values to personalizedindexstock table
+    store_personalized_index(personalized_index, index_id)
 
     # Save index metadata (and print), and save stock orders to csv
     orders_to_csv(personalized_index, index_name)
