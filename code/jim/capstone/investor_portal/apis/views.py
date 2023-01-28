@@ -11,7 +11,7 @@ from django.http import FileResponse
 
 from personalized_index import models
 from .pers_index_maker import get_personalized_index
-from .serializers import PersonalizedIndexSerializer
+from .serializers import PersonalizedIndexSerializer, PersonalizedIndexStockSerializer
 
 
 class PersonalizedIndexViewSet(viewsets.ModelViewSet):
@@ -59,7 +59,7 @@ class PersonalizedIndexDownloadView(APIView):
 class PersonalizedIndexStatsView(APIView):
     def get(self, request, index_id, format=None):
         get_personalized_index(index_id)
-
-        # TODO results of get_p_i saved to database and returned in reponse
-        response = ''
-        return response
+        stocks = models.PersonalizedIndexStock.objects.filter(
+            personalized_index_id=index_id)
+        serializer = PersonalizedIndexStockSerializer(stocks, many=True)
+        return Response(serializer.data)

@@ -212,8 +212,35 @@
         {% endif %}
     </div>
     <div class="content">
-
+        <table>
+            <caption>
+                <h3>Personalized Index</h3>
+            </caption>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Position Weight</th>
+                    <th>Target Allocation</th>
+                    <th>Current Price</th>
+                    <th>Quantity</th>
+                    <th>Order Quantity</th>
+                    <th>Rounding Loss</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="stat in stats" :key="stat.id">
+                    <td>[[ stat.symbol_id ]]</td>
+                    <td>[[ stat.position_weight ]]</td>
+                    <td>[[ stat.target_allocation ]]</td>
+                    <td>[[ stat.current_price ]]</td>
+                    <td>[[ stat.quantity ]]</td>
+                    <td>[[ stat.order_quantity ]]</td>
+                    <td>[[ stat.rounding_loss ]]</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>
 </div>
 
 <script>
@@ -244,6 +271,7 @@
                 csrfToken: '',
                 modal: 'create',
                 showModal: false,
+                stats: [],
             }
         },
         components: {
@@ -374,16 +402,9 @@
             },
             async getIndexStats(index_id) {
                 try {
-                    const { data } = await axios.get('/apis/v1/download/index/' + index_id + '/');
-
-                    const response = await axios({
-                        url: '/apis/v1/download/index/' + index_id + '/',
-                        method: 'GET',
-                        responseType: 'blob',
-                    });
+                    const response = await axios.get(`/apis/v1/personalizedindexstats/${index_id}/`);
+                    this.stats = response.data;
                     console.log(response.data)
-                    // TODO: rewrite endpoints in this method and write code to display response
-                    // TODO: response data shown in content section of this page
                 } catch (error) {
                     console.log(error);
                 }

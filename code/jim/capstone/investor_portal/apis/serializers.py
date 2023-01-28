@@ -18,3 +18,21 @@ class PersonalizedIndexSerializer(serializers.ModelSerializer):
             'sector_exclude_2',
         )
         model = models.PersonalizedIndex
+
+
+class PersonalizedIndexStockSerializer(serializers.ModelSerializer):
+    symbol_id = serializers.ReadOnlyField()
+    personalized_index_id = serializers.ReadOnlyField()
+
+    class Meta:
+        fields = (
+            'symbol_id',
+            'position_weight',
+            'target_allocation',
+            'current_price',
+            'quantity',
+            'order_quantity',
+            'rounding_loss',
+            'personalized_index_id',
+        )
+        model = models.PersonalizedIndexStock
