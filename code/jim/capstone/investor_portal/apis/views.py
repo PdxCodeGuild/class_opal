@@ -1,5 +1,6 @@
 import os
 import json
+from pathlib import Path
 from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.views import APIView
@@ -11,7 +12,8 @@ from django.http import FileResponse
 
 from personalized_index import models
 from .pers_index_maker import get_personalized_index
-from .serializers import PersonalizedIndexSerializer, PersonalizedIndexStockSerializer
+from .serializers import PersonalizedIndexSerializer, PersonalizedIndexStockSerializer, CashFlowPlanSerializer
+from .cash_flow import get_cash_flow
 
 
 class PersonalizedIndexViewSet(viewsets.ModelViewSet):
@@ -63,3 +65,13 @@ class PersonalizedIndexStatsView(APIView):
             personalized_index_id=index_id)
         serializer = PersonalizedIndexStockSerializer(stocks, many=True)
         return Response(serializer.data)
+
+
+class CashFlowPlanView(APIView):
+    def get(self, request):
+        get_cash_flow()
+        filepath = Path(__file__).parent / "data"
+        with open(filepath / "cash_flow_chart.svg", "rb") as f:
+            chart_data = f.read()
+        # serializer = CashFlowPlanSerializer(cash_flow_chart)
+        return Response(chart_data, content_type="image/png")

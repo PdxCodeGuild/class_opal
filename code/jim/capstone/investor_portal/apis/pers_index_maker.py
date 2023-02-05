@@ -113,7 +113,6 @@ def orders_to_csv(df: pd.DataFrame, index_name) -> None:
     return None
 
 
-# TODO Rewrite this function
 def store_personalized_index(df: pd.DataFrame, index_id) -> None:
     df = df.drop(columns=['index', 'sector', 'country', 'dividend_yield', 'forward_pe', 'long_business_summary',
                  'market_cap', 'short_name', 'trailing_eps', 'trailing_pe'], inplace=False)
@@ -126,7 +125,6 @@ def store_personalized_index(df: pd.DataFrame, index_id) -> None:
             [PersonalizedIndexStock(**row) for row in df.to_dict("records")])
 
 
-# def get_personalized_index(index_name, index_allocation, market_cap_min=5_000_000_000, dividend_yield_min=0, pe_ratio_max="", sector_exclude_1="", sector_exclude_2=""):
 def get_personalized_index(index_id):
     # Import stock data
     db_file = (Path(__file__).parent.parent / "db.sqlite3").resolve()
@@ -167,5 +165,4 @@ def get_personalized_index(index_id):
 # TODO add reconciliation with existing portfolio
 # TODO add rebalancing and tax-loss harvesting
 if __name__ == '__main__':
-    get_personalized_index("test_index", 105_000,
-                           5_000_000_000, 0.01, 100, "Real Estate", "Energy")
+    get_personalized_index(1)

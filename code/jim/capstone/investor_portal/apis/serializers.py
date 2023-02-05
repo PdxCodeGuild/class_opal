@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from personalized_index import models
+from io import BytesIO
+import matplotlib.pyplot as plt
 
 
 class PersonalizedIndexSerializer(serializers.ModelSerializer):
@@ -36,3 +38,12 @@ class PersonalizedIndexStockSerializer(serializers.ModelSerializer):
             'personalized_index_id',
         )
         model = models.PersonalizedIndexStock
+
+
+class CashFlowPlanSerializer(serializers.Serializer):
+    image = serializers.ImageField()
+
+    def to_representation(self, instance):
+        image = BytesIO()
+        plt.savefig(image, format='png')
+        return {'image': image.getvalue()}

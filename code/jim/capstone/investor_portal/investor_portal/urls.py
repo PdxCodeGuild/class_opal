@@ -23,10 +23,13 @@ urlpatterns = [
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
     path("research/", TemplateView.as_view(template_name="research.html"),
          name="research"),
+    path("cash_flow/", TemplateView.as_view(template_name="cash_flow.html"),
+         name="cash_flow"),
     path("admin/", admin.site.urls),
     path("personalized_index/", include("personalized_index.urls")),
     path("personalized_index/", include("django.contrib.auth.urls")),
     path('apis/v1/', include('apis.urls')),
+    path('cash_flow/', include('cash_flow.urls')),
 ]
 
 if settings.DEBUG:

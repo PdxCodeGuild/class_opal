@@ -18,9 +18,11 @@
             <ul id="nav-ul">
                 {% if user.is_authenticated %}
                 <li id="nav-li"><a href="{% url 'home' %}">Home</a></li>
+                <li id="nav-li"><a href="{% url 'cash_flow' %}">Cash Flow Planner</a></li>
                 <li id="nav-li"><a href="{% url 'research' %}">Research</a></li>
                 <li id="nav-li"><a href="{% url 'logout' %}">Log Out</a></li>
                 {% else %}
+                <li id="nav-li"><a href="{% url 'cash_flow' %}">Cash Flow Planner</a></li>
                 <li id="nav-li"><a href="{% url 'research' %}">Research</a></li>
                 <li id="nav-li"><a href="{% url 'login' %}">Login</a></li>
                 <li id="nav-li"><a href="{% url 'signup' %}">Sign Up</a></li>

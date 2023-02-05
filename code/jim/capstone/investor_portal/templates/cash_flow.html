@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Cash Flow Planner{% endblock %}
+
+{% block content %}
+
+<body>
+    <div id="app">
+        <div class="sidebar">
+            <button v-on:click="getCashFlowPlan">Show Cash Flow</button>
+        </div>
+        <div class="content">
+            {% csrf_token %}
+            <div v-if="cash_flow_chart">
+                <div v-html="cash_flow_chart"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data: function () {
+                return {
+                    cash_flow_chart: "",
+                }
+            },
+            mounted() {
+                // fetch the CSRF token from a meta tag when the component is created
+                this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+                console.log(`the component is now mounted.`);
+            },
+            methods: {
+                async getCashFlowPlan() {
+                    try {
+                        const response = await axios.get("/apis/v1/cash-flow-plan/");
+                        this.cash_flow_chart = response.data;
+                    } catch (error) {
+                        console.log(error);
+                    }
+                },
+            },
+        }).mount('#app')
+    </script>
+</body>
+{% endblock %}
