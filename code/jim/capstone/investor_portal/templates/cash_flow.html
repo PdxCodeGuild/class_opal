@@ -7,7 +7,80 @@
 <body>
     <div id="app">
         <div class="sidebar">
-            <button v-on:click="getCashFlowPlan">Show Cash Flow</button>
+            <form @submit="getCashFlowPlan">
+                {% csrf_token %}
+                <label for="dob">What is your date of birth?</label>
+                <input type="text" v-model="dob" id="dob" required>
+                <br>
+                <label for="earned_income">What is your annual earned income?</label>
+                <input type="text" v-model="earned_income" id="earned_income" required>
+                <br>
+                <label for="age_stop">Age to stop full-time work:</label>
+                <input type="text" v-model="age_stop" id="age_stop" required>
+                <br>
+                <label for="has_spouse">Do you have a spouse?</label>
+                <input type="text" v-model="has_spouse" id="has_spouse" required>
+                <br>
+                <label for="spouse_dob">What is your spouse's date of birth?</label>
+                <input type="text" v-model="spouse_dob" id="spouse_dob" required>
+                <br>
+                <label for="spouse_earned_income">What is your spouse's annual earned income?</label>
+                <input type="text" v-model="spouse_earned_income" id="spouse_earned_income" required>
+                <br>
+                <label for="spouse_age_stop">Spouse's age to stop full-time work:</label>
+                <input type="text" v-model="spouse_age_stop" id="spouse_age_stop" required>
+                <br>
+                <label for="investable_assets">How much do you have in investable assets?</label>
+                <input type="text" v-model="investable_assets" id="investable_assets" required>
+                <br>
+                <label for="portfolio_income">How much portfolio income do you have in a year?</label>
+                <input type="text" v-model="portfolio_income" id="portfolio_income" required>
+                <br>
+                <label for="other_income">How much other income do you have in a year (e.g. rental income)?</label>
+                <input type="text" v-model="other_income" id="other_income" required>
+                <br>
+                <label for="transitionary_phase">Are you planning a transitionary phase before retirement?</label>
+                <input type="text" v-model="transitionary_phase" id="transitionary_phase" required>
+                <br>
+                <label for="transitionary_length">How many years will the transitionary phase last?</label>
+                <input type="text" v-model="transitionary_length" id="transitionary_length" required>
+                <br>
+                <label for="transitionary_income">What will your household annual income be in the transitionary
+                    phase?</label>
+                <input type="text" v-model="transitionary_income" id="transitionary_income" required>
+                <br>
+                <label for="retirement_income">How much income will you have in retirement (e.g. from social security
+                    and pensions)?</label>
+                <input type="text" v-model="retirement_income" id="retirement_income" required>
+                <br>
+                <label for="assets_sell">Are you planning to sell any major assets in retirement (like downsizing your
+                    house)?</label>
+                <input type="text" v-model="assets_sell" id="assets_sell" required>
+                <br>
+                <label for="assets_sell_value">What is the approximate sale value of those assets?</label>
+                <input type="text" v-model="assets_sell_value" id="assets_sell_value" required>
+                <br>
+                <label for="assets_buy">Are you planning to buy any major assets in retirement?</label>
+                <input type="text" v-model="assets_buy" id="assets_buy" required>
+                <br>
+                <label for="assets_buy_value">What is the approximate purchase value of those assets?</label>
+                <input type="text" v-model="assets_buy_value" id="assets_buy_value" required>
+                <br>
+                <label for="annual_expenses">What are your approximate total household annual expenses?</label>
+                <input type="text" v-model="annual_expenses" id="annual_expenses" required>
+                <br>
+                <label for="retirement_lifestyle">What kind of lifestyle are you planning for retirement?</label>
+                <input type="text" v-model="retirement_lifestyle" id="retirement_lifestyle" required>
+                <br>
+                <label for="long_term_care_include">Do you want to include long term care costs in your plan?</label>
+                <input type="text" v-model="long_term_care_include" id="long_term_care_include" required>
+                <br>
+                <label for="potential_returns">Choose an average potential rate of return for your portfolio:</label>
+                <input type="text" v-model="potential_returns" id="potential_returns" required>
+                <br>
+                <button type="submit">Show Cash Flow</button>
+            </form>
+            <!-- <button v-on:click="getCashFlowPlan">Show Cash Flow</button> -->
         </div>
         <div class="content">
             {% csrf_token %}
@@ -26,6 +99,28 @@
             delimiters: ['[[', ']]'],
             data: function () {
                 return {
+                    dob: "",
+                    earned_income: "",
+                    age_stop: "",
+                    has_spouse: "",
+                    spouse_dob: "",
+                    spouse_earned_income: "",
+                    spouse_age_stop: "",
+                    investable_assets: "",
+                    portfolio_income: "",
+                    other_income: "",
+                    transitionary_phase: "",
+                    transitionary_length: "",
+                    transitionary_income: "",
+                    retirement_income: "",
+                    assets_sell: "",
+                    assets_sell_value: "",
+                    assets_buy: "",
+                    assets_buy_value: "",
+                    annual_expenses: "",
+                    retirement_lifestyle: "",
+                    long_term_care_include: "",
+                    potential_returns: "",
                     cash_flow_chart: "",
                 }
             },
@@ -35,10 +130,61 @@
                 console.log(`the component is now mounted.`);
             },
             methods: {
-                async getCashFlowPlan() {
+                async getCashFlowPlan(event) {
+                    event.preventDefault();
+
+                    let dob = this.dob
+                    let earned_income = this.earned_income
+                    let age_stop = this.age_stop
+                    let has_spouse = this.has_spouse
+                    let spouse_dob = this.spouse_dob
+                    let spouse_earned_income = this.spouse_earned_income
+                    let spouse_age_stop = this.spouse_age_stop
+                    let investable_assets = this.investable_assets
+                    let portfolio_income = this.portfolio_income
+                    let other_income = this.other_income
+                    let transitionary_phase = this.transitionary_phase
+                    let transitionary_length = this.transitionary_length
+                    let transitionary_income = this.transitionary_income
+                    let retirement_income = this.retirement_income
+                    let assets_sell = this.assets_sell
+                    let assets_sell_value = this.assets_sell_value
+                    let assets_buy = this.assets_buy
+                    let assets_buy_value = this.assets_buy_value
+                    let annual_expenses = this.annual_expenses
+                    let retirement_lifestyle = this.retirement_lifestyle
+                    let long_term_care_include = this.long_term_care_include
+                    let potential_returns = this.potential_returns
+
+                    const params = {
+                        dob,
+                        earned_income,
+                        age_stop,
+                        has_spouse,
+                        spouse_dob,
+                        spouse_earned_income,
+                        spouse_age_stop,
+                        investable_assets,
+                        portfolio_income,
+                        other_income,
+                        transitionary_phase,
+                        transitionary_length,
+                        transitionary_income,
+                        retirement_income,
+                        assets_sell,
+                        assets_sell_value,
+                        assets_buy,
+                        assets_buy_value,
+                        annual_expenses,
+                        retirement_lifestyle,
+                        long_term_care_include,
+                        potential_returns,
+                    };
+
                     try {
-                        const response = await axios.get("/apis/v1/cash-flow-plan/");
+                        const response = await axios.get("/apis/v1/cash-flow-plan/", { params });
                         this.cash_flow_chart = response.data;
+                        console.log(response.data);
                     } catch (error) {
                         console.log(error);
                     }

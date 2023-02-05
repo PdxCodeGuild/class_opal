@@ -7,7 +7,7 @@ from .economy import Economy
 from .user import User
 
 
-def get_cash_flow():
+def get_cash_flow(dob, earned_income, age_stop, has_spouse, spouse_dob, spouse_earned_income, spouse_age_stop, investable_assets, portfolio_income, other_income, transitionary_phase, transitionary_length, transitionary_income, retirement_income, assets_sell, assets_sell_value, assets_buy, assets_buy_value, annual_expenses, retirement_lifestyle, long_term_care_include, potential_returns):
     # Instantiate economy, household, and user.
     econ = Economy(
         # TODO rewrite model for user.target_age instead of economy.max_age
@@ -22,36 +22,35 @@ def get_cash_flow():
     )
 
     household = Household(
-        investable_assets=1_500_000,
-        portfolio_income=15_000,
-        other_income=50_000,
-        transitionary_phase='Yes',
-        transitionary_length=4,
-        transitionary_income=200_000,
-        retirement_income=100_000,
-        assets_sell='Yes',
-        assets_sell_value=1_250_000,
-        assets_buy='Yes',
-        assets_buy_value=850_000,
-        annual_expenses=200_000,
-        retirement_lifestyle='More expensive',
-        # TODO make portfolio calcs depend on this variable.
-        long_term_care_include='Yes',
-        potential_returns=0.04
+        investable_assets=investable_assets,
+        portfolio_income=portfolio_income,
+        other_income=other_income,
+        transitionary_phase=transitionary_phase,
+        transitionary_length=transitionary_length,
+        transitionary_income=transitionary_income,
+        retirement_income=retirement_income,
+        assets_sell=assets_sell,
+        assets_sell_value=assets_sell_value,
+        assets_buy=assets_buy,
+        assets_buy_value=assets_buy_value,
+        annual_expenses=annual_expenses,
+        retirement_lifestyle=retirement_lifestyle,
+        long_term_care_include=long_term_care_include,
+        potential_returns=potential_returns
     )
 
     user = User(
         first_name='Emma',
         last_name='Shelton',
-        dob='19661231',
-        earned_income=180_000,
-        age_stop=65,
-        has_spouse='Yes',
+        dob=dob,
+        earned_income=earned_income,
+        age_stop=age_stop,
+        has_spouse=has_spouse,
         spouse_first_name='Ron',
         spouse_last_name='Shelton',
-        spouse_dob='19681231',
-        spouse_earned_income=110_000,
-        spouse_age_stop=67
+        spouse_dob=spouse_dob,
+        spouse_earned_income=spouse_earned_income,
+        spouse_age_stop=spouse_age_stop
     )
 
     # TODO add features to chart including legend and callout for zero hh funds ages
@@ -81,4 +80,4 @@ def get_cash_flow():
 
 
 if __name__ == '__main__':
-    get_cash_flow()
+    pass
