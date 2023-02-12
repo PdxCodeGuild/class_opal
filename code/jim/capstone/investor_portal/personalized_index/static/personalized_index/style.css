@@ -40,7 +40,7 @@ div.content {
 }
 
 #myChart {
-    margin-top: 70px !important;
+    margin-top: 0px !important;
     height: 750px !important;
     width: 1125px !important;
     border-style: solid;
@@ -64,6 +64,7 @@ div.content {
 
 #nav-li {
     float: left;
+    border-left: 1px solid #bbb;
 }
 
 #nav-li a {
@@ -74,12 +75,18 @@ div.content {
     text-decoration: none;
 }
 
+#nav-li:first-child {
+    border-left: none;
+    /* padding-left: 25px; */
+    background-color: #04AA6D;
+}
+
 li a:hover:not(.active) {
     background-color: #111;
 }
 
 .active {
-    background-color: #04AA6D;
+    background-color: #04AA6D !important;
 }
 
 .footer {
@@ -131,7 +138,7 @@ li a:hover:not(.active) {
 
 .modal-header h3 {
     margin-top: 0;
-    color: #42b983;
+    color: #04AA6D;
 }
 
 .modal-body {

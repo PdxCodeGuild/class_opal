@@ -10,19 +10,19 @@
             <form @submit="getCashFlowPlan">
                 {% csrf_token %}
                 <label for="dob">What is your date of birth?</label>
-                <input type="text" v-model="dob" id="dob" required>
+                <input type="date" v-model="dob" id="dob" required>
                 <br>
                 <label for="earned_income">What is your annual earned income?</label>
                 <input type="text" v-model="earned_income" id="earned_income" required>
                 <br>
                 <label for="age_stop">Age to stop full-time work:</label>
-                <input type="text" v-model="age_stop" id="age_stop" required>
+                <input type="number" min="1" max="99" v-model="age_stop" id="age_stop" required>
                 <br>
                 <label for="has_spouse">Do you have a spouse?</label>
                 <input type="text" v-model="has_spouse" id="has_spouse" required>
                 <br>
                 <label for="spouse_dob">What is your spouse's date of birth?</label>
-                <input type="text" v-model="spouse_dob" id="spouse_dob" required>
+                <input type="date" v-model="spouse_dob" id="spouse_dob" required>
                 <br>
                 <label for="spouse_earned_income">What is your spouse's annual earned income?</label>
                 <input type="text" v-model="spouse_earned_income" id="spouse_earned_income" required>
@@ -79,6 +79,7 @@
                 <input type="text" v-model="potential_returns" id="potential_returns" required>
                 <br>
                 <button type="submit">Show Cash Flow</button>
+                <input type="reset">
             </form>
             <!-- <button v-on:click="getCashFlowPlan">Show Cash Flow</button> -->
         </div>

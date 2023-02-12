@@ -1,6 +1,7 @@
 from pathlib import Path
 import numpy as np
 from matplotlib import pyplot as plt
+import seaborn
 
 from .household import Household
 from .economy import Economy
@@ -55,10 +56,16 @@ def get_cash_flow(dob, earned_income, age_stop, has_spouse, spouse_dob, spouse_e
 
     # TODO add features to chart including legend and callout for zero hh funds ages
     # Plot portfolio value, inflows and outflows series over time.
+
+    dpi = 72
+    width = 1000
+    height = 500
+    plt.figure(figsize=(width/dpi, height/dpi), dpi=dpi)
     x = np.arange(user.get_age(user.dob), econ.max_age)
+    plt.style.use("seaborn")
     plt.title("Cash Flow Forecast")
-    plt.xlabel("Time")
-    plt.ylabel("$")
+    plt.xlabel("Your Age")
+    plt.ylabel("Total Cash (in Millions $)")
     plt.plot(x, user.portfolio_value_series_ltc(econ, household),
              label=user.portfolio_value_series_ltc(econ, household), color="blue")
     plt.plot(x, user.primary_earned_income_stream(econ, household),
@@ -73,7 +80,6 @@ def get_cash_flow(dob, earned_income, age_stop, has_spouse, spouse_dob, spouse_e
              label=user.asset_sales_series(econ, household))
     plt.plot(x, user.asset_buy_series(econ, household),
              label=user.asset_buy_series(econ, household))
-    # plt.show()
 
     filepath = Path(__file__).parent / "data"
     plt.savefig(filepath / "cash_flow_chart.svg")

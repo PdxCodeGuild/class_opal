@@ -32,7 +32,7 @@ class User:
         """Gets age today (in years) from a given date of birth"""
         from datetime import datetime, date
         today = date.today()
-        birth_date = datetime.strptime(dob, '%Y%m%d').date()
+        birth_date = datetime.strptime(dob, '%Y-%m-%d').date()
         age = today.year - birth_date.year -\
             ((today.month, today.day) <
              (birth_date.month, birth_date.day))
