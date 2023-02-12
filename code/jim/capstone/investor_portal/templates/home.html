@@ -7,238 +7,34 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-<!-- template for the modal component -->
-<script type="text/x-template" id="modal-template">
-    <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-
-          <div class="modal-header">
-            <slot name="header">
-              default header
-            </slot>
-          </div>  
-
-          <div class="modal-body">
-            <slot name="body">
-              default body
-            </slot>
-          </div>
-
-          <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')">
-                Cancel
-              </button>
-            </slot>
-          </div>
-        </div>
-      </div>
-    </div>
-</script>
-
 <div id="app" v-bind:user_id="{{ user_id }}">
     <div class="sidebar">
         {% if user.is_authenticated %}
         <h1>Welcome {{ user.username }}!</h1>
-        <button id="show-modal" @click="setModalType('create'); showModal = true">Create an Index</button>
-        <!-- use the modal component -->
-        <transition name="modal">
-            <modal v-if="showModal" @close="showModal = false">
-                <!-- you can use custom content here to overwrite default content -->
-                <template v-slot:header>
-                    <h3 v-if="modalType === 'create'">Create a new Personalized Index</h3>
-                    <h3 v-else>Edit a Personalized Index</h3>
-                </template>
-                <template v-slot:body>
-                    <form v-if="modalType === 'create'" @submit="createPersonalizedIndex">
-                        {% csrf_token %}
-                        <label for="index_name">Index Name:</label>
-                        <input type="text" v-model="index_name" id="index_name" required>
-                        <br>
-                        <label for="index_allocation">Index Allocation:</label>
-                        <input type="text" v-model="index_allocation" id="index_allocation" required>
-                        <br>
-                        <label for="market_cap_min">Market Cap Min:</label>
-                        <input type="text" v-model="market_cap_min" id="market_cap_min" required>
-                        <br>
-                        <label for="dividend_yield_min">Dividend Yield Min:</label>
-                        <input type="text" v-model="dividend_yield_min" id="dividend_yield_min" required>
-                        <br>
-                        <label for="pe_ratio_max">PE Ratio Max:</label>
-                        <input type="text" v-model="pe_ratio_max" id="pe_ratio_max" required>
-                        <br>
-                        <label for="sector_exclude_1">Sector Exclude 1:</label>
-                        <input type="text" v-model="sector_exclude_1" id="sector_exclude_1" required>
-                        <br>
-                        <label for="sector_exclude_2">Sector Exclude 2:</label>
-                        <input type="text" v-model="sector_exclude_2" id="sector_exclude_2" required>
-                        <br>
-                        <button type="submit" class="modal-default-button" @click="$emit('close')">Create Index</button>
-                    </form>
-                    <form v-else @submit="editPersonalizedIndex(edit_index_id)">
-                        {% csrf_token %}
-                        <label for="edit_index_id">Index ID:</label>
-                        <input type="text" v-model="edit_index_id" id="edit_index_id" required>
-                        <br>
-                        <label for="edit_index_name">Index Name:</label>
-                        <input type="text" v-model="edit_index_name" id="edit_index_name" required>
-                        <br>
-                        <label for="edit_index_allocation">Index Allocation:</label>
-                        <input type="text" v-model="edit_index_allocation" id="edit_index_allocation" required>
-                        <br>
-                        <label for="edit_market_cap_min">Market Cap Min:</label>
-                        <input type="text" v-model="edit_market_cap_min" id="edit_market_cap_min" required>
-                        <br>
-                        <label for="edit_dividend_yield_min">Dividend Yield Min:</label>
-                        <input type="text" v-model="edit_dividend_yield_min" id="edit_dividend_yield_min" required>
-                        <br>
-                        <label for="edit_pe_ratio_max">PE Ratio Max:</label>
-                        <input type="text" v-model="edit_pe_ratio_max" id="edit_pe_ratio_max" required>
-                        <br>
-                        <label for="edit_sector_exclude_1">Sector Exclude 1:</label>
-                        <input type="text" v-model="edit_sector_exclude_1" id="edit_sector_exclude_1" required>
-                        <br>
-                        <label for="edit_sector_exclude_2">Sector Exclude 2:</label>
-                        <input type="text" v-model="edit_sector_exclude_2" id="edit_sector_exclude_2" required>
-                        <br>
-                        <button type="submit">Save Edits</button>
-                    </form>
-                </template>
-                <template v-slot:footer>
-
-                </template>
-            </modal>
-        </transition>
-
         {% csrf_token %}
-        <h2>List of existing Personalized Indexes</h2>
-        <ul>
-            <li v-for="index in indexes">
-                <ul>
-                    <li>Index Number: [[ index.id ]]</li>
-                    <li>Index Name: [[ index.index_name ]]</li>
-                    <li>Index Allocation: [[ index.index_allocation]]</li>
-                    <li>Market Cap Min: [[ index.market_cap_min]]</li>
-                    <li>Dividend Yield Min: [[ index.dividend_yield_min]]</li>
-                    <li>PE Ratio Max: [[ index.pe_ratio_max]]</li>
-                    <li>Sector Exclude 1: [[ index.sector_exclude_1 ]]</li>
-                    <li>Sector Exclude 2: [[ index.sector_exclude_2 ]]</li>
-                </ul>
-                <button id="show-modal" @click="setModalType('edit'); showModal = true">Edit Index</button>
-                <!-- use the modal component -->
-                <transition name="modal">
-                    <modal v-if="showModal" @close="showModal = false">
-                        <!--you can use custom content here to overwrite default content -->
-                        <template v-slot:header>
-                            <h3 v-if="modalType === 'create'">Create a new Personalized Index</h3>
-                            <h3 v-else>Edit a Personalized Index</h3>
-                        </template>
-                        <template v-slot:body>
-                            <form v-if="modalType === 'create'" @submit="createPersonalizedIndex">
-                                {% csrf_token %}
-                                <label for="index_name">Index Name:</label>
-                                <input type="text" v-model="index_name" id="index_name" required>
-                                <br>
-                                <label for="index_allocation">Index Allocation:</label>
-                                <input type="text" v-model="index_allocation" id="index_allocation" required>
-                                <br>
-                                <label for="market_cap_min">Market Cap Min:</label>
-                                <input type="text" v-model="market_cap_min" id="market_cap_min" required>
-                                <br>
-                                <label for="dividend_yield_min">Dividend Yield Min:</label>
-                                <input type="text" v-model="dividend_yield_min" id="dividend_yield_min" required>
-                                <br>
-                                <label for="pe_ratio_max">PE Ratio Max:</label>
-                                <input type="text" v-model="pe_ratio_max" id="pe_ratio_max" required>
-                                <br>
-                                <label for="sector_exclude_1">Sector Exclude 1:</label>
-                                <input type="text" v-model="sector_exclude_1" id="sector_exclude_1" required>
-                                <br>
-                                <label for="sector_exclude_2">Sector Exclude 2:</label>
-                                <input type="text" v-model="sector_exclude_2" id="sector_exclude_2" required>
-                                <br>
-                                <button type="submit" class="modal-default-button" @click="$emit('close')">Create
-                                    Index</button>
-                            </form>
-                            <form v-else @submit="editPersonalizedIndex(edit_index_id)">
-                                {% csrf_token %}
-                                <label for="edit_index_id">Index ID:</label>
-                                <input type="text" v-model="edit_index_id" id="edit_index_id" required>
-                                <br>
-                                <label for="edit_index_name">Index Name:</label>
-                                <input type="text" v-model="edit_index_name" id="edit_index_name" required>
-                                <br>
-                                <label for="edit_index_allocation">Index Allocation:</label>
-                                <input type="text" v-model="edit_index_allocation" id="edit_index_allocation" required>
-                                <br>
-                                <label for="edit_market_cap_min">Market Cap Min:</label>
-                                <input type="text" v-model="edit_market_cap_min" id="edit_market_cap_min" required>
-                                <br>
-                                <label for="edit_dividend_yield_min">Dividend Yield Min:</label>
-                                <input type="text" v-model="edit_dividend_yield_min" id="edit_dividend_yield_min"
-                                    required>
-                                <br>
-                                <label for="edit_pe_ratio_max">PE Ratio Max:</label>
-                                <input type="text" v-model="edit_pe_ratio_max" id="edit_pe_ratio_max" required>
-                                <br>
-                                <label for="edit_sector_exclude_1">Sector Exclude 1:</label>
-                                <input type="text" v-model="edit_sector_exclude_1" id="edit_sector_exclude_1" required>
-                                <br>
-                                <label for="edit_sector_exclude_2">Sector Exclude 2:</label>
-                                <input type="text" v-model="edit_sector_exclude_2" id="edit_sector_exclude_2" required>
-                                <br>
-                                <button type="submit">Save Edits</button>
-                            </form>
-
-                        </template>
-                        <template v-slot:footer>
-
-                        </template>
-                    </modal>
-                </transition>
-                <button @click="deletePersonalizedIndex(index.id)">Delete</button>
-                <button @click="getOrders(index.id)">Download Orders</button>
-                <button @click="getIndex(index.id)">Download Personalized Index</button>
-                <button @click="getIndexStats(index.id)">Show</button>
-            </li>
-        </ul>
-
         {% else %}
         <p>You are not logged in</p>
         {% endif %}
     </div>
     <div class="content">
-        <table>
-            <caption>
-                <h3>Personalized Index</h3>
-            </caption>
-            <thead>
-                <tr>
-                    <th>Symbol</th>
-                    <th>Position Weight</th>
-                    <th>Target Allocation</th>
-                    <th>Current Price</th>
-                    <th>Quantity</th>
-                    <th>Order Quantity</th>
-                    <th>Rounding Loss</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="stat in stats" :key="stat.id">
-                    <td>[[ stat.symbol_id ]]</td>
-                    <td>[[ stat.position_weight ]]</td>
-                    <td>[[ stat.target_allocation ]]</td>
-                    <td>[[ stat.current_price ]]</td>
-                    <td>[[ stat.quantity ]]</td>
-                    <td>[[ stat.order_quantity ]]</td>
-                    <td>[[ stat.rounding_loss ]]</td>
-                </tr>
-            </tbody>
-        </table>
+
+        <h1>Welcome to Vest - The free investor portal</h1>
+        <h3>Investing tools and research hub</h3>
+        <p>Plan for retirement with our <a href="{% url 'cash_flow' %}">Cash Flow Planning</a> tool.</p>
+        <p>Research stock price information and important company metrics in our <a href="{% url 'research' %}">Research
+                Hub</a>.</p>
+        {% if user.is_authenticated %}
+        <p>Create your stock portfolio with Vesto's <a href="{% url 'personalized_index' %}">Personalized Index</a>
+            tool.
+        </p>
+        {% else %}
+        <p><a href="{% url 'login' %}">Login</a> or <a href="{% url 'signup' %}">signup</a> to create your stock
+            portfolio with Vesto's <a href="{% url 'personalized_index' %}">Personalized Index</a> tool.</p>
+        {% endif %}
     </div>
-</div>
+    <div class="footer">
+        <p> &copy; 2023 <b>JAMES BRENNAN</b>, source code released under the GNU General Public License</p>
+    </div>
 </div>
 
 <script>

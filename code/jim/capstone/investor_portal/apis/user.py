@@ -266,16 +266,19 @@ class User:
         portfolio_value_series_ltc3 = self.portfolio_value_series_ltc3(
             econ, household)
 
-        for t in range(econ.max_age - age):
-            if portfolio_value_series_ltc3[t] == 0:
-                portfolio_value = 0
-            elif portfolio_value_series_ltc3[t + 1] == 0:
-                portfolio_value = portfolio_value_series_ltc2[t]
-            elif portfolio_value_series_ltc3[t + 2] == 0:
-                portfolio_value = portfolio_value_series_ltc1[t]
-            else:
-                portfolio_value = portfolio_value_series[t]
-            portfolio_value_series_ltc.append(portfolio_value)
+        if (0 in portfolio_value_series):
+            for t in range(econ.max_age - age):
+                if portfolio_value_series_ltc3[t] == 0:
+                    portfolio_value = 0
+                elif portfolio_value_series_ltc3[t + 1] == 0:
+                    portfolio_value = portfolio_value_series_ltc2[t]
+                elif portfolio_value_series_ltc3[t + 2] == 0:
+                    portfolio_value = portfolio_value_series_ltc1[t]
+                else:
+                    portfolio_value = portfolio_value_series[t]
+                portfolio_value_series_ltc.append(portfolio_value)
+        else:
+            portfolio_value_series_ltc = portfolio_value_series
         return np.array(portfolio_value_series_ltc)
 
     def zero_hh_funds_age(self, econ: Economy, household: Household):

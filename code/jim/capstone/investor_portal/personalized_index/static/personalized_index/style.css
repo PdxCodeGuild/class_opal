@@ -94,8 +94,8 @@ li a:hover:not(.active) {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: transparent;
-    color: #111;
+    background-color: #111;
+    color: white;
     text-align: center;
 }
 
